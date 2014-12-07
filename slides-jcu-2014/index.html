@@ -47,7 +47,6 @@
 					<section>
 						<h2>Big Data y Construcción de Indices para motores de búsqueda</h2>
 						<hr>
-						<h3>Una propuesta de Integración</h3>
 						<br />
 						<p>Trabajo Final de Licenciatura</p>
 						<p>Licenciatura en Sistemas de Información</p>
@@ -131,6 +130,14 @@
 					</section>
 					<section>
 						<h2>Fases de la recuperación</h2>
+						<br />
+						<h3>IR Clasico</h3>
+						<ol>
+							<li>Construcción de indices</li>
+							<li>Resolución de consultas de usuario</li>
+						</ol>
+						<br /><br />
+						<h3>IR en la Web</h3>
 						<ol>
 							<li>Creación de la colección de documentos (Crawling)</li>
 							<li>Construcción de indices</li>
@@ -163,16 +170,33 @@
 				<section>
 					<section>
 						<h2>Indexación de Documentos</h2>
-						<p><strong>Área:</strong> Recuperación de In|rmación. Base de datos no estructuradas</p>
+						<p><strong>Área:</strong> Recuperación de Información. Base de datos no estructuradas</p>
 						<p><strong>Ámbito:</strong> Motores de Búsqueda (Google, Yahoo!, Bing)</p>
 						<p><strong>Objetivo:</strong> Mejorar la recuperación de documentos</p>
-						<p><strong>Escala:</strong> Internet (Toda la Web) - Pequeña escala - Intranets</p>
+						<p><strong>Escala:</strong> Internet (Toda la Web) - Pequeña escala</p>
 					</section>
 					<section>
 						<h2>Indice Invertido</h2>
+						<p>Es una estructura que <i>"mapea"</i> términos a los documentos que los contienen.</p>
+						<br />
 						<p class="text-center" style="font-size: 30px">Estructura clásica para recuperación (Existen otras propuestas)</p>
 						<p class="text-center" style="font-size: 30px">Invierte la forma de acceso a los datos (Respecto de la colección)</p>
-						<p class="text-center" style="font-size: 30px"></p>
+						<br />
+						<br />
+						<p class="text-center">Operaciones involucradas</p>
+						<ul>
+							<li>Construcción</li>
+							<li>Actualización</li>
+							<li>Uso (Búsqueda)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Estructura de un Indice Invertido</h2>
+						<p>2 partes:</p>
+						<ol>
+							<li>Vocabulario (Conjunto de términos de la colección)</li>
+							<li>Archivo Invertido: Conjunto de Listas de aparición o posting list</li>
+						</ol>
 					</section>
 				</section>
 			</div>
