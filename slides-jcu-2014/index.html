@@ -207,6 +207,180 @@
 						<h2>Construcción de un II</h2>
 						<img src="share/img/indexProc.png" style="border: 0;" />
 					</section>
+					<section>
+						<h2>Construcción de un II</h2>
+						<p>Operaciones a realizar en la construcción de un índice</p>
+						<ul>
+							<li>Tokenización</li>
+							<li>Stemming</li>
+							<li>Eliminación de Stopwords</li>
+							<li>Eliminación de términos con frecuencias bajas</li>
+							<li>Construcción de postings lists</li>
+							<li>Ordenamiento de postings lists</li>
+							<li>Compresión</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Construcción Distribuida de II</h2>
+						<h3>Motivaciones</h3>
+						<ul>
+							<li>Analizar varios documentos a la vez</li>
+							<li>Crecimiento de las colecciones</li>
+							<li>Escalar en recursos</li>
+							<ul>
+								<li>Procesamiento (CPU y cores)</li>
+								<li>Almacenamiento</li>
+								<li>RAM</li>
+								<li>I/O</li>
+							</ul>
+							<li>Reducción de tiempo de construcción</li>
+							<li>Resolución de consultas distribuida</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Construcción Distribuida de II</h2>
+						<h3>PREMISA</h3>
+						<p>Escalar en un único equipo (Aun supercomputadora) en algún momento se volverá imposible, inviable o ineficiente.</p>
+						<h3>Solución</h3>
+						<p>Escalar en un cluster de commodity hardware</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Apache Hadoop</h1>
+					</section>
+					<section>
+						<h2>¿Que es Hadoop?</h2>
+						<blockquote>The Apache Hadoop software library is a framework that allows for the <b>distributed processing</b> of <b>large data sets</b> across <b>clusters</b> of computers using <b>simple programming models</b>.</blockquote>
+						<small><a href="http://hadoop.apache.org/">Apache Hadoop Official Web</a></small>
+					</section>
+					<section>
+						<h2>Premisas de Hadoop</h2>
+						<ul>
+						<li>Cluster dedicado</li>
+							<ul>
+								<li>Commodity Hardware (Miles de nodos)</li>
+								<li>Las fallas de HW son regla, no excepción</li>
+							</ul>
+						<li>Aplicaciones trivialmente paralelizables</li>
+						<li>Procesamiento Batch, no online (en principio)</li>
+						<li>Procesamiento en escala de Tera o Petabytes</li>
+							<ul>
+								<li>Mover datos es caro</li>
+								<li>Mover computo es barato</li>
+							</ul>
+							<li>Escalabilidad</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Tecnologías</h2>
+						<ul>
+							<li>Lenguaje: JAVA</li>
+							<li>Comunicación: SSH y RPC</li>
+							<li>Framework de desarrollo: MapReduce</li>
+							<li>Distributed File System: HDFS</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Ejemplos de problemas resueltos en Hadoop</h2>
+						<ul>
+							<li>Sort y Grep Distribuido</li>
+							<li>Recorrido de grafos</li>
+							<li>Análisis de logs</li>
+							<li>Indexación Distribuida</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Arquitectura de Hadoop</h2>
+						<p>Dos servicios que operan de forma independiente, en arquitectura master/slave</p>
+						<h3>YARN / MapReduce</h3>
+						<p>Framework y scheduler de procesos</p>
+						<h3>HDFS</h3>
+						<p>Sistema de Archivos Distribuido</p>
+					</section>
+					<section>
+						<h2>HDFS: Hadoop Distributed File System</h2>
+						<ul>
+							<li>Abstrae el cluster: ofrece una visión global de Sistema de archivos.</li>
+							<li>Soporta nativamente tolerancia a fallas y disponibilidad</li>
+							<li>Supone Commodity Hardware</li>
+							<li>Operaciones básicas de gestión de Archivos y Directorios</li>
+							<li>Seguridad es posible</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Arquitectura de HDFS</h2>
+						<img src="share/img/hdfsarchitecture.png" style="border: 0; width:80% " />
+						<small>Fuente: HDFS Architecture. <a href="http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html" target="__blank">Official Hadoop Documentation.</a></small>
+					</section>
+					<section>
+						<h2>YARN: MapReduce</h2>
+						<ul>
+							<li>
+								<font style="font-size: 30px;">
+									Entorno para distribuir procesamiento de forma masiva
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Ofrece un modelo de programación (MapReduce)
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Funciones de procesamiento provistas por el usuario
+								</font>
+							</li>
+							<ul>
+								<li>
+									<font style="font-size: 30px;">
+										Mappers y Reducers
+									</font>
+								</li>
+							</ul>
+							<li>
+								<font style="font-size: 30px;">
+									El computo hacia los datos, no al revés
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Usa los bloques del DFS, e <i>intenta</i> que sea un Map por Bloque
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Por defecto es Java, aunque es posible usar otros lenguajes
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Es independiente de HDFS
+								</font>
+							</li>
+							<li>
+								YARN se dedica a la gestión de los recursos del cluster
+								MapReduce es el Framework de procesamiento de datos
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Como trabaja MapReduce</h2>
+						<img src="share/img/mr_explain.png" style="border: 0;" />
+						<p align="justify"><font style="font-size: 24px;">Dean, J. Et. all. "<i>MapReduce: Simplified Data Processing on Large Clusters</i>".&nbsp; OSDI. 2004. <a href="http://static.googleusercontent.com/media/research.google.com/es-419//archive/mapreduce-osdi04.pdf" target="_blank">Enlace</a>.</font><br></p>
+					</section>
+					<section>
+						<h2>MapReduce: Registros Clave-Valor</h2>
+						<img src="share/img/mr_diag.png" style="border: 0;" />
+						<p><font style="font-size: 24px;">http://www-inst.eecs.berkeley.edu/~cs61a/sp12/labs/lab14/mapreduce_diag.png</font></p>
+					</section>
+					<section>
+						<h2>Ejemplo de aplicación: WordCount</h2>
+						<img src="share/img/mr_wc.png" style="border: 0;" />
+						<p><font style="font-size: 24px;">http://devveri.com/wp-content/uploads/2012/07/mapreduce.png</font></p>						
+					</section>
 				</section>
 			</div>
 
