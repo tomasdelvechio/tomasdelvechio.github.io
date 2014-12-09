@@ -221,6 +221,8 @@
 						</ul>
 					</section>
 				</section>
+
+				<!-- Indexacion distribuida -->
 				<section>
 					<section>
 						<h2>Construcción Distribuida de II</h2>
@@ -247,6 +249,8 @@
 						<p>Escalar en un cluster de commodity hardware</p>
 					</section>
 				</section>
+
+				<!-- Hadoop -->
 				<section>
 					<section>
 						<h1>Apache Hadoop</h1>
@@ -380,6 +384,150 @@
 						<h2>Ejemplo de aplicación: WordCount</h2>
 						<img src="share/img/mr_wc.png" style="border: 0;" />
 						<p><font style="font-size: 24px;">http://devveri.com/wp-content/uploads/2012/07/mapreduce.png</font></p>						
+					</section>
+				</section>
+
+				<!-- Tesis -->
+				<section>
+					<section>
+						<h2>Trabajo Final de Licenciatura en Sistemas</h2>
+						<h3>Análisis comparativo de rendimiento en estructuras de datos de Índices Invertidos</h3>
+						<p>Premisas</p>
+						<ul>
+							<li>El volumen de la información crece de forma acelerada</li>
+							<li>No se puede ofrecer resultados mas rápidos a costa de la calidad</li>
+							<li>Sin embargo, la velocidad es un requisito cada vez mas presente</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Objetivos</h2>
+						<br />
+						<p style="border: 1px;">Implementar y medir la velocidad de construcción de un Indice Invertido basado en 2 estructuras avanzadas de Indice, resignando tamaño a costa de obtener resultados de forma mas eficiente En la etapa de resolución de consultas.</p>
+						<hr />
+						<p>Implementación distribuida de los algoritmos en Hadoop</p>
+						<hr />
+						<p>Evaluar y comprar la performance de los algoritmos</p>
+						<hr />
+						<p>Baseline: Indexador "clásico"</p>
+					</section>
+					<section>
+						<h2>Limites</h2>
+						<ul>
+							<li>No se intenta mesurar ni evaluar la resolución de consultas</li>
+							<li>No se pretende crear una metodología de desarrollo para herramientas de IR en Hadoop</li>
+							<li>No se desea evaluar diferentes tipos de indices, todos los algoritmos deberán construir indices con la misma "semántica"</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Estructuras</h2>
+						<p>Se compararan 2 estructuras, ademas del baseline</p>
+						<ul>
+							<li>Baseline: Indice "Clasico"</li>
+							<li>Indice con postings con estructura Treap</li>
+							<li>Indice con postings con Block-Max Index</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Treaps -->
+				<section>
+					<section>
+						<h2>II basado en Treaps</h2>
+						<p>Autores: Konow, Navarro, Clarke y López-Ortíz en 2013</p>
+						<img src="share/img/treap_example.png" style="border: 0; width:67% " />
+						<small>R. Konow, G. Navarro, C. L. A. Clarke, and A. López-Ortíz, <i>"Faster and Smaller Inverted Indices with Treaps"</i> SIGIR ’13 Proc. 36th Int. ACM SIGIR Conf. Res. Dev. Inf. Retr., vol. 1, pp. 193–202, 2013.</small>
+					</section>
+					<section>
+						<h2>Treaps: Propiedades</h2>
+						<p>Treap: Estructura de datos que combina Arboles y Heaps</p>
+						<ul>
+							<li>Invariante de Clave: Arbol Binario con organización Inorder</li>
+							<li>Invariante de Prioridad: Heap Binario con prioridad descendente</li>
+							<li>Con ciertos algoritmos puede ser construido con complejidad lineal</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Treaps: Estructura</h2>
+						<p>La posting list de un II basado en Treaps tiene algunas modificaciones se necesitan representar 3 cosas:</p>
+						<ul>
+							<li>Clave: Document ID</li>
+							<li>Prioridad: Frecuencia</li>
+							<li>Topología del Treap</li>
+						</ul>
+						<p>Para la Topología, se usara un isomorfismo que simplifica la construcción del Árbol</p>
+					</section>
+					<section>
+						<h2>Treaps: Construcción de una Posting List</h2>
+						<img src="share/img/treap_repr.png" style="border: 0; width:62% " />
+					</section>
+					<section>
+						<h2>Treaps: Conclusiones</h2>
+						<ul>
+							<li>Estructura combinada de Árbol Binario y Heap</li>
+							<li>Mejora en resolución de consultas</li>
+							<li>Habilita compresión de DocId y Frecuencia</li>
+							<li>Necesita agregar la topología como información en la posting</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Block-Max Index -->
+				<section>
+					<section>
+						<h2>Indices Block-Max</h2>
+						<p>Presentado por Ding y Suel en 2011</p>
+						<p>Proponen la extensión de un enfoque ampliamente conocido (WAND), mediante la adición de una estructura de datos adicional</p>
+						<hr />
+						<p>Divide la posting list en bloques, y agrega una capa de información.</p>
+					</section>
+					<section>
+						<h2>Block-Max: Estructura</h2>
+						<ul>
+							<li>Posting list estándar, ordenada por Doc Id</li>
+							<li>La posting se divide en bloques de menor tamaño, que son unidades de compresión y consulta</li>
+							<li>Se agrega un indice adicional, con un registro por bloque</li>
+							<ul>
+								<li>Id de Bloque</li>
+								<li>Tamaño del bloque</li>
+								<li>Score Máximo del bloque</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>Block-Max: Representación</h2>
+						<p>El algoritmo visualizaria las postings lists de la siguiente manera</p>
+						<img src="share/img/bm_repr.png" style="border: 0; width:60%; " />
+						<small>S. Ding and T. Suel, <i>"Faster top-k document retrieval using block-max indexes"</i> Proc. 34th Int. ACM SIGIR Conf. Res. Dev. Inf. - SIGIR ’11, p. 993, 2011</small>
+					</section>
+					<section>
+						<h2>Block-Max: Pros y contras</h2>
+						<h3>Ventajas</h3>
+						<ul>
+							<li>Permite descartar bloques enteros en base al score</li>
+							<li>Ofrece la posibilidad de hacer skip entre bloques, optimizando el recorrido</li>
+							<li>Mantiene ventajas de propuestas anteriores mejorando los resultados</li>
+						</ul>
+						<h3>Desventaja</h3>
+						<p>La estructura que agrega hace que el indice final sea de mayor tamaño</p>
+					</section>
+				</section>
+
+				<!-- Cierre -->
+				<section>
+					<section>
+						<h2>¿Que esperamos encontrar con el presente trabajo?</h2>
+						<ul>
+							<li>Determinar que factores influyen en la construcción de un II</li>
+							<li>Explorar los limites del procesamiento en Hadoop</li>
+							<ul>
+								<li>Según recursos disponibles</li>
+								<li>Según la información a Indexar</li>
+								<li>En base a los algoritmos proporcionados</li>
+								<li>Cantidad de trabajos ejecutándose de forma concurrente</li>
+							</ul>
+							<li>Establecer una base de comparación para futuros trabajos de construcción de indices distribuidos con otras herramientas y enfoques</li>
+							<li>Mesurar y comparar técnicas de compresión de datos aplicadas en el procesamiento y almacenamiento</li>
+						</ul>
 					</section>
 				</section>
 			</div>
