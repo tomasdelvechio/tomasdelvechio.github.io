@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Mostrar/Ocultar Campos Password sin comprometer la seguridad de nuestro sitio">
+        <meta name="author" content="Tomas Delvechio">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        
+        <title>Toggle Password Field: The right way</title>
+    </head>
+<body>
+    <header>
+        <h1>Mostrar/Ocultar Campos Password de forma segura</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="..">Volver</a></li>
+        </ul>
+    </nav>
+    
+    <section>
+        <h2>Introducción</h2>
+        
+        <article>
+            <p>La explicacion del problema se puede encontrar <a href="http://codepen.io/shellbryson/post/toggle-passwords">acá</a></p>
+            
+            <p>En el presente artículo implementaremos una solución que intenta evitar los problemas planteados en el enlace. Como objetivo adicional, tendremos en mente que la cantidad de código utilizado sea claro y óptimo (Legible y mínimo).</p>
+        </article>
+        
+    </section>
+    
+    <section>
+        <h2>Implementaciones</h2>
+        
+        <article>
+            <h3>Implementación incorrecta</h3>
+            
+            <p>Se dice que es una implementación incorrecta ya que puede inducir a diversos problemas ya comentados mas arriba. Estaria mal si decimos que es una implementación insegura, ya que bajo ningún aspecto podemos hablar de seguridad en este tipo de mecanismos, pero si podemos decir que esta primer implementación rompe la semantica que el browser pueda asignarle al campo password.</p>
+            
+            <form id="form-wrong">
+                <input id="form-wrong--password" type="password" placeholder="Introduzca su contraseña" />
+                <input id="form-wrong--show-hide" type="button" value="Ver/Ocultar">
+                <input id="form-wrong--send" type="submit" value="Enviar">
+            </form>
+            
+            <script type="text/javascript">
+                var $toggleBtn = $('#form-wrong--show-hide');
+                var $passField = $('#form-wrong--password');
+                $toggleBtn.on('click', function(e){
+                    e && e.preventDefault();
+                    if($passField.attr('type') == 'password') {
+                        $passField.attr('type', 'text')
+                    } else {
+                        $passField.attr('type', 'password')
+                    }
+                })
+            </script>
+            
+            <p>Esta implementación básica adolece de los problemas planteados en el <a href="http://codepen.io/shellbryson/post/toggle-passwords">enlace</a></p>
+        </article>
+        
+        <article>
+            <h3>Una mejor implementación</h3>
+            
+            <p>La implementación planteada a continuación agrega un control adicional. Al momento del submit, controla que el campo de password sea type="password" nuevamente.</p>
+            
+            <form id="form-right">
+                <input id="form-right--password" type="password" placeholder="Introduzca su contraseña" />
+                <input id="form-right--show-hide" type="button" value="Ver/Ocultar">
+                <input id="form-right--send" type="submit" value="Enviar">
+            </form>
+            
+            <script type="text/javascript">
+                var $toggleBtn = $('#form-right--show-hide');
+                var $passField = $('#form-right--password');
+                $toggleBtn.on('click', function(e){
+                    e && e.preventDefault();
+                    if($passField.attr('type') == 'password') {
+                        $passField.attr('type', 'text');
+                    } else {
+                        $passField.attr('type', 'password');
+                    }
+                });
+                
+                var $submitBtn = $('#form-right--send');
+                $submitBtn.on('click', function(e) {
+                    $passField.attr('type', 'password'); 
+                });
+                
+                var $form = $('#form-right');
+                $form.submit(function(e) {
+                    e && e.preventDefault();
+                    console.log($passField.attr('type'));
+                })
+            </script>
+            
+            <p>El código adicional agregado a este segundo ejemplo es el siguiente:</p>
+            
+            <pre>
+            var $submitBtn = $('#form-right--send');
+            $submitBtn.on('click', function(e) {
+                $passField.attr('type', 'password'); 
+            });
+            </pre>
+            
+            <p>Se captura el evento 'click' en el boton de submit (enviar), y se fuerza que el campo sea siempre del tipo 'password'. La última porción de código es prescindible en un sitio real:</p>
+            
+            <pre>
+            var $form = $('#form-right');
+            $form.submit(function(e) {
+                e && e.preventDefault();
+                console.log($passField.attr('type'));
+            })
+            </pre>
+            
+            <p>Lo único que hacemos aca es capturar el evento submit, impedir que se realize (ya que no sera procesado para este ejemplo), y mostrar el valor final del atributo 'type' del campo 'password' por la consola de javascript.</p>
+        </article>
+    </section>
+</body>
+</html>
