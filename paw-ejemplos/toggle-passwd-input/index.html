@@ -46,14 +46,14 @@
             </form>
             
             <script type="text/javascript">
-                var $toggleBtn = $('#form-wrong--show-hide');
-                var $passField = $('#form-wrong--password');
-                $toggleBtn.on('click', function(e){
+                var $toggleWrongBtn = $('#form-wrong--show-hide');
+                var $passWrongField = $('#form-wrong--password');
+                $toggleWrongBtn.on('click', function(e){
                     e && e.preventDefault();
-                    if($passField.attr('type') == 'password') {
-                        $passField.attr('type', 'text')
+                    if($passWrongField.attr('type') == 'password') {
+                        $passWrongField.attr('type', 'text')
                     } else {
-                        $passField.attr('type', 'password')
+                        $passWrongField.attr('type', 'password')
                     }
                 })
             </script>
