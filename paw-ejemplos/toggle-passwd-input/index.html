@@ -35,7 +35,7 @@
         <h2>Implementaciones</h2>
         
         <article>
-            <h3>Implementación incorrecta</h3>
+            <h3 id="bad-impl">Implementación incorrecta</h3>
             
             <p>Se dice que es una implementación incorrecta ya que puede inducir a diversos problemas ya comentados mas arriba. Estaria mal si decimos que es una implementación insegura, ya que bajo ningún aspecto podemos hablar de seguridad en este tipo de mecanismos, pero si podemos decir que esta primer implementación rompe la semantica que el browser pueda asignarle al campo password.</p>
             
@@ -118,5 +118,12 @@
             <p>Lo único que hacemos aca es capturar el evento submit, impedir que se realize (ya que no sera procesado para este ejemplo), y mostrar el valor final del atributo 'type' del campo 'password' por la consola de javascript.</p>
         </article>
     </section>
+    
+    <section>
+        <h2>Notas Finales</h2>
+        
+        <p>La idea y ejemplos de este articulo fueron tomados del siguiente <a target="_blank" href="http://codepen.io/shellbryson/post/toggle-passwords">post</a>. En dicho link se explica con detalle los problemas de realizar el <a href="#bad-impl">manejo incorrecto del campo password</a> y la solución completa.</p>
+    </section>
+    
 </body>
 </html>
