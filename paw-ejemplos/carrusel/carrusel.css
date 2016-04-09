@@ -1,0 +1,23 @@
+#carrusel {
+    float: left;
+    width: 500px;
+    overflow-x: hidden;
+}
+
+#carrusel ul {
+    position: relative;
+    left: -100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 500%;
+}
+
+#carrusel ul li {
+    display: inline-block;
+    float: left;
+}
+
+.move-arrow {
+    width: 5%;
+}
