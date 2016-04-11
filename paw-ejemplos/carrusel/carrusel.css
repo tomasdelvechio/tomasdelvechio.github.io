@@ -25,7 +25,6 @@
 #carrusel ul li img {
     border-radius: 15px;
     width: 100%;
-
 }
 
 #carrusel .move-arrow {
@@ -39,6 +38,11 @@
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
     top: 160px;
+    cursor: pointer;
+}
+
+#carrusel .move-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 #left-arrow {

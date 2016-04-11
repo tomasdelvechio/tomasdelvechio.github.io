@@ -48,4 +48,6 @@ window.onload = function() {
 
     $('#right-arrow').click(carrousel.nextItem);
     $('#left-arrow').click(carrousel.prevItem);
+
+    setInterval(carrousel.nextItem, 5000);
 }
