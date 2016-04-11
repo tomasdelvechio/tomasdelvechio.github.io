@@ -10,7 +10,7 @@
 
 #carrusel ul {
     position: relative;
-    left: -100%;
+    left: 0;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -23,9 +23,6 @@
 }
 
 #carrusel ul li img {
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
     border-radius: 15px;
     width: 100%;
 
@@ -41,9 +38,13 @@
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
-    top: 150px;
+    top: 160px;
+}
+
+#left-arrow {
+    left: 8px;
 }
 
 #right-arrow {
-    left: 443px;
+    left: 435px;
 }
