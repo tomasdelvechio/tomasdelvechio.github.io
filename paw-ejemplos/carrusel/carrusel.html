@@ -6,6 +6,7 @@
         <meta name="author" content="Tomas Delvechio">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="carrusel.js"></script>
         <link type="text/css" href="carrusel.css" rel="stylesheet">
 
         <title>Carrusel</title>
@@ -23,14 +24,16 @@
 
         <section>
 
+            <h2>Carrusel</h2>
+
             <div id="carrusel">
-                <img class="move-arrow" src="img/l.png">
+                <img id="left-arrow" class="move-arrow" src="img/l.png" alt="left arrow">
+                <img id="right-arrow" class="move-arrow" src="img/r.png" alt="right arrow">
                 <ul>
-                    <li><img src="img/1.jpg" /></li>
-                    <li><img src="img/2.jpg" /></li>
-                    <li><img src="img/3.jpg" /></li>
+                    <li><img src="img/1.jpg" alt="gallery image" title="Title for image 1"/></li>
+                    <li><img src="img/2.jpg" alt="gallery image" title="Title for image 2"/></li>
+                    <li><img src="img/3.jpg" alt="gallery image" title="Title for image 3"/></li>
                 </ul>
-                <img class="move-arrow" src="img/r.png">
             </div>
 
         </section>
