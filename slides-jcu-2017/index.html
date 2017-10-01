@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Big Data y Construcción de Índices</title>
+
+		<meta name="description" content="Big Data y Construcción de Índices">
+		<meta name="author" content="Tomas Delvechio">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<!-- Introduccion -->
+				<section>
+					<section>
+						<h2>Construcción de Índices para Datos Masivos</h2>
+						<hr>
+						<br />
+						<p>Trabajo Final en Curso</p>
+						<p>Licenciatura en Sistemas de Información</p>
+						<p>@tdelvechio - Tomas Delvechio</p>
+						<p>UNLu (2017)</p>
+					</section>
+					<section>
+						<h1>Agenda</h1>
+						<ul>
+							<li>Big Data</li>
+							<li>Recuperación de Información</li>
+							<li>Índices Invertidos</li>
+							<li>Construcción Distribuida de Índices</li>
+							<li>Hadoop</li>
+							<li>Trabajo Final</li>
+							<li>Block-Max Indexes</li>
+							<li>Objetivos</li>
+							<li>Experimentos</li>
+							<li>Resultados Preliminares</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Big Data -->
+				<section>
+					<section>
+						<h2>Big data</h2>
+                        <p>¿Grandes datos? No! Datos Masivos</p>
+						<br />
+                        <blockquote>Big Data hace referencia a diversos enfoques, procesos,
+                        herramientas y técnicas que tienen por objetivo el tratamiento de
+                        volúmenes de información que no es viable procesar en un único
+                        dispositivo.</blockquote>
+					</section>
+					<section>
+                        <h2>Ejemplos</h2>
+                        <br />
+                        <p>Google y la Gripe H1N1 (2009)</p>
+                        <p>Predicción de evolución de precios en asientos de aviones</p>
+                        <p>Netflix y la producción de contenido</p>
+                        <br />
+                        <p>Si tenemos algoritmos y poder de procesamiento para
+                        manejar toda la información disponible, no es necesario generar modelos
+                        que expliquen la realidad, sino explicar y predecir la realidad en base
+                        a los hechos recopilados históricamente</p>
+					</section>
+					<section>
+						<h2>Big Data - Desafío</h2>
+						<p>Extraer valor de las bases de datos masivas <br />(Propias y publicas)</p>
+						<br />
+						<h2>Las 4 V de Big Data (IBM)</h2>
+						<ul>
+							<li><strong>V</strong>olumen - Cantidad de datos generados</li>
+							<li><strong>V</strong>ariedad - Fuentes de datos</li>
+							<li><strong>V</strong>eracidad - Confiabilidad de los datos</li>
+							<li><strong>V</strong>elocidad - Convertir los datos en información rápidamente</li>
+						</ul>
+						<p><a href="http://www.ibmbigdatahub.com/sites/default/files/infographic_file/4-Vs-of-big-data.jpg" target="__blank">Source: The Four V's of Big Data - IBM Big Data Hub</a>
+					</section>
+                    <section>
+                        <h2>Sectores interesados en Big Data</h2>
+                        <br />
+                        <ul>
+                            <li>Salud</li>
+                            <li>Meteorólogos</li>
+                            <li>Redes Sociales (Publicidad)</li>
+                            <li>Investigaciones</li>
+                            <li>IoT</li>
+                            <li>Cualquiera que disponga de<br />
+                                grandes volúmenes de información<br />
+                                (Internet).</li>
+                        </ul>
+                    </section>
+				</section>
+
+				<!-- IR -->
+				<section>
+					<section>
+						<h2>Recuperación de<br /> Información</h2>
+						<blockquote>
+							<p>La Recuperación de Información trata con la representación, el almacenamiento, la organización y el acceso a ítems de información</p>
+						</blockquote>
+						<small>Baeza-Yates, R. y Ribeiro-Neto, B. <i>"Modern Information Retrieval"</i>. ACM Press. Addison Wesley. 1999.</small>
+						<hr />
+						<blockquote>
+							<p>Es un campo relacionado con la estructura, análisis, organización, almacenamiento, búsqueda y recuperación de información</p>
+						</blockquote>
+						<small>Salton, G. Y Mc Gill, M.J. <i>"Introduction to Modern Information Retrieval"</i>. New York. Mc Graw-Hill Computer Series. 1983.</small>
+					</section>
+					<section>
+						<h2>Recuperación de la Información</h2>
+						<p>Disciplina de varias décadas de desarrollo</p>
+						<br />
+						<h3>Áreas relacionadas (ejemplos)</h3>
+						<ul>
+							<li>Estructuras de datos</li>
+							<li>Métodos de indexación</li>
+							<li>Sistemas Distribuidos</li>
+							<li>Algoritmos de compresión</li>
+							<li>Algoritmos de ranking</li>
+							<li>Optimización en búsquedas</li>
+							<li>Data Profiling</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Fases de la recuperación</h2>
+						<br />
+						<h3>IR Clásico</h3>
+						<ol>
+							<li>Construcción de índices</li>
+							<li>Resolución de consultas de usuario</li>
+						</ol>
+						<br /><br />
+						<h3>IR en la Web</h3>
+						<ol>
+							<li>Creación de la colección de documentos (Crawling)</li>
+							<li>Construcción de índices</li>
+							<li>Resolución de consultas de usuario</li>
+						</ol>
+					</section>
+					<section>
+						<h3>Ejemplos de Motores de Búsqueda - Google</h3>
+						<img src="share/img/google.png" style="border:0" />
+					</section>
+					<section>
+						<h3>Ejemplos de Motores de Búsqueda - Yahoo</h3>
+						<img src="share/img/yahoo.png" style="border:0;" />
+					</section>
+					<section>
+						<h2>Arquitectura básica de un SRI</h2>
+						<img src="share/img/sri-arq.png" style="border:0;" />
+						<small>Tolosa, G. y Bordignon, F. <i>"Introducción a la Recuperación de Información"</i>. <a href="http://www.tyr.unlu.edu.ar/tallerIR/2008/docs/Introduccion-RI-v9f.pdf" target="__blank">Consultar</a>.</small>
+					</section>
+				</section>
+
+				<!-- Indexacion -->
+				<section>
+					<section>
+						<h3>Indexación de Documentos</h3>
+						<p><strong>Área:</strong> Recuperación de Información. Base de datos no estructuradas</p>
+						<p><strong>Ámbito:</strong> Motores de Búsqueda (Google, Yahoo!, Bing)</p>
+						<p><strong>Objetivo:</strong> Mejorar la recuperación de documentos</p>
+						<p><strong>Escala:</strong> Internet (Toda la Web) - Pequeña escala</p>
+					</section>
+					<section>
+						<h2>Índice Invertido</h2>
+						<p>Es una estructura que <i>"mapea"</i> términos a los documentos que los contienen.</p>
+						<br />
+						<p class="text-center" style="font-size: 30px">Estructura clásica para recuperación (Existen otras propuestas)</p>
+						<p class="text-center" style="font-size: 30px">Invierte la forma de acceso a los datos (Respecto de la colección)</p>
+						<br />
+						<br />
+						<p class="text-center">Operaciones involucradas</p>
+						<ul>
+							<li>Construcción</li>
+							<li>Actualización</li>
+							<li>Uso (Búsqueda)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Estructura de un Índice Invertido</h2>
+						<p>2 partes:</p>
+						<ol>
+							<li>Vocabulario (Conjunto de términos de la colección)</li>
+							<li>Archivo Invertido: Conjunto de Listas de aparición o posting list</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Estructura de un Índice Invertido</h2>
+						<img src="share/img/iiEstruct.png" style="border: 0;" />
+					</section>
+					<section>
+						<h2>Construcción de un II</h2>
+						<img src="share/img/indexProc.png" style="border: 0;" />
+					</section>
+					<section>
+						<h2>Construcción de un II</h2>
+						<p>Operaciones a realizar en la construcción de un índice</p>
+						<ul>
+							<li>Tokenización</li>
+							<li>Stemming</li>
+							<li>Eliminación de Stopwords</li>
+							<li>Eliminación de términos con frecuencias bajas</li>
+							<li>Construcción de postings lists</li>
+							<li>Ordenamiento de postings lists</li>
+							<li>Compresión</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Indexacion distribuida -->
+				<section>
+					<section>
+						<h2>Construcción <br />Distribuida de II</h2>
+						<h3>Motivaciones</h3>
+						<ul>
+							<li>Analizar varios documentos a la vez</li>
+							<li>Crecimiento de las colecciones</li>
+							<li>Escalar en recursos</li>
+							<ul>
+								<li>Procesamiento (CPU y cores)</li>
+								<li>Almacenamiento</li>
+								<li>RAM</li>
+								<li>I/O</li>
+							</ul>
+							<li>Reducción de tiempo de construcción</li>
+							<li>Resolución de consultas distribuida</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Construcción <br />Distribuida de II</h2>
+						<h3>PREMISA</h3>
+						<p>Escalar en un único equipo (Aun supercomputadora) en algún momento se volverá imposible, inviable o ineficiente.</p>
+						<h3>Solución</h3>
+						<p>Escalar en un cluster de commodity hardware</p>
+					</section>
+				</section>
+
+				<!-- Hadoop -->
+				<section>
+					<section>
+						<h1>Apache Hadoop</h1>
+					</section>
+					<section>
+						<h2>¿Que es Hadoop?</h2>
+						<blockquote>The Apache Hadoop software library is a framework that allows for the <b>distributed processing</b> of <b>large data sets</b> across <b>clusters</b> of computers using <b>simple programming models</b>.</blockquote>
+						<small><a href="http://hadoop.apache.org/">Apache Hadoop Official Web</a></small>
+					</section>
+					<section>
+						<h2>Premisas de Hadoop</h2>
+						<ul>
+						<li>Cluster dedicado</li>
+							<ul>
+								<li>Commodity Hardware (Miles de nodos)</li>
+								<li>Las fallas de HW son regla, no excepción</li>
+							</ul>
+						<li>Aplicaciones trivialmente paralelizables</li>
+						<li>Procesamiento Batch, no online (en principio)</li>
+						<li>Procesamiento en escala de Tera o Petabytes</li>
+							<ul>
+								<li>Mover datos es caro</li>
+								<li>Mover computo es barato</li>
+							</ul>
+							<li>Escalabilidad</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Tecnologías</h2>
+						<ul>
+							<li>Lenguaje: JAVA</li>
+							<li>Comunicación: SSH y RPC</li>
+							<li>Framework de desarrollo: MapReduce</li>
+							<li>Distributed File System: HDFS</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Ejemplos de problemas resueltos en Hadoop</h2>
+						<ul>
+							<li>Sort y Grep Distribuido</li>
+							<li>Recorrido de grafos</li>
+							<li>Análisis de logs</li>
+							<li>Indexación Distribuida</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Arquitectura de Hadoop</h2>
+						<p>Dos servicios que operan de forma independiente, en arquitectura master/slave</p>
+						<h3>YARN / MapReduce</h3>
+						<p>Framework y scheduler de procesos</p>
+						<h3>HDFS</h3>
+						<p>Sistema de Archivos Distribuido</p>
+					</section>
+					<section>
+						<h2>HDFS: Hadoop Distributed File System</h2>
+						<ul>
+							<li>Abstrae el cluster: ofrece una visión global de Sistema de archivos.</li>
+							<li>Soporta nativamente tolerancia a fallas y disponibilidad</li>
+							<li>Supone Commodity Hardware</li>
+							<li>Operaciones básicas de gestión de Archivos y Directorios</li>
+							<li>Seguridad es posible</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Arquitectura de HDFS</h2>
+						<img src="share/img/hdfsarchitecture.png" style="border: 0; width:80% " />
+						<small>Fuente: HDFS Architecture. <a href="http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html" target="__blank">Official Hadoop Documentation.</a></small>
+					</section>
+					<section>
+						<h2>YARN: MapReduce</h2>
+						<ul>
+							<li>
+								<font style="font-size: 30px;">
+									Entorno para distribuir procesamiento de forma masiva
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Ofrece un modelo de programación (MapReduce)
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Funciones de procesamiento provistas por el usuario
+								</font>
+							</li>
+							<ul>
+								<li>
+									<font style="font-size: 30px;">
+										Mappers y Reducers
+									</font>
+								</li>
+							</ul>
+							<li>
+								<font style="font-size: 30px;">
+									El computo hacia los datos, no al revés
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Usa los bloques del DFS, e <i>intenta</i> que sea un Map por Bloque
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Por defecto es Java, aunque es posible usar otros lenguajes
+								</font>
+							</li>
+							<li>
+								<font style="font-size: 30px;">
+									Es independiente de HDFS
+								</font>
+							</li>
+							<li>
+								YARN se dedica a la gestión de los recursos del cluster
+								MapReduce es el Framework de procesamiento de datos
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Como trabaja MapReduce</h2>
+						<img src="share/img/mr_explain.png" style="border: 0;" />
+						<p align="justify"><font style="font-size: 24px;">Dean, J. Et. all. "<i>MapReduce: Simplified Data Processing on Large Clusters</i>".&nbsp; OSDI. 2004. <a href="http://static.googleusercontent.com/media/research.google.com/es-419//archive/mapreduce-osdi04.pdf" target="_blank">Enlace</a>.</font><br></p>
+					</section>
+					<section>
+						<h2>MapReduce: Registros Clave-Valor</h2>
+						<img src="share/img/mr_diag.png" style="border: 0;" />
+						<p><font style="font-size: 24px;">http://www-inst.eecs.berkeley.edu/~cs61a/sp12/labs/lab14/mapreduce_diag.png</font></p>
+					</section>
+					<section>
+						<h2>Ejemplo de aplicación: WordCount</h2>
+						<img src="share/img/mr_wc.png" style="border: 0;" />
+						<p><font style="font-size: 24px;">http://devveri.com/wp-content/uploads/2012/07/mapreduce.png</font></p>
+					</section>
+				</section>
+
+				<!-- Tesis -->
+				<section>
+					<section>
+						<h2>Trabajo Final</h2>
+						<h3>Análisis comparativo de rendimiento en Construcción de Índices</h3>
+						<p>Premisas</p>
+						<ul>
+							<li>El volumen de la información crece de forma acelerada</li>
+							<li>No se puede ofrecer resultados mas rápidos a costa de la calidad</li>
+							<li>Sin embargo, la velocidad es un requisito cada vez mas presente</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Objetivos</h2>
+						<br />
+						<p style="border: 1px;">Implementar algoritmos de indexación en un entorno distribuido de hardware económico y prestaciones limitadas.</p>
+						<hr />
+						<p>Probar el comportamiento de un cluster con plataformas usadas en Big Data en tareas intensivas de creación de ı́ndices.</p>
+						<hr />
+						<p>Medir la eficiencia de un algoritmo diseñado para MapReduce para procesar una colección de documentos con diferentes configuraciones de la plataforma.</p>
+					</section>
+					<section>
+						<h2>Limites del trabajo</h2>
+						<ul>
+							<li>No se intenta medir ni evaluar la resolución de consultas</li>
+							<li>No se pretende crear una metodología de desarrollo para herramientas de IR en Hadoop</li>
+							<li>No se desea evaluar diferentes tipos de índices, todos los algoritmos deberán construir índices con la misma "semántica"</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Estructuras</h2>
+						<p>Se compararan 2 estructuras</p>
+						<ul>
+							<li>Índice "Clásico"</li>
+							<li>Índice con postings con Block-Max Index</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Block-Max Index -->
+				<section>
+					<section>
+						<h2>Índices Block-Max</h2>
+						<p>Presentado por Ding y Suel en 2011</p>
+						<p>Proponen la extensión del índice mediante la adición de una estructura de datos adicional</p>
+						<hr />
+						<p>Divide la posting list en bloques, y agrega una capa de información.</p>
+					</section>
+					<section>
+						<h2>Block-Max: Estructura</h2>
+						<ul>
+							<li>Posting list estándar, ordenada por Doc Id</li>
+							<li>La posting se divide en bloques de menor tamaño, que son unidades de compresión y consulta</li>
+							<li>Se agrega un índice adicional, con un registro por bloque</li>
+							<ul>
+								<li>Id de Bloque</li>
+								<li>Tamaño del bloque</li>
+								<li>Score Máximo del bloque</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>Block-Max: Representación</h2>
+						<p>El algoritmo visualizaria las postings lists de la siguiente manera</p>
+						<img src="share/img/bm_repr.png" style="border: 0; width:60%; " />
+						<small>S. Ding and T. Suel, <i>"Faster top-k document retrieval using block-max indexes"</i> Proc. 34th Int. ACM SIGIR Conf. Res. Dev. Inf. - SIGIR ’11, p. 993, 2011</small>
+					</section>
+					<section>
+						<h2>Block-Max: Pros y contras</h2>
+						<h3>Ventajas</h3>
+						<ul>
+							<li>Permite descartar bloques enteros en base al score</li>
+							<li>Ofrece la posibilidad de hacer skip entre bloques, optimizando el recorrido</li>
+							<li>Mantiene ventajas de propuestas anteriores mejorando los resultados</li>
+						</ul>
+						<h3>Desventaja</h3>
+						<p>La estructura que agrega hace que el índice final sea de mayor tamaño</p>
+					</section>
+				</section>
+
+				<!-- Hipotesis -->
+				<section>
+					<section>
+						<h2>Hipotesis de trabajo</h2>
+						<ul>
+							<li>Determinar que factores influyen en la construcción de un II</li>
+							<li>Explorar los limites del procesamiento en Hadoop</li>
+							<ul>
+								<li>Según recursos disponibles</li>
+								<li>Según la información a Indexar</li>
+								<li>En base a los algoritmos proporcionados</li>
+								<li>Cantidad de trabajos ejecutándose de forma concurrente</li>
+							</ul>
+							<li>Establecer una base de comparación para futuros trabajos de construcción de índices distribuidos con otras herramientas y enfoques</li>
+							<li>Medir y comparar técnicas de compresión de datos aplicadas en el procesamiento y almacenamiento</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Experimentos -->
+				<section>
+					<section>
+						<h2>Experimentos Realizados</h2>
+						<ul>
+							<li>3 Colecciones: C1 (60GB), C2 (120GB) y C3 (180GB)</li>
+							<li>2 Algoritmos: Estandar y Block-Max</li>
+							<li>2 formatos de salida: Con y sin Compresión</li>
+							<li>Configuracion de Nodos: Secuencial, 1, 2, 4 y 6</li>
+							<li>Configuracion de Reducers: 1, 2, 4 y 6</li>
+						</ul>
+						<br>
+						<br>
+						<h4>Total de experimentos realizados: <strong>132</strong></h4>
+					</section>
+				</section>
+
+				<!-- Resultados preliminares -->
+				<section>
+					<section>
+						<h2>Resultados Preliminares</h2>
+						<p>Índice Block-Max Comprimido</p>
+						<img src="share/img/resultado-1.png" style="border: 0; width:100%; " />
+					</section>
+					<section>
+						<h2>Resultados Preliminares</h2>
+						<p>Speedup mide la mejora de rendimiento de un algoritmo al agregar nodos (nucleos) al cluster</p>
+						<img src="share/img/resultado-2.png" style="border: 0; width:80%; " />
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
