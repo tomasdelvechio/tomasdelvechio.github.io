@@ -1,0 +1,78 @@
+body {
+	background-color: #eee;
+}
+
+.bloque {
+	padding: 10px;
+	margin-top: 15px;
+	/*background-color: #64A1D0;
+	border: 3px solid #333;
+	border-radius: 25px;*/
+}
+
+.foto {
+	width: 200px;
+	float: left;
+}
+
+.foto img {
+	border-radius: 50%;
+	border: 3px solid #333;
+}
+
+.about, .foto {
+	display: inline;
+}
+
+.about p {
+	width: 800px;
+	text-align: justify;
+}
+
+.navbar {
+	background-color: #64A1D0;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-inverse .navbar-nav > li:hover {
+	font-weight: bold;
+	/*background-color: #4f7b9c;*/
+	background-color: #333;
+}
+
+.navbar-inverse {
+	border-color: #333;
+	border-width: 0 0 3px;
+}
+
+.academic {
+
+}
+
+.academic article, .subject article {
+	padding-left: 25px;
+}
+
+section h2 {
+	text-transform: uppercase;
+}
+
+.bloque h2 {
+	margin-top: unset;
+	text-align: center;
+}
+
+.section-title {
+	border-top: 3px solid #333;
+	width: 20%;
+}
+
+#footer {
+	background-color: #333;
+	padding: 15px 15px 5px 15px;
+	border-radius: 10px 10px 0 0;
+	color: #eee;
+}
