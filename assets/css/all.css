@@ -810,3 +810,7 @@ section h2 {
 	border-radius: 10px 10px 0 0;
 	color: #eee;
 }
+
+.paper-title {
+	font-weight: bold;
+}
