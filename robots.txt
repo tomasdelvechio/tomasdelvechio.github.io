@@ -1,0 +1,4 @@
+Sitemap: http://tomasdelvechio.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: tomasdelvechio.github.io
