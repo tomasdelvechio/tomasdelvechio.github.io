@@ -7509,7 +7509,10 @@ body {
 
 .foto img {
 	border-radius: 50%;
-	border: 3px solid #333;
+}
+
+.section-about {
+	margin-bottom: 45px;
 }
 
 .about, .foto {
@@ -7536,8 +7539,7 @@ body {
 }
 
 .navbar-inverse {
-	border-color: #333;
-	border-width: 0 0 3px;
+	border-width: 0 0 0 0;
 }
 
 .academic {
@@ -7555,11 +7557,7 @@ section h2 {
 .bloque h2 {
 	margin-top: unset;
 	text-align: center;
-}
-
-.section-title {
-	border-top: 3px solid #333;
-	width: 20%;
+	margin-bottom: 20px;
 }
 
 #footer {

@@ -30,6 +30,18 @@ Cada nodo debe poder realizar operaciones de containers, usando Docker o rkt
 
 Para debug se recomienda utilizar [Minikube](https://github.com/kubernetes/minikube).
 
+## Tutorial interactivo
+
+Testear la version de minikube
+
+	minikube version
+
+Iniciar un cluster usando minikube
+
+	minikube start
+
+
+
 # Dudas
 
  + ¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
