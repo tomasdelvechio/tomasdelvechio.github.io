@@ -104,7 +104,7 @@ era complejo).</p>
 </pre>
 
 
-<p>Ver informacion de cluster</p>
+<p>Ver información de cluster</p>
 <pre class="code literal-block"><span></span>kubectl cluster-info
 </pre>
 
@@ -139,7 +139,61 @@ regenera nuevamente.</p>
 
 
 <h3>3. Explorar la App</h3>
-<p>(Sigue aqui)</p>
+<p>Un Pod es un conjunto de containers que ejecutan aplicaciones y sus recursos
+asociados.</p>
+<p>Los Pods son creados por Kubernetes al realizar el deploy de la app. Se crean
+siempre en un nodo.</p>
+<p>Operaciones mas usadas de <code>kubectl</code>:</p>
+<pre class="code literal-block"><span></span>kubectl get
+kubectl describe
+kubectl logs
+kubectl exec
+</pre>
+
+
+<h4>Tutorial interactivo</h4>
+<p>Listar pods</p>
+<pre class="code literal-block"><span></span>kubectl get pods
+</pre>
+
+
+<p>Para obtener información detallada de los Pods</p>
+<pre class="code literal-block"><span></span>kubectl describe pods
+</pre>
+
+
+<p>Para acceder a los Pods, que funcionan en una red aislada y privada, se utiliza
+el <code>proxy</code>:</p>
+<pre class="code literal-block"><span></span>kubectl proxy
+</pre>
+
+
+<p>Dicho proxy expone temporalmente la red y permite la comunicación con el host.
+Esto se utiliza para acceder a la API de los Pods y realizar consultas de forma
+directa (Por ejemplo, usando el comando <code>curl</code>).</p>
+<p>Para diversas operaciones con los pods, es necesario obtener el nombre que
+Kubernetes le asigno al mismo. Un comando para hacer esto es:</p>
+<pre class="code literal-block"><span></span><span class="x">export POD_NAME=$(kubectl get pods -o go-template --template '</span><span class="cp">{{</span><span class="nv">range</span> <span class="nv">.items</span><span class="cp">}}{{</span><span class="nv">.metadata.name</span><span class="cp">}}{{</span><span class="s2">"\n"</span><span class="cp">}}{{</span><span class="nv">end</span><span class="cp">}}</span><span class="x">')</span>
+</pre>
+
+
+<p>Para ver los logs:</p>
+<pre class="code literal-block"><span></span>kubectl logs $POD_NAME
+</pre>
+
+
+<p>Todo lo que los proceso envien a stdout es expuesto como logs del pod.</p>
+<p>Ejecutar comandos en un pod:</p>
+<pre class="code literal-block"><span></span>kubectl exec $POD_NAME env
+</pre>
+
+
+<p>Abrir una consola en un POD:</p>
+<pre class="code literal-block"><span></span>kubectl exec -ti $POD_NAME bash
+</pre>
+
+
+<h3>4. Usar un servicio para exponer la App</h3>
 <h2>Dudas</h2>
 <ul>
 <li>¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps

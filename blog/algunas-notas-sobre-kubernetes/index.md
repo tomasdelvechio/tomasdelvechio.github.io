@@ -48,7 +48,7 @@ Version de kubectl (Para verificar que esta instalado):
 
 	kubectl version
 
-Ver informacion de cluster
+Ver información de cluster
 
 	kubectl cluster-info
 
@@ -83,7 +83,60 @@ Generar un entrypoint al cluster (temporal para pruebas)
 
 ## 3. Explorar la App
 
-(Sigue aqui)
+Un Pod es un conjunto de containers que ejecutan aplicaciones y sus recursos
+asociados.
+
+Los Pods son creados por Kubernetes al realizar el deploy de la app. Se crean
+siempre en un nodo.
+
+Operaciones mas usadas de `kubectl`:
+
+	kubectl get
+	kubectl describe
+	kubectl logs
+	kubectl exec
+
+### Tutorial interactivo
+
+Listar pods
+
+	kubectl get pods
+
+Para obtener información detallada de los Pods
+
+	kubectl describe pods
+
+Para acceder a los Pods, que funcionan en una red aislada y privada, se utiliza
+el `proxy`:
+
+	kubectl proxy
+
+Dicho proxy expone temporalmente la red y permite la comunicación con el host.
+Esto se utiliza para acceder a la API de los Pods y realizar consultas de forma
+directa (Por ejemplo, usando el comando `curl`).
+
+Para diversas operaciones con los pods, es necesario obtener el nombre que
+Kubernetes le asigno al mismo. Un comando para hacer esto es:
+
+	export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+
+Para ver los logs:
+
+	kubectl logs $POD_NAME
+
+Todo lo que los proceso envien a stdout es expuesto como logs del pod.
+
+Ejecutar comandos en un pod:
+
+	kubectl exec $POD_NAME env
+
+Abrir una consola en un POD:
+
+	kubectl exec -ti $POD_NAME bash
+
+## 4. Usar un servicio para exponer la App
+
+
 
 # Dudas
 

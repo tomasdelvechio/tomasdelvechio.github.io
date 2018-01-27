@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Tomás Delvechio (Publicaciones sobre orchestration)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://tomasdelvechio.github.io/categories/orchestration.xml"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Tomás Delvechio (Publicaciones sobre orchestration)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://tomasdelvechio.github.io/categories/orchestration.xml"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 27 Jan 2018 04:11:58 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;h2&gt;Kubernetes&lt;/h2&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 27 Jan 2018 16:03:01 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;h2&gt;Kubernetes&lt;/h2&gt;
 &lt;p&gt;Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del &lt;a href="https://kubernetes.io"&gt;tutorial oficial&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;1. Crear un cluster&lt;/h3&gt;
@@ -38,7 +38,7 @@ era complejo).&lt;/p&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;Ver informacion de cluster&lt;/p&gt;
+&lt;p&gt;Ver información de cluster&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl cluster-info
 &lt;/pre&gt;
 
@@ -73,7 +73,61 @@ regenera nuevamente.&lt;/p&gt;
 
 
 &lt;h3&gt;3. Explorar la App&lt;/h3&gt;
-&lt;p&gt;(Sigue aqui)&lt;/p&gt;
+&lt;p&gt;Un Pod es un conjunto de containers que ejecutan aplicaciones y sus recursos
+asociados.&lt;/p&gt;
+&lt;p&gt;Los Pods son creados por Kubernetes al realizar el deploy de la app. Se crean
+siempre en un nodo.&lt;/p&gt;
+&lt;p&gt;Operaciones mas usadas de &lt;code&gt;kubectl&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get
+kubectl describe
+kubectl logs
+kubectl exec
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
+&lt;p&gt;Listar pods&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods
+&lt;/pre&gt;
+
+
+&lt;p&gt;Para obtener información detallada de los Pods&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe pods
+&lt;/pre&gt;
+
+
+&lt;p&gt;Para acceder a los Pods, que funcionan en una red aislada y privada, se utiliza
+el &lt;code&gt;proxy&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl proxy
+&lt;/pre&gt;
+
+
+&lt;p&gt;Dicho proxy expone temporalmente la red y permite la comunicación con el host.
+Esto se utiliza para acceder a la API de los Pods y realizar consultas de forma
+directa (Por ejemplo, usando el comando &lt;code&gt;curl&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Para diversas operaciones con los pods, es necesario obtener el nombre que
+Kubernetes le asigno al mismo. Un comando para hacer esto es:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export POD_NAME=$(kubectl get pods -o go-template --template '&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;range&lt;/span&gt; &lt;span class="nv"&gt;.items&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;.metadata.name&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="s2"&gt;"\n"&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Para ver los logs:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl logs $POD_NAME
+&lt;/pre&gt;
+
+
+&lt;p&gt;Todo lo que los proceso envien a stdout es expuesto como logs del pod.&lt;/p&gt;
+&lt;p&gt;Ejecutar comandos en un pod:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl exec $POD_NAME env
+&lt;/pre&gt;
+
+
+&lt;p&gt;Abrir una consola en un POD:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl exec -ti $POD_NAME bash
+&lt;/pre&gt;
+
+
+&lt;h3&gt;4. Usar un servicio para exponer la App&lt;/h3&gt;
 &lt;h2&gt;Dudas&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
