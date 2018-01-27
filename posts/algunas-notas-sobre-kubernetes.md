@@ -9,6 +9,8 @@
 
 # Kubernetes
 
+![Logo Kubernetes](/img/blog/2018/logo-kubernetes.png "Logo de Kubernetes")
+
 Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del [tutorial oficial](https://kubernetes.io).
 
