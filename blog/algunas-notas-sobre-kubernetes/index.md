@@ -12,7 +12,7 @@
 Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del [tutorial oficial](https://kubernetes.io).
 
-## Sección 1: Crear un cluster
+## 1. Crear un cluster
 
 Kubernetes coordina un cluster para trabajar como una unica unidad. Para ello,
 las apps necesitan ser empaquetadas en forma de containers.
@@ -29,8 +29,10 @@ Cada nodo debe poder realizar operaciones de containers, usando Docker o rkt
 (Debe tenerlo instalado).
 
 Para debug se recomienda utilizar [Minikube](https://github.com/kubernetes/minikube).
+Instala un cluster y facilita la configuracion de kubernetes (Instalarlo a mano
+era complejo).
 
-## Tutorial interactivo
+### Tutorial interactivo
 
 Testear la version de minikube
 
@@ -39,6 +41,31 @@ Testear la version de minikube
 Iniciar un cluster usando minikube
 
 	minikube start
+
+Linea de comandos de Kubernetes: `kubectl`.
+
+Version de kubectl (Para verificar que esta instalado):
+
+	kubectl version
+
+Ver informacion de cluster
+
+	kubectl cluster-info
+
+Ver nodos del cluster
+
+	kubectl get nodes
+
+## 2. Crear deploys con kubectl
+
+Una vez instalado Kubernetes, se deben crear aplicaciones en containers para ser
+ejecutadas sobre el cluster. Para esto se definen instruccion que el master
+ejecuta sobre los nodos.
+
+Kubernetes Deployment Controller monitoriza las instancias y si se caen, las
+regenera nuevamente.
+
+### Tutorial interactivo
 
 
 

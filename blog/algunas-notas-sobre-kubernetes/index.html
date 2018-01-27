@@ -16,8 +16,8 @@
 <meta property="og:description" content="Kubernetes
 Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del tutorial oficial.
-Sección 1: Crear un cluster
-Kubernetes coordina un cluster para tr">
+1. Crear un cluster
+Kubernetes coordina un cluster para trabajar c">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2018-01-26T00:18:56-03:00">
 <meta property="article:tag" content="cluster">
@@ -86,7 +86,7 @@ Kubernetes coordina un cluster para tr">
 <h2>Kubernetes</h2>
 <p>Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del <a href="https://kubernetes.io">tutorial oficial</a>.</p>
-<h3>Sección 1: Crear un cluster</h3>
+<h3>1. Crear un cluster</h3>
 <p>Kubernetes coordina un cluster para trabajar como una unica unidad. Para ello,
 las apps necesitan ser empaquetadas en forma de containers.</p>
 <p>2 Recursos:</p>
@@ -98,8 +98,10 @@ las apps necesitan ser empaquetadas en forma de containers.</p>
 comunicación con el Master.</p>
 <p>Cada nodo debe poder realizar operaciones de containers, usando Docker o rkt
 (Debe tenerlo instalado).</p>
-<p>Para debug se recomienda utilizar <a href="https://github.com/kubernetes/minikube">Minikube</a>.</p>
-<h3>Tutorial interactivo</h3>
+<p>Para debug se recomienda utilizar <a href="https://github.com/kubernetes/minikube">Minikube</a>.
+Instala un cluster y facilita la configuracion de kubernetes (Instalarlo a mano
+era complejo).</p>
+<h4>Tutorial interactivo</h4>
 <p>Testear la version de minikube</p>
 <pre class="code literal-block"><span></span>minikube version
 </pre>
@@ -110,6 +112,29 @@ comunicación con el Master.</p>
 </pre>
 
 
+<p>Linea de comandos de Kubernetes: <code>kubectl</code>.</p>
+<p>Version de kubectl (Para verificar que esta instalado):</p>
+<pre class="code literal-block"><span></span>kubectl version
+</pre>
+
+
+<p>Ver informacion de cluster</p>
+<pre class="code literal-block"><span></span>kubectl cluster-info
+</pre>
+
+
+<p>Ver nodos del cluster</p>
+<pre class="code literal-block"><span></span>kubectl get nodes
+</pre>
+
+
+<h3>2. Crear deploys con kubectl</h3>
+<p>Una vez instalado Kubernetes, se deben crear aplicaciones en containers para ser
+ejecutadas sobre el cluster. Para esto se definen instruccion que el master
+ejecuta sobre los nodos.</p>
+<p>Kubernetes Deployment Controller monitoriza las instancias y si se caen, las
+regenera nuevamente.</p>
+<h4>Tutorial interactivo</h4>
 <h2>Dudas</h2>
 <ul>
 <li>¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
