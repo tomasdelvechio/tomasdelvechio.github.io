@@ -67,7 +67,23 @@ regenera nuevamente.
 
 ### Tutorial interactivo
 
+Correr un ejemplo
 
+	kubectl run kubernetes-bootcamp \
+		--image=docker.io/jocatalin/kubernetes-bootcamp:v1 \
+		--port=8080
+
+Ver la app en ejecucion
+
+	kubectl get deployments
+
+Generar un entrypoint al cluster (temporal para pruebas)
+
+	kubectl proxy
+
+## 3. Explorar la App
+
+(Sigue aqui)
 
 # Dudas
 

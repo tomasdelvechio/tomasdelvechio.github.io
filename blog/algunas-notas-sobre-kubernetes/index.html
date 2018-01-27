@@ -135,6 +135,25 @@ ejecuta sobre los nodos.</p>
 <p>Kubernetes Deployment Controller monitoriza las instancias y si se caen, las
 regenera nuevamente.</p>
 <h4>Tutorial interactivo</h4>
+<p>Correr un ejemplo</p>
+<pre class="code literal-block"><span></span>kubectl run kubernetes-bootcamp \
+    --image=docker.io/jocatalin/kubernetes-bootcamp:v1 \
+    --port=8080
+</pre>
+
+
+<p>Ver la app en ejecucion</p>
+<pre class="code literal-block"><span></span>kubectl get deployments
+</pre>
+
+
+<p>Generar un entrypoint al cluster (temporal para pruebas)</p>
+<pre class="code literal-block"><span></span>kubectl proxy
+</pre>
+
+
+<h3>3. Explorar la App</h3>
+<p>(Sigue aqui)</p>
 <h2>Dudas</h2>
 <ul>
 <li>¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
