@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Tomás Delvechio (Publicaciones sobre devops)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://tomasdelvechio.github.io/categories/cat_devops.xml"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre devops)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link type="application/rss+xml" href="http://tomasdelvechio.github.io/categories/cat_devops.xml" rel="self"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 27 Jan 2018 16:03:01 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;h2&gt;Kubernetes&lt;/h2&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 27 Jan 2018 17:08:41 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;h2&gt;Kubernetes&lt;/h2&gt;
 &lt;p&gt;Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del &lt;a href="https://kubernetes.io"&gt;tutorial oficial&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;1. Crear un cluster&lt;/h3&gt;
@@ -128,8 +128,78 @@ Kubernetes le asigno al mismo. Un comando para hacer esto es:&lt;/p&gt;
 
 
 &lt;h3&gt;4. Usar un servicio para exponer la App&lt;/h3&gt;
+&lt;p&gt;Los Pods pueden ser reemplazados si es necesario. Desde que cada Pod tiene una
+IP unica, las aplicaciones no deberian conocer dichas IPs para poder conectarse
+a los Pods, porque estos puede "morir".&lt;/p&gt;
+&lt;p&gt;Los servicios en kubernetes proveen una abstraccion que permite establecer
+politicas de acceso sobre un conjunto lógico de Pods.&lt;/p&gt;
+&lt;p&gt;Los servicios permiten que a los pods se les adjunten labels, con diferentes
+objetivos (taggear versiones, separar versiones para test, debug y produccion).&lt;/p&gt;
+&lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
+&lt;p&gt;Listar servicios expuestos:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get services
+&lt;/pre&gt;
+
+
+&lt;p&gt;Exponer un servicio:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ver detalles de servicios:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe services/kubernetes-bootcamp
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ver que puerto fue abierto externamente:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;span class="x"&gt;echo NODE_PORT=$NODE_PORT&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Una vez expuesto, se puede consultar el servicio directamente con:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;curl host01:$NODE_PORT
+&lt;/pre&gt;
+
+
+&lt;p&gt;Consultar los pods que estan etiquetados con un label particular:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods -l run=kubernetes-bootcamp
+&lt;/pre&gt;
+
+
+&lt;p&gt;El label en el caso anterior es &lt;code&gt;run=kubernetes-bootcamp&lt;/code&gt;. Funciona
+identicamente para consultar servicios:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get services -l run=kubernetes-bootcamp
+&lt;/pre&gt;
+
+
+&lt;p&gt;Obtener el nombre del POD&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export POD_NAME=$(kubectl get pods -o go-template --template '&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;range&lt;/span&gt; &lt;span class="nv"&gt;.items&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;.metadata.name&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="s2"&gt;"\n"&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;span class="x"&gt;echo Name of the Pod: $POD_NAME&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Aplicar un nuevo label a un Pod:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl label pod $POD_NAME app=v1
+&lt;/pre&gt;
+
+
+&lt;p&gt;Consultar el label recien aplicado:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe pods $POD_NAME
+kubectl get pods -l app=v1
+&lt;/pre&gt;
+
+
+&lt;p&gt;Borrar un servicio:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl delete service -l run=kubernetes-bootcamp
+&lt;/pre&gt;
+
+
+&lt;h3&gt;5. Multiples instancias de una App&lt;/h3&gt;
+&lt;p&gt;(Sigue aca)&lt;/p&gt;
 &lt;h2&gt;Dudas&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
  pueden convivir en el?&lt;/li&gt;
+&lt;li&gt;¿Un Pod es equivalente a un container?&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</guid><pubDate>Fri, 26 Jan 2018 03:18:56 GMT</pubDate></item></channel></rss>

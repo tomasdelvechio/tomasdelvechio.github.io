@@ -208,10 +208,80 @@ Kubernetes le asigno al mismo. Un comando para hacer esto es:</p>
 
 
 <h3>4. Usar un servicio para exponer la App</h3>
+<p>Los Pods pueden ser reemplazados si es necesario. Desde que cada Pod tiene una
+IP unica, las aplicaciones no deberian conocer dichas IPs para poder conectarse
+a los Pods, porque estos puede "morir".</p>
+<p>Los servicios en kubernetes proveen una abstraccion que permite establecer
+politicas de acceso sobre un conjunto lógico de Pods.</p>
+<p>Los servicios permiten que a los pods se les adjunten labels, con diferentes
+objetivos (taggear versiones, separar versiones para test, debug y produccion).</p>
+<h4>Tutorial interactivo</h4>
+<p>Listar servicios expuestos:</p>
+<pre class="code literal-block"><span></span>kubectl get services
+</pre>
+
+
+<p>Exponer un servicio:</p>
+<pre class="code literal-block"><span></span>kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+</pre>
+
+
+<p>Ver detalles de servicios:</p>
+<pre class="code literal-block"><span></span>kubectl describe services/kubernetes-bootcamp
+</pre>
+
+
+<p>Ver que puerto fue abierto externamente:</p>
+<pre class="code literal-block"><span></span><span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
+<span class="x">echo NODE_PORT=$NODE_PORT</span>
+</pre>
+
+
+<p>Una vez expuesto, se puede consultar el servicio directamente con:</p>
+<pre class="code literal-block"><span></span>curl host01:$NODE_PORT
+</pre>
+
+
+<p>Consultar los pods que estan etiquetados con un label particular:</p>
+<pre class="code literal-block"><span></span>kubectl get pods -l run=kubernetes-bootcamp
+</pre>
+
+
+<p>El label en el caso anterior es <code>run=kubernetes-bootcamp</code>. Funciona
+identicamente para consultar servicios:</p>
+<pre class="code literal-block"><span></span>kubectl get services -l run=kubernetes-bootcamp
+</pre>
+
+
+<p>Obtener el nombre del POD</p>
+<pre class="code literal-block"><span></span><span class="x">export POD_NAME=$(kubectl get pods -o go-template --template '</span><span class="cp">{{</span><span class="nv">range</span> <span class="nv">.items</span><span class="cp">}}{{</span><span class="nv">.metadata.name</span><span class="cp">}}{{</span><span class="s2">"\n"</span><span class="cp">}}{{</span><span class="nv">end</span><span class="cp">}}</span><span class="x">')</span>
+<span class="x">echo Name of the Pod: $POD_NAME</span>
+</pre>
+
+
+<p>Aplicar un nuevo label a un Pod:</p>
+<pre class="code literal-block"><span></span>kubectl label pod $POD_NAME app=v1
+</pre>
+
+
+<p>Consultar el label recien aplicado:</p>
+<pre class="code literal-block"><span></span>kubectl describe pods $POD_NAME
+kubectl get pods -l app=v1
+</pre>
+
+
+<p>Borrar un servicio:</p>
+<pre class="code literal-block"><span></span>kubectl delete service -l run=kubernetes-bootcamp
+</pre>
+
+
+<h3>5. Multiples instancias de una App</h3>
+<p>(Sigue aca)</p>
 <h2>Dudas</h2>
 <ul>
 <li>¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
  pueden convivir en el?</li>
+<li>¿Un Pod es equivalente a un container?</li>
 </ul>
 </div>
     </div>
