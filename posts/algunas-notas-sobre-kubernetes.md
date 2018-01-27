@@ -136,9 +136,75 @@ Abrir una consola en un POD:
 
 ## 4. Usar un servicio para exponer la App
 
+Los Pods pueden ser reemplazados si es necesario. Desde que cada Pod tiene una
+IP unica, las aplicaciones no deberian conocer dichas IPs para poder conectarse
+a los Pods, porque estos puede "morir".
+
+Los servicios en kubernetes proveen una abstraccion que permite establecer
+politicas de acceso sobre un conjunto lógico de Pods.
+
+Los servicios permiten que a los pods se les adjunten labels, con diferentes
+objetivos (taggear versiones, separar versiones para test, debug y produccion).
+
+### Tutorial interactivo
+
+Listar servicios expuestos:
+
+	kubectl get services
+
+Exponer un servicio:
+
+	kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+
+Ver detalles de servicios:
+
+	kubectl describe services/kubernetes-bootcamp
+
+Ver que puerto fue abierto externamente:
+
+	export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+	echo NODE_PORT=$NODE_PORT
+
+Una vez expuesto, se puede consultar el servicio directamente con:
+
+	curl host01:$NODE_PORT
+
+Consultar los pods que estan etiquetados con un label particular:
+
+	kubectl get pods -l run=kubernetes-bootcamp
+
+El label en el caso anterior es `run=kubernetes-bootcamp`. Funciona
+identicamente para consultar servicios:
+
+	kubectl get services -l run=kubernetes-bootcamp
+
+Obtener el nombre del POD
+
+	export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+	echo Name of the Pod: $POD_NAME
+
+Aplicar un nuevo label a un Pod:
+
+	kubectl label pod $POD_NAME app=v1
+
+Consultar el label recien aplicado:
+
+	kubectl describe pods $POD_NAME
+	kubectl get pods -l app=v1
+
+Borrar un servicio:
+
+	kubectl delete service -l run=kubernetes-bootcamp
+
+## 5. Multiples instancias de una App
+
+(Sigue aca)
+
+
 
 
 # Dudas
 
  + ¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
  pueden convivir en el?
+ + ¿Un Pod es equivalente a un container?
