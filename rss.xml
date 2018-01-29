@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Tomás Delvechio</title><link>http://tomasdelvechio.github.io/</link><description>Sitio Academico de Tomas Delvechio</description><atom:link href="http://tomasdelvechio.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio</title><link>http://tomasdelvechio.github.io/</link><description>Sitio Academico de Tomas Delvechio</description><atom:link href="http://tomasdelvechio.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 27 Jan 2018 17:40:58 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;h2&gt;Kubernetes&lt;/h2&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Mon, 29 Jan 2018 02:45:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;h2&gt;Kubernetes&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="Logo Kubernetes" src="http://tomasdelvechio.github.io/img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"&gt;&lt;/p&gt;
 &lt;p&gt;Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del &lt;a href="https://kubernetes.io"&gt;tutorial oficial&lt;/a&gt;.&lt;/p&gt;
@@ -197,10 +197,121 @@ kubectl get pods -l app=v1
 
 
 &lt;h3&gt;5. Multiples instancias de una App&lt;/h3&gt;
-&lt;p&gt;(Sigue aca)&lt;/p&gt;
+&lt;p&gt;Escalar es incrementar el numero de instancias o pods para poder manejar
+incrementos de trafico en la aplicación. Los services manejan el trafico hacia
+los pods mendiante un load-balancer.&lt;/p&gt;
+&lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
+&lt;p&gt;Escalar (scale up) un deployment llamado kubernetes-bootcamp a 4 replicas:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl scale deployments/kubernetes-bootcamp --replicas=4
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ver los deployments:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get deployments
+&lt;/pre&gt;
+
+
+&lt;p&gt;Controlar los pods (Tiene que haber 4):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods -o wide
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ver el deployment de forma mas detallada:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe deployments/kubernetes-bootcamp
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ver el servicio:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe services/kubernetes-bootcamp
+&lt;/pre&gt;
+
+
+&lt;p&gt;Recuperar el nodo:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;span class="x"&gt;echo NODE_PORT=$NODE_PORT&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ejecutar varias veces:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;curl host01:$NODE_PORT
+&lt;/pre&gt;
+
+
+&lt;p&gt;Deberian responder diferentes pods de la misma app.&lt;/p&gt;
+&lt;p&gt;Ejecutar ahora solo 2 replicas (Scale down):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl scale deployments/kubernetes-bootcamp --replicas=2
+&lt;/pre&gt;
+
+
+&lt;p&gt;Confirmar el cambio:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get deployments
+&lt;/pre&gt;
+
+
+&lt;h3&gt;6. Realizando actualizaciones progresivas&lt;/h3&gt;
+&lt;p&gt;La idea es lograr actualizaciones sin que se experimente una caida del servicio,
+esto permite poder actualizar las aplicaciones de forma mas seguida.&lt;/p&gt;
+&lt;p&gt;Kubernetes permite esto mediante las Rolling Updates. Esto permite actualizar
+sin tener downtimes y ademas puede ser revertido en caso de problemas
+(rollbacks).&lt;/p&gt;
+&lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
+&lt;p&gt;Ver imagen actual de los pods (Campo image):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe pods
+&lt;/pre&gt;
+
+
+&lt;p&gt;Actualizar la image:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ver información de los Pods:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods
+&lt;/pre&gt;
+
+
+&lt;p&gt;No actualiza los viejos pods, sino que termina los anteirores y crea pods
+nuevos.&lt;/p&gt;
+&lt;p&gt;Verificar que la app actualizo:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;kubectl describe services/kubernetes-bootcamp&lt;/span&gt;
+&lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;span class="x"&gt;echo NODE_PORT=$NODE_PORT&lt;/span&gt;
+&lt;span class="x"&gt;curl host01:$NODE_PORT&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Tambien puede verificarse el exito mediante:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl rollout status deployments/kubernetes-bootcamp
+&lt;/pre&gt;
+
+
+&lt;p&gt;Deployar una version "con errores":&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10
+&lt;/pre&gt;
+
+
+&lt;p&gt;Ver problemas:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get deployments
+kubectl get pods
+kubectl describe pods
+&lt;/pre&gt;
+
+
+&lt;p&gt;Rollback:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl rollout undo deployments/kubernetes-bootcamp
+kubectl get pods
+kubectl describe pods
+&lt;/pre&gt;
+
+
 &lt;h2&gt;Dudas&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
  pueden convivir en el?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Se pueden hacer deploys de varias apps y se iran acomodando en los recursos que
+el cluster tenga disponibles.&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;¿Un Pod es equivalente a un container?&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</guid><pubDate>Fri, 26 Jan 2018 03:18:56 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;
+&lt;p&gt;Un pod es un container de una aplicación en particular gestionado por kubernetes&lt;/p&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</guid><pubDate>Fri, 26 Jan 2018 03:18:56 GMT</pubDate></item></channel></rss>

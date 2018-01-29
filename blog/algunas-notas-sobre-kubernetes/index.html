@@ -279,13 +279,124 @@ kubectl get pods -l app=v1
 
 
 <h3>5. Multiples instancias de una App</h3>
-<p>(Sigue aca)</p>
+<p>Escalar es incrementar el numero de instancias o pods para poder manejar
+incrementos de trafico en la aplicación. Los services manejan el trafico hacia
+los pods mendiante un load-balancer.</p>
+<h4>Tutorial interactivo</h4>
+<p>Escalar (scale up) un deployment llamado kubernetes-bootcamp a 4 replicas:</p>
+<pre class="code literal-block"><span></span>kubectl scale deployments/kubernetes-bootcamp --replicas=4
+</pre>
+
+
+<p>Ver los deployments:</p>
+<pre class="code literal-block"><span></span>kubectl get deployments
+</pre>
+
+
+<p>Controlar los pods (Tiene que haber 4):</p>
+<pre class="code literal-block"><span></span>kubectl get pods -o wide
+</pre>
+
+
+<p>Ver el deployment de forma mas detallada:</p>
+<pre class="code literal-block"><span></span>kubectl describe deployments/kubernetes-bootcamp
+</pre>
+
+
+<p>Ver el servicio:</p>
+<pre class="code literal-block"><span></span>kubectl describe services/kubernetes-bootcamp
+</pre>
+
+
+<p>Recuperar el nodo:</p>
+<pre class="code literal-block"><span></span><span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
+<span class="x">echo NODE_PORT=$NODE_PORT</span>
+</pre>
+
+
+<p>Ejecutar varias veces:</p>
+<pre class="code literal-block"><span></span>curl host01:$NODE_PORT
+</pre>
+
+
+<p>Deberian responder diferentes pods de la misma app.</p>
+<p>Ejecutar ahora solo 2 replicas (Scale down):</p>
+<pre class="code literal-block"><span></span>kubectl scale deployments/kubernetes-bootcamp --replicas=2
+</pre>
+
+
+<p>Confirmar el cambio:</p>
+<pre class="code literal-block"><span></span>kubectl get deployments
+</pre>
+
+
+<h3>6. Realizando actualizaciones progresivas</h3>
+<p>La idea es lograr actualizaciones sin que se experimente una caida del servicio,
+esto permite poder actualizar las aplicaciones de forma mas seguida.</p>
+<p>Kubernetes permite esto mediante las Rolling Updates. Esto permite actualizar
+sin tener downtimes y ademas puede ser revertido en caso de problemas
+(rollbacks).</p>
+<h4>Tutorial interactivo</h4>
+<p>Ver imagen actual de los pods (Campo image):</p>
+<pre class="code literal-block"><span></span>kubectl describe pods
+</pre>
+
+
+<p>Actualizar la image:</p>
+<pre class="code literal-block"><span></span>kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+</pre>
+
+
+<p>Ver información de los Pods:</p>
+<pre class="code literal-block"><span></span>kubectl get pods
+</pre>
+
+
+<p>No actualiza los viejos pods, sino que termina los anteirores y crea pods
+nuevos.</p>
+<p>Verificar que la app actualizo:</p>
+<pre class="code literal-block"><span></span><span class="x">kubectl describe services/kubernetes-bootcamp</span>
+<span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
+<span class="x">echo NODE_PORT=$NODE_PORT</span>
+<span class="x">curl host01:$NODE_PORT</span>
+</pre>
+
+
+<p>Tambien puede verificarse el exito mediante:</p>
+<pre class="code literal-block"><span></span>kubectl rollout status deployments/kubernetes-bootcamp
+</pre>
+
+
+<p>Deployar una version "con errores":</p>
+<pre class="code literal-block"><span></span>kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10
+</pre>
+
+
+<p>Ver problemas:</p>
+<pre class="code literal-block"><span></span>kubectl get deployments
+kubectl get pods
+kubectl describe pods
+</pre>
+
+
+<p>Rollback:</p>
+<pre class="code literal-block"><span></span>kubectl rollout undo deployments/kubernetes-bootcamp
+kubectl get pods
+kubectl describe pods
+</pre>
+
+
 <h2>Dudas</h2>
 <ul>
 <li>¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
  pueden convivir en el?</li>
+</ul>
+<p>Se pueden hacer deploys de varias apps y se iran acomodando en los recursos que
+el cluster tenga disponibles.</p>
+<ul>
 <li>¿Un Pod es equivalente a un container?</li>
 </ul>
+<p>Un pod es un container de una aplicación en particular gestionado por kubernetes</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
