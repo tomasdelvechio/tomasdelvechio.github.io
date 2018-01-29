@@ -200,13 +200,112 @@ Borrar un servicio:
 
 ## 5. Multiples instancias de una App
 
-(Sigue aca)
+Escalar es incrementar el numero de instancias o pods para poder manejar
+incrementos de trafico en la aplicación. Los services manejan el trafico hacia
+los pods mendiante un load-balancer.
 
+### Tutorial interactivo
 
+Escalar (scale up) un deployment llamado kubernetes-bootcamp a 4 replicas:
 
+	kubectl scale deployments/kubernetes-bootcamp --replicas=4
+
+Ver los deployments:
+
+	kubectl get deployments
+
+Controlar los pods (Tiene que haber 4):
+
+	kubectl get pods -o wide
+
+Ver el deployment de forma mas detallada:
+
+	kubectl describe deployments/kubernetes-bootcamp
+
+Ver el servicio:
+
+	kubectl describe services/kubernetes-bootcamp
+
+Recuperar el nodo:
+
+	export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+	echo NODE_PORT=$NODE_PORT
+
+Ejecutar varias veces:
+
+	curl host01:$NODE_PORT
+
+Deberian responder diferentes pods de la misma app.
+
+Ejecutar ahora solo 2 replicas (Scale down):
+
+	kubectl scale deployments/kubernetes-bootcamp --replicas=2
+
+Confirmar el cambio:
+
+	kubectl get deployments
+
+## 6. Realizando actualizaciones progresivas
+
+La idea es lograr actualizaciones sin que se experimente una caida del servicio,
+esto permite poder actualizar las aplicaciones de forma mas seguida.
+
+Kubernetes permite esto mediante las Rolling Updates. Esto permite actualizar
+sin tener downtimes y ademas puede ser revertido en caso de problemas
+(rollbacks).
+
+### Tutorial interactivo
+
+Ver imagen actual de los pods (Campo image):
+
+	kubectl describe pods
+
+Actualizar la image:
+
+	kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+
+Ver información de los Pods:
+
+	kubectl get pods
+
+No actualiza los viejos pods, sino que termina los anteirores y crea pods
+nuevos.
+
+Verificar que la app actualizo:
+
+	kubectl describe services/kubernetes-bootcamp
+	export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+	echo NODE_PORT=$NODE_PORT
+	curl host01:$NODE_PORT
+
+Tambien puede verificarse el exito mediante:
+
+	kubectl rollout status deployments/kubernetes-bootcamp
+
+Deployar una version "con errores":
+
+	kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10
+
+Ver problemas:
+
+	kubectl get deployments
+	kubectl get pods
+	kubectl describe pods
+
+Rollback:
+
+	kubectl rollout undo deployments/kubernetes-bootcamp
+	kubectl get pods
+	kubectl describe pods
 
 # Dudas
 
  + ¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
  pueden convivir en el?
+
+Se pueden hacer deploys de varias apps y se iran acomodando en los recursos que
+el cluster tenga disponibles.
+
  + ¿Un Pod es equivalente a un container?
+
+Un pod es un container de una aplicación en particular gestionado por kubernetes
