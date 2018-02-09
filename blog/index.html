@@ -55,7 +55,58 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="configuracion-para-sublime-text-3/" class="u-url">Configuración para Sublime Text 3</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" class="u-url">Kompose: Migrar tus archivos Docker Compose a Kubernetes</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tomás Delvechio
+            </span></p>
+            <p class="dateline"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" rel="bookmark"><time class="published dt-published" datetime="2018-02-04T16:28:51-03:00" title="2018-02-04 16:28">2018-02-04 16:28</time></a></p>
+                <p class="commentline">
+        
+    <a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/kompose-migrar-tus-archivos-docker-compose-a-kubernetes.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Kompose: Migrar apps desplegadas con Docker Kompose a Kubernetes</h2>
+<p>En un <a href="algunas-notas-sobre-kubernetes">post anterior</a> desplegamos un
+cluster de pruebas con contenedores usando <a href="https://kubernetes.io">Kubernetes</a> y
+<a href="https://github.com/kubernetes/minikube">Minikube</a>. Este esquema resulta util
+cuando lo que se quiere es desplegar y escalar un contenedor.</p>
+<p>Sin embargo, muchas aplicaciones Docker comenzaron a orquestarse utilizando mas
+de un contenedor para hacer funcionar la misma. Por ejemplo, un contenedor con
+un web server, otro para la base de datos relacional, y un tercero para una base
+nosql.</p>
+<p>Para este tipo de esquemas surgio docker-compose. Permitia de forma sencilla
+administrar la configuracion varios contenedores en simultaneo cuya imagen
+origen eran diferentes.</p>
+<p>Para lograr un comportamiento similar con Kubernetes, existe la herramienta
+<a href="http://kompose.io">Kompose</a>. Kompose nos permite tomar el contenido de un
+archivo docker-compose.yml y realizar las mismas acciones, pero utilizando
+Kubernetes.</p>
+<h3>Uso basico</h3>
+<p>Como siempre, nos salteamos la parte de instalacion dado que es sencilla y se
+encuentra documentada en la <a href="http://kompose.io/installation/">pagina oficial</a>.</p>
+<p>Kompose es muy sencilla de utilizar. Puede hacer 2 tareas principales:</p>
+<ul>
+<li>Tomar un archivo docker-compose.yml y convertirlo a archivos de configuracion
+ de Kubernetes.</li>
+<li>Ejecutar el archivo docker-compose.yml directamente sin generar nuevos
+ archivos.</li>
+</ul>
+<p>La forma mas sencilla de utilizar es la segunda, dado que contamos con un
+proyecto con un archivo docker-compose.yml o en general conocemos ese formato
+bastante. Entonces se ejecuta</p>
+<pre class="code literal-block"><span></span>kompose up
+</pre>
+
+
+<p>y eso ya levanta con Kubernetes todos los contenedores indicados.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="configuracion-para-sublime-text-3/" class="u-url">Configuración para Sublime Text 3</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tomás Delvechio
