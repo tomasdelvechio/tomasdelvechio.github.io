@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>tutoriales &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/category/tutoriales/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Post instalación Ubuntu 14.04</title>
+		<link>http://tomasdel.com/338</link>
+		<comments>http://tomasdel.com/338#respond</comments>
+		<pubDate>Mon, 20 Oct 2014 22:13:29 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[apt-get]]></category>
+		<category><![CDATA[aptitude]]></category>
+		<category><![CDATA[compilacion]]></category>
+		<category><![CDATA[dpkg]]></category>
+		<category><![CDATA[instalacion]]></category>
+		<category><![CDATA[Pos-Instalacion]]></category>
+		<category><![CDATA[programas]]></category>
+		<category><![CDATA[software]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+		<category><![CDATA[Ubuntu 14.04]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=338</guid>
+		<description><![CDATA[Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación. Así que la intención del post este es tener una referencia o machete [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación.</p>
+<p>Así que la intención del post este es tener una referencia o machete personal en linea para todo lo que tiene que ver con la post instalación de Ubuntu, y por ahí a alguno le sirve.</p>
+<h2>1 &#8211; Agregar Repositorios adicionales</h2>
+<p>Algunos repositorios de terceros no vienen agregados de forma predeterminada por cuestiones legales, sin embargo, suele tener software adicional o mas actualizado que los repositorios oficiales.</p>
+<p>La forma mas sencilla de activarlo es buscando la aplicación &#8220;Software &amp; Updates&#8221; o &#8220;Software y actualizaciones&#8221;, y una vez allí, visitar las pestañas Software de Ubuntu (Activar main, universe, restricted y multiverse, Código fuente es opcional y yo no lo activo), Otro Software (Socios de Canonical e Independientes, de nuevo puede activarse opcionalmente los referentes al código fuente, y yo no lo hago) y Actualizaciones (security, updates, proposed y backports).</p>
+<p>Una vez realizado lo anterior, es recomendable realizar una actualización general:</p>
+<pre class="brush: bash; gutter: true">sudo apt-get update &amp;&amp; sudo apt-get upgrade</pre>
+<p>Quiero agregar que esto lo hago en mi notebook personal que es de uso &#8220;Desktop&#8221;, para el caso de un servidor es posible que existan otras precauciones y debería consultarse algún tipo de literatura especializada.</p>
+<h2>2 &#8211; Software adicional</h2>
+<p>Lo siguiente que hago es instalar el software que utilizo de forma diaria o rutinaria para mis tareas personales y laborales, algunos de estos programas se consiguen desde los repositorios oficiales, otros los descargo desde las webs oficiales. Cada uno de estos tipos de software sera comentado de forma separada.</p>
+<h3>2.1 &#8211; Software desde los repositorios oficiales</h3>
+<p>Cabe aclarar que el listado siguiente es un listado de cosas que a mi me sirven, así que es posible que muchas de las cosas que aparecen ustedes quieran obviarlas.</p>
+<pre class="brush: bash; gutter: false">build-essential
+aptitude
+synaptic
+htop
+nmap
+mc
+gummi
+guake
+xchat
+subversion
+git
+mercurial
+postgresql
+php5
+php5-pgsql
+pgadmin3
+apache2
+audacious
+shutter
+gparted
+ipython
+gimp
+meld
+openjdk-7-jdk
+adobe-flashplugin
+wine
+ssh
+vlc
+aria2</pre>
+<h3>2.2 &#8211; Software que descargo desde las paginas oficiales</h3>
+<p>El siguiente listado es de aquellos programas que descargo desde sus respectivas paginas oficiales. Dejo los nombres de los programas, con los links a las paginas de descargas, y algunos comentarios en los casos que lo requieran.</p>
+<p><a href="https://netbeans.org/downloads/" target="_blank">Netbeans</a>: Descarga un archivo de extensión .sh, que debe ser ejecutado desde la terminal, previamente agregándole permisos de ejecución (chmod +x archivo.sh).<br />
+<a href="http://www.sublimetext.com/3" target="_blank">Sublime3</a><br />
+<a href="http://www.mendeley.com/download-mendeley-desktop/" target="_blank">Mendeley</a><br />
+<a href="http://www.google.com/intl/es-419/chrome/" target="_blank">Chrome</a><br />
+<a href="http://www.geany.org/Download/Releases" target="_blank">Geany</a>: En este caso descargo el código fuente en un archivo .tar.gz, lo compilo e instalo (./configure, make y sudo make install). El paso del configure siempre falla porque necesita dependencias, si es el caso, instalar libgtk2.0-dev e intltool.<br />
+<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Virtualbox</a><br />
+<a href="http://www.teamviewer.com/es/download/linux.aspx" target="_blank">Teamviewer</a>: En este caso, a pesar de instalar una versión de SO de 64bits, la versión de TV para la misma arquitectura siempre falla en la instalación. Por ello, la solución fácil es bajar la versión de 32bits sin importar que arquitectura se uso en el SO. A mi me anduvo siempre sin problemas.<br />
+<a href="http://www.skype.com/es/download-skype/skype-for-computer/" target="_blank">Skype</a>: Tiene sus trucos, ver mas abajo.<br />
+<a href="https://www.dropbox.com/install" target="_blank">Dropbox</a><br />
+<a href="http://www.vagrantup.com/downloads.html" target="_blank">Vagrant</a></p>
+<h4>2.2.3 &#8211; Skype</h4>
+<p>Al intentar instalar Skype, mediante el paquete .deb descargado desde el sitio oficial, puede ocurrir que se encuentren con un error como el siguiente:</p>
+<pre class="brush: bash; gutter: true"> skype:i386 : Depends: libqt4-dbus:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqt4-network:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqt4-xml:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqtcore4:i386 (&gt;= 4:4.7.0~beta1) but it is not going to be installed.
+              Depends: libqtgui4:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqtwebkit4:i386 (&gt;= 2.2~2011week36) but it is not going to be installed.
+              Depends: libstdc++6:i386 (&gt;= 4.2.1) but it is not going to be installed.
+              Depends: libxss1:i386 but it is not going to be installed.
+              Depends: libxv1:i386 but it is not going to be installed.
+              Depends: libssl1.0.0:i386 but it is not going to be installed.
+              Depends: libpulse0:i386 but it is not going to be installed.
+              Depends: libasound2-plugins:i386 but it is not going to be installed.</pre>
+<p>En este caso, hay que instalar las dependencias indicadas, les dejo la linea de aptitude para dicha instalación.</p>
+<pre class="brush: bash; gutter: false">sudo aptitude install libqt4-dbus:i386 libqt4-network:i386 libqt4-xml:i386 libqtcore4:i386 libqtgui4:i386 libqtwebkit4:i386 libstdc++6:i386 libxss1:i386 libxv1:i386 libssl1.0.0:i386 libpulse0:i386 libasound2-plugins:i386</pre>
+<p>Si en la instalación les dice que el paquete skype esta parcialmente instalado y quiere desinstalarlo, acéptenlo sin problemas, y la próxima vez que intenten instalar Skype, el error inicial no debería aparecer.</p>
+<h3>2.3 &#8211; Instalación manual de programas</h3>
+<h4>2.3.1 &#8211; Si se dispone del código fuente</h4>
+<p>Lo normal cuando se disponga del código fuente de un programa, es tener que realizar los siguientes 3 pasos:</p>
+<pre class="brush: bash; gutter: true">./configure
+make
+sudo make install</pre>
+<p>El primer paso revisa que todas las librerías que necesita el software para compilarse se encuentran en el sistema. En caso que exista un error en este paso, sera necesario buscar en la documentación del software particular que librerías necesita, o buscarlo en la Web.</p>
+<p>El comando make compila el software, es decir, crea los binarios a partir del código fuente, que sera lo que se ejecute posteriormente en nuestro equipo.</p>
+<p>El comando make install ubica los binarios y crea accesos directos y variables de entorno para que el software recién compilado sea utilizable desde el sistema. Como puede necesitar escribir en carpetas del sistema, es necesario ejecutarlo con permisos de root (por eso sudo adelante).</p>
+<p>Una vez realizado el make install, la carpeta donde se realizo la compilación puede ser eliminada, pero en caso de no querer borrarla para probar o recompilar posteriormente sin necesidad de bajar el software nuevamente, recomiendo ejecutar un cuarto comando make clean, que elimina archivos intermedios utilizados durante la compilación, y que ocupan lugar en el disco y no son necesarios.</p>
+<h4>2.3.2 &#8211; Si se descargaron archivos con extensión .deb</h4>
+<p>Muchos de los programas ofrecen binarios precompilados de extension .deb, instalables en Debian/Ubuntu etc&#8230;</p>
+<p>Para instalar dicho programas, solo es necesario ejecutar lo siguiente:</p>
+<pre class="brush: bash; gutter: false">sudo dpkg -i archivo.deb</pre>
+<p>En la medida que recuerde mas tareas pos-instalación, la idea es agregarla. Si se les ocurre algún software adicional que ustedes usen, etc&#8230; los invito a compartirlo en los comentarios del blog (Les agregue redes sociales para que no tengan que hacerse ni un usuario en el sitio, no sean vagos :p ).</p>
+<p><strong>UPDATE:</strong> Leyendo blogs, me encontré con este post que mediante dpkg genera un archivo con la lista de paquetes instalados en un sistema (Debian, Ubuntu o derivados). Lo interesante es que de paso muestra como re instalar en el nuevo sistema los paquetes a partir del archivo generado.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/338/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Hadoop: Introduccion, articulos e Instalación</title>
+		<link>http://tomasdel.com/326</link>
+		<comments>http://tomasdel.com/326#respond</comments>
+		<pubDate>Mon, 13 Oct 2014 14:32:15 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[Materias]]></category>
+		<category><![CDATA[Soluciones]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[big data]]></category>
+		<category><![CDATA[charlas]]></category>
+		<category><![CDATA[hadoop]]></category>
+		<category><![CDATA[instalacion]]></category>
+		<category><![CDATA[slides]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=326</guid>
+		<description><![CDATA[El día miércoles 8/10/2014 en el marco de una materia me invitaron a exponer la experiencia que vengo reuniendo en lo que respecta al Big Data y a Hadoop en particular. Ya tenia preparada una diapositiva introductoria, la cual amplié y corregí de cara al curso, el cual es sobre Sistemas Distribuidos y agregue algún [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>El día miércoles 8/10/2014 en el marco de una materia me invitaron a exponer la experiencia que vengo reuniendo en lo que respecta al Big Data y a Hadoop en particular. Ya tenia preparada una diapositiva introductoria, la cual amplié y corregí de cara al curso, el cual es sobre Sistemas Distribuidos y agregue algún contenido adicional sobre como opera HDFS de forma mas detallada.</p>
+<p>Las slides:</p>
+<p><iframe src="//slides.com/tomasdelvechio/hadoop--2/embed" width="576" height="420" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe></p>
+<p>Por otro lado, el profesor me pidió, de la vasta documentación en el tema, 1 articulo o dos para ofrecer como bibliografia. Si bien podría haber dicho el libro de Tom White, que es la referencia en el tema, me pareció que para un curso que no es especifico de Hadoop dos artículos mas específicos podrían ser un mejor aporte. Los artículos que elegí fueron:</p>
+<p><b>[DEA,2004]</b>: Dean, J. Et. all. &#8220;<a href="http://static.googleusercontent.com/media/research.google.com/es-419//archive/mapreduce-osdi04.pdf" target="_blank"><i>MapReduce: Simplified Data Processing on Large Clusters</i></a>&#8220;.  OSDI. 2004.</p>
+<p><b>[SHV,2010]:</b> Shvachko, K. Et. all. &#8220;<a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=799A2C18A3A740620B51A4AE65476312?doi=10.1.1.178.989&amp;rep=rep1&amp;type=pdf" target="_blank">The Hadoop Distributed File System</a>&#8220;. IEEE. 2010.</p>
+<p>Por ultimo, Agrego dos tutoriales que armamos con dos colegas (Esteban y Alejandro) para instalar Hadoop para desarrollo (conocida como single-node) y como cluster.</p>
+<p><script src="https://gist.github.com/tomasdelvechio/26e709368d461406d91d.js"></script></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/326/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Corrector ortográfico para español en Sublime Text 3</title>
+		<link>http://tomasdel.com/244</link>
+		<comments>http://tomasdel.com/244#respond</comments>
+		<pubDate>Wed, 21 May 2014 03:22:09 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[Corrector Ortografico]]></category>
+		<category><![CDATA[Sublime Text]]></category>
+		<category><![CDATA[Sublime Text 3]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=244</guid>
+		<description><![CDATA[Sublime Text 3 (ST3) es el editor de texto de moda. Lamentablemente no es libre, sin embargo yo lo estoy usando últimamente porque es muy ligero (mas que Geany para mi gusto), y tiene muchas características interesantes. Me encontraba armando un archivo en Markdown (Para documentacion de un proyecto) y al escribir rápido, quería verificar [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Sublime Text 3 (ST3) es el editor de texto de moda. Lamentablemente no es libre, sin embargo yo lo estoy usando últimamente porque es muy ligero (mas que Geany para mi gusto), y tiene muchas características interesantes.</p>
+<p>Me encontraba armando un archivo en Markdown (Para documentacion de un proyecto) y al escribir rápido, quería verificar si no se me había pasado alguna falta de ortografía grosera.</p>
+<p>Los correctores no son infalibles, pero ayudan, entonces busque si era posible en ST3 tener un corrector, y en español (Idioma de la documentación).</p>
+<p>Descubrí que ST3 trae un corrector incorporado (+1), pero obviamente el único idioma por defecto es el ingles (-1). Buscando, en <a title="Diccionario español Sublime Text 2" href="http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/" target="_blank">este blog</a> encuentro una solución para la version 2 del editor que al menos a mi me sirvió para la versión 3:</p>
+<ul>
+<li>Ingresar a <b><a title="Diccionarios" href="https://github.com/SublimeText/Dictionaries/" target="_blank">https://github.com/SublimeText/Dictionaries/</a></b></li>
+<li>Descargar los siguientes archivos:
+<ul>
+<li><span class="css-truncate css-truncate-target"><a id="0f7789341773d0b6fb93f0c2d31ff60b-c4e53584c897251c0e806b40565d2314b3d78759" class="js-directory-link" title="Spanish.aff" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.aff">Spanish.aff</a></span></li>
+<li><span class="css-truncate css-truncate-target"><a id="c271b5605c6477f52cfe0afd2182f63f-178073a15a27641fa7c3222343eb376e3427b3c4" class="js-directory-link" title="Spanish.dic" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.dic">Spanish.dic</a></span></li>
+<li><span class="css-truncate css-truncate-target"><a id="ce01f79ee22807957526fefeb287f8ef-98b5ad4cf05821ef60ef50b9b3fb57909c31cefe" class="js-directory-link" title="Spanish.txt" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.txt">Spanish.txt</a></span></li>
+</ul>
+</li>
+<li>Crear una carpeta de nombre &#8220;Language – Spanish&#8221; y guardar los 3 archivos dentro.</li>
+<li>Mover el directorio creado a la carpeta de extensiones de ST3. En mi caso, instale ST3 desde el <a title="Sublime Text 3 - Deb file" href="http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb" target="_blank">.deb descargable del sitio oficial</a>. Dicho paquete, ubica los archivos de usuario en $HOME/.config/sublime-text-3/Packages/, con lo cual, allí fue movido el directorio &#8220;Language &#8211; Spanish/&#8221; con los 3 archivos previamente descargados.</li>
+<li>Una vez hecho esto, desde ST3 vamos al menu &#8220;View-&gt;Spell Check&#8221; para activar el corrector ortográfico, y luego a &#8220;View-&gt;Dictionary-&gt;Languaje &#8211; Spanish-&gt;Spanish&#8221;.</li>
+</ul>
+<p>Una vez hecho lo anterior, pude corregir el documento en cuestión de forma similar a como se hace en cualquier Procesador de Textos.</p>
+<p>FUENTE: <a href="http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/" target="_blank">http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/244/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Descargar archivos de video flash que se estan previsualizando en Firefox</title>
+		<link>http://tomasdel.com/140</link>
+		<comments>http://tomasdel.com/140#respond</comments>
+		<pubDate>Fri, 18 Mar 2011 02:19:35 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=140</guid>
+		<description><![CDATA[Hasta hace un tiempo, cuando mirábamos vídeos por Youtube en Ubuntu, Debian u otro Linux, sabíamos que el archivo de extensión _flv_ respectivo se guardaba en la carpeta _/tmp_ con un nombre del tipo _FlashXXXXX_
+
+Esto permitía que si por algún motivo deseábamos tener una copia local del vídeo, con copiar ese archivo a otra ubicación (El escritorio por ejemplo), ya lo teníamos disponible.
+
+Desde hace unas actualizaciones (no se si de Firefox o de Linux), esto ya no se puede. El archivo se va cargando, pero si vamos a _/tmp_, no se encuentra el archivo Flash. Sin embargo, el archivo debe estar en algún lado, alojado temporalmente. Vamos a descubrir donde esta oculto.]]></description>
+				<content:encoded><![CDATA[<p>Hasta hace un tiempo, cuando mirábamos vídeos por Youtube en Ubuntu, Debian u otro Linux, sabíamos que el archivo de extensión _flv_ respectivo se guardaba en la carpeta _/tmp_ con un nombre del tipo _FlashXXXXX_</p>
+<p>Esto permitía que si por algún motivo deseábamos tener una copia local del vídeo, con copiar ese archivo a otra ubicación (El escritorio por ejemplo), ya lo teníamos disponible.</p>
+<p>Desde hace unas actualizaciones (no se si de Firefox o de Linux), esto ya no se puede. El archivo se va cargando, pero si vamos a _/tmp_, no se encuentra el archivo Flash. Sin embargo, el archivo debe estar en algún lado, alojado temporalmente. Vamos a descubrir donde esta oculto.</p>
+<p>*Lamentablemente, la única manera de lograrlo por ahora es mediante el uso de consola, hasta que alguien haga algún script que automatice el proceso.*</p>
+<p>Abrimos una consola (Aplicaciones -> Accesorios -> Terminal en Gnome), sino _Alt+F2_ y escribimos _xterm_ (Esto ultimo funciona en cualquier entorno), y tecleamos el siguiente comando</p>
+<p>bc. $ lsof | grep -i flash<br />
+firefox-b  2628       tomas  mem       REG        8,5 12110348       4531 /usr/lib/adobe-flashplugin/libflashplayer.so<br />
+plugin-co  2703       tomas  mem       REG        8,5 12110348       4531 /usr/lib/adobe-flashplugin/libflashplayer.so<br />
+plugin-co  2703       tomas   16u      REG        8,5  9444506         33 /tmp/FlashXXi3xqiA (deleted)<br />
+plugin-co  2703       tomas   28u      REG        8,5  3205796       2463 /tmp/FlashXXnGj56v (deleted)</p>
+<p>El comando puede tardar unos minutos en responder, asi que paciencia. Las lineas que interesan son las dos ultimas:</p>
+<p>bc. plugin-co  2703       tomas   16u      REG        8,5  9444506         33 /tmp/FlashXXi3xqiA (deleted)<br />
+plugin-co  2703       tomas   28u      REG        8,5  3205796       2463 /tmp/FlashXXnGj56v (deleted)</p>
+<p>Me doy cuenta por como terminan: */tmp/FlashXXi3xqiA (deleted)* y */tmp/FlashXXnGj56v (deleted)*</p>
+<p>Vamos a ver como obtener el primer video de estos dos.</p>
+<p>A continuacion, resalto con asteriscos los dos datos a tener en la cabeza:</p>
+<p>bc. plugin-co  *2703*       tomas   *16*u      REG        8,5  9444506         33 /tmp/FlashXXi3xqiA (deleted)</p>
+<p>Lo siguiente que hacemos (con los datos anteriores en la mente):</p>
+<p>bc. $ cp /proc/2703/fd/16 /home/tu_usuario/Escritorio/video.flv</p>
+<p>Si vamos al Escritorio y ejecutamos el archivo *video.flv* tendremos que poder reproducir el video sin problemas.</p>
+<p>En el caso del segundo archivo, la linea para copiarlo es:</p>
+<p>bc. $ cp /proc/2703/fd/28 /home/tu_usuario/Escritorio/video2.flv</p>
+<p>Realmente no se porque la complicaron, pero bueno, hecha la trampa (de ellos) hecha la ley <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/140/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Fsck, Tune2fs y reinicios</title>
+		<link>http://tomasdel.com/104</link>
+		<comments>http://tomasdel.com/104#comments</comments>
+		<pubDate>Sun, 23 May 2010 21:27:32 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=104</guid>
+		<description><![CDATA[La otra vez me encontraba en el canal IRC de Ubuntu-Ar (#ubuntu-ar en Freenode), y un muchacho pide que le ayuden en lo siguiente: El quería que el comando _fsck_ no se ejecute cada 30 reinicios del sistema, como figura por default en _Ubuntu_ (y muchas otras distros implementan la misma política) sino que lo [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>La otra vez me encontraba en el canal IRC de Ubuntu-Ar (#ubuntu-ar en Freenode), y un muchacho pide que le ayuden en lo siguiente:</p>
+<p>El quería que el comando _fsck_ no se ejecute cada 30 reinicios del sistema, como figura por default en _Ubuntu_ (y muchas otras distros implementan la misma política) sino que lo haga, por ejemplo, una vez por mes.</p>
+<p>Yo nunca había tenido problema, sobre todo porque en la Portátil estoy muy acostumbrado a hibernar el sistema, y los apagados/reinicios del sistema son mas bien escasos.</p>
+<p>Pero como tenia pinta de no saber buscar demasiado en Google, y no parecía un problema tan difícil, me dispuse a ayudarlo.</p>
+<p>&#8220;Fue bastante fácil hallar la respuesta&#8221;:http://lapipaplena.wordpress.com/fsck-y-tune2fs/, y reproduzco acá la solución que le pase, para que a alguno le sirva:</p>
+<p>El comando a ejecutar es _tune2fs_, y a continuación vemos algunos ejemplos:</p>
+<p>bc. # tune2fs -c 80 /dev/sda1 (cada 80 reinicios)<br />
+# tune2fs -i 2m /dev/sda1 (cada 2 meses)<br />
+# tune2fs -i 2w /dev/hda3 (cada 2 semanas)<br />
+# tune2fs -i 2d /dev/sda1 (cada 2 días)</p>
+<p>Si queremos, por ejemplo, un mes:</p>
+<p>bc. # tune2fs -i 1m /dev/sda1 (cada 1 mes)</p>
+<p>o podría ser</p>
+<p>bc. # tune2fs -i 30d /dev/sda1 (cada 30 días)</p>
+<p>Si quisiéramos volver a la configuración por default:</p>
+<p>bc. # tune2fs -c 30 /dev/sda1 (cada 30 reinicios)</p>
+<p>Dos comentarios finales:</p>
+<p>* Hay que correrlo como _root_ (observar el # al principio de cada linea)<br />
+* Hay que hacerlo una vez por cada partición que quieras que se<br />
+verifique en ese intervalo. Es decir, la política se aplica a *cada partición*, no al sistema en su conjunto.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/104/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Error al instalar Symfony en Debian Sid</title>
+		<link>http://tomasdel.com/108</link>
+		<comments>http://tomasdel.com/108#respond</comments>
+		<pubDate>Sun, 21 Feb 2010 19:46:03 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=108</guid>
+		<description><![CDATA[La otra vez estaba instalando el &#8220;Framework Symfony&#8221;:http://www.symfony-project.org/ en Debian Sid, y me surgió un error en medio de la instalación bc. tomas@tomas-debian:~$ sudo aptitude install php5-symfony1.0 [sudo] password for tomas: Leyendo lista de paquetes&#8230; Hecho Creando árbol de dependencias Leyendo la información de estado&#8230; Hecho Leyendo la información de estado extendido&#8230; Hecho Inicializando el [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>La otra vez estaba instalando el &#8220;Framework Symfony&#8221;:http://www.symfony-project.org/ en Debian Sid, y me surgió un error en medio de la instalación</p>
+<p>bc. tomas@tomas-debian:~$ sudo aptitude install php5-symfony1.0<br />
+[sudo] password for tomas:<br />
+Leyendo lista de paquetes&#8230; Hecho<br />
+Creando árbol de dependencias<br />
+Leyendo la información de estado&#8230; Hecho<br />
+Leyendo la información de estado extendido&#8230; Hecho<br />
+Inicializando el estado de los paquetes&#8230; Hecho<br />
+Se instalarán los siguiente paquetes NUEVOS:<br />
+ php5-symfony1.0<br />
+0 paquetes actualizados, 1 nuevos instalados, 0 para eliminar y 2 sin<br />
+actualizar.<br />
+Necesito descargar 0B/2.629kB de ficheros. Después de desempaquetar se<br />
+usarán 12,7MB.<br />
+Escribiendo información de estado extendido&#8230; Hecho<br />
+(Leyendo la base de datos &#8230;  00%<br />
+156865 ficheros y directorios instalados actualmente.)<br />
+Desempaquetando php5-symfony1.0 (de &#8230;/php5-symfony1.0_1.0.21-1.1_all.deb) &#8230;<br />
+dpkg: error al procesar<br />
+/var/cache/apt/archives/php5-symfony1.0_1.0.21-1.1_all.deb (&#8211;unpack):<br />
+ trying to overwrite &#8216;/usr/share/php/doc&#8217;, which is also in package<br />
+php-pear 0:5.2.11.dfsg.1-2<br />
+dpkg-deb: el subproceso paste fue terminado por la señal (Tubería rota)<br />
+Se encontraron errores al procesar:<br />
+ /var/cache/apt/archives/php5-symfony1.0_1.0.21-1.1_all.deb</p>
+<p>bc. E: Sub-process /usr/bin/dpkg returned an error code (1)<br />
+Un paquete no se pudo instalar. Intentado recuperarse:<br />
+Leyendo lista de paquetes&#8230; Hecho<br />
+Creando árbol de dependencias<br />
+Leyendo la información de estado&#8230; Hecho<br />
+Leyendo la información de estado extendido&#8230; Hecho<br />
+Inicializando el estado de los paquetes&#8230; Hecho</p>
+<p>Me puse a investigar el error, observando el mensaje mas descriptivo:</p>
+<p>bc. /var/cache/apt/archives/php5-symfony1.0_1.0.21-1.1_all.deb (&#8211;unpack):<br />
+ trying to overwrite &#8216;/usr/share/php/doc&#8217;, which is also in package<br />
+php-pear 0:5.2.11.dfsg.1-2<br />
+dpkg-deb: el subproceso paste fue terminado por la señal (Tubería rota)</p>
+<p>Decía que había una *tubería rota* en _/usr/share/php/doc_ y entonces me dirigí allí:</p>
+<p>bc. tomas@tomas-debian:~$ cd /usr/share/php/doc<br />
+bash: cd: /usr/share/php/doc: No existe el fichero o el directorio</p>
+<p>*Vamos bien*, pensé. Intenté ir a una carpeta superior y listar el contenido de dicho directorio:</p>
+<p>bc. tomas@tomas-debian:~$ cd /usr/share/php<br />
+tomas@tomas-debian:/usr/share/php$ ls<br />
+Archive  Console  data  doc  OS  PEAR  pearcmd.php  PEAR.php<br />
+peclcmd.php  Structures  System.php  XML</p>
+<p>O sea, un elemento llamado _doc_ existe en la carpeta. ¿Pero que sera?</p>
+<p>bc. tomas@tomas-debian:/usr/share/php$ ls -l<br />
+total 104<br />
+drwxr-xr-x  2 root root  4096 dic 22 08:13 Archive<br />
+drwxr-xr-x  2 root root  4096 dic 22 08:13 Console<br />
+drwxr-xr-x  3 root root  4096 dic 22 08:19 data<br />
+lrwxrwxrwx  1 root root    20 dic 22 08:13 doc -> ../doc/php-pear/PEAR<br />
+drwxr-xr-x  2 root root  4096 dic 22 08:13 OS<br />
+drwxr-xr-x 11 root root  4096 dic 22 08:13 PEAR<br />
+-rw-r&#8211;r&#8211;  1 root root 14726 nov 21 18:18 pearcmd.php<br />
+-rw-r&#8211;r&#8211;  1 root root 35783 nov 21 18:18 PEAR.php<br />
+-rw-r&#8211;r&#8211;  1 root root   928 nov 21 18:18 peclcmd.php<br />
+drwxr-xr-x  3 root root  4096 dic 22 08:13 Structures<br />
+-rw-r&#8211;r&#8211;  1 root root 19970 nov 21 18:18 System.php<br />
+drwxr-xr-x  2 root root  4096 dic 22 08:13 XML</p>
+<p>Observemos entonces detenidamente la linea:</p>
+<p>*lrwxrwxrwx  1 root root    20 dic 22 08:13 doc -> ../doc/php-pear/PEAR*</p>
+<p>Esa es la tubería. Ya podemos tener una hipótesis de por donde viene el problema: La instalación de Symfony quiso hacer algo en la carpeta _/usr/share/doc/php-pear/PEAR/_ pero parece que esa carpeta no existe. Probemos creando a mano dicha carpeta.</p>
+<p>bc. tomas@tomas-debian:/usr/share/php$ sudo mkdir ../doc/php-pear/PEAR<br />
+tomas@tomas-debian:/usr/share/php$ sudo aptitude install php5-symfony1.0<br />
+Leyendo lista de paquetes&#8230; Hecho<br />
+Creando árbol de dependencias<br />
+Leyendo la información de estado&#8230; Hecho<br />
+Leyendo la información de estado extendido&#8230; Hecho<br />
+Inicializando el estado de los paquetes&#8230; Hecho<br />
+Se instalarán los siguiente paquetes NUEVOS:<br />
+ php5-symfony1.0<br />
+0 paquetes actualizados, 1 nuevos instalados, 0 para eliminar y 2 sin<br />
+actualizar.<br />
+Necesito descargar 0B/2.629kB de ficheros. Después de desempaquetar se<br />
+usarán 12,7MB.<br />
+Escribiendo información de estado extendido&#8230; Hecho<br />
+(Leyendo la base de datos &#8230;  00%<br />
+156865 ficheros y directorios instalados actualmente.)<br />
+Desempaquetando php5-symfony1.0 (de &#8230;/php5-symfony1.0_1.0.21-1.1_all.deb) &#8230;<br />
+Configurando php5-symfony1.0 (1.0.21-1.1) &#8230;<br />
+update-alternatives: using /usr/share/php/data/symfony1.0/bin/symfony<br />
+to provide /usr/bin/symfony (symfony) in auto mode.</p>
+<p>bc. Leyendo lista de paquetes&#8230; Hecho<br />
+Creando árbol de dependencias<br />
+Leyendo la información de estado&#8230; Hecho<br />
+Leyendo la información de estado extendido&#8230; Hecho<br />
+Inicializando el estado de los paquetes&#8230; Hecho<br />
+tomas@tomas-debian:/usr/share/php$</p>
+<p>Era eso nomas. No se a que se debe el error en si, pero fue un caso donde el mensaje de error fue lo suficientemente descriptivo como para hallar la solución en un tiempo corto (Juro que lo soluciones en el momento, nada de buscar en Google ;-D ).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/108/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Cliente DAAP y Songbird</title>
+		<link>http://tomasdel.com/109</link>
+		<comments>http://tomasdel.com/109#respond</comments>
+		<pubDate>Wed, 20 Jan 2010 16:34:23 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=109</guid>
+		<description><![CDATA[Recuerdan el Post donde les mostré como &#8220;monte un servidor DAAP casero&#8221;:http://blog.tomasdelvechio.com.ar/index.php?id=7 en _Ubuntu_?? Resulta que la otra vez quise volver a probar &#8220;Songbird&#8221;:http://getsongbird.com/, que básicamente es un reproductor de audio basado en _Firefox_ (En realidad manejan el mismo motor de software interno). Me lo bajo e instalo (no hay paquete en los repositorios de [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Recuerdan el Post donde les mostré como &#8220;monte un servidor DAAP casero&#8221;:http://blog.tomasdelvechio.com.ar/index.php?id=7 en _Ubuntu_??</p>
+<p>Resulta que la otra vez quise volver a probar &#8220;Songbird&#8221;:http://getsongbird.com/, que básicamente es un reproductor de audio basado en _Firefox_ (En realidad manejan el mismo motor de software interno).</p>
+<p>Me lo bajo e instalo (no hay paquete en los repositorios de _Ubuntu_), y busco si tiene algún _plugin_ para cliente _DAAP_. Encuentro dos clientes, pero con tanta mala suerte que son para versiones viejas y no me deja instalarlo en la actual.</p>
+<p>Como toda mi musica la tengo a través del servidor _DAAP_, entonces casi que tenia que poder instalar el _plugin_ o el reproductor no tenia sentido. Intento bajarme una versión mas vieja del programa, pero vaya a saber uno porque, resulta que a los muchachos de _Songbird_ se le cruzo que lo mejor era no publicar versiones antiguas.</p>
+<p>Como no tenia ganas de renegar demasiado, me dispuse a fijarme si era sencillo retocar el _plugin_ para ver si podía hacer que la verificación de la versión no se lleve a cabo.</p>
+<p>En efecto, descargue y abrí el archivo con extensión _.xpi_ (que resulto ser un archivo comprimido) y luego dentro abrí con un editor de texto el archivo _install.rdf_. Ahí dentro encontré la siguiente sección:</p>
+<p>bc. <em:targetApplication><br />
+     <Description><br />
+          <em:id>songbird@songbirdnest.com</em:id><br />
+          <em:minVersion>1.0.0pre</em:minVersion><br />
+          <em:maxVersion>1.3.0a</em:maxVersion><br />
+     </Description><br />
+</em:targetApplication></p>
+<p>Y creo que esta claro. En donde decía *<em:maxVersion>* que contenía *1.3.0a* lo cambie por *1.5.0a* (La versión actual de _Songbird_ va por la 1.4 y pico).</p>
+<p>Hecho lo anterior, intento instalar el _plugin_, y no solo que no se queja, sino que instala y funcionó de maravilla.</p>
+<p>Les dejo en &#8220;este enlace&#8221;:http://blog.tomasdelvechio.com.ar/index.php?s=file_download&#038;id=7 el _plugin_ para _Songbird_ que agrega soporte como cliente _DAAP_. Recuerden que no me hago cargo por su descarga y utilización <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/109/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>PostgreSQL, Debian Sid y una reinstalacion fallida</title>
+		<link>http://tomasdel.com/107</link>
+		<comments>http://tomasdel.com/107#respond</comments>
+		<pubDate>Fri, 15 Jan 2010 13:10:51 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=107</guid>
+		<description><![CDATA[La otra vez decidí probar la ultima versión de _PostgreSQL_, la 8.4, que en dicho momento hacia relativamente poco que acababa de salir. Borre la 8.3, e instale la nueva versión, que hacia poco tiempo había ingresado en los repos de _Debian Sid_. Pareció que todo había salido perfecto, pero me queria conectar a la [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>La otra vez decidí probar la ultima versión de _PostgreSQL_, la 8.4, que en dicho momento hacia relativamente poco que acababa de salir.</p>
+<p>Borre la 8.3, e instale la nueva versión, que hacia poco tiempo había ingresado en los repos de _Debian Sid_.</p>
+<p>Pareció que todo había salido perfecto, pero me queria conectar a la BD vía _psql_ y no funcionaba. Me decía que el server no estaba andando.</p>
+<p>Intente pararlo e iniciarlo manualmente pero no respondía. En realidad, no tiraba ni error ni nada, pero luego del clásico</p>
+<p>bc. # /etc/init.d/postgresql-8.4 start<br />
+#</p>
+<p>Me devolvía el _prompt_ enseguida como si nada hubiera pasado. Charlando con un amigo del laburo, este me hace notar que podía estar habiendo un problema en la creación del *cluster*, cosa que hasta ahora no me había ocurrido nunca.</p>
+<p>Pero en efecto, cuando cree el nuevo *cluster* el servidor levanto sin problemas. Les paso lo que tuve que hacer:</p>
+<p>bc. tomas@tomas-debian:~$ sudo pg_createcluster 8.4 main<br />
+[sudo] password for tdelvechio:<br />
+Creating new cluster (configuration: /etc/postgresql/8.4/main, data:<br />
+/var/lib/postgresql/8.4/main)&#8230;<br />
+could not change directory to &#8220;/home/tdelvechio&#8221;<br />
+Moving configuration file /var/lib/postgresql/8.4/main/postgresql.conf<br />
+to /etc/postgresql/8.4/main&#8230;<br />
+Moving configuration file /var/lib/postgresql/8.4/main/pg_hba.conf to<br />
+/etc/postgresql/8.4/main&#8230;<br />
+Moving configuration file /var/lib/postgresql/8.4/main/pg_ident.conf<br />
+to /etc/postgresql/8.4/main&#8230;<br />
+Configuring postgresql.conf to use port 5432&#8230;<br />
+tomas@tomas-debian:~$ sudo /etc/init.d/postgresql-8.4 start<br />
+Starting PostgreSQL 8.4 database server: main.<br />
+tomas@tomas-debian:~$</p>
+<p>Espero que les sirva.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/107/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Instalar Firebird en Ubuntu 9.10</title>
+		<link>http://tomasdel.com/89</link>
+		<comments>http://tomasdel.com/89#respond</comments>
+		<pubDate>Tue, 05 Jan 2010 06:32:54 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=89</guid>
+		<description><![CDATA[Para la materia Base de Datos que aprobé el cuatrimestre pasado, tuve que instalar el &#8220;SGBD Firebird&#8221;:http://www.firebirdsql.org, que es una versión abierta y libre de *Borland Interbase*. La cuestión por la que me decido a _postear_ esto es que la instalación desde los repositorios oficiales de _Ubuntu_ siempre me causaron problemas de permisos. Por ello, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Para la materia Base de Datos que aprobé el cuatrimestre pasado, tuve que instalar el &#8220;SGBD Firebird&#8221;:http://www.firebirdsql.org, que es una versión abierta y libre de *Borland Interbase*.</p>
+<p>La cuestión por la que me decido a _postear_ esto es que la instalación desde los repositorios oficiales de _Ubuntu_ siempre me causaron problemas de permisos. Por ello, quise probar suerte intentando bajar el código fuente e instalar a mano el SGBD. </p>
+<p>Como la experiencia fue satisfactoria, comparto con ustedes los pasos seguidos en dicha oportunidad.</p>
+<p>Las pruebas fueron en todos los casos realizadas sobre el SO _Ubuntu 9.10 Karmic Koala_.</p>
+<p>Comencé &#8220;descargando de aquí&#8221;:http://sourceforge.net/projects/firebird/files/firebird-linux-i386/2.1.3-Release/FirebirdCS-2.1.3.18185-0.i686.tar.gz/download<br />
+ la versión que deseaba instalar. (Ustedes fíjense si quieren esa u otra versión).</p>
+<p>Antes de instalar _Firebird_, debemos instalar el superservidor _xinetd_. Para quienes no lo sepan, _Xinetd_ es un servidor conocido como superservidor, que optimiza la carga del sistema, teniendo el mínimo de recursos escuchando y levantando los servicios en la medida en que son solicitados. Para mas detalles, &#8220;Wikipedia&#8221;:http://es.wikipedia.org/wiki/Xinetd siempre al pie del cañón :-).</p>
+<p>Procedemos entonces a instalar _Xinetd_:</p>
+<p>bc. $ sudo aptitude install xinetd<br />
+Leyendo lista de paquetes&#8230; Hecho<br />
+Creando árbol de dependencias<br />
+Leyendo la información de estado&#8230; Hecho<br />
+Leyendo la información de estado extendido<br />
+Inicializando el estado de los paquetes&#8230; Hecho<br />
+Escribiendo información de estado extendido&#8230; Hecho<br />
+Se instalarán los siguiente paquetes NUEVOS:<br />
+  xinetd<br />
+0 paquetes actualizados, 1 nuevos instalados, 0 para eliminar y 0 sin actualizar.<br />
+Necesito descargar 151kB de ficheros. Después de desempaquetar se usarán 414kB.<br />
+Escribiendo información de estado extendido&#8230; Hecho<br />
+Des:1 http://sft.if.usp.br karmic/main xinetd 1:2.3.14-7ubuntu2 [151kB]<br />
+Descargados 151kB en 4s (34,7kB/s).<br />
+Seleccionando el paquete xinetd previamente no seleccionado.<br />
+(Leyendo la base de datos &#8230;  00%<br />
+170698 ficheros y directorios instalados actualmente.)<br />
+Desempaquetando xinetd (de &#8230;/xinetd_1%3a2.3.14-7ubuntu2_i386.deb) &#8230;<br />
+Procesando disparadores para ureadahead &#8230;<br />
+Procesando disparadores para man-db &#8230;<br />
+Configurando xinetd (1:2.3.14-7ubuntu2) &#8230;<br />
+ * Stopping internet superserver inetd                                                  [ OK ]<br />
+ * Starting internet superserver xinetd                                                 [ OK ] </p>
+<p>bc. Leyendo lista de paquetes&#8230; Hecho<br />
+Creando árbol de dependencias<br />
+Leyendo la información de estado&#8230; Hecho<br />
+Leyendo la información de estado extendido<br />
+Inicializando el estado de los paquetes&#8230; Hecho<br />
+Escribiendo información de estado extendido&#8230; Hecho<br />
+$</p>
+<p>Luego descomprimí el _*.tar.gz_ descargado dentro de mi carpeta personal (pueden hacerlo donde lo crean conveniente), y a continuación procedí a instalarlo con el _script_ que incluye a tal efecto:</p>
+<p>bc. $ sudo ./install.sh<br />
+[sudo] password for tomas: </p>
+<p>bc. Firebird classic 2.1.3.18185-0.i686 Installation</p>
+<p>bc. Press Enter to start installation or ^C to abort<br />
+Extracting install data<br />
+Please enter new password for SYSDBA user: masterkey<br />
+/opt/firebird/bin/gsec: error while loading shared libraries: libstdc++.so.5: cannot open<br />
+shared object file: No such file or directory</p>
+<p>bc. Please enter new password for SYSDBA user: ^C<br />
+$</p>
+<p>*ERROR* :-(. O sea, me estaba faltando la _libstdc++.so.5_, lo cual se expresa en la linea:</p>
+<p>bc. /opt/firebird/bin/gsec: error while loading shared libraries: libstdc++.so.5: cannot open<br />
+shared object file: No such file or directory</p>
+<p>En _Ubuntu_ no existe esa versión de la librería, sino una mas avanzada (la .so.6). Con lo cual, procedemos a instalarla a mano.</p>
+<p>&#8220;De esta pagina&#8221;:http://www.ubuntu-es.org/?q=node/68242, ver el post de _elcanyon_ el cual explica claramente lo que debemos realizar (lo replico aqui para tranquilidad):</p>
+<p>bc. $ cd /tmp/<br />
+$ wget -c ftp://ftp.opentle.org/pub/linux-tle/archive/patong/pool/main/g/gcc-3.3/libstdc++5_3.3.6-13ubuntu2_i386.deb<br />
+$ dpkg -x libstdc++5_3.3.6-13ubuntu2_i386.deb libstdc++5<br />
+$ sudo cp libstdc++5/usr/lib/libstdc++.so.5.0.7 /usr/lib<br />
+$ cd /usr/lib<br />
+$ sudo ln -s libstdc++.so.5.0.7 libstdc++.so.5<br />
+$</p>
+<p>Luego de esto, la librería a sido instalado y _linkeada_ correctamente.</p>
+<p>A continuación reintento la instalación:</p>
+<p>bc. $ sudo ./install.sh </p>
+<p>bc. Firebird classic 2.1.3.18185-0.i686 Installation</p>
+<p>bc. Press Enter to start installation or ^C to abort<br />
+Extracting install data<br />
+Please enter new password for SYSDBA user: masterkey<br />
+Install completed<br />
+$</p>
+<p>Como se puede apreciar, la instalación concluyo satisfactoriamente.</p>
+<p>Observen que aunque usen _top_ o _ps aux_ no verán al demonio _Firebird_ corriendo. Eso es normal, ya que corre bajo la guardia de _Xinted_.</p>
+<p>Ahora pasaremos a trabajar con el usuario _Firebird_. Al usuario _Firebird_ le asignamos una contraseña, puesto que con el debemos comenzar a realizar ciertas configuraciones del SGBD.</p>
+<p>bc. $ sudo passwd firebird<br />
+Introduzca la nueva contraseña de UNIX:<br />
+Vuelva a escribir la nueva contraseña de UNIX:<br />
+passwd: contraseña actualizada correctamente<br />
+$</p>
+<p>Entramos con dicho usuario e intentamos usar la base de datos:</p>
+<p>bc. $ su firebird<br />
+Contraseña:<br />
+firebird@tomas-laptop:/$ cd /opt/<br />
+firebird@tomas-laptop:/opt$ ls<br />
+firebird  firebird_20091128_0833.tar.gz<br />
+firebird@tomas-laptop:/opt$ cd firebird<br />
+firebird@tomas-laptop:/opt/firebird$ ls<br />
+aliases.conf  doc	firebird.conf  firebird.msg  include  isc_event1.tomas-laptop  isc_lock1.tomas-laptop	  lib	README	       UDF<br />
+bin	      examples	firebird.log   help	     intl     isc_init1.tomas-laptop   isc_monitor1.tomas-laptop  misc	security2.fdb  WhatsNew<br />
+firebird@tomas-laptop:/opt/firebird$ cd bin/<br />
+firebird@tomas-laptop:/opt/firebird/bin$ ls<br />
+changeDBAPassword.sh		   changeRunUser.sh  fb_config	     fb_lock_mgr    fbsvcmgr  gdef	gfix  gsec    gstat  nbackup  restoreRootRunUser.sh<br />
+changeGdsLibraryCompatibleLink.sh  createAliasDB.sh  fb_inet_server  fb_lock_print  gbak      gds_drop	gpre  gsplit  isql   qli      uninstall.sh<br />
+firebird@tomas-laptop:/opt/firebird/bin$ ./isql<br />
+Use CONNECT or CREATE DATABASE to specify a database<br />
+SQL> CREATE DATABASE &#8216;PRUEBA.FDB&#8217;;<br />
+SQL> EXIT;<br />
+$</p>
+<p>Con esto comprobamos que el servidor esta funcionando correctamente. Pudimos usar la linea de comandos _isql_, interfaz interactiva de _Firebird_, y luego pudimos crear una base de datos.</p>
+<p>Lo siguiente que debemos hacer es que _isql_ pueda ser llamado desde cualquier lugar de la consola. Osea, resultaría cómodo que no tengamos que dirigirnos a */opt/firebird/bin* para ejecutar los _scripts_ de consulta y mantenimiento de _Firebird_. Para esto debemos agregar dicha ruta al _path_ (ruta) de binarios del sistema:</p>
+<p>bc. $ echo $PATH<br />
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games<br />
+firebird@tomas-laptop:/opt/firebird/bin$ export PATH=$PATH:/opt/firebird/bin<br />
+firebird@tomas-laptop:/opt/firebird/bin$ echo $PATH<br />
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/firebird/bin</p>
+<p>Este método solo dura por la sesión en la que nos encontramos. (Lo único que hace es reasignar un valor a la variable *$PATH* que cuando vuelva a cargarse en el sistema tendrá nuevamente el viejo valor).  Como estamos con el usuario *firebird* lo dejaremos así para trabajar. </p>
+<p>Luego haremos que el valor de *$PATH* se haga permanente para nuestro usuario de trabajo cotidiano. Pasemos a ello.</p>
+<p>Observemos que ocurre si tratamos de usar _Firebird_ con nuestro usuario sin darle los permisos adecuados:</p>
+<p>bc. $ cd /opt/firebird/bin/<br />
+$ ./isql<br />
+Use CONNECT or CREATE DATABASE to specify a database<br />
+SQL> CREATE DATABASE &#8216;PRUEBA.FDB&#8217;;<br />
+Statement failed, SQLCODE = -902<br />
+I/O error for file &#8220;/opt/firebird/bin/PRUEBA.FDB&#8221;<br />
+-Error while trying to create file<br />
+-Permission denied<br />
+SQL> EXIT;<br />
+$</p>
+<p>Hay que hacer dos cosas:</p>
+<p># Agregar al usuario *tomas* (o el usuario que uses normalmente en tu sistema) al grupo _firebird_ que creo el _script_ de instalación del _SGBD_.<br />
+# Setear el _path_ a los binarios de _Firebird_ (/opt/firebird/bin/) de manera permanente para dicho usuario.</p>
+<p>1. Lo haremos de la forma gráfica:</p>
+<p>Desde el menú de _GNOME_:<br />
+Sistema -> Administración -> Usuarios y grupos</p>
+<p>Allí dentro nos dirigimos al botón que nos da permisos de administrador (botón con una llave y con el texto &#8220;Pulse para realizar los cambios&#8221;). Luego ingresamos al botón &#8220;Gestionar grupos&#8221;.</p>
+<p>Aparecerá un listado, y nos dirigimos al grupo *firebird*. Lo seleccionamos y vamos a Propiedades. Una vez dentro tildamos al usuario que queremos asignar al grupo. Salimos de las ventanas aceptando todo.</p>
+<p>Hecho esto, el usuario *tomas* tiene permisos para ejecutar los _script_ de _Firebird_ y hacer llamadas a la Base de datos.</p>
+<p>2. Ahora configuramos el _path_:</p>
+<p>   *De manera temporal (en la sesión actual):*</p>
+<p>De la misma forma que lo hicimos con el usuario anterior: </p>
+<p>bc. $ export PATH=$PATH:/opt/firebird/bin<br />
+$ isql -U SYSDBA -p masterkey<br />
+Use CONNECT or CREATE DATABASE to specify a database<br />
+SQL> CREATE DATABASE &#8220;PRUEBA.FDB&#8221;;<br />
+SQL> EXIT;<br />
+tomas@tomas-laptop:~$ </p>
+<p>    *Permanentemente:*</p>
+<p>En una consola escribimos:</p>
+<p>bc. $ echo &#8220;export PATH=$PATH:/opt/firebird/bin&#8221; >> /home/tomas/.bashrc</p>
+<p>Esta configuración tendrá efecto luego del próximo reinicio del sesión.</p>
+<p>Luego de esto, podemos trabajar con _Firebird_ con nuestro usuario normal.</p>
+<p>Un dato adicional: Puede ocurrir que tengamos _scripts_ que reconozcan al programa _isql_ como isql-fb_. Esto ocurre porque cuando instalamos desde los paquetes del sistema, el ultimo nombre es con el cual se instala. La recomendación es crear un enlace simbólico al _script_, de la siguiente manera:</p>
+<p>bc. $ sudo ln -s /opt/firebird/bin/isql /opt/firebird/bin/isql-fb</p>
+<p>Luego de esto, el servidor _Firebird_ debería quedar listo para trabajar, con nuestro usuario diario.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/89/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Atool, descomprimir y comprimir archivos en linux (II)</title>
+		<link>http://tomasdel.com/57</link>
+		<comments>http://tomasdel.com/57#respond</comments>
+		<pubDate>Sun, 20 Dec 2009 16:55:54 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=57</guid>
+		<description><![CDATA[Un poco tarde, retomo este segundo post, que lo tenia a medio armar. El primer post lo consiguen &#8220;aquí&#8221;:http://blog.tomasdelvechio.com.ar/index.php?id=16. Antes de leer esta parte del post, lean el enlace anterior. A continuación los ejemplos de _apack_, en los cuales se reproducen las salidas sin modificaciones. h3. Comprimir varios archivos con formato .tar bc. $ ls [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Un poco tarde, retomo este segundo post, que lo tenia a medio armar.</p>
+<p>El primer post lo consiguen &#8220;aquí&#8221;:http://blog.tomasdelvechio.com.ar/index.php?id=16.</p>
+<p>Antes de leer esta parte del post, lean el enlace anterior.</p>
+<p>A continuación los ejemplos de _apack_, en los cuales se reproducen las salidas sin modificaciones.</p>
+<p>h3. Comprimir varios archivos con formato .tar</p>
+<p>bc. $ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas   38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas 3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas   30 2009-07-25 12:47 ejemplo4.log<br />
+$ apack prueba.tar ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+ejemplo1.txt<br />
+ejemplo2.txt<br />
+ejemplo3.sh<br />
+ejemplo4.log<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas 10240 2009-07-26 04:23 prueba.tar</p>
+<p>El comando anterior crea un archivo llamado _prueba.tar_ que tiene dentro los 4 archivos que se pasan como parámetro. Entonces, el formato es pasarle el nombre del archivo destino, y luego los archivos origen.</p>
+<p>h3. Comprimir los cuatro archivos a un _.zip_</p>
+<p>bc. $ apack prueba.zip ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+  adding: ejemplo1.txt (deflated 24%)<br />
+  adding: ejemplo2.txt (deflated 24%)<br />
+  adding: ejemplo3.sh (deflated 63%)<br />
+  adding: ejemplo4.log (stored 0%)<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  2243 2009-07-26 04:31 prueba.zip</p>
+<p>h3. Crear un _.tar.bz2_</p>
+<p>bc. $ apack prueba.tar.bz2 ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+ejemplo1.txt<br />
+ejemplo2.txt<br />
+ejemplo3.sh<br />
+ejemplo4.log<br />
+tomas@laptop1:~/pruebas$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1942 2009-07-26 04:34 prueba.tar.bz2</p>
+<p>h3. Crear un _.7z_</p>
+<p>bc. $ apack prueba.7z ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log </p>
+<p>bc. 7-Zip  4.58 beta  Copyright (c) 1999-2008 Igor Pavlov  2008-05-05<br />
+p7zip Version 4.58 (locale=es_AR.UTF-8,Utf16=on,HugeFiles=on,1 CPU)<br />
+Scanning</p>
+<p>bc. Creating archive prueba.7z</p>
+<p>bc. Compressing  ejemplo3.sh<br />
+Compressing  ejemplo1.txt<br />
+Compressing  ejemplo2.txt<br />
+Compressing  ejemplo4.log      </p>
+<p>bc. Everything is Ok<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1842 2009-07-26 04:38 prueba.7z</p>
+<p>h3. Crear un _.tar.gz_</p>
+<p>bc. $ apack prueba.tar.gz ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+ejemplo1.txt<br />
+ejemplo2.txt<br />
+ejemplo3.sh<br />
+ejemplo4.log<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1852 2009-07-26 04:40 prueba.tar.gz</p>
+<p>h3. Crear un _.rar_</p>
+<p>bc. $ apack prueba.rar ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log </p>
+<p>bc. RAR 3.80   Copyright (c) 1993-2008 Alexander Roshal   16 Sep 2008<br />
+Shareware version         Type RAR -? for help</p>
+<p>bc. Evaluation copy. Please register.</p>
+<p>bc. Creating archive prueba.rar</p>
+<p>bc. Adding    ejemplo1.txt                                                OK<br />
+Adding    ejemplo2.txt                                                OK<br />
+Adding    ejemplo3.sh                                                 OK<br />
+Adding    ejemplo4.log                                                OK<br />
+Done<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1953 2009-07-26 04:41 prueba.rar</p>
+<p>Creo que se ve claramente como funciona _apack_. La próxima entrada veremos como desempaquetar y el resto de utilidades de _atool_.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/57/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

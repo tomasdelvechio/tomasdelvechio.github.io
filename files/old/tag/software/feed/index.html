@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>software &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/software/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Post instalación Ubuntu 14.04</title>
+		<link>http://tomasdel.com/338</link>
+		<comments>http://tomasdel.com/338#respond</comments>
+		<pubDate>Mon, 20 Oct 2014 22:13:29 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[apt-get]]></category>
+		<category><![CDATA[aptitude]]></category>
+		<category><![CDATA[compilacion]]></category>
+		<category><![CDATA[dpkg]]></category>
+		<category><![CDATA[instalacion]]></category>
+		<category><![CDATA[Pos-Instalacion]]></category>
+		<category><![CDATA[programas]]></category>
+		<category><![CDATA[software]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+		<category><![CDATA[Ubuntu 14.04]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=338</guid>
+		<description><![CDATA[Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación. Así que la intención del post este es tener una referencia o machete [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación.</p>
+<p>Así que la intención del post este es tener una referencia o machete personal en linea para todo lo que tiene que ver con la post instalación de Ubuntu, y por ahí a alguno le sirve.</p>
+<h2>1 &#8211; Agregar Repositorios adicionales</h2>
+<p>Algunos repositorios de terceros no vienen agregados de forma predeterminada por cuestiones legales, sin embargo, suele tener software adicional o mas actualizado que los repositorios oficiales.</p>
+<p>La forma mas sencilla de activarlo es buscando la aplicación &#8220;Software &amp; Updates&#8221; o &#8220;Software y actualizaciones&#8221;, y una vez allí, visitar las pestañas Software de Ubuntu (Activar main, universe, restricted y multiverse, Código fuente es opcional y yo no lo activo), Otro Software (Socios de Canonical e Independientes, de nuevo puede activarse opcionalmente los referentes al código fuente, y yo no lo hago) y Actualizaciones (security, updates, proposed y backports).</p>
+<p>Una vez realizado lo anterior, es recomendable realizar una actualización general:</p>
+<pre class="brush: bash; gutter: true">sudo apt-get update &amp;&amp; sudo apt-get upgrade</pre>
+<p>Quiero agregar que esto lo hago en mi notebook personal que es de uso &#8220;Desktop&#8221;, para el caso de un servidor es posible que existan otras precauciones y debería consultarse algún tipo de literatura especializada.</p>
+<h2>2 &#8211; Software adicional</h2>
+<p>Lo siguiente que hago es instalar el software que utilizo de forma diaria o rutinaria para mis tareas personales y laborales, algunos de estos programas se consiguen desde los repositorios oficiales, otros los descargo desde las webs oficiales. Cada uno de estos tipos de software sera comentado de forma separada.</p>
+<h3>2.1 &#8211; Software desde los repositorios oficiales</h3>
+<p>Cabe aclarar que el listado siguiente es un listado de cosas que a mi me sirven, así que es posible que muchas de las cosas que aparecen ustedes quieran obviarlas.</p>
+<pre class="brush: bash; gutter: false">build-essential
+aptitude
+synaptic
+htop
+nmap
+mc
+gummi
+guake
+xchat
+subversion
+git
+mercurial
+postgresql
+php5
+php5-pgsql
+pgadmin3
+apache2
+audacious
+shutter
+gparted
+ipython
+gimp
+meld
+openjdk-7-jdk
+adobe-flashplugin
+wine
+ssh
+vlc
+aria2</pre>
+<h3>2.2 &#8211; Software que descargo desde las paginas oficiales</h3>
+<p>El siguiente listado es de aquellos programas que descargo desde sus respectivas paginas oficiales. Dejo los nombres de los programas, con los links a las paginas de descargas, y algunos comentarios en los casos que lo requieran.</p>
+<p><a href="https://netbeans.org/downloads/" target="_blank">Netbeans</a>: Descarga un archivo de extensión .sh, que debe ser ejecutado desde la terminal, previamente agregándole permisos de ejecución (chmod +x archivo.sh).<br />
+<a href="http://www.sublimetext.com/3" target="_blank">Sublime3</a><br />
+<a href="http://www.mendeley.com/download-mendeley-desktop/" target="_blank">Mendeley</a><br />
+<a href="http://www.google.com/intl/es-419/chrome/" target="_blank">Chrome</a><br />
+<a href="http://www.geany.org/Download/Releases" target="_blank">Geany</a>: En este caso descargo el código fuente en un archivo .tar.gz, lo compilo e instalo (./configure, make y sudo make install). El paso del configure siempre falla porque necesita dependencias, si es el caso, instalar libgtk2.0-dev e intltool.<br />
+<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Virtualbox</a><br />
+<a href="http://www.teamviewer.com/es/download/linux.aspx" target="_blank">Teamviewer</a>: En este caso, a pesar de instalar una versión de SO de 64bits, la versión de TV para la misma arquitectura siempre falla en la instalación. Por ello, la solución fácil es bajar la versión de 32bits sin importar que arquitectura se uso en el SO. A mi me anduvo siempre sin problemas.<br />
+<a href="http://www.skype.com/es/download-skype/skype-for-computer/" target="_blank">Skype</a>: Tiene sus trucos, ver mas abajo.<br />
+<a href="https://www.dropbox.com/install" target="_blank">Dropbox</a><br />
+<a href="http://www.vagrantup.com/downloads.html" target="_blank">Vagrant</a></p>
+<h4>2.2.3 &#8211; Skype</h4>
+<p>Al intentar instalar Skype, mediante el paquete .deb descargado desde el sitio oficial, puede ocurrir que se encuentren con un error como el siguiente:</p>
+<pre class="brush: bash; gutter: true"> skype:i386 : Depends: libqt4-dbus:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqt4-network:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqt4-xml:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqtcore4:i386 (&gt;= 4:4.7.0~beta1) but it is not going to be installed.
+              Depends: libqtgui4:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqtwebkit4:i386 (&gt;= 2.2~2011week36) but it is not going to be installed.
+              Depends: libstdc++6:i386 (&gt;= 4.2.1) but it is not going to be installed.
+              Depends: libxss1:i386 but it is not going to be installed.
+              Depends: libxv1:i386 but it is not going to be installed.
+              Depends: libssl1.0.0:i386 but it is not going to be installed.
+              Depends: libpulse0:i386 but it is not going to be installed.
+              Depends: libasound2-plugins:i386 but it is not going to be installed.</pre>
+<p>En este caso, hay que instalar las dependencias indicadas, les dejo la linea de aptitude para dicha instalación.</p>
+<pre class="brush: bash; gutter: false">sudo aptitude install libqt4-dbus:i386 libqt4-network:i386 libqt4-xml:i386 libqtcore4:i386 libqtgui4:i386 libqtwebkit4:i386 libstdc++6:i386 libxss1:i386 libxv1:i386 libssl1.0.0:i386 libpulse0:i386 libasound2-plugins:i386</pre>
+<p>Si en la instalación les dice que el paquete skype esta parcialmente instalado y quiere desinstalarlo, acéptenlo sin problemas, y la próxima vez que intenten instalar Skype, el error inicial no debería aparecer.</p>
+<h3>2.3 &#8211; Instalación manual de programas</h3>
+<h4>2.3.1 &#8211; Si se dispone del código fuente</h4>
+<p>Lo normal cuando se disponga del código fuente de un programa, es tener que realizar los siguientes 3 pasos:</p>
+<pre class="brush: bash; gutter: true">./configure
+make
+sudo make install</pre>
+<p>El primer paso revisa que todas las librerías que necesita el software para compilarse se encuentran en el sistema. En caso que exista un error en este paso, sera necesario buscar en la documentación del software particular que librerías necesita, o buscarlo en la Web.</p>
+<p>El comando make compila el software, es decir, crea los binarios a partir del código fuente, que sera lo que se ejecute posteriormente en nuestro equipo.</p>
+<p>El comando make install ubica los binarios y crea accesos directos y variables de entorno para que el software recién compilado sea utilizable desde el sistema. Como puede necesitar escribir en carpetas del sistema, es necesario ejecutarlo con permisos de root (por eso sudo adelante).</p>
+<p>Una vez realizado el make install, la carpeta donde se realizo la compilación puede ser eliminada, pero en caso de no querer borrarla para probar o recompilar posteriormente sin necesidad de bajar el software nuevamente, recomiendo ejecutar un cuarto comando make clean, que elimina archivos intermedios utilizados durante la compilación, y que ocupan lugar en el disco y no son necesarios.</p>
+<h4>2.3.2 &#8211; Si se descargaron archivos con extensión .deb</h4>
+<p>Muchos de los programas ofrecen binarios precompilados de extension .deb, instalables en Debian/Ubuntu etc&#8230;</p>
+<p>Para instalar dicho programas, solo es necesario ejecutar lo siguiente:</p>
+<pre class="brush: bash; gutter: false">sudo dpkg -i archivo.deb</pre>
+<p>En la medida que recuerde mas tareas pos-instalación, la idea es agregarla. Si se les ocurre algún software adicional que ustedes usen, etc&#8230; los invito a compartirlo en los comentarios del blog (Les agregue redes sociales para que no tengan que hacerse ni un usuario en el sitio, no sean vagos :p ).</p>
+<p><strong>UPDATE:</strong> Leyendo blogs, me encontré con este post que mediante dpkg genera un archivo con la lista de paquetes instalados en un sistema (Debian, Ubuntu o derivados). Lo interesante es que de paso muestra como re instalar en el nuevo sistema los paquetes a partir del archivo generado.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/338/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

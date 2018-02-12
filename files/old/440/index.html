@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/Article" lang="es-ES">
+<head>
+<base href="http://tomasdelvechio.github.io/old" />
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://tomasdelvechio.github.io/old/xmlrpc.php" />
+	<!--[if lt IE 9]>
+	<script src="http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<title>Cómo escribir un mensaje de commit de git &#8211; El Blog de Tomas</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Feed" href="http://tomasdelvechio.github.io/old/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; RSS de los comentarios" href="http://tomasdelvechio.github.io/old/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Cómo escribir un mensaje de commit de git RSS de los comentarios" href="http://tomasdelvechio.github.io/old/440/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/tomasdelvechio.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/fonts/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='independent-publisher-style-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/style.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='customizer-css'  href='http://tomasdelvechio.github.io/old/wp-admin/admin-ajax.php?action=independent_publisher_customizer_css&#038;ver=1.7' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/fade-post-title.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/enhanced-comment-form.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='http://tomasdelvechio.github.io/old/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tomasdelvechio.github.io/old/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tomasdelvechio.github.io/old/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Silenciar una pestaña en Chrome' href='http://tomasdelvechio.github.io/old/422' />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel="canonical" href="http://tomasdelvechio.github.io/old/440" />
+<link rel='shortlink' href='http://tomasdelvechio.github.io/old/?p=440' />
+<link rel="alternate" type="application/json+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F440" />
+<link rel="alternate" type="text/xml+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F440&#038;format=xml" />
+
+<link rel="stylesheet" href="http://tomasdelvechio.github.io/old/wp-content/plugins/count-per-day/counter.css" type="text/css" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style></head>
+
+<body class="post-template-default single single-post postid-440 single-format-standard h-entry hentry" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+
+
+<div id="page" class="site">
+	<header id="masthead" class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+
+		<div class="site-header-info">
+											
+					<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+				<img alt='' src='http://2.gravatar.com/avatar/e860dff0d66f2278c4c40677b4a2e7cd?s=100&#038;r=g' srcset='http://2.gravatar.com/avatar/e860dff0d66f2278c4c40677b4a2e7cd?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />			</a>
+		
+		<div class="site-title"><span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por Tomas" rel="author">Tomas</a></span></span></div>
+		<div class="site-description"></div>
+
+		
+		<div class="site-published-separator"></div>
+		<h2 class="site-published">Publicado</h2>
+		<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/440" title="Cómo escribir un mensaje de commit de git" rel="bookmark"><time class="entry-date dt-published" datetime="2015-09-07T18:52:37+0000" itemprop="datePublished" pubdate="pubdate">septiembre 7, 2015</time></a></h2>
+				
+									</div>
+
+				
+			</header>
+	<!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<main id="content" class="site-content" role="main">
+
+			
+				
+<article id="post-440" class="post-440 post type-post status-publish format-standard category-programacion tag-commit tag-desarrollo tag-git tag-programacion-2 tag-versiones" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+		<header class="entry-header">
+					<h2 class="entry-title-meta">
+			<span class="entry-title-meta-author">
+				<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por Tomas" rel="author">Tomas</a></span></span>			</span>
+				en <a href="http://tomasdelvechio.github.io/old/category/programacion" rel="category tag">Programación</a>				<span class="entry-title-meta-post-date">
+				<span class="sep"> | </span>
+					<a href="http://tomasdelvechio.github.io/old/440" title="Cómo escribir un mensaje de commit de git" rel="bookmark"><time class="entry-date dt-published" datetime="2015-09-07T18:52:37+0000" itemprop="datePublished" pubdate="pubdate">septiembre 7, 2015</time></a>			</span>
+							</h2>
+			<h1 class="entry-title p-name" itemprop="name">Cómo escribir un mensaje de commit de git</h1>
+			</header>
+	<!-- .entry-header -->
+	<div class="entry-content e-content" itemprop="mainContentOfPage">
+		<p><em>Este post es una traducción del post <a href="http://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a>, de <a href="https://twitter.com/cbeams">@cbeams</a>. Este trabajo se realizo en colaboración con <a href="https://twitter.com/may_cabrera">@may_cabrera</a> con permiso del autor original. Gracias a ambos!</em></p>
+<p><em>Teniendo como excusa el formato y uso de comentarios en Git, el post nos muestra diversas formas de uso de este SCV, cuestiones metodológicas y de uso cotidiano de Git. Es muy interesante en muchos sentidos, así que les recomiendo tomarse un tiempo para su lectura.</em></p>
+<div class="post">
+<p>&nbsp;</p>
+<hr />
+<p><a href="http://xkcd.com/1296/"><img src="http://imgs.xkcd.com/comics/git_commit.png" alt="" /></a></p>
+<hr />
+<p><center><br />
+<a href="#intro">Introducción</a> | <a href="#seven-rules">Las Siete Reglas</a> | <a href="#tips">Consejos</a></center></p>
+<hr />
+<p><a name="intro"></a></p>
+<h2>Introducción: ¿Por qué es importante un buen mensaje de commit?</h2>
+<p>Si navegas el registro de un repositorio Git al azar probablemente encuentres que sus mensajes de commit son mas o menos un lío. Por ejemplo, echemos un vistazo a <a href="https://github.com/spring-projects/spring-framework/commits/e5f4b49?author=cbeams">estas gemas</a> de mis primeros días desarrollando para Spring:</p>
+<pre class="brush: text; gutter: true">$ git log --oneline -5 --author cbeams --before &quot;Fri Mar 26 2009&quot;
+
+e5f4b49 Re-adding ConfigurationPostProcessorTests after its brief removal in r814. @Ignore-ing the testCglibClassesAreLoadedJustInTimeForEnhancement() method as it turns out this was one of the culprits in the recent build breakage. The classloader hacking causes subtle downstream effects, breaking unrelated tests. The test method is still useful, but should only be run on a manual basis to ensure CGLIB is not prematurely classloaded, and should not be run as part of the automated build.
+2db0f12 fixed two build-breaking issues: + reverted ClassMetadataReadingVisitor to revision 794 + eliminated ConfigurationPostProcessorTests until further investigation determines why it causes downstream tests to fail (such as the seemingly unrelated ClassPathXmlApplicationContextTests)
+147709f Tweaks to package-info.java files
+22b25e0 Consolidated Util and MutableAnnotationUtils classes into existing AsmUtils
+7f96f57 polishing</pre>
+<p>Uff. Compara eso con estos commits <a href="https://github.com/spring-projects/spring-framework/commits/5ba3db?author=philwebb">más recientes</a> del mismo repositorio:</p>
+<pre class="brush: text; gutter: true">$ git log --oneline -5 --author pwebb --before &quot;Sat Aug 30 2014&quot;
+
+5ba3db6 Fix failing CompositePropertySourceTests
+84564a0 Rework @PropertySource early parsing logic
+e142fd1 Add tests for ImportSelector meta-data
+887815f Update docbook dependency and generate epub
+ac8326d Polish mockito usage</pre>
+<p>¿Qué prefieres leer?</p>
+<p>El primero cambia mucho en forma y tamaño; el último es conciso y consistente. El primero es lo que ocurre por defecto; el segundo nunca ocurre por accidente.</p>
+<p>Mientras muchos logs de repositorio se ven como el primero, hay excepciones. El <a href="https://github.com/torvalds/linux/commits/master">kernel de Linux</a> y <a href="https://github.com/git/git/commits/master">git en sí</a> son grandes ejemplos. Mira <a href="https://github.com/spring-projects/spring-boot/commits/master">Spring Boot</a>, o cualquier repositorio gestionado por <a href="https://github.com/tpope/vim-pathogen/commits/master">Tim Pope</a> .</p>
+<p>Los contribuidores de estos repositorios saben que un mensaje de commit git bien elaborado es la mejor manera de comunicar el <em>contexto</em> sobre un cambio al resto de los colegas desarrolladores (y ciertamente a sí mismos en el futuro). Un diff dirá <em>lo que</em> ha cambiado, pero sólo el mensaje de commit puede decir correctamente <em>por qué.</em> Peter Hutterer <a href="http://who-t.blogspot.co.at/2009/12/on-commit-messages.html">señala este punto</a> así:</p>
+<blockquote><p>Restablecer el contexto de una pieza de código es un desperdicio. No podemos evitarlo por completo, entonces nuestros esfuerzos deberían estar en <a href="http://www.osnews.com/story/19266/WTFs_m">reducirlo</a> [tanto] como sea posible. Los mensajes de commits pueden hacer exactamente eso, y como resultado, <em>el mensaje muestra si un desarrollador es un buen colaborador.</em></p></blockquote>
+<p>Si no te has puesto a pensar en como generar un buen mensaje de commit de git, puede ser que no hayas gastado suficiente tiempo usando <code>git log</code> y herramientas relacionadas. Existe un circulo vicioso aquí: Debido a que el historial de commit carece de estructura y consistencia, uno no gasta demasiado tiempo usándolo o teniéndolo en cuenta. Y debido a que no es usado o tenido en cuenta, este se mantiene sin estructura e inconsistente</p>
+<p>Sin embargo un log cuidado es algo hermoso y útil. <code>git blame</code> , <code>revert</code> , <code>rebase</code> , <code>log</code> , <code>shortlog</code> y otros subcomandos cobran vida. Revisar commits y pull requests de otros se convierte en algo digno de hacerse, y de repente se puede hacer de forma independiente. Entender porque algo sucedió hace meses o años se convierte en algo no solo posible, sino también eficiente.</p>
+<p>El éxito a largo plazo de un proyecto descansa (entre otras cosas) en su facilidad de mantenimiento, y un desarrollador tiene pocas herramientas más poderosas que el log del proyecto. Vale la pena tomarse el tiempo para aprender cómo cargarlo de una forma adecuada. Lo que puede ser una molestia en un principio pronto se convierte en hábito, y, finalmente, un motivo de orgullo y productividad para todos los involucrados.</p>
+<p>En este artículo, me refiero sólo al elemento más básico para mantener un historial saludable de commits: cómo escribir un mensaje de commit particular. Hay otras prácticas importantes como commit squashing que no serán tratadas aquí. Tal vez lo haré en un post posterior.</p>
+<p>La mayoría de los lenguajes de programación tienen convenciones bien establecidas de lo que conforma el estilo idiomático, es decir, de nombres y formato y cosas así. Hay variaciones en estas convenciones, por supuesto, pero la mayoría de los desarrolladores están de acuerdo en que escoger una y ajustarse a ella es mucho mejor que el caos que se produce cuando todo el mundo lo hace a su manera.</p>
+<p>El enfoque de un equipo con su log de commits no debería ser diferente. Con el fin de crear un historial de revisiones útiles, los equipos primero deben ponerse de acuerdo sobre una convención en mensajes de commits que defina al menos las siguientes tres cosas:</p>
+<p><strong>Estilo.</strong> La sintaxis, los límites de márgenes, la gramática, la capitalización, la puntuación. Explica claramente estos puntos, elimina la ambigüedad y hazlo lo más claro posible. El resultado final será un log muy coherente que no sólo será fácil de leer, sino que en realidad <em>será leído</em> de forma regular.</p>
+<p><strong>Contenido.</strong> ¿Qué tipo de información debe contener el cuerpo del mensaje de commit (si lo hay)? ¿Que <em>no</em> debería contener?</p>
+<p><strong>Metadatos.</strong> ¿Cómo se debe marcar el identificador de un issue, el numero de pull request, etc. ?</p>
+<p>Afortunadamente, hay convenciones bien establecidas sobre lo que hace a un commit un mensaje idiomático De hecho, muchas de estas convenciones se asumen como la forma determinada en ciertos comandos git. No hay nada que necesite ser reinventado. Sólo tienes que seguir las <a href="#seven-rules">siete reglas</a> descritas abajo y ya estarás en camino para hacer commits como un profesional.</p>
+<p><a name="seven-rules"></a></p>
+<h2>Las siete reglas de un gran mensaje de commit de git</h2>
+<blockquote><p><em>Tenga en cuenta: <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Todo</a> <a href="http://www.git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Commit-Guidelines">esto</a> <a href="https://github.com/torvalds/subsurface/blob/master/README#L82-109">ya</a> <a href="http://who-t.blogspot.co.at/2009/12/on-commit-messages.html">ha sido</a> <a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages">dicho</a> <a href="https://github.com/spring-projects/spring-framework/blob/30bce7/CONTRIBUTING.md#format-commit-messages">antes</a> .</em></p></blockquote>
+<ol>
+<li><a href="#separate">Separa el título del cuerpo con una línea en blanco</a></li>
+<li><a href="#limit-50">Limita título a 50 caracteres</a></li>
+<li><a href="#capitalize">Capitaliza el título</a></li>
+<li><a href="#end">No termines el título con un punto</a></li>
+<li><a href="#imperative">Utiliza el modo imperativo en el título</a></li>
+<li><a href="#wrap-72">Limita el cuerpo a 72 caracteres</a></li>
+<li><a href="#why-not-how">Utiliza el cuerpo para explicar <em>qué</em> y <em>por qué</em> vs <em>cómo</em></a></li>
+</ol>
+<p>Por ejemplo:</p>
+<pre class="brush: text; gutter: true">Resumir los cambios en aproximadamente 50 caracteres o menos
+ 
+Mas texto descriptivo, si es necesario.  Límita aproximadamente a 72 caracteres o menos. En algunos contextos, la primera línea se establece como el asunto del commit y el resto es el cuerpo. La línea en blanco que separa el asunto del cuerpo es fundamental (a menos que se omita el cuerpo por completo); diversas herramientas como `log`,` y `shortlog` y `rebase` pueden confundirse si ejecuta los dos juntos.
+
+Explique el problema que el commit está resolviendo. Concéntrese en por qué usted está haciendo este cambio en comparación de cómo  (pues el código explica esa parte).
+¿Hay efectos secundarios u otros consecuencias poco intuitivas en este cambio? Este es el lugar para explicarlos.
+
+Otros párrafos vienen después de líneas en blanco.
+
+ - Las viñetas o listas son aceptables también 
+ - Normalmente, un guión o asterisco se utiliza para la viñeta, precedido por un solo espacio, con líneas en blanco en el medio, pero hay diferentes convenciones 
+
+Si utiliza un administrador de &quot;issues&quot;, coloque referencias a ellos en la parte inferior, así: 
+
+Resuelve: # 123 
+Consulte también: # 456, # 789</pre>
+<p><a name="separate"></a></p>
+<h3>1. Separa el título del cuerpo del mensaje con una linea en blanco</h3>
+<p>Desde la <a href="https://www.kernel.org/pub/software/scm/git/docs/git-commit.html#_discussion">página de manual</a> de <code>git commit</code> :</p>
+<blockquote><p>Aunque no es necesario, es una buena idea iniciar el mensaje de commit con una sola linea corta (menos de 50 caracteres) que resuma el cambio, seguida de una línea en blanco y, a continuación una descripción más completa. El texto sobre la primera línea en blanco en el mensaje del commit es tratado como el título del commit, y este título se utiliza en todo Git. Por ejemplo, git-format-patch (1) convierte un commit en un correo electrónico, y utiliza el título como asunto y el resto del commit en el cuerpo.</p></blockquote>
+<p>En primer lugar, no todo commit requiere tanto un título como un cuerpo. A veces una sola línea está bien, sobre todo cuando el cambio es tan simple que agregar más contexto no es necesario. Por ejemplo:</p>
+<pre class="brush: text; gutter: true">Fix typo in introduction to user guide</pre>
+<p>No es necesario decir nada más; si el lector se pregunta cuál fue el error tipográfico, simplemente puede echar un vistazo al cambio, mediante el uso de <code>git show</code> o <code>git diff</code> o <code>git log -p</code> .</p>
+<p>Si estás realizando un commit de este tipo en la línea de comandos, es fácil de usar el parametro <code>-m</code> para <code>git commit</code> :</p>
+<pre class="brush: text; gutter: true">$ git commit -m &quot;Fix typo in introduction to user guide&quot;</pre>
+<p>Sin embargo, cuando un commit merece un poco de explicación y contexto, es necesario escribir un cuerpo. Por ejemplo:</p>
+<pre class="brush: text; gutter: true">Derezz the master control program
+
+MCP turned out to be evil and had become intent on world domination.
+This commit throws Tron&#039;s disc into MCP (causing its deresolution)
+and turns it back into a chess game.</pre>
+<p>Esto no es tan fácil de hacer con el parametro <code>-m</code> , realmente necesitas de un editor adecuado. Si aún no dispones de un editor configurado para usar con git en la línea de comandos, lee <a href="http://git-scm.com/book/ch7-1.html#Basic-Client-Configuration">esta sección de Pro Git</a> .</p>
+<p>En cualquier caso, la separación del titulo y cuerpo vale la pena cuando se navega por el log. Aquí está la entrada del log completo:</p>
+<pre class="brush: text; gutter: true">$ git log
+commit 42e769bdf4894310333942ffc5a15151222a87be
+Author: Kevin Flynn &lt;kevin@flynnsarcade.com&gt;
+Date:   Fri Jan 01 00:00:00 1982 -0200
+
+Derezz the master control program
+
+MCP turned out to be evil and had become intent on world domination.
+This commit throws Tron&#039;s disc into MCP (causing its deresolution) 
+and turns it back into a chess game.</pre>
+<p>Y ahora <code>git log --oneline</code>, que imprime sólo la línea de título:</p>
+<pre class="brush: text; gutter: true">$ git log --oneline
+42e769 Derezz the master control program</pre>
+<p>O, <code>git shortlog</code> , que agrupa commits por usuario, de nuevo mostrando sólo la línea de titulo para ser conciso:</p>
+<pre class="brush: text; gutter: true">$ git shortlog
+Kevin Flynn (1):
+      Derezz the master control program
+
+Alan Bradley (1):
+      Introduce security program &quot;Tron&quot;
+
+Ed Dillinger (3):
+      Rename chess program to &quot;MCP&quot;
+      Modify chess program
+      Upgrade chess program
+
+Walter Gibbs (1):
+      Introduce protoype chess program</pre>
+<p>Hay numerosos contextos en git donde la distinción entre titulo y cuerpo entran en acción, pero ninguno de ellos funciona correctamente sin la línea en blanco en el medio.</p>
+<p><a name="limit-50"></a></p>
+<h3>2. Limita la línea de título a 50 caracteres</h3>
+<p>50 caracteres no es un límite estricto, sólo una regla práctica. Mantener las líneas de título en esta longitud asegura que sean legibles, y obliga al autor a pensar por un momento acerca de la forma más concisa de explicar lo que está enviando.</p>
+<blockquote><p><em>Consejo: Si estás teniendo dificultades para resumir, podrías estar realizando un commit con demasiados cambios de una sola vez. Intenta realizar <a href="http://www.freshconsulting.com/atomic-commits/"><em>commits atómicos</em></a> (un tema para un post aparte).</em></p></blockquote>
+<p>La Interfaz de GitHub es plenamente consciente de estas convenciones. Te avisará si te pasas del límite de 50 caracteres:</p>
+<p><img src="http://i.imgur.com/zyBU2l6.png" alt="gh1" /></p>
+<p>Y truncará cualquier título de más de 69 caracteres con puntos suspensivos:</p>
+<p><img src="http://i.imgur.com/27n9O8y.png" alt="gh2" /></p>
+<p>Así que intenta con 50 caracteres, pero considera como limite máximo 69.</p>
+<p><a name="capitalize"></a></p>
+<h3>3. Capitaliza la línea de título</h3>
+<p>Esto es tan simple como suena. Comienza todas las líneas de título con una letra mayúscula.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li><span style="color: green;">Acelerar a 88 millas por hora</span></li>
+</ul>
+<p>En lugar de:</p>
+<ul>
+<li><span style="color: red;">acelerar a 88 millas por hora</span></li>
+</ul>
+<p><a name="end"></a></p>
+<h3>4. No termines la línea de título con un punto</h3>
+<p>Usar puntuación es innecesario en las líneas de título. Además, el espacio es muy valioso cuando se está tratando de mantener en <a href="http://chris.beams.io/posts/git-commit/#limit-50">50 caracteres o menos</a> .</p>
+<p>Ejemplo:</p>
+<ul>
+<li><span style="color: green;">Abrir la ranura de la puerta de la bodega</span></li>
+</ul>
+<p>En lugar de:</p>
+<ul>
+<li><span style="color: red;">Abrir la ranura de la puerta de la bodega.</span></li>
+</ul>
+<p><a name="imperative"></a></p>
+<h3>5. Utiliza el modo imperativo en la línea de título</h3>
+<p><em>Modo imperativo</em> simplemente significa &#8220;hablar o escribir como si dieras una orden o instrucción&#8221;. Algunos ejemplos:</p>
+<ul>
+<li>Limpia tu habitación</li>
+<li>Cierra la puerta</li>
+<li>Saca la basura</li>
+</ul>
+<p>Cada una de las siete reglas que estás leyendo ahora mismo están escritas en imperativo (&#8220;Limita el cuerpo a 72 caracteres&#8221;, etc).</p>
+<p>El imperativo puede sonar un poco grosero; es por eso que a menudo no lo usamos. Pero es perfecto para el título de un commit. Una razón para esto es que <strong>git mismo utiliza el imperativo cada vez que crea un commit con tu nombre.</strong></p>
+<p>Por ejemplo, el mensaje predeterminado creado al utilizar <code>git merge</code> es:</p>
+<pre class="brush: text; gutter: true">Merge branch &#039;myfeature&#039;</pre>
+<p>Y al usar <code>git revert</code> :</p>
+<pre class="brush: text; gutter: true">Revert &quot;Add the thing with the stuff&quot;
+
+This reverts commit cc87791524aedd593cff5a74532befe7ab69ce9d.</pre>
+<p>O cuando se hace clic en el botón &#8220;Merge&#8221; en un pull request de Github</p>
+<pre class="brush: text; gutter: true">Merge pull request #123 from someuser / somebranch</pre>
+<p>Así que cuando escribas mensajes de commit en forma imperativa, realmente estás siguiendo las mismas convenciones incorporadas por git. Por ejemplo:</p>
+<ul>
+<li>Refactor subsystem X for readability</li>
+<li>Update getting started documentation</li>
+<li>Remove deprecated methods</li>
+<li>Release version 1.0.0</li>
+</ul>
+<p>Escribir de esta manera puede ser un poco incómodo al principio. Estamos más acostumbrados a hablar en <em>el modo indicativo,</em> que está más relacionado para informar hechos. Es por eso que los mensajes de commits terminan leyéndose así:</p>
+<ul>
+<li>Fixed bug with Y</li>
+<li>Changing behaviour of X</li>
+</ul>
+<p>Y a veces los mensajes se escriben como una descripción de su contenido:</p>
+<ul>
+<li>More fixes broken stuff</li>
+<li>Sweet new API methods</li>
+</ul>
+<p>Para eliminar cualquier confusión, aquí hay simple regla para hacerlo bien cada vez.</p>
+<p><strong>Un commit de git formado adecuadamente siempre debe ser capaz de completar la siguiente frase:</strong></p>
+<ul>
+<li>If applied, this commit will <em><u>your subject line here</u></em></li>
+</ul>
+<p>Por ejemplo:</p>
+<ul>
+<li>If applied, this commit will <span style="color: green;"><em>refactor subsystem X for readability</em></span></li>
+<li>If applied, this commit will <span style="color: green;"><em>update getting started documentation</em></span></li>
+<li>If applied, this commit will<span style="color: green;"><em> remove deprecated methods</em></span></li>
+<li>If applied, this commit will <span style="color: green;"><em>release version 1.0.0</em></span></li>
+<li>If applied, this commit will <span style="color: green;"><em>merge pull request #123 from user/branch</em></span></li>
+</ul>
+<p>Observa cómo esto no funciona para las otras formas no imperativas:</p>
+<ul>
+<li>If applied, this commit will <span style="color: red;"><em> fixed bug with Y</em></span></li>
+<li>If applied, this commit will <span style="color: red;"><em>changing behaviour of X</em></span></li>
+<li>If applied, this commit will <span style="color: red;"><em>more fixes for broken stuff</em></span></li>
+<li>If applied, this commit will <span style="color: red;"><em>sweet new API methods</em></span></li>
+</ul>
+<blockquote><p><em>Recuerda: El uso del imperativo es importante sólo en el título. Puedes omitir esta restricción cuando estés escribiendo el cuerpo</em></p></blockquote>
+<p><a name="wrap-72"></a></p>
+<h3>6. Ajusta el cuerpo a 72 caracteres</h3>
+<p>Git nunca ajusta el texto automáticamente. Cuando escribes el cuerpo de un mensaje de commit, debes recordar su margen derecho, y ajustar el texto manualmente.</p>
+<p>La recomendación es hacer esto en 72 caracteres, por lo que git tiene mucho espacio para indentar texto mientras se mantiene todo debajo de 80 caracteres en general.</p>
+<p>Un buen editor de texto puede ayudar aquí. Es fácil de configurar en Vim, por ejemplo, para ajustar el texto a 72 caracteres cuando se está escribiendo un git commit. Tradicionalmente, sin embargo, los IDEs han sido desastrosos para proveer un apoyo inteligente en el ajuste de texto en los mensajes de commit (aunque en las versiones recientes, IntelliJ IDEA ha <a href="http://youtrack.jetbrains.com/issue/IDEA-53615">conseguido</a> <a href="http://youtrack.jetbrains.com/issue/IDEA-53615#comment=27-448299">finalmente</a> <a href="http://youtrack.jetbrains.com/issue/IDEA-53615#comment=27-446912">mejorar</a> sobre esto).</p>
+<p><a name="why-not-how"></a></p>
+<h3>7. Utilizar el cuerpo para explicar qué y porqué en lugar de como</h3>
+<p>Este <a href="https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6">commit del repositorio Bitcoin Core</a> es un gran ejemplo de sobre explicar lo que ha cambiado y por qué:</p>
+<pre class="brush: text; gutter: true">commit eb0b56b19017ab5c16c745e6da39c53126924ed6
+Author: Pieter Wuille &lt;pieter.wuille@gmail.com&gt;
+Date:   Fri Aug 1 22:57:55 2014 +0200
+
+   Simplify serialize.h&#039;s exception handling
+
+   Remove the &#039;state&#039; and &#039;exceptmask&#039; from serialize.h&#039;s stream
+   implementations, as well as related methods.
+
+   As exceptmask always included &#039;failbit&#039;, and setstate was always
+   called with bits = failbit, all it did was immediately raise an
+   exception. Get rid of those variables, and replace the setstate
+   with direct exception throwing (which also removes some dead
+   code).
+
+   As a result, good() is never reached after a failure (there are
+   only 2 calls, one of which is in tests), and can just be replaced
+   by !eof().
+
+   fail(), clear(n) and exceptions() are just never called. Delete
+   them.</pre>
+<p>Echa una mirada al <a href="https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6">diff completo</a> y sólo piensa en la cantidad de tiempo que el autor le ahorro a los colegas y futuros desarrolladores por tomarse el tiempo para proporcionar este contexto, aquí y ahora. Si él no lo hubiera hecho, esto probablemente se perdería para siempre.</p>
+<p>En la mayoría de los casos, puedes ignorar los detalles sobre cómo se ha hecho un cambio. El código es generalmente auto-explicativo en este sentido (y si el código es tan complejo como para necesitar ser explicados en prosa, esa es la función de los comentarios en el código fuente). Sólo céntrate en aclarar las razones por las que has realizado el cambio, como funcionaban las cosas antes del cambio (y que había de malo con eso), la forma en que funciona ahora, y por qué decidiste resolverlo de la forma en la que lo hiciste.</p>
+<p>¡El futuro programador agradecido puedes ser tú mismo!</p>
+<p><a name="tips"></a></p>
+<h2>Consejos</h2>
+<h3>Aprendé a amar la línea de comandos. Deja el IDE atrás.</h3>
+<p>Debido a la gran cantidad de subcomandos git que hay, es prudente adoptar la línea de comandos. Git es increíblemente poderoso; los IDEs lo son tambien, pero cada uno a su manera. Yo uso un IDE todos los días (IntelliJ IDEA) y he utilizado otros extensivamente (Eclipse), pero nunca he visto una integración del IDE con git que coincida con la facilidad y el poder de la línea de comandos (una vez que lo sepas hacer).</p>
+<p>Ciertas funciones de los IDE relacionadas con git son invaluables, como llamar a <code>git rm</code> cuando eliminamos un archivo, y hacer las cosas bien con <code>git</code> al renombrarlo. Todo se cae cuando se comienza a intentar hacer commits, merge, rebase, o hacer un análisis sofisticado de la historia a través del IDE.</p>
+<p>Cuando se trata de utilizar todo el poder de git, la línea de comandos es la manera.</p>
+<p>Recuerda que si usas Bash o Z shell, hay <a href="http://git-scm.com/book/en/Git-Basics-Tips-and-Tricks">scripts de autocompletado</a> que alivian gran parte del dolor de recordar los subcomandos.</p>
+<h3>Lee Pro Git</h3>
+<p>El libro <a href="http://git-scm.com/book">Pro Git</a> está disponible en línea de forma gratuita, y es fantástico. ¡Aprovechalo!</p>
+</div>
+
+		
+									</div>
+	<!-- .entry-content -->
+
+			<div class="post-author-bottom">
+			<div class="post-author-card">
+				<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+					<img alt='' src='http://2.gravatar.com/avatar/e860dff0d66f2278c4c40677b4a2e7cd?s=100&#038;r=g' srcset='http://2.gravatar.com/avatar/e860dff0d66f2278c4c40677b4a2e7cd?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />				</a>
+
+				<div class="post-author-info">
+					<div class="site-title">
+						<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por Tomas" rel="author">Tomas</a></span></span>					</div>
+
+					<div class="site-description"></div>
+				</div>
+				<div class="post-published-date">
+					<h2 class="site-published">Publicado</h2>
+					<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/440" title="Cómo escribir un mensaje de commit de git" rel="bookmark"><time class="entry-date dt-published" datetime="2015-09-07T18:52:37+0000" itemprop="datePublished" pubdate="pubdate">septiembre 7, 2015</time></a></h2>
+										
+					
+				</div>
+			</div>
+		</div>
+		<!-- .post-author-bottom -->
+		
+	<footer class="entry-meta">
+		
+					<div id="share-comment-button">
+				<button>
+					<i class="share-comment-icon"></i>¿Algo para decir?				</button>
+			</div>
+		
+			</footer>
+	<!-- .entry-meta -->
+
+</article><!-- #post-440 -->
+
+				
+
+<!-- *******************************************************************************************************************-->
+<!-- Comments Evolved for Wordpress v1.6.3 ( http://wordpress.org/plugins/gplus-comments/ ) -->
+<!-- *******************************************************************************************************************-->
+
+<!-- comments-evolved-tabs -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.comment_tab_width = $('#comments-evolved-tabs').innerWidth();
+});
+</script>
+<div id="comments-evolved-tabs">
+<a name="comments"></a>
+    <ul class="controls inline clearfix">
+    <li class="active" id='comments-evolved-gplus-control'><a href='#comments-evolved-gplus-tab'><img id='comments-evolved-gplus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/gplus.png'><span id='comments-evolved-gplus-label'></span></a></li>
+<li id='comments-evolved-facebook-control'><a href='#comments-evolved-facebook-tab'><img id='comments-evolved-facebook-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/facebook.png'><span id='comments-evolved-facebook-label'></span></a></li>
+<li id='comments-evolved-wordpress-control'><a href='#comments-evolved-wordpress-tab'><img id='comments-evolved-wordpress-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/wordpress.png'><span id='comments-evolved-wordpress-label'></span></a></li>
+<li id='comments-evolved-disqus-control'><a href='#comments-evolved-disqus-tab'><img id='comments-evolved-disqus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/disqus.png'><span id='comments-evolved-disqus-label'></span></a></li>
+  </ul>
+  <!-- comments-evolved-gplus-tab -->
+<div id='comments-evolved-gplus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('#comments-evolved-gplus-tab').html('<div class="g-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/440" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>');
+  });
+</script>
+<script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+<noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+</div>
+<!-- // comments-evolved-gplus-tab -->
+<!-- comments-evolved-facebook-tab -->
+<div id='comments-evolved-facebook-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div id="fb-root"></div>
+<div id="fb-comments">Loading Facebook Comments ...</div>
+<script type="text/javascript">
+  jQuery(document).ready(function($)
+  {
+    $('#fb-comments').html('<div class="fb-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/440" data-num-posts="20" data-colorscheme="light" data-mobile="auto"></div>');
+  });
+</script>
+<script async type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1">FB.init();</script>
+<noscript>Please enable JavaScript to view the <a href="https://www.facebook.com/">comments powered by Facebook.</a></noscript>
+
+
+</div>
+<!-- // comments-evolved-facebook-tab -->
+<!-- comments-evolved-wordpress-tab -->
+<div id='comments-evolved-wordpress-tab' class='comments-evolved-embed-container content-tab clearfix'>
+
+	<div id="commentform-top"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/440" style="display:none;">Cancelar respuesta</a></small></h3>			<form action="http://tomasdelvechio.github.io/old/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<div id="main-reply-title"><h3>¿Algo para decir?</h3></div><div class="comment-form-reply-title"><p>Comentario</p></div><p class="comment-form-comment" id="comment-form-field"><textarea id="comment" name="comment" cols="60" rows="6" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Nombre</label><input id="author" name="author" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label><input id="email" name="email" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Sitio web</label><input id="url" name="url" type="text" value="" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Enviar Comentario" /> <input type='hidden' name='comment_post_ID' value='440' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="3f52a9e584" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="219"/></p>			</form>
+			</div><!-- #respond -->
+	
+
+	<div id="comments" class="comments-area">
+				
+			
+			
+			<ol class="commentlist">
+						<li class="comment even thread-even depth-1 u-comment h-cite" id="li-comment-2470">
+		<article id="comment-2470" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bcabb7d1e6db42a7e1fe969482df1567?s=48&#038;r=g' srcset='http://2.gravatar.com/avatar/bcabb7d1e6db42a7e1fe969482df1567?s=96&#038;r=g 2x' class='avatar avatar-48 photo u-photo' height='48' width='48' />					<cite class="fn">maurom</cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://tomasdelvechio.github.io/old/440#comment-2470">
+						<time pubdate datetime="2015-09-10T15:20:33+00:00">
+							septiembre 10, 2015						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content "><p>Buen post! Si tuviera puntines te llevarías los diez. Yo he cometido innumerables veces las barbaridades que se mencionan en el artículo y lentamente (creo que) voy mejorando.<br />
+Puntualmente, la regla 7 es fundamental. La 4 tiene sentido, pero aún me cuesta acostumbrarme. Y para la 5, me cuesta pensarlo en español: el imperativo me suena mal&#8230;</p>
+<p>de aplicarse, este commit&#8230; &#8220;Remover métodos obsoletos&#8221;?<br />
+de aplicarse, este commit&#8230; &#8220;Mezclar el pull request #123&#8221;?</p>
+<p>Las siguientes quedan un poco mejor,</p>
+<p>de aplicarse, este commit&#8230; &#8220;Removerá métodos obsoletos&#8221;?<br />
+de aplicarse, este commit&#8230; &#8220;Mezclará el pull request #123&#8221;?<br />
+o bien<br />
+al aplicar este commit&#8230; &#8220;Se remueven métodos obsoletos&#8221;?<br />
+al aplicar este commit&#8230; &#8220;Se mezcla el pull request #123&#8221;?</p>
+<p>pero no son órdenes. Alguna alternativa más fina?</p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='http://tomasdelvechio.github.io/old/440?replytocom=2470#respond' onclick='return addComment.moveForm( "comment-2470", "2470", "respond", "440" )' aria-label='Responder a maurom'>Responder a maurom</a>			</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+		<ul class="children">
+		<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 u-comment h-cite" id="li-comment-2477">
+		<article id="comment-2477" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/e860dff0d66f2278c4c40677b4a2e7cd?s=48&#038;r=g' srcset='http://2.gravatar.com/avatar/e860dff0d66f2278c4c40677b4a2e7cd?s=96&#038;r=g 2x' class='avatar avatar-48 photo u-photo' height='48' width='48' />					<cite class="fn"><a href='http://blog.tomasdelvechio.com.ar' rel='external nofollow' class='url'>Tomas</a></cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://tomasdelvechio.github.io/old/440#comment-2477">
+						<time pubdate datetime="2015-09-10T20:55:20+00:00">
+							septiembre 10, 2015						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content "><p>La regla 7 expresa claramente que dejemos de hacer nuestros algoritmos totalmente faltos de expresividad. Por ese lado, estuvo haciendo algunas lecturas de Clean Code, donde llevan al extremo la idea de que &#8220;El código en si mismo es la documentación&#8221;. De esta forma, no hay motivos para explicar el como en otro lado (Ni en comentarios dentro del código, ni mucho menos en el repositorio ni en el issue tracker). </p>
+<p>Cuando necesitamos explicar el como en el commit, es porque la deuda técnica es mayor a lo tolerable.</p>
+<p>Sobre la 5, me cuesta mucho, pero pienso que es lo que propones o agregar adelante un &#8220;Debe remover&#8230;&#8221;, &#8220;Debe mezclar&#8230;&#8221;, pero me suena mas forzado. La idea del &#8220;Se&#8230;&#8221; tampoco me gusta. Si tuviera que quedarme con una, usaría la primera, aunque no sean ordenes, son consecuencias de una acción. La otra:</p>
+<p>de aplicarse, este commit… “Remueve métodos obsoletos”<br />
+de aplicarse, este commit… “Mezcla el pull request #123”</p>
+<p>Pero las veo como alternativas, me parece que lo importante es &#8220;<verbo> <objeto afectado>&#8220;.</objeto></verbo></p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='http://tomasdelvechio.github.io/old/440?replytocom=2477#respond' onclick='return addComment.moveForm( "comment-2477", "2477", "respond", "440" )' aria-label='Responder a Tomas'>Responder a Tomas</a>			</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+		<ul class="children">
+		<li class="comment even depth-3 u-comment h-cite" id="li-comment-2484">
+		<article id="comment-2484" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/bcabb7d1e6db42a7e1fe969482df1567?s=48&#038;r=g' srcset='http://2.gravatar.com/avatar/bcabb7d1e6db42a7e1fe969482df1567?s=96&#038;r=g 2x' class='avatar avatar-48 photo u-photo' height='48' width='48' />					<cite class="fn">maurom</cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://tomasdelvechio.github.io/old/440#comment-2484">
+						<time pubdate datetime="2015-09-11T18:08:49+00:00">
+							septiembre 11, 2015						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content "><p>Genial. Compro esta última forma que mencionas, que además asocia las reglas 5 y 7 en una sola. Entonces la pregunta para armar el título de un cambio pasa a ser la siguiente: &#8220;qué hace este commit?&#8221;</p>
+<p>qué hace este commit? este commit&#8230; Remueve métodos obsoletos<br />
+qué hace este commit? este commit&#8230; Mezcla el pull request #123<br />
+qué hace este commit? este commit&#8230; Agrega el soporte para proxy servers</p>
+<p>eventualmente, el &#8220;por qué se hace?&#8221; queda para la descripción, y el &#8220;cómo lo hace?&#8221; es el código mismo.<br />
+Abrazo!</p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='http://tomasdelvechio.github.io/old/440?replytocom=2484#respond' onclick='return addComment.moveForm( "comment-2484", "2484", "respond", "440" )' aria-label='Responder a maurom'>Responder a maurom</a>			</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+			</ol><!-- .commentlist -->
+
+			
+		
+		
+		
+		
+							
+	</div><!-- #comments .comments-area -->
+
+</div>
+<!-- // comments-evolved-wordpress-tab -->
+<!-- comments-evolved-disqus-tab -->
+<div id='comments-evolved-disqus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div class="comments-evolved-embed-container clearfix" id="disqus_thread">Loading Disqus Comments ...</div>
+<script type="text/javascript">
+  var disqus_shortname = 'tomasdel';
+  (function(d) {
+    var dsq = d.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(dsq);
+  })(document);
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- // comments-evolved-disqus-tab -->
+</div>
+<!-- //comments-evolved-tabs -->
+
+				
+				<div id="taglist"><ul class="taglist"><li class="taglist-title">Contenido relacionado por Etiqueta</li><li><a href="http://tomasdelvechio.github.io/old/tag/commit" rel="tag">commit</a></li><li><a href="http://tomasdelvechio.github.io/old/tag/desarrollo" rel="tag">Desarrollo</a></li><li><a href="http://tomasdelvechio.github.io/old/tag/git" rel="tag">git</a></li><li><a href="http://tomasdelvechio.github.io/old/tag/programacion-2" rel="tag">programacion</a></li><li><a href="http://tomasdelvechio.github.io/old/tag/versiones" rel="tag">versiones</a></li></ul></div>
+			
+		</main>
+		<!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+<div id="secondary" class="widget-area" role="complementary">
+	</div><!-- #secondary .widget-area -->
+
+</div><!-- #main .site-main -->
+
+<footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<div class="site-info">
+		<a href="http://independentpublisher.me" rel="designer" title="Independent Publisher: A beautiful reader-focused WordPress theme, for you.">Independent Publisher</a> potencializado por <a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>	</div>
+	<!-- .site-info -->
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<link rel='stylesheet' id='comments_evolved_tabs_css-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/styles/plugin.css?ver=1.6.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+<script async="async" type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/plugins/akismet/_inc/form.js?ver=4.0.2'></script>
+<!-- Comments Evolved plugin -->
+<script>jQuery("#comments-evolved-tabs").tabs();</script>
+<!-- //Comments Evolved plugin -->
+
+</body>
+</html>

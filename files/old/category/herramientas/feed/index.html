@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Herramientas &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/category/herramientas/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Elegir el DNS abierto más rápido</title>
+		<link>http://tomasdel.com/411</link>
+		<comments>http://tomasdel.com/411#respond</comments>
+		<pubDate>Tue, 28 Apr 2015 00:16:03 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Redes]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[redes]]></category>
+		<category><![CDATA[retardo]]></category>
+		<category><![CDATA[rtt]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=411</guid>
+		<description><![CDATA[En CommandLineFu siempre se comparten snippets de código interesante. Hoy me encontré con el siguiente:]]></description>
+				<content:encoded><![CDATA[<p>En <a href="http://www.commandlinefu.com/" target="_blank">CommandLineFu</a> siempre se comparten snippets de código interesante. Hoy me encontré con <a href="http://www.commandlinefu.com/commands/view/14188/a-function-to-find-the-fastest-free-dns-server" target="_blank">el siguiente</a>:</p>
+<p>Verificar y mostrar que servidor DNS abierto es mas rápido en su respuesta.</p>
+<pre class="brush: bash; gutter: true">parallel -j0 --tag dig @{} &quot;$*&quot; ::: 208.67.222.222 208.67.220.220 198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 | grep Query | sort -nk5;</pre>
+<p>En mi caso, la respuesta tuvo esta forma:</p>
+<pre class="brush: bash; gutter: true">8.8.4.4	;; Query time: 22 msec
+8.8.8.8	;; Query time: 26 msec
+208.67.220.220	;; Query time: 219 msec
+208.67.222.222	;; Query time: 230 msec
+156.154.70.1	;; Query time: 244 msec
+198.153.194.1	;; Query time: 246 msec
+156.154.71.1	;; Query time: 258 msec
+198.153.192.1	;; Query time: 300 msec</pre>
+<p>Para usar el comando es necesario tener instalado GNU parallel:</p>
+<pre class="brush: bash; gutter: true">sudo apt-get install parallel</pre>
+<p>Los tiempos cambian en función de nuestra ubicación geográfica, sobrecarga de los servidores y del canal de comunicación, etc&#8230;</p>
+<p>Cada uno sabrá que hacer con los resultados de este comando <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/411/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Mi experiencia con Chromecast</title>
+		<link>http://tomasdel.com/361</link>
+		<comments>http://tomasdel.com/361#comments</comments>
+		<pubDate>Sat, 15 Nov 2014 17:48:12 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[opinión]]></category>
+		<category><![CDATA[tecnologia]]></category>
+		<category><![CDATA[Aplicaciones]]></category>
+		<category><![CDATA[Chromecast]]></category>
+		<category><![CDATA[Google]]></category>
+		<category><![CDATA[Streaming]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=361</guid>
+		<description><![CDATA[Introducción Aprovechando que era una de las pocas cosas no infladas en precio del CyberMonday que se hizo en Argentina, me compre un Chromecast de Google. A diferencia de mi post anterior donde me dedique a criticar a Google, en este me encuentro con un buen producto, que me sorprendió hasta el momento y me [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Introducción</h2>
+<p>Aprovechando que era una de las pocas cosas no infladas en precio del CyberMonday que se hizo en Argentina, me compre un <a href="https://www.google.es/chrome/devices/chromecast/" target="_blank">Chromecast de Google</a>.</p>
+<p>A diferencia de <a title="Inbox by Gmail: Una visión" href="http://tomasdel.com/351">mi post anterior donde me dedique a criticar a Google</a>, en este me encuentro con un buen producto, que me sorprendió hasta el momento y me resulto muy cómodo. Vamos a la review.</p>
+<h2>¿Que es Chromecast?</h2>
+<p>Versión corta para los que no saben de que hablo. Chromecast es un dispositivo de un tamaño muy similar a un pendrive, que se conecta a cualquier TV con HDMI (Sea o no Smart) y permite enviar audio/video a la misma mediante programas instalados en una Notebook, Celular o Tablet Android, etc&#8230;</p>
+<p>¿Para quienes puede ser útil este &#8220;aparatito&#8221;? En mi caso, me pasaba que muchas veces terminaba conectando la PC vía HDMI, por ejemplo, para ver una película o serie que se reproduce en la compu pero que se vea por la TV. En esos casos, siempre quedaba &#8220;cruzando&#8221; un cable, sea el HDMI o el mousse, para poder apretar pausa, subir el volumen, etc. En estos casos Chromecast resulto hasta el momento un buen sustituto.</p>
+<p>La realidad es que tenia colegas que me decían que estaba bueno, y yo estaba escéptico hasta que lo empece a probar, y la realidad es que se ajusta a muchas de mis necesidades. No resuelve todo, como veremos, pero no fue una mala inversión en mi caso.</p>
+<div style="max-width: 163px" class="wp-caption aligncenter"><a href="http://ecx.images-amazon.com/images/I/81dgptmSieL._SL1500_.jpg" target="_blank"><img src="http://ecx.images-amazon.com/images/I/81dgptmSieL._SL1500_.jpg" alt="Chromecast" width="153" height="257" /></a><p class="wp-caption-text">Chromecast</p></div>
+<h2>Compra e instalación</h2>
+<p>Realice la compra a través de Mercado Libre, y a los dos días ya estaba el dispositivo esperándome en correo local de mi ciudad. El paquetito es mas bien chico, y luego de sacar todo de la caja, les muestro lo que trae:</p>
+<p><img class="aligncenter" src="https://lh6.googleusercontent.com/-LIsW_qXuukU/VGd02BbmEHI/AAAAAAAALZk/z37vKgcCgLE/w635-h591-no/IMG_20141115_124353616.jpg" alt="Chromecast unboxing" width="484" height="451" /></p>
+<p>De izquierda a derecha:</p>
+<ul>
+<li>El Chromecast: Con un HDMI &#8220;macho&#8221; y un micro usb &#8220;hembra&#8221;.</li>
+<li>Cable USB micro de un extremo y USB normal del otro. Es para alimentación de energía al Chromecast vía USB.</li>
+<li>Alargue HDMI. Yo no lo use, pero supongo que en algunas TVs con muchos dispositivos amontonados, puede ser útil si el Chromecast no entra.</li>
+<li>Transformador. Con conexión USB, para el caso en que deseamos alimentar al dispositivo desde un toma (por falta de USB o lo que sea).</li>
+</ul>
+<p>Para comenzar la instalación, se debe conectar al TV via HDMI (y elegir en la Tele la fuente o &#8220;source&#8221; correspondiente) y algún tipo de alimentación (puede ser a un USB libre de la TV o a algún toma corriente que se encuentre cerca).</p>
+<p>Seguido a esto, se vera en la pantalla que Chrome nos pide que nos dirijamos a la pagina de Google (a una dirección determinada) para configurar. Se puede tomar uno de dos caminos: Instalar en un dispositivo Android la aplicación de Chromecast, o ir con un browser a la pagina indicada y realizar los pasos que ahí se indican. Yo elegi la primera. A grandes rasgos, la aplicación busca el dispositivo, cuando lo encuentra te ofrece ponerle un nombre (por si se tienen varios Chromecast), y luego pide configurar la red, por si tenes WiFi con password, aquí solicitara la clave de acceso.</p>
+<p>Yo acá tuve un problema extraño, veía las redes Wireless de mis vecinos, pero no la mía, que si era detectada por mi Computadora, mi Teléfono, etc. Buscando, <a href="http://superuser.com/questions/683581/chromecast-setup-doesnt-show-wifi-network" target="_blank">encontré un bug muy bizarro</a> que dice que el Chromecast no ve redes Inalambricas cuyo canal sea el 13. Así que tuve que ingresar a la configuración de mi Router y me encontré con que lo tenia configurado en 13, como no podía ser de otro modo :p. Hecho esto, pude ver en el panel de selección mi red WiFi sin problemas.</p>
+<p>Cuando estuvo configurado, se conecto a internet y detecto que había una actualización, así que estuvo uno 15 minutos descargando e instalando algo. Cuando terminó, mostró una pantalla que decía que Chromecast estaba listo para recibir contenido. El booteo es muy rápido (No le lleva mas de 10 segundos hasta donde pude notar).</p>
+<h2>¿En que cosas es útil Chromecast?</h2>
+<p>Voy a hacer un repaso en las cosas que a mi me resultaron interesantes y que Chromecast me ayudo a mejorar las cosas tal y como las venia haciendo:</p>
+<p><strong>Ver videos desde Internet</strong>: Chromecast maneja nativamente aplicaciones de Netflix y Youtube. De esta manera, si se tiene instalado en un Smartphone o Tablet las aplicaciones de Youtube y/o Netflix, en ambas aparecen iconos parecidos a los siguientes:</p>
+<p><a href="http://chromespot.com/wp-content/uploads/2014/03/chromecast-icons-2.png"><img class="aligncenter" src="http://chromespot.com/wp-content/uploads/2014/03/chromecast-icons-2.png" alt="Chromecast icon" width="158" height="189" /></a></p>
+<p>Presionando en ellos, la aplicación del celular pasa a ser una especie de control remoto de la aplicación que vamos a ver arrancando en la TV. A mi me ocurrió que la primera vez como que no se conectaba bien, pero luego de apagar y prender algunas veces el Chomecast, empezó a funcionar bien y no volví a tener problemas.</p>
+<p>En el caso de Youtube, se pueden encolar videos desde muchos dispositivos, entonces si estamos con amigos, entre varios se puede armar una cola de videos/música. Muy bueno.</p>
+<p>La aplicación de Netflix también dispone de las opciones generales que se esperan: Seleccionar una serie o película, volumen, pausa, subtitulo, idioma. Alcanza para el 99% de los usos.</p>
+<p>Para que quede claro, el manejo se hace desde el dispositivo y la reproducción la hace el Chromecast desde la TV.</p>
+<p><strong>Pestañas arbitrarias a través de Chrome</strong>: Instalando en un Navegador Chrome el plugin de Chromecast, este permite hacer Streaming a la TV de una pestaña que elijamos del navegador.</p>
+<p>No importa que contenga la pestaña, hace Streaming del contenido y el audio. Yo lo estoy usando mucho para abrir una pestaña con Grooveshark, y entonces escucho música por la TV y sigo trabajando en la Compu en otras pestañas. El audio de las otras pestañas sigue saliendo por la notebook, eso es algo bueno.</p>
+<p>2 cosas malas: Solo se puede hacer con el navegador Chrome (Ya nos tiene acostumbrados Google a esa ambivalencia entre buenos productos cerraditos en su ecosistema).</p>
+<p>Lo segundo es el tamaño de la pantalla. Por defecto la pestaña en la pantalla de la TV no se muestra en todo el ancho posible, se ve una franja arriba y abajo de color negro y para lograr quitarla, es necesario poner el Navegador en modo Pantalla Completa (F11).</p>
+<p><strong>Ver videos disponibles localmente en una PC</strong>: Si repasan lo dicho hasta ahora, en ningún momento les hable de reproducir en Chromecast contenido local. Me paso que tenia un mp4, y queria verlo en la TV a traves de Chomecast. Buscando, encontre en la tienda de aplicaciones del Navegador Chrome una aplicación llamada Videostream:</p>
+<p><img class="aligncenter" src="https://lh6.ggpht.com/xx7-_6vXi5Yf2Gyv84lKXyayyGnLGfZ1J1d61_mb7cUNtg1uoInPhqfvuAFJctN3iKI=w300" alt="Videocast for Chromecast" width="121" height="121" /></p>
+<p>La misma instala un cliente en el navegador que permite cargar un video que se encuentre en el disco rígido, dando opciones de calidad, subtitulos, etc&#8230;</p>
+<p>Todo bien, pero que pasa si queremos tirarnos un rato y mirar la tele, pero sin tener la notebook a mano? No tenemos forma de apretar pausa, por ejemplo. Sin embargo, se me ocurrió buscar en la tienda de google y encontré que los mismos desarrolladores de Videostream tienen una aplicación de control remoto, la instale (no pesa nada), y al toque de abrirla detecto que estaba viendo algo y me ofreció las opciones básicas (pausa, volumen).</p>
+<h2>Conclusiones</h2>
+<p>Chromecast tiene, en mi opinión, mucho potencial en lo que respecta a manejar multimedia a través de la TV. Permite agregar comportamiento tipo Smart a Televisores que hoy no lo son (En mercados emergentes es común comprar estos TV ya que a igual tamaño de TV, un smart contra un no smart representa una diferencia económica apreciable para el bolsillo).</p>
+<p>Aun teniendo un SmartTV, es notable las limitaciones de estos en diferentes contextos. Quien tenga uno, nota que son limitados, por el hecho de que usarlos con el control remoto de la TV es un verdadero problema. Ademas las aplicaciones son aun limitadas, y las existentes a veces son lentas y poco flexibles. Por ejemplo, en la casa de mis padres, la Aplicación de Youtube del TV no permite elegir la resolución de un video, y siempre intenta la mayor disponible. Los videos en HD nunca cargan correctamente y la experiencia de usuario es horrible. Es cierto, con una conexión decente esto no ocurriría, pero las aplicaciones deben disponer de opciones que las hagan flexibles a diferentes situaciones. Con chromecast yo no he tenido este problema, con lo cual, Chromecast puede constituir un mercado aun en ciertos contextos como el descrito anteriormente.</p>
+<p>La tendencia en cuanto a aplicaciones, parece ser tener una app que haga streaming al dispositivo, o le pase el control a este, y disponer de funciones de control remoto ya sea vía navegador o dispositivo móvil (tablet / smartphone). Esto es una comodidad para el usuario, aunque se debería ver la posibilidad de que todas las aplicaciones de control puedan ser centralizadas en una única aplicación maestra de control, con opciones genéricas, y dichas opciones sean activables a demanda según la aplicación de chromecast que se utilice. Por ejemplo, la App de youtube le dice a esta posible app de control que acepta funciones de Pausa/Subir y Bajar Volumen, etc&#8230; y esas opciones muestra el control como disponibles, ocultando otras. De otra forma, vamos a terminar teniendo en nuestros Androids tantas aplicaciones de control como aplicaciones se usen en Chomecast.</p>
+<p>La única gran critica, es que el ecosistema del Chromecast es muy cerrado (Ni siquiera parece un android lo que corre en el dispositivo), lo cual para mi esta limitando que masivamente desarrolladores se vuelquen a programar aplicaciones de cara necesidades emergentes de los usuarios.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/361/feed</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Inbox by Gmail: Una visión</title>
+		<link>http://tomasdel.com/351</link>
+		<comments>http://tomasdel.com/351#respond</comments>
+		<pubDate>Tue, 04 Nov 2014 03:36:06 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[opinión]]></category>
+		<category><![CDATA[tecnologia]]></category>
+		<category><![CDATA[Web]]></category>
+		<category><![CDATA[android]]></category>
+		<category><![CDATA[gmail]]></category>
+		<category><![CDATA[Google]]></category>
+		<category><![CDATA[hangouts]]></category>
+		<category><![CDATA[inbox]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=351</guid>
+		<description><![CDATA[Lo que sigue será una visión personal acerca de la ultima aplicación de Google: Inbox. El objetivo de esta app intenta ser, según entiendo, ofrecer una capa de servicios que se integren a Gmail, pero que permitan usos no clásicos del mismo. Este es un análisis en caliente: Llevo probando la aplicación en cuestión un [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Lo que sigue será una visión personal acerca de la ultima aplicación de Google: Inbox. El objetivo de esta app intenta ser, según entiendo, ofrecer una capa de servicios que se integren a Gmail, pero que permitan usos no clásicos del mismo.</p>
+<p>Este es un análisis en caliente: Llevo probando la aplicación en cuestión un par de horas solamente. Volveré al post si hay cosas que merezcan ser rectificadas.</p>
+<p>TL;DR para vagos: Todo lo que ofrece Inbox, IMHO, podría ser integrado a Gmail. Las cosas que no me convencen son mucho mas que las cosas interesantes, pero esta claro que están evolucionando el servicio para dar el salto a otra cosa. Similar a lo que les ocurrió con Hangout, demasiado ambicioso con los objetivos, pero dejan de lado cosas simples pero de uso cotidiano. Intentan revolucionar ecosistemas que funcionan muy bien con herramientas demasiado inmaduras.</p>
+<h2>Algunas cosas interesantes</h2>
+<p>Inbox ofrece la posibilidad de que un mail sea &#8220;<strong>Pospuesto</strong>&#8220;. Posponer un mail o conversación implica que la misma desaparecerá de la bandeja de recibidos hasta el día y hora que se le indique. Entonces esto permite aprovechar el correo para ofrecer una especie de planificador de tareas. Cómodo, sencillo, útil.</p>
+<p>Otra cuestión interesante es la posibilidad de &#8220;<strong>Fijar</strong>&#8221; un elemento (conversación), y la interfaz ofrece un filtro rápido entre las cosas fijadas y el resto de los elementos. De esta forma, se rescata la idea ya existente en Gmail de marcar conversaciones como &#8220;Importantes&#8221;. Sin embargo, si en Gmail la categoría de importante intentaba realizar una predicción que iba &#8220;aprendiendo&#8221; de nuestros comportamientos, la característica de &#8220;fijar&#8221; esta disponible y el usuario decide cuando utilizarla. Yo soy de los que nunca encontró demasiado útil el concepto de &#8220;Importante&#8221; dentro de Gmail, pero se de colegas que si lo utilizaban y les era funcional. El fijar para mi es útil y adecuado, pero a estos colegas les va a sonar como que les sacaron una utilidad (La parte predictiva). Desde el punto de vista personal, es una buena idea, bien integrada en la interfaz y que seguramente voy a usar.</p>
+<p>Ademas de poder redactar un correo, ofrece la posibilidad de redactar &#8220;Recordatorios&#8221;. Esto esta bueno, porque reemplaza al viejo pero útil mail a uno mismo con cosas a ser recordadas.</p>
+<h2>Algunas cosas que no aportan mucho</h2>
+<p>Para terminar con funcionalidad nueva, quiero decir que la función de marcar como &#8220;<strong>Hecho</strong>&#8221; a mi entender es un cambio de nombre al viejo &#8220;<strong>Archivar</strong>&#8221; conversaciones de Gmail. El cambio de nombre se debe claramente a la intención de que Inbox maneje otros conceptos ademas de correos (Por ejemplo, tareas). A futuro supongo que intentaran integrar otros servicios de Google.</p>
+<p>Ademas de una interfaz web, Google ofrece Inbox vía Google Play para Android, y también tiene una versión para iOS. Hoy en día no ofrecer una aplicación para móviles para un nuevo servicio no es demasiado coherente. Descargue la App en mi Moto G, y todo ok, ofrece la misma funcionalidad con un comportamiento mas adecuado que si abriera Inbox en un Browser desde el dispositivo.</p>
+<p>Google sigue con la idea que antes les dio esa sensación de tener un servicio de elite. La gente se suma al servicio a través de invitaciones. Me parece una pavada a esta altura, pero entiendo que usan esto como forma de deploy controlado, externalización del testing de interfaz, etc&#8230;.</p>
+<h2>Varios puntos negativos</h2>
+<p>El soporte para uso de etiquetas es deficiente: En pos de promover un uso ágil (?) de Inbox, se desprecio la usabilidad de las etiquetas. Es cierto que aparecen tal y como las tenemos definidas en Gmail, pero no esta agrupadas sino que están en &#8220;Plano&#8221; (Si tenias etiquetas jerarquizadas en Gmail, en Inbox vas a tardar en adaptarte para reubicar todo). Cuando se intenta etiquetar conversaciones, desapareció el filtro rápido, y en mi caso que soy de etiquetar todo el correo, me vi recorriendo un scroll interminable muchas veces. Porque tampoco esta mas disponible la posibilidad de arrastrar conversaciones a la etiqueta en la barra lateral, ni tampoco al revés, arrastrar y soltar la etiqueta sobre conversaciones.</p>
+<p>Hangout: Si, esto es un punto negativo. Una aplicación de chat que no permite diferenciar entre varios estados es una mala idea. Es lenta. Es pesada. Rompe compatibilidad con personas que usan Gtalk (Las obliga a activar Hangout para ciertas cosas).  Ordena los contactos como el quiere (por frecuencia, yo los quiero por orden alfabético). Que la opción de chat sea Hangout es algo negativo, en G+ tengo esta herramienta desactivada, ahora también la tendré que desactivar en Inbox.</p>
+<p>Agrupar mensajes en Recibidos: Algo que parece interesante es que para una etiqueta dada o categoría de esas que inventaron ahora en Google (Viajes (?), Compras, Finanzas (?), Social, Notificaciones, Foros, Promociones (?)), se agrupan en la bandeja si se lo configuramos, de forma que puede haber muchas conversaciones por esa categoría que ocupen el lugar de una conversación, y presionando allí, las despliega y muestra. Con esto nos permite hacer operaciones sobre todas ellas sin seleccionar cada una. El problema con esto es que viene a solucionar otro problema que comentare después, y que hasta donde pude notar, para nuestras etiquetas esta desactivado, con lo que hay que ingresar a cada una de las etiquetas y tildar la opción que lo activa.</p>
+<p>Gestión deficiente de los elementos: Si descubrís la forma de seleccionar masivamente elementos, por favor, avisame en un comentario. No hay forma, ni un botón &#8220;Seleccionar todo&#8221;, ni el viejo Click, Shift+Click. Si queremos seleccionar varios mensajes, hay que tildarlos uno por uno. Casi que me ilusione con el hecho de que muestre la foto de perfil en la conversación, porque tengo colegas de igual nombre que cuando estoy moviendo mensajes se me mezclan, pero basta con seleccionar una conversación, para que en el resto de los mensajes no seleccionados se cambie el avatar por un ícono de selección vacío. De que sirve eso, si dejaran los avatares seria mucho mas útil!!!!</p>
+<p>Desprecio por el concepto de &#8220;No Leído&#8221;: Para los que usamos correos, la diferencia entre leído y no leído es importantes. Esto se incrementa cuando tenemos filtro para correos que deben ignorar la bandeja de recibidos, e ir directamente a las etiquetas. La lista de etiquetas no diferencia entre etiquetas con contenido sin leer y leído, con lo cual, habría que recorrer todas las etiquetas para averiguarlo. Una vez dentro, tuvieron la inteligencia de poner en negrita lo no leído. Menos mal. Sin embargo, para marcar cosas como leídas, hay que entrar a cada una. Si existe alguna función para hacerlo sin ingresar, no es intuitiva.</p>
+<p>Exclusividad en Chrome: Google, sos Microsoft hace 15 años. Tener software que solo funcione en tu navegador es algo malo para vos. Yo puedo elegir no usarte. Entiendo que tal vez tengan algún mecanismo para que al desarrollador le sea sencillo migrar aplicaciones entre Chrome y Android, pero no se cuantos cambios necesitaría ese código para funcionar en Firefox u otro navegador actual. Un mensaje para instalar Chrome si alguien ingresa con otro browser atrasa una década al menos.</p>
+<p>Hay carpetas que importan: Spam, Papelera, son carpetas que importan. Si no me ofrece un mecanismo de selección masiva de elementos, podría ofrecer una opción de &#8220;Vaciar Papelera&#8221; o &#8220;Eliminar Spam&#8221;. Pero no. Igualmente, al lado de las otras cosas, esto parece un chiste (Irónicamente, la idea del post arranco por acá, al ver cosas en Spam y que sin querer las pase a recibidos intentando eliminarlas).</p>
+<h2>Conclusiones</h2>
+<p>Hay conceptos interesantes en Inbox. Pero no tiene todo lo que se necesita para gestionar el correo día a día, con lo cual, te obliga a tener Gmail abierto en otra pestaña (De Chrome, obvio). La obsesión es tener la bandeja de entrada limpia, sin importar lo que eso implique (Cuando lo usan van a entender esta afirmación).</p>
+<p>Avanza en ideas interesantes (recordatorios, posponer), pero se olvida de cosas rutinarias (gestión de etiquetas y selección de elementos).</p>
+<p>A mi por ahora me queda una sensación al igual que con Hangouts, promete mucho sin aportar lo suficiente. Igualmente lo seguiré utilizando.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/351/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Hadoop: Introduccion, articulos e Instalación</title>
+		<link>http://tomasdel.com/326</link>
+		<comments>http://tomasdel.com/326#respond</comments>
+		<pubDate>Mon, 13 Oct 2014 14:32:15 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[Materias]]></category>
+		<category><![CDATA[Soluciones]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[big data]]></category>
+		<category><![CDATA[charlas]]></category>
+		<category><![CDATA[hadoop]]></category>
+		<category><![CDATA[instalacion]]></category>
+		<category><![CDATA[slides]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=326</guid>
+		<description><![CDATA[El día miércoles 8/10/2014 en el marco de una materia me invitaron a exponer la experiencia que vengo reuniendo en lo que respecta al Big Data y a Hadoop en particular. Ya tenia preparada una diapositiva introductoria, la cual amplié y corregí de cara al curso, el cual es sobre Sistemas Distribuidos y agregue algún [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>El día miércoles 8/10/2014 en el marco de una materia me invitaron a exponer la experiencia que vengo reuniendo en lo que respecta al Big Data y a Hadoop en particular. Ya tenia preparada una diapositiva introductoria, la cual amplié y corregí de cara al curso, el cual es sobre Sistemas Distribuidos y agregue algún contenido adicional sobre como opera HDFS de forma mas detallada.</p>
+<p>Las slides:</p>
+<p><iframe src="//slides.com/tomasdelvechio/hadoop--2/embed" width="576" height="420" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe></p>
+<p>Por otro lado, el profesor me pidió, de la vasta documentación en el tema, 1 articulo o dos para ofrecer como bibliografia. Si bien podría haber dicho el libro de Tom White, que es la referencia en el tema, me pareció que para un curso que no es especifico de Hadoop dos artículos mas específicos podrían ser un mejor aporte. Los artículos que elegí fueron:</p>
+<p><b>[DEA,2004]</b>: Dean, J. Et. all. &#8220;<a href="http://static.googleusercontent.com/media/research.google.com/es-419//archive/mapreduce-osdi04.pdf" target="_blank"><i>MapReduce: Simplified Data Processing on Large Clusters</i></a>&#8220;.  OSDI. 2004.</p>
+<p><b>[SHV,2010]:</b> Shvachko, K. Et. all. &#8220;<a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=799A2C18A3A740620B51A4AE65476312?doi=10.1.1.178.989&amp;rep=rep1&amp;type=pdf" target="_blank">The Hadoop Distributed File System</a>&#8220;. IEEE. 2010.</p>
+<p>Por ultimo, Agrego dos tutoriales que armamos con dos colegas (Esteban y Alejandro) para instalar Hadoop para desarrollo (conocida como single-node) y como cluster.</p>
+<p><script src="https://gist.github.com/tomasdelvechio/26e709368d461406d91d.js"></script></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/326/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Network is unreachable al actualizar Flash Player en Ubuntu</title>
+		<link>http://tomasdel.com/317</link>
+		<comments>http://tomasdel.com/317#respond</comments>
+		<pubDate>Tue, 07 Oct 2014 12:20:38 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[apt]]></category>
+		<category><![CDATA[Bash]]></category>
+		<category><![CDATA[flashplayer]]></category>
+		<category><![CDATA[proxy]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=317</guid>
+		<description><![CDATA[Cuando estamos en una red con Proxy, a pesar de tener configurado el mismo en APT y en Bash, al actualizar flashplayer plugin nos aparece el siguiente error: flashplugin-installer: downloading http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz Traceback (most recent call last): File &#34;/usr/lib/update-notifier/package-data-downloader&#34;, line 239, in process_download_requests dest_file = urllib.urlretrieve(files[i])[0] File &#34;/usr/lib/python2.7/urllib.py&#34;, line 94, in urlretrieve return _urlopener.retrieve(url, filename, reporthook, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<div>Cuando estamos en una red con Proxy, a pesar de tener configurado el mismo en APT y en Bash, al actualizar flashplayer plugin nos aparece el siguiente error:</div>
+<pre class="brush: bash; gutter: true">flashplugin-installer: downloading http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz
+Traceback (most recent call last):
+    File &quot;/usr/lib/update-notifier/package-data-downloader&quot;, line 239, in process_download_requests
+        dest_file = urllib.urlretrieve(files[i])[0]
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 94, in urlretrieve
+        return _urlopener.retrieve(url, filename, reporthook, data)
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 240, in retrieve
+        fp = self.open(url, data)
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 208, in open
+        return getattr(self, name)(url)
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 345, in open_http
+        h.endheaders(data)
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 969, in endheaders
+        self._send_output(message_body)
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 829, in _send_output
+        self.send(msg)
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 791, in send
+        self.connect()
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 772, in connect
+        self.timeout, self.source_address)
+    File &quot;/usr/lib/python2.7/socket.py&quot;, line 571, in create_connection
+        raise err
+IOError: [Errno socket error] [Errno 101] Network is unreachable</pre>
+<p>La solución es descargarlo a mano e indicarle al instalador la carpeta donde esta el archivo. Se hace de la siguiente forma:</p>
+<pre class="brush: bash; gutter: true">$ cd ~/Descargas
+$ wget http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz
+--2014-10-07 08:27:53--  http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz
+Resolving proxy.unlu.edu.ar (proxy.unlu.edu.ar)... 170.210.96.10
+Connecting to proxy.unlu.edu.ar (proxy.unlu.edu.ar)|170.210.96.10|:8080... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 14142192 (13M) [application/x-gzip]
+Saving to: ‘adobe-flashplugin_11.2.202.406.orig.tar.gz’
+
+100%[==============================================================================================================================&gt;] 14.142.192   992KB/s   in 15s    
+
+2014-10-07 08:28:09 (934 KB/s) - ‘adobe-flashplugin_11.2.202.406.orig.tar.gz’ saved [14142192/14142192]
+$ sudo dpkg-reconfigure flashplugin-installer</pre>
+<p>En el paso del wget, utilizar el enlace que nos mostro apt antes de que aparezca el error, en el ejemplo era http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz</p>
+<p>Al ejecutar el ultimo paso, aparece una interfaz en ncurses, donde debemos ingresar la carpeta donde descargamos el archivo (No hay que ingresar el nombre del archivo).</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206.png"><img class="aligncenter wp-image-318 size-full" src="http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206.png" alt="Screenshot from 2014-10-07 08:42:06" width="1344" height="358" srcset="http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206.png 1344w, http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206-300x79.png 300w, http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206-1024x272.png 1024w, http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206-700x186.png 700w" sizes="(max-width: 1344px) 100vw, 1344px" /></a>Si todo esta correcto, la instalación finaliza con la siguiente salida:</p>
+<pre class="brush: actionscript3; gutter: true">Installing from local file /home/tomas/Descargas//adobe-flashplugin_11.2.202.406.orig.tar.gz
+Installing from local file /home/tomas/Descargas//adobe-flashplugin_11.2.202.406.orig.tar.gz
+Flash Plugin installed.
+Flash Plugin installed.</pre>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/317/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Entendiendo Vagrant: Otra Introducción</title>
+		<link>http://tomasdel.com/260</link>
+		<comments>http://tomasdel.com/260#respond</comments>
+		<pubDate>Fri, 13 Jun 2014 01:22:29 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[Deploy]]></category>
+		<category><![CDATA[Maquinas Virtuales]]></category>
+		<category><![CDATA[Vagrant]]></category>
+		<category><![CDATA[Virtualbox]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=260</guid>
+		<description><![CDATA[Introducción Para un trabajo estoy usando Vagrant. Es una herramienta interesante, ya que permite realizar un deploy de maquinas virtuales (VMs) con relativa facilidad. Pero me costo un poco la curva inicial, tuve que leer bastante porque utiliza ciertos conceptos que parecen &#8220;nuevos&#8221; aunque luego son cosas conocidas una vez que se lee la documentación, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Introducción</h2>
+<p><img class="size-full wp-image-261 alignleft" src="http://tomasdel.com/wp-content/uploads/2014/06/logo_vagrant-81478652.png" alt="logo_vagrant-81478652" width="248" height="64" />Para un trabajo estoy usando <a title="Vagrant" href="http://www.vagrantup.com/" target="_blank">Vagrant</a>. Es una herramienta interesante, ya que permite realizar un deploy de maquinas virtuales (VMs) con relativa facilidad.</p>
+<p>Pero me costo un poco la curva inicial, tuve que leer bastante porque utiliza ciertos conceptos que parecen &#8220;nuevos&#8221; aunque luego son cosas conocidas una vez que se lee <a title="Documentacion de Vagrant" href="http://docs.vagrantup.com/v2/" target="_blank">la documentación</a>, la que por cierto, esta muy completa, pero en Ingles.</p>
+<p>La intención con este post, es dar mi introducción corta a esta herramienta, y remitir a otros posts y documentación que me sirvió para entender como funciona.</p>
+<p>Muchas de las ideas acá expuestas surgieron de la lectura de la trilogía de Posts de <a href="http://www.erikaheidi.com/blog/a-begginers-guide-to-vagrant-getting-your-portable-development-e" class="broken_link">Erika Heidi</a>.</p>
+<p>La idea detrás de Vagrant es automatizar la construcción y despliegue (deploy) de Maquinas virtuales que serán utilizadas para tareas similares o idénticas.</p>
+<p>Un caso posible es un entorno de desarrollo, donde cada nuevo desarrollador debería instalar el sistema en base al software necesario para programar, teniendo en cuenta las versiones y configuraciones particulares de los mismos. En su lugar, se podría crear un repositorio con las configuraciones para Vagrant, entonces el desarrollador en cuestión se descargaría un par de archivos de textos, y mediante una cantidad mínima de comandos tendría una VM con la configuración lista para comenzar a desarrollar.</p>
+<p>El siguiente Mapa Conceptual muestra a grandes rasgos los conceptos relacionados con Vagrant.</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/06/test.png"><img class="aligncenter wp-image-267 size-large" src="http://tomasdel.com/wp-content/uploads/2014/06/test-1024x473.png" alt="Vagrant" width="700" height="323" srcset="http://tomasdel.com/wp-content/uploads/2014/06/test-1024x473.png 1024w, http://tomasdel.com/wp-content/uploads/2014/06/test-300x138.png 300w, http://tomasdel.com/wp-content/uploads/2014/06/test.png 1096w" sizes="(max-width: 700px) 100vw, 700px" /></a>Como se observa, Vagrant actúa como &#8220;pegamento&#8221; de otras tecnologías previamente existentes, y las integra en un único comando con diversas opciones.</p>
+<h2>Conceptos</h2>
+<p>Vamos a explicar alguno de los conceptos que aparecen en el mapa conceptual:</p>
+<p><strong>Providers:</strong> Nombre que asigna Vagrant a los Hypervisores o Software para gestionar VMs. Por defecto utiliza Virtualbox. En el caso de VMware, según entiendo, ademas de la licencia propia de este, hay que pagar una licencia por el plugin de Vagrant para utilizarlo.</p>
+<p><strong>Box:</strong> Es una instalación de un sistema operativo concreto, en un archivo que Vagrant utiliza. Es normal que diferentes desarrolladores de SO o personas independientes publiquen sus Boxes en internet, para poder descargarnos un entorno ya instalado y pre-configurado. Algunos ejemplos <a href="http://www.vagrantbox.es/" target="_blank">acá</a>, <a href="https://cloud-images.ubuntu.com/vagrant/" target="_blank">acá</a> y <a href="http://www.dev-metal.com/list-downloadable-vagrant-boxes-centos-5-9-6-4-ubuntu-12-13-debian-6-7-7-1-7-2/" target="_blank">acá</a>.</p>
+<p><strong>Provisioning:</strong> Tiene nombre parecido a Providers, pero son ideas diferentes. Un provisioning es un software para automatizar tareas en una VM. Es independiente y previo a Vagrant, aunque este utiliza dicho Software para alcanzar el objetivo de crear documentos de actualización, control y mantenimiento de las Boxes.</p>
+<h2>Vagrantfile</h2>
+<p>Una box de vagrant puede ser replicada cuantas veces se desee, y las diferencias entre cada entorno se establecen a través de un archivo por cada &#8220;instalación&#8221; que se llama Vagrantfile.</p>
+<p>El archivo es en realidad un script en Ruby, que es leído por el comando vagrant para realizar las diferentes acciones.</p>
+<p>Para tener una VM con vagrant, alcanza con tener una carpeta y un archivo Vagrantfile con la configuración adecuada.</p>
+<p>En Internet hay muchos proyectos para extraer ejemplos, acá agrego una configuración posible:</p>
+<pre class="brush: ruby; gutter: true">Vagrant.configure(&quot;2&quot;) do |config|
+    config.vm.box = &quot;precise64&quot;
+    config.vm.box_url = &quot;http://files.vagrantup.com/precise64.box&quot;
+    config.vm.network :private_network, ip: &quot;192.168.33.101&quot;
+    config.vm.synced_folder &quot;./&quot;, &quot;/vagrant&quot;
+end</pre>
+<p>Teniendo el archivo anterior, y haciendo vagrant up en la carpeta, comenzara a descargar la box si es que no la tiene previamente descargada, creara una red privada entre el host y el guest, y montara una carpeta compartida entre ambos para poder intercambiar datos. En el Vagrantfile anterior, descarga un Ubuntu 12.04 (Precise) de 64 bits.</p>
+<p>Una referencia mas exhaustiva de configuraciones las pueden encontrar en la <a href="http://docs.vagrantup.com/v2/vagrantfile/index.html" target="_blank">documentación oficial</a> del proyecto.</p>
+<h2>Algunos tips</h2>
+<h3>Paquetes</h3>
+<p>Por algun motivo, es mejor descargar Vagrant desde la pagina oficial, y no instalarlo desde los repositorios. En lo personal, también puedo hacer la misma recomendación respecto de Virtualbox. Con paquetes desactualizados suelen ocurrir problemas no convencionales (Por ejemplo, al instalar las Guests Additions puede fallar a veces).</p>
+<h3>vagrant init o vagrant up</h3>
+<p>En esta introducción yo sugiero crear un archivo Vagrantfile, y luego hacer vagrant up para instalar la VM. En otros lugares encontraran que en su lugar, se puede usar el comando init sin necesidad de crear el Vagrantfile. No hay una forma correcta y otra incorrecta. En el caso de usar init, Vagrant creara un Vagrantfile por default con las configuraciones mínimas necesarias para que funcione la VM. En el caso de usar up, el archivo Vagrantfile debe existir.</p>
+<h3>stdin: is not a tty</h3>
+<p>Si el mensaje</p>
+<pre class="brush: text; gutter: true">stdin: is not a tty</pre>
+<p>Aparece cuando se esta iniciando una VM, no se hagan problema (no es un error), pero si quieren solucionarlo, dentro de la VM hagan lo siguiente:</p>
+<pre class="brush: shell; gutter: true">sed -i &#039;s/^mesg n$/tty -s \&amp;\&amp; mesg n/g&#039; /root/.profile</pre>
+<p>Cuando se inicie nuevamente la VM, el mensaje no aparecerá nuevamente.</p>
+<p><a href="https://github.com/mitchellh/vagrant/issues/1673#issuecomment-26650102" target="_blank">Solución vista en github</a></p>
+<h3>Problemas con acceso ssh automático</h3>
+<p>Por diferentes motivos, puede ocurrir que se pierda el acceso vía ssh a la VM. En mi caso, me encontraba haciendo pruebas de logueo automático en diferentes VMs y borre accidentalmente la carpeta ~/.ssh del usuario vagrant (La que usa el comando para mágicamente loguearnos cuando hacemos vagrant ssh).</p>
+<p>En estos casos, lo mejor es iniciar la VM con la GUI predeterminada (Por ejemplo, a traves de Virtualbox), loguearse con el usuario vagrant de forma normal, y allí dentro ejecutar el script postinstall.sh con sudo. Luego de eso, reiniciar la VM, y el acceso estará restablecido.</p>
+<p>La realidad es que parece una pavada, pero no encontré en foros o listas sobre esto (se que es un error muy pavo, pero me pasó), y estuve un rato para encontrar el script en cuestión.</p>
+<h2>Fuentes y recursos</h2>
+<p><a href="https://www.vagrantup.com/docs/" target="_blank">Documentación</a></p>
+<p><a href="http://www.erikaheidi.com/blog/a-begginers-guide-to-vagrant-getting-your-portable-development-e" target="_blank" class="broken_link">http://www.erikaheidi.com/blog/a-begginers-guide-to-vagrant-getting-your-portable-development-e</a></p>
+<p><a href="http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-part-2-provisioning-and-puppet" target="_blank">http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-part-2-provisioning-and-puppet</a></p>
+<p><a href="http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-and-puppet-part-3-facts-conditional" target="_blank">http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-and-puppet-part-3-facts-conditional</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/260/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Barra de Titulos en Nautilus &#8211; Ubuntu Gnome 13.10</title>
+		<link>http://tomasdel.com/255</link>
+		<comments>http://tomasdel.com/255#respond</comments>
+		<pubDate>Fri, 30 May 2014 00:11:53 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[Extensiones]]></category>
+		<category><![CDATA[GNOME]]></category>
+		<category><![CDATA[GNOME 3]]></category>
+		<category><![CDATA[Nautilus]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=255</guid>
+		<description><![CDATA[Esto es un tip bastante bobo, pero a mi me vino bien. En GNOME 3.8 (Y anteriores), cuando se maximiza la ventana de Nautilus, se oculta la barra de títulos, lo que genera por ejemplo, que no aparezca el botón cerrar de la ventana. Si bien se puede cerrar la ventana desde el menú o [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Esto es un tip bastante bobo, pero a mi me vino bien. En GNOME 3.8 (Y anteriores), cuando se maximiza la ventana de Nautilus, se oculta la barra de títulos, lo que genera por ejemplo, que no aparezca el botón cerrar de la ventana.</p>
+<p>Si bien se puede cerrar la ventana desde el menú o con Alt+F4, si por costumbre queremos tener la barra de títulos, existe <a title="Extension Ignore Request Hide Titlebar" href="https://extensions.gnome.org/extension/515/ignore_request_hide_titlebar/" target="_blank">esta extensión</a>.</p>
+<p>Lo probe en Ubuntu GNOME 13.10 y pase de ver algo asi:</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default.png"><img class="aligncenter size-medium wp-image-256" src="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default-300x166.png" alt="nautilus_default" width="300" height="166" srcset="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default-300x166.png 300w, http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default.png 354w" sizes="(max-width: 300px) 100vw, 300px" /></a>A ver algo asi:</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension.png"><img class="aligncenter size-medium wp-image-257" src="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension-300x89.png" alt="nautilus_extension" width="300" height="89" srcset="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension-300x89.png 300w, http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension.png 561w" sizes="(max-width: 300px) 100vw, 300px" /></a>Las imágenes no son de mi autoría, son encontradas en la web.</p>
+<p>PD: En Ubuntu GNOME 14.10 ya no es necesario porque el botón cerrar esta integrado en la barra de herramientas.</p>
+<p>PD2: Es posible que luego de instalar haya que cerrar sesión y volver a entrar para ver los cambios (No alcanza ni siquiera con ALt+F2-&gt;r).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/255/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Markdown online editor</title>
+		<link>http://tomasdel.com/249</link>
+		<comments>http://tomasdel.com/249#respond</comments>
+		<pubDate>Tue, 27 May 2014 22:21:05 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[Web]]></category>
+		<category><![CDATA[herramientas]]></category>
+		<category><![CDATA[markdown]]></category>
+		<category><![CDATA[md]]></category>
+		<category><![CDATA[online editor]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=249</guid>
+		<description><![CDATA[Cortito y al pie, estaba pasando documentación de texto plano a Markdown, y la web http://markable.in/editor/ me vino joya para romper la inercia inicial. Recomendable!]]></description>
+				<content:encoded><![CDATA[<p>Cortito y al pie, estaba pasando documentación de texto plano a Markdown, y la web <a href="http://markable.in/editor/">http://markable.in/editor/</a> me vino joya para romper la inercia inicial.</p>
+<p>Recomendable!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/249/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Corrector ortográfico para español en Sublime Text 3</title>
+		<link>http://tomasdel.com/244</link>
+		<comments>http://tomasdel.com/244#respond</comments>
+		<pubDate>Wed, 21 May 2014 03:22:09 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[Corrector Ortografico]]></category>
+		<category><![CDATA[Sublime Text]]></category>
+		<category><![CDATA[Sublime Text 3]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=244</guid>
+		<description><![CDATA[Sublime Text 3 (ST3) es el editor de texto de moda. Lamentablemente no es libre, sin embargo yo lo estoy usando últimamente porque es muy ligero (mas que Geany para mi gusto), y tiene muchas características interesantes. Me encontraba armando un archivo en Markdown (Para documentacion de un proyecto) y al escribir rápido, quería verificar [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Sublime Text 3 (ST3) es el editor de texto de moda. Lamentablemente no es libre, sin embargo yo lo estoy usando últimamente porque es muy ligero (mas que Geany para mi gusto), y tiene muchas características interesantes.</p>
+<p>Me encontraba armando un archivo en Markdown (Para documentacion de un proyecto) y al escribir rápido, quería verificar si no se me había pasado alguna falta de ortografía grosera.</p>
+<p>Los correctores no son infalibles, pero ayudan, entonces busque si era posible en ST3 tener un corrector, y en español (Idioma de la documentación).</p>
+<p>Descubrí que ST3 trae un corrector incorporado (+1), pero obviamente el único idioma por defecto es el ingles (-1). Buscando, en <a title="Diccionario español Sublime Text 2" href="http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/" target="_blank">este blog</a> encuentro una solución para la version 2 del editor que al menos a mi me sirvió para la versión 3:</p>
+<ul>
+<li>Ingresar a <b><a title="Diccionarios" href="https://github.com/SublimeText/Dictionaries/" target="_blank">https://github.com/SublimeText/Dictionaries/</a></b></li>
+<li>Descargar los siguientes archivos:
+<ul>
+<li><span class="css-truncate css-truncate-target"><a id="0f7789341773d0b6fb93f0c2d31ff60b-c4e53584c897251c0e806b40565d2314b3d78759" class="js-directory-link" title="Spanish.aff" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.aff">Spanish.aff</a></span></li>
+<li><span class="css-truncate css-truncate-target"><a id="c271b5605c6477f52cfe0afd2182f63f-178073a15a27641fa7c3222343eb376e3427b3c4" class="js-directory-link" title="Spanish.dic" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.dic">Spanish.dic</a></span></li>
+<li><span class="css-truncate css-truncate-target"><a id="ce01f79ee22807957526fefeb287f8ef-98b5ad4cf05821ef60ef50b9b3fb57909c31cefe" class="js-directory-link" title="Spanish.txt" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.txt">Spanish.txt</a></span></li>
+</ul>
+</li>
+<li>Crear una carpeta de nombre &#8220;Language – Spanish&#8221; y guardar los 3 archivos dentro.</li>
+<li>Mover el directorio creado a la carpeta de extensiones de ST3. En mi caso, instale ST3 desde el <a title="Sublime Text 3 - Deb file" href="http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb" target="_blank">.deb descargable del sitio oficial</a>. Dicho paquete, ubica los archivos de usuario en $HOME/.config/sublime-text-3/Packages/, con lo cual, allí fue movido el directorio &#8220;Language &#8211; Spanish/&#8221; con los 3 archivos previamente descargados.</li>
+<li>Una vez hecho esto, desde ST3 vamos al menu &#8220;View-&gt;Spell Check&#8221; para activar el corrector ortográfico, y luego a &#8220;View-&gt;Dictionary-&gt;Languaje &#8211; Spanish-&gt;Spanish&#8221;.</li>
+</ul>
+<p>Una vez hecho lo anterior, pude corregir el documento en cuestión de forma similar a como se hace en cualquier Procesador de Textos.</p>
+<p>FUENTE: <a href="http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/" target="_blank">http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/244/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Pasar una imagen de cd .ngr a .iso en Ubuntu y Debian</title>
+		<link>http://tomasdel.com/9</link>
+		<comments>http://tomasdel.com/9#comments</comments>
+		<pubDate>Thu, 06 Oct 2011 23:09:36 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[Bash]]></category>
+		<category><![CDATA[Comandos]]></category>
+		<category><![CDATA[Imagen de CD]]></category>
+		<category><![CDATA[ISO]]></category>
+		<category><![CDATA[NRG]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=9</guid>
+		<description><![CDATA[.Nrg es un formato de imagen de cd del programa Nero. Para mi es mas común manejarme con archivos .iso. Por eso, hoy tenia una imagen .nrg y necesitaba pasarla a .iso en mi Ubuntu  9.04. Busque en Internet, y en un gran blog que sigo hace tiempo, Ubuntu Life (Que recomiendo tener en el [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><em>.Nrg</em> es un formato de imagen de cd del programa <em>Nero</em>. Para mi es mas común manejarme con archivos <em>.iso</em>.</p>
+<p>Por eso, hoy tenia una imagen <em>.nrg</em> y necesitaba pasarla a <em>.iso</em> en mi <em>Ubuntu  9.04</em>.</p>
+<p>Busque en Internet, y en un gran <em>blog</em> que sigo hace tiempo, <a href="http://ubuntulife.wordpress.com/" target="_blank">Ubuntu Life</a> (Que recomiendo tener en el lector RSS de todo linuxero/ubuntero), encontré cortito y sencillo <a href="http://ubuntulife.wordpress.com/2007/05/18/convertir-un-nrg-nero-a-iso-en-ubuntu/" target="_blank">el programa que necesitaba y la forma de hacerlo</a></p>
+<p>El método seria el siguiente:</p>
+<pre class="brush: bash; gutter: true">$ sudo apt-get install nrg2iso
+...
+$ nrg2iso archivo_imagen.nrg archivo_imagen.iso
+|==============================================&gt;[100%]
+archivo_imagen.iso written : 525072540 bytes
+$</pre>
+<p>Lo anterior es solo un ejemplo, la barra de progreso se iba actualizando a medida que transformaba la imagen.</p>
+<p>Luego monte el archivo <em>.iso</em> sin ningún problema.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/9/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

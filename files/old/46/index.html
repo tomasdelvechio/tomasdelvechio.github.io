@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/Article" lang="es-ES">
+<head>
+<base href="http://tomasdelvechio.github.io/old" />
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://tomasdelvechio.github.io/old/xmlrpc.php" />
+	<!--[if lt IE 9]>
+	<script src="http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<title>Servidor de musica hogareño en GNU/Linux (II) &#8211; El Blog de Tomas</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Feed" href="http://tomasdelvechio.github.io/old/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; RSS de los comentarios" href="http://tomasdelvechio.github.io/old/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Servidor de musica hogareño en GNU/Linux (II) RSS de los comentarios" href="http://tomasdelvechio.github.io/old/46/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/tomasdelvechio.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/fonts/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='independent-publisher-style-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/style.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='customizer-css'  href='http://tomasdelvechio.github.io/old/wp-admin/admin-ajax.php?action=independent_publisher_customizer_css&#038;ver=1.7' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/fade-post-title.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/enhanced-comment-form.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='http://tomasdelvechio.github.io/old/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tomasdelvechio.github.io/old/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tomasdelvechio.github.io/old/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Volver a compilar el driver de Virtualbox al instalar nuevo kernel en GNU/Linux' href='http://tomasdelvechio.github.io/old/49' />
+<link rel='next' title='Mi primer rfr' href='http://tomasdelvechio.github.io/old/51' />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel="canonical" href="http://tomasdelvechio.github.io/old/46" />
+<link rel='shortlink' href='http://tomasdelvechio.github.io/old/?p=46' />
+<link rel="alternate" type="application/json+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F46" />
+<link rel="alternate" type="text/xml+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F46&#038;format=xml" />
+
+<link rel="stylesheet" href="http://tomasdelvechio.github.io/old/wp-content/plugins/count-per-day/counter.css" type="text/css" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style></head>
+
+<body class="post-template-default single single-post postid-46 single-format-standard h-entry hentry" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+
+
+<div id="page" class="site">
+	<header id="masthead" class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+
+		<div class="site-header-info">
+											
+					<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+				<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />			</a>
+		
+		<div class="site-title"><span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span></div>
+		<div class="site-description"></div>
+
+		
+		<div class="site-published-separator"></div>
+		<h2 class="site-published">Publicado</h2>
+		<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/46" title="Servidor de musica hogareño en GNU/Linux (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-07-21T21:23:44+0000" itemprop="datePublished" pubdate="pubdate">julio 21, 2009</time></a></h2>
+				
+									</div>
+
+				
+			</header>
+	<!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<main id="content" class="site-content" role="main">
+
+			
+				
+<article id="post-46" class="post-46 post type-post status-publish format-standard category-software-libre category-tutoriales" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+		<header class="entry-header">
+					<h2 class="entry-title-meta">
+			<span class="entry-title-meta-author">
+				<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>			</span>
+				en <a href="http://tomasdelvechio.github.io/old/category/software-libre" rel="category tag">software libre</a>, <a href="http://tomasdelvechio.github.io/old/category/tutoriales" rel="category tag">tutoriales</a>				<span class="entry-title-meta-post-date">
+				<span class="sep"> | </span>
+					<a href="http://tomasdelvechio.github.io/old/46" title="Servidor de musica hogareño en GNU/Linux (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-07-21T21:23:44+0000" itemprop="datePublished" pubdate="pubdate">julio 21, 2009</time></a>			</span>
+							</h2>
+			<h1 class="entry-title p-name" itemprop="name">Servidor de musica hogareño en GNU/Linux (II)</h1>
+			</header>
+	<!-- .entry-header -->
+	<div class="entry-content e-content" itemprop="mainContentOfPage">
+		<p>En un &#8220;post anterior&#8221;:http://blog.tomasdelvechio.com.ar/index.php?id=6 contaba como me había surgido la necesidad o ganas de tener un servidor de musica, y como &#8220;_mpd_&#8221;:http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki -me dejo a gambas- no satisfacía mis necesidades.</p>
+<p>&#8220;Mauro&#8221;:http://bitnegro.blogspot.com/ (Un grosso de los de en serio), me comenta en un almuerzo del laburo, que lo que yo estaba intentando tenia mas que ver con _DAAP_. Que quizá por ese lado me pueda ir mejor en la búsqueda. Y que _mpd_ el lo usa para manejar a distancia un reproductor en otra maquina. Por lo tanto, lo que yo suponía era mas o menos correcto. *Existe software mas apropiado para mi necesidad*.</p>
+<p>Obviamente llegue a casa después del trabajo y me puse a investigar.</p>
+<p>&#8220;DAAP&#8221;:http://es.wikipedia.org/wiki/Digital_Audio_Access_Protocol (Protocolo de acceso a audio digital) es un protocolo de nivel de aplicación creado por _Apple_ y usado principalmente para sus _iTunes_. Sin embargo, existe un &#8220;OpenDAAP&#8221;:http://www.opendaap.org/, el cual tiene reproductores clientes compatibles, como el famoso _Rhythmbox_ de _GNOME_.</p>
+<p>Este post sera mucho mas técnico que &#8220;el anterior&#8221;:http://blog.tomasdelvechio.com.ar/index.php?id=6, así que por momentos se pondrá denso en detalles. Sean pacientes, y cualquier duda consulten.</p>
+<p>Recordemos brevemente que mi LAN tenia la siguiente estructura o topología:</p>
+<p>!images/RedServerMusical.png!</p>
+<p>En la maquina que llamamos *servidor* tengo corriendo un _Ubuntu 9.04 JJ_, así que abrí una consola allí y busque paquetes que contengan el nombre _DAAP_:</p>
+<p>bc. $ sudo aptitude search daap<br />
+p   libnet-daap-dmap-perl     &#8211; Perl module for reading and writing DAAP structures<br />
+p   mt-daapd                  &#8211; iTunes-compatible DAAP server<br />
+p   python-daap               &#8211; DAAP client implemented in Python<br />
+v   python2.5-daap            &#8211;<br />
+v   python2.6-daap            &#8211;<br />
+p   xmms2-plugin-daap         &#8211; XMMS2 &#8211; daap plugin</p>
+<p>Resultaba obvio que el paquete buscado era _mt-daapd_, el cual descargue e instale:</p>
+<p>bc. $ sudo aptitude install mt-daapd</p>
+<p>Para bajar, levantar y reiniciar el servicio, los clásicos:</p>
+<p>bc. $ sudo /etc/init.d/mt-daapd stop<br />
+$ sudo /etc/init.d/mt-daapd start<br />
+$ sudo /etc/init.d/mt-daapd restart</p>
+<p>Luego, restaba verificar que el servicio estaba andando. Para ello, desde la Laptop abrir una terminal _bash_, y ejecuté:</p>
+<p>bc. $ nmap 10.0.0.102</p>
+<p>bc. Starting Nmap 4.76 ( http://nmap.org ) at 2009-07-02 02:28 ART<br />
+Interesting ports on 10.0.0.102:<br />
+Not shown: 996 closed ports<br />
+PORT     STATE SERVICE<br />
+21/tcp   open  ftp<br />
+22/tcp   open  ssh<br />
+631/tcp  open  ipp<br />
+3689/tcp open  rendezvous</p>
+<p>bc. Nmap done: 1 IP address (1 host up) scanned in 0.75 seconds</p>
+<p>*OJO*: _Nmap_ no viene instalado por _default_ en _Ubuntu_, deberás instalarlo de la manera que instales software habitualmente en tu distribución.</p>
+<p>La cuestión es que *21* y *22* son puertos bien conocidos (_ftp_ y _ssh_ respectivamente), por lo que las opciones eran los otros dos. El puerto *631* es el de servidor de impresora en red. Entonces, en este caso por descarte, el puerto tenia que ser el *3689*, si bien no tenia idea que significaba _rendezvous_.</p>
+<p>Lo que sabemos entonces es que *tenemos que conectarnos a la IP 10.0.0.102 y al puerto 3689*. Esto es todo lo que necesitamos 🙂 .</p>
+<p>En el cliente (La _laptop_ en el escenario propuesto por mi) abrimos _Rhythmbox_ y vamos al menú *Musica -> Conectar a una compartición DAAP*:</p>
+<p>!images/ConexionDAAPenRhythmbox1.png!</p>
+<p>Allí nos encontraremos con la siguiente sub-ventana:</p>
+<p>!/blog/images/ConexionDAAPenRhythmbox2.png!</p>
+<p>Si hacemos click en *Aceptar*, se conecta al servidor _DAAP_, pero como se supone, no hay ningún archivo de musica cargado aun y nos muestra la lista en blanco. </p>
+<p>!/blog/images/ConexionDAAPenRhythmbox3.png!</p>
+<p>Debemos volver al servidor para ajustar algunas configuraciones.</p>
+<p>En particular, debemos ir al archivo _/etc/mt-daapd.conf_ y buscar la siguiente parte (como -root- Administrador del sistema):</p>
+<p>bc. #<br />
+# mp3_dir (required)<br />
+#<br />
+# Location of the mp3 files to share.  Note that because the<br />
+# files are stored in the database by inode, these must be<br />
+# in the same physical filesystem.<br />
+#</p>
+<p>bc. mp3_dir = /mi/directorio/de/musica</p>
+<p>Cambiar */mi/directorio/de/musica* por la ruta absoluta (completa) a la carpeta de musica correspondiente en tu sistema. (En mi caso como ejemplo seria _/home/tomas/Musica_)</p>
+<p>Detalle 1: Conviene que la biblioteca de musica tenga algún tipo de normalización, como que la primer carpeta sea autor, las subcarpetas sean discos y los archivos allí alojados sean temas musicales. Si se tiene otra estructura, hay que buscar en las preferencias de _Rhythmbox_ a ver si dicho esquema esta contemplado:</p>
+<p>bc. Musica/<br />
+   |<br />
+   +&#8212;> La Renga/<br />
+             |<br />
+             +&#8212;> Bailando en una pata/<br />
+                             |<br />
+                             +&#8212;> Tema 1.mp3<br />
+                             +&#8212;> Tema 2.mp3<br />
+                             &#8230;<br />
+                             +&#8212;> Tema n.mp3</p>
+<p>Detalle 2: En principio, la carpeta de musica debería estar en el mismo disco que el servidor DAAP.</p>
+<p>Reiniciar el servicio en el servidor con:</p>
+<p>bc. $ sudo /etc/init.d/mt-daapd restart</p>
+<p>Veremos como _DAAP_ realiza una exploración y va cargando los temas de nuestra biblioteca.</p>
+<p>En el programa _Rhythmbox_ del cliente, desconectar y volver a conectar la conexión DAAP. Si todo salio bien, el reproductor debería cargar uno a uno todos los temas por autor y disco.</p>
+<p>Un comentario adicional: No hay un soporte por _default_ de todos los formatos de audio, sino de algunos formatos (.mp3,.m4a,.m4p,.ogg,.flac,.mpc). A mi no me causo problemas por tener la gran mayoría en mp3, pero mirando el archivo de configuración vemos que se pueden agregar codecs. Quedara como algo pendiente a ser probado.</p>
+<p>Por ultimo, si cargamos nuevos archivos a la colección, no resta mas que reiniciar el servicio, y el servidor hará al inicio un reescaneo de archivos, cargando los nuevos.</p>
+<p>Si nos conectamos con el reproductor nuevamente, veremos los nuevos temas musicales.</p>
+<p>Eso es todo por ahora. Listening!</p>
+
+		
+									</div>
+	<!-- .entry-content -->
+
+			<div class="post-author-bottom">
+			<div class="post-author-card">
+				<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+					<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />				</a>
+
+				<div class="post-author-info">
+					<div class="site-title">
+						<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>					</div>
+
+					<div class="site-description"></div>
+				</div>
+				<div class="post-published-date">
+					<h2 class="site-published">Publicado</h2>
+					<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/46" title="Servidor de musica hogareño en GNU/Linux (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-07-21T21:23:44+0000" itemprop="datePublished" pubdate="pubdate">julio 21, 2009</time></a></h2>
+										
+					
+				</div>
+			</div>
+		</div>
+		<!-- .post-author-bottom -->
+		
+	<footer class="entry-meta">
+		
+					<div id="share-comment-button">
+				<button>
+					<i class="share-comment-icon"></i>¿Algo para decir?				</button>
+			</div>
+		
+			</footer>
+	<!-- .entry-meta -->
+
+</article><!-- #post-46 -->
+
+				
+
+<!-- *******************************************************************************************************************-->
+<!-- Comments Evolved for Wordpress v1.6.3 ( http://wordpress.org/plugins/gplus-comments/ ) -->
+<!-- *******************************************************************************************************************-->
+
+<!-- comments-evolved-tabs -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.comment_tab_width = $('#comments-evolved-tabs').innerWidth();
+});
+</script>
+<div id="comments-evolved-tabs">
+<a name="comments"></a>
+    <ul class="controls inline clearfix">
+    <li class="active" id='comments-evolved-gplus-control'><a href='#comments-evolved-gplus-tab'><img id='comments-evolved-gplus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/gplus.png'><span id='comments-evolved-gplus-label'></span></a></li>
+<li id='comments-evolved-facebook-control'><a href='#comments-evolved-facebook-tab'><img id='comments-evolved-facebook-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/facebook.png'><span id='comments-evolved-facebook-label'></span></a></li>
+<li id='comments-evolved-wordpress-control'><a href='#comments-evolved-wordpress-tab'><img id='comments-evolved-wordpress-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/wordpress.png'><span id='comments-evolved-wordpress-label'></span></a></li>
+<li id='comments-evolved-disqus-control'><a href='#comments-evolved-disqus-tab'><img id='comments-evolved-disqus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/disqus.png'><span id='comments-evolved-disqus-label'></span></a></li>
+  </ul>
+  <!-- comments-evolved-gplus-tab -->
+<div id='comments-evolved-gplus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('#comments-evolved-gplus-tab').html('<div class="g-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/46" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>');
+  });
+</script>
+<script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+<noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+</div>
+<!-- // comments-evolved-gplus-tab -->
+<!-- comments-evolved-facebook-tab -->
+<div id='comments-evolved-facebook-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div id="fb-root"></div>
+<div id="fb-comments">Loading Facebook Comments ...</div>
+<script type="text/javascript">
+  jQuery(document).ready(function($)
+  {
+    $('#fb-comments').html('<div class="fb-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/46" data-num-posts="20" data-colorscheme="light" data-mobile="auto"></div>');
+  });
+</script>
+<script async type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1">FB.init();</script>
+<noscript>Please enable JavaScript to view the <a href="https://www.facebook.com/">comments powered by Facebook.</a></noscript>
+
+
+</div>
+<!-- // comments-evolved-facebook-tab -->
+<!-- comments-evolved-wordpress-tab -->
+<div id='comments-evolved-wordpress-tab' class='comments-evolved-embed-container content-tab clearfix'>
+
+	<div id="commentform-top"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/46" style="display:none;">Cancelar respuesta</a></small></h3>			<form action="http://tomasdelvechio.github.io/old/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<div id="main-reply-title"><h3>¿Algo para decir?</h3></div><div class="comment-form-reply-title"><p>Comentario</p></div><p class="comment-form-comment" id="comment-form-field"><textarea id="comment" name="comment" cols="60" rows="6" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Nombre</label><input id="author" name="author" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label><input id="email" name="email" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Sitio web</label><input id="url" name="url" type="text" value="" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Enviar Comentario" /> <input type='hidden' name='comment_post_ID' value='46' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="10fc84c59c" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="32"/></p>			</form>
+			</div><!-- #respond -->
+	
+
+	<div id="comments" class="comments-area">
+				
+			
+			
+			<ol class="commentlist">
+						<li class="comment even thread-even depth-1 u-comment h-cite" id="li-comment-14">
+		<article id="comment-14" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/37a5667ded6402e7b3a6e5b93ef2faaa?s=48&#038;r=g' srcset='http://0.gravatar.com/avatar/37a5667ded6402e7b3a6e5b93ef2faaa?s=96&#038;r=g 2x' class='avatar avatar-48 photo u-photo' height='48' width='48' />					<cite class="fn">Colifo_</cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://tomasdelvechio.github.io/old/46#comment-14">
+						<time pubdate datetime="2011-03-03T16:09:09+00:00">
+							marzo 3, 2011						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content ">
+<p>tremendamente interesante!! ahora q termine de rendir me pongo en marcha</p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='http://tomasdelvechio.github.io/old/46?replytocom=14#respond' onclick='return addComment.moveForm( "comment-14", "14", "respond", "46" )' aria-label='Responder a Colifo_'>Responder a Colifo_</a>			</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 u-comment h-cite" id="li-comment-15">
+		<article id="comment-15" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/b2cb6e126473970ff68d8b4972a776a4?s=48&#038;r=g' srcset='http://2.gravatar.com/avatar/b2cb6e126473970ff68d8b4972a776a4?s=96&#038;r=g 2x' class='avatar avatar-48 photo u-photo' height='48' width='48' />					<cite class="fn"><a href='http://tomasdelvechio.github.io/old' rel='external nofollow' class='url'>Tomas</a></cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://tomasdelvechio.github.io/old/46#comment-15">
+						<time pubdate datetime="2011-03-04T12:29:44+00:00">
+							marzo 4, 2011						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content ">
+<p>Hay un tema con este post, quedo medio obsoleto desde que descubri que una vez instalado mt-daapd, podes acceder a una interfaz via firefox. Generalmente es <a href="http://localhost:3689" rel="nofollow">http://localhost:3689</a> (Ojo, localhost si estas en la PC en que instalaste el server, sino se reemplaza localhost por el numero de ip que corresponda)</p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='http://tomasdelvechio.github.io/old/46?replytocom=15#respond' onclick='return addComment.moveForm( "comment-15", "15", "respond", "46" )' aria-label='Responder a Tomas'>Responder a Tomas</a>			</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+		</li><!-- #comment-## -->
+			</ol><!-- .commentlist -->
+
+			
+		
+		
+		
+		
+							
+	</div><!-- #comments .comments-area -->
+
+</div>
+<!-- // comments-evolved-wordpress-tab -->
+<!-- comments-evolved-disqus-tab -->
+<div id='comments-evolved-disqus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div class="comments-evolved-embed-container clearfix" id="disqus_thread">Loading Disqus Comments ...</div>
+<script type="text/javascript">
+  var disqus_shortname = 'tomasdel';
+  (function(d) {
+    var dsq = d.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(dsq);
+  })(document);
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- // comments-evolved-disqus-tab -->
+</div>
+<!-- //comments-evolved-tabs -->
+
+				
+				
+			
+		</main>
+		<!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+<div id="secondary" class="widget-area" role="complementary">
+	</div><!-- #secondary .widget-area -->
+
+</div><!-- #main .site-main -->
+
+<footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<div class="site-info">
+		<a href="http://independentpublisher.me" rel="designer" title="Independent Publisher: A beautiful reader-focused WordPress theme, for you.">Independent Publisher</a> potencializado por <a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>	</div>
+	<!-- .site-info -->
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<link rel='stylesheet' id='comments_evolved_tabs_css-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/styles/plugin.css?ver=1.6.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+<script async="async" type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/plugins/akismet/_inc/form.js?ver=4.0.2'></script>
+<!-- Comments Evolved plugin -->
+<script>jQuery("#comments-evolved-tabs").tabs();</script>
+<!-- //Comments Evolved plugin -->
+
+</body>
+</html>

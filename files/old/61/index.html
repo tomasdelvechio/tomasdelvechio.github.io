@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/Article" lang="es-ES">
+<head>
+<base href="http://tomasdelvechio.github.io/old" />
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://tomasdelvechio.github.io/old/xmlrpc.php" />
+	<!--[if lt IE 9]>
+	<script src="http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<title>Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (II) &#8211; El Blog de Tomas</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Feed" href="http://tomasdelvechio.github.io/old/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; RSS de los comentarios" href="http://tomasdelvechio.github.io/old/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (II) RSS de los comentarios" href="http://tomasdelvechio.github.io/old/61/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/tomasdelvechio.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/fonts/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='independent-publisher-style-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/style.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='customizer-css'  href='http://tomasdelvechio.github.io/old/wp-admin/admin-ajax.php?action=independent_publisher_customizer_css&#038;ver=1.7' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/fade-post-title.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/enhanced-comment-form.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='http://tomasdelvechio.github.io/old/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tomasdelvechio.github.io/old/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tomasdelvechio.github.io/old/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (I)' href='http://tomasdelvechio.github.io/old/60' />
+<link rel='next' title='Materia: Redes de computadora &#8211; Tema: Protocolos y Modelo OSI (I)' href='http://tomasdelvechio.github.io/old/62' />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel="canonical" href="http://tomasdelvechio.github.io/old/61" />
+<link rel='shortlink' href='http://tomasdelvechio.github.io/old/?p=61' />
+<link rel="alternate" type="application/json+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F61" />
+<link rel="alternate" type="text/xml+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F61&#038;format=xml" />
+
+<link rel="stylesheet" href="http://tomasdelvechio.github.io/old/wp-content/plugins/count-per-day/counter.css" type="text/css" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style></head>
+
+<body class="post-template-default single single-post postid-61 single-format-standard h-entry hentry" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+
+
+<div id="page" class="site">
+	<header id="masthead" class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+
+		<div class="site-header-info">
+											
+					<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+				<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />			</a>
+		
+		<div class="site-title"><span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span></div>
+		<div class="site-description"></div>
+
+		
+		<div class="site-published-separator"></div>
+		<h2 class="site-published">Publicado</h2>
+		<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/61" title="Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-09-13T12:45:14+0000" itemprop="datePublished" pubdate="pubdate">septiembre 13, 2009</time></a></h2>
+				
+									</div>
+
+				
+			</header>
+	<!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<main id="content" class="site-content" role="main">
+
+			
+				
+<article id="post-61" class="post-61 post type-post status-publish format-standard category-academicos" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+		<header class="entry-header">
+					<h2 class="entry-title-meta">
+			<span class="entry-title-meta-author">
+				<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>			</span>
+				en <a href="http://tomasdelvechio.github.io/old/category/academicos" rel="category tag">academicos</a>				<span class="entry-title-meta-post-date">
+				<span class="sep"> | </span>
+					<a href="http://tomasdelvechio.github.io/old/61" title="Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-09-13T12:45:14+0000" itemprop="datePublished" pubdate="pubdate">septiembre 13, 2009</time></a>			</span>
+							</h2>
+			<h1 class="entry-title p-name" itemprop="name">Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (II)</h1>
+			</header>
+	<!-- .entry-header -->
+	<div class="entry-content e-content" itemprop="mainContentOfPage">
+		<p>*4. ¿Qué tipo de recursos esperan los procesos que se encuentran en estado de espera y de que forma se puede administrar su asignación al recurso? Justifique su respuesta.*</p>
+<p>Los procesos que se encuentran en estado de espera aguardan la sucesión de algún evento, como por ejemplo una operación de entrada / salida.<br />
+Su asignación al recurso necesitado se realiza a través de un administrador de mediano plazo, apoyado en memoria virtual.</p>
+<p>*5. ¿Cuál es el contenido del bloque de control de procesos? Justifique el por qué de su empleo en un sistema multiproceso. Dónde se encuentra físicamente, y quien maneja su actualización.*</p>
+<p>El bloque de control de proceso (Process Control Block &#8211; PCB) contiene información necesaria para que el sistema operativo controle al proceso y su contenido es el siguiente:</p>
+<p>+Identificación de Proceso+</p>
+<p>*Identificadores*<br />
+Los identificadores numéricos que se pueden guardar en el bloque de control de proceso incluyen:<br />
+* Identificador de este proceso<br />
+* Identificador del proceso que creo a este proceso (el proceso padre)<br />
+* Identificador del usuario</p>
+<p>+Información del estado del procesador+</p>
+<p>*Registros Visibles para el Usuario*<br />
+Un registro visible para el usuario es aquel al que puede hacerse referencia por medio del lenguaje maquina que ejecuta el procesador. Normalmente, existen de 8 a 32 de estos registros, aunque algunas implementaciones de RISC tienen mas de 100.</p>
+<p>*Registros de Control y de Estado*<br />
+Hay varios registros del procesador que se emplean para controlar su funcionamiento. Entre estos se incluyen:<br />
+* Contador de programa: Contiene la dirección de la próxima instrucción a ser tratada.<br />
+* Información de estado: Incluye los indicadores de habilitación o inhabilitación de interrupciones y el modo de ejecución.</p>
+<p>*Punteros de pila*<br />
+Cada proceso tiene una o mas pilas LIFO del sistema asociadas. Las pilas se utilizan para almacenar los parámetros y las direcciones de retorno de los procedimientos y de las llamadas al sistema. El puntero de pila siempre apunta a la cima de la pila.</p>
+<p>+Información de Control del Proceso+</p>
+<p>*Información de Planificaron y de Estado*<br />
+Esta es la información que necesita por el sistema operativo para llevar a cabo sus funciones de planificación. Los elementos típicos de esta información son los siguientes:<br />
+* Estado del proceso: Define la disposición del proceso para ser planificado para ejecutar (en ejecución, listo, esperando, detenido).<br />
+* Prioridad: Se puede usar uno o mas campos para describir la prioridad de la planificación de los procesos. En algunos sistemas se necesitan varios valores (por omisión, actual, la mas alta permitida).<br />
+* Información de planificación: Esta dependerá del algoritmo de planificaron utilizado. Como ejemplos se tiene la cantidad de tiempo que el procesos ha estado esperando y la cantidad de tiempo que el proceso ejecuto la ultima vez.<br />
+* Suceso: La identidad del suceso que el proceso esta esperando antes de poder reanudarse.</p>
+<p>*Estructura de Datos*<br />
+Un proceso puede estar enlazado con otros procesos en una cola, un anillo, o alguna otra estructura. Por ejemplo todos los procesos que están en estado de espera de un nivel determinado de prioridad pueden estar enlazados en un acola. Un proceso puede mostrar una relación padre-hijo (creador – creado) con otro proceso. El bloque de control de proceso puede contener punteros a otros procesos para dar soporte a estas estructuras.</p>
+<p>*Comunicación entre Procesos*<br />
+Puede haber varios indicadores, señales y mensajes asociados con la comunicación entre dos procesos independientes. Una parte de esta información o toda ella se puede guardar en el  bloque de control de proceso.</p>
+<p>*Privilegios de los procesos*<br />
+A los procesos se les otorgan privilegios en términos de la memoria a la que puedan acceder y el tipo de instrucciones que pueden ejecutar. Ademas, también se pueden aplicar privilegios al uso de los servicios y utilidades del sistema.</p>
+<p>*Gestión de Memoria*<br />
+Esta sección puede incluir punteros a las tablas de paginas y/o segmentos que describen la memoria virtual asignada al proceso.</p>
+<p>*Propiedad de los Recursos y Utilización*<br />
+Se pueden indicar los recursos controlados por el proceso, tales como los archivos abiertos. También se puede incluir un histórico de la utilización del procesador o de otros recursos; esta información puede ser necesaria para el planificador</p>
+<p>El S.O. puede a través del PCB localizar información del proceso como así también mantener registrados los datos del mismo en caso de tener que suspender (y luego reanudar) la ejecución. Es, en definitiva, un depósito de información que puede variar de un proceso a otro, de ahí deriva su importancia en los sistemas multiprocesos.</p>
+<p>Se ubica en memoria principal.</p>
+<p>Puede ser leído y actualizado por casi todos los módulos de un S.O.</p>
+<p>*6. ¿Qué ventaja introduce el uso de un administrador de corto plazo? Indicar cómo esta compuesto.*</p>
+<p>El Planificador corto plazo o también conocido como planificador del procesador, es que se encarga de darle al procesador un proceso que esta listo para ejecutarse. Como característica, se puede decir que tiene velocidad de conmutar entre procesos</p>
+<p>Un planificador de corto plazo se ejecuta muy frecuentemente y se utiliza para repartir el tiempo de procesador de manera tal que se optimice el comportamiento del sistema. Determina quien, cuando, como y por cuanto tiempo recibe el procesador un proceso en estado Listo.</p>
+<p>En un _mainframe_ está compuesto por dos módulos: el manejador de tráfico (_Traffic Controler_), que se ocupa del manejo de la cola de listos y el _Dispatcher_, que entrega el uso del procesador al primer proceso de la cola.</p>
+<p>*Bibliografía:*</p>
+<p># W. Stallings. _Sistemas Operativos_.<br />
+# A. Tanenbaum. _Sistemas Operativos modernos_.<br />
+# Silberschatz-Galvin. _Fundamentos de Sistemas Operativos_.</p>
+<p>Como siempre, si encuentran errores o cosas incompletas, me escriben un comentario.</p>
+
+		
+									</div>
+	<!-- .entry-content -->
+
+			<div class="post-author-bottom">
+			<div class="post-author-card">
+				<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+					<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />				</a>
+
+				<div class="post-author-info">
+					<div class="site-title">
+						<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>					</div>
+
+					<div class="site-description"></div>
+				</div>
+				<div class="post-published-date">
+					<h2 class="site-published">Publicado</h2>
+					<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/61" title="Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-09-13T12:45:14+0000" itemprop="datePublished" pubdate="pubdate">septiembre 13, 2009</time></a></h2>
+										
+					
+				</div>
+			</div>
+		</div>
+		<!-- .post-author-bottom -->
+		
+	<footer class="entry-meta">
+		
+					<div id="share-comment-button">
+				<button>
+					<i class="share-comment-icon"></i>¿Algo para decir?				</button>
+			</div>
+		
+			</footer>
+	<!-- .entry-meta -->
+
+</article><!-- #post-61 -->
+
+				
+
+<!-- *******************************************************************************************************************-->
+<!-- Comments Evolved for Wordpress v1.6.3 ( http://wordpress.org/plugins/gplus-comments/ ) -->
+<!-- *******************************************************************************************************************-->
+
+<!-- comments-evolved-tabs -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.comment_tab_width = $('#comments-evolved-tabs').innerWidth();
+});
+</script>
+<div id="comments-evolved-tabs">
+<a name="comments"></a>
+    <ul class="controls inline clearfix">
+    <li class="active" id='comments-evolved-gplus-control'><a href='#comments-evolved-gplus-tab'><img id='comments-evolved-gplus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/gplus.png'><span id='comments-evolved-gplus-label'></span></a></li>
+<li id='comments-evolved-facebook-control'><a href='#comments-evolved-facebook-tab'><img id='comments-evolved-facebook-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/facebook.png'><span id='comments-evolved-facebook-label'></span></a></li>
+<li id='comments-evolved-wordpress-control'><a href='#comments-evolved-wordpress-tab'><img id='comments-evolved-wordpress-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/wordpress.png'><span id='comments-evolved-wordpress-label'></span></a></li>
+<li id='comments-evolved-disqus-control'><a href='#comments-evolved-disqus-tab'><img id='comments-evolved-disqus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/disqus.png'><span id='comments-evolved-disqus-label'></span></a></li>
+  </ul>
+  <!-- comments-evolved-gplus-tab -->
+<div id='comments-evolved-gplus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('#comments-evolved-gplus-tab').html('<div class="g-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/61" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>');
+  });
+</script>
+<script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+<noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+</div>
+<!-- // comments-evolved-gplus-tab -->
+<!-- comments-evolved-facebook-tab -->
+<div id='comments-evolved-facebook-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div id="fb-root"></div>
+<div id="fb-comments">Loading Facebook Comments ...</div>
+<script type="text/javascript">
+  jQuery(document).ready(function($)
+  {
+    $('#fb-comments').html('<div class="fb-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/61" data-num-posts="20" data-colorscheme="light" data-mobile="auto"></div>');
+  });
+</script>
+<script async type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1">FB.init();</script>
+<noscript>Please enable JavaScript to view the <a href="https://www.facebook.com/">comments powered by Facebook.</a></noscript>
+
+
+</div>
+<!-- // comments-evolved-facebook-tab -->
+<!-- comments-evolved-wordpress-tab -->
+<div id='comments-evolved-wordpress-tab' class='comments-evolved-embed-container content-tab clearfix'>
+
+	<div id="commentform-top"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/61" style="display:none;">Cancelar respuesta</a></small></h3>			<form action="http://tomasdelvechio.github.io/old/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<div id="main-reply-title"><h3>¿Algo para decir?</h3></div><div class="comment-form-reply-title"><p>Comentario</p></div><p class="comment-form-comment" id="comment-form-field"><textarea id="comment" name="comment" cols="60" rows="6" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Nombre</label><input id="author" name="author" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label><input id="email" name="email" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Sitio web</label><input id="url" name="url" type="text" value="" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Enviar Comentario" /> <input type='hidden' name='comment_post_ID' value='61' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="0485df30f3" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="26"/></p>			</form>
+			</div><!-- #respond -->
+	
+
+	<div id="comments" class="comments-area">
+				
+		
+		
+		
+		
+	</div><!-- #comments .comments-area -->
+
+</div>
+<!-- // comments-evolved-wordpress-tab -->
+<!-- comments-evolved-disqus-tab -->
+<div id='comments-evolved-disqus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div class="comments-evolved-embed-container clearfix" id="disqus_thread">Loading Disqus Comments ...</div>
+<script type="text/javascript">
+  var disqus_shortname = 'tomasdel';
+  (function(d) {
+    var dsq = d.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(dsq);
+  })(document);
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- // comments-evolved-disqus-tab -->
+</div>
+<!-- //comments-evolved-tabs -->
+
+				
+				
+			
+		</main>
+		<!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+<div id="secondary" class="widget-area" role="complementary">
+	</div><!-- #secondary .widget-area -->
+
+</div><!-- #main .site-main -->
+
+<footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<div class="site-info">
+		<a href="http://independentpublisher.me" rel="designer" title="Independent Publisher: A beautiful reader-focused WordPress theme, for you.">Independent Publisher</a> potencializado por <a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>	</div>
+	<!-- .site-info -->
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<link rel='stylesheet' id='comments_evolved_tabs_css-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/styles/plugin.css?ver=1.6.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+<script async="async" type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/plugins/akismet/_inc/form.js?ver=4.0.2'></script>
+<!-- Comments Evolved plugin -->
+<script>jQuery("#comments-evolved-tabs").tabs();</script>
+<!-- //Comments Evolved plugin -->
+
+</body>
+</html>

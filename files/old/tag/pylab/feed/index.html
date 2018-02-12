@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>pylab &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/pylab/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Ver imagenes de graficos generados en Ipython Notebook</title>
+		<link>http://tomasdel.com/282</link>
+		<comments>http://tomasdel.com/282#respond</comments>
+		<pubDate>Wed, 09 Jul 2014 14:15:32 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Programación]]></category>
+		<category><![CDATA[ipython notebook]]></category>
+		<category><![CDATA[matplotlib]]></category>
+		<category><![CDATA[pylab]]></category>
+		<category><![CDATA[python]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=282</guid>
+		<description><![CDATA[Usando Ipython Notebook, una de las cosas interesantes que nos permite es generar gráficas (vía matplotlib generalmente) y que la herramienta las muestre en la interfaz automáticamente. Si bien esto es muy útil, al iniciar por defecto Ipython Notebook esto no funciona, de hecho, si se genera una gráfica, lo único que se vera es [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Usando <a href="http://ipython.org/notebook.html" target="_blank">Ipython Notebook</a>, una de las cosas interesantes que nos permite es generar gráficas (vía matplotlib generalmente) y que la herramienta las muestre en la interfaz automáticamente. Si bien esto es muy útil, al iniciar por defecto Ipython Notebook esto no funciona, de hecho, si se genera una gráfica, lo único que se vera es algo del estilo</p>
+<pre class="brush: python; gutter: false">&lt;matplotlib.figure.Figure at 0x110b9c450&gt;</pre>
+<p>Esto ocurre porque en realidad hay que usar un parámetro al iniciar la aplicación.</p>
+<p>Si lanzamos la aplicación de la siguiente manera:</p>
+<p><span class="comment-copy"><code>ipython notebook --pylab inline</code></span></p>
+<p>Se verán las gráficas e imágenes de forma automática.</p>
+<p>Por otro lado, si ya iniciamos el programa y no queremos cerrar y lanzar nuevamente, ejecutar lo siguiente dentro de la notebook:</p>
+<pre class="brush: python; gutter: false">%matplotlib inline</pre>
+<p>Esto también funciona.</p>
+<p>Soluciones encontradas <a href="http://stackoverflow.com/questions/19410042/how-to-make-ipython-notebook-inline-matplotlib-graphics" target="_blank">acá</a>.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/282/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

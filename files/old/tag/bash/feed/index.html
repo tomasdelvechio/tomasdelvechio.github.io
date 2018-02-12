@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Bash &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/bash/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Network is unreachable al actualizar Flash Player en Ubuntu</title>
+		<link>http://tomasdel.com/317</link>
+		<comments>http://tomasdel.com/317#respond</comments>
+		<pubDate>Tue, 07 Oct 2014 12:20:38 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[apt]]></category>
+		<category><![CDATA[Bash]]></category>
+		<category><![CDATA[flashplayer]]></category>
+		<category><![CDATA[proxy]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=317</guid>
+		<description><![CDATA[Cuando estamos en una red con Proxy, a pesar de tener configurado el mismo en APT y en Bash, al actualizar flashplayer plugin nos aparece el siguiente error: flashplugin-installer: downloading http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz Traceback (most recent call last): File &#34;/usr/lib/update-notifier/package-data-downloader&#34;, line 239, in process_download_requests dest_file = urllib.urlretrieve(files[i])[0] File &#34;/usr/lib/python2.7/urllib.py&#34;, line 94, in urlretrieve return _urlopener.retrieve(url, filename, reporthook, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<div>Cuando estamos en una red con Proxy, a pesar de tener configurado el mismo en APT y en Bash, al actualizar flashplayer plugin nos aparece el siguiente error:</div>
+<pre class="brush: bash; gutter: true">flashplugin-installer: downloading http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz
+Traceback (most recent call last):
+    File &quot;/usr/lib/update-notifier/package-data-downloader&quot;, line 239, in process_download_requests
+        dest_file = urllib.urlretrieve(files[i])[0]
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 94, in urlretrieve
+        return _urlopener.retrieve(url, filename, reporthook, data)
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 240, in retrieve
+        fp = self.open(url, data)
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 208, in open
+        return getattr(self, name)(url)
+    File &quot;/usr/lib/python2.7/urllib.py&quot;, line 345, in open_http
+        h.endheaders(data)
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 969, in endheaders
+        self._send_output(message_body)
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 829, in _send_output
+        self.send(msg)
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 791, in send
+        self.connect()
+    File &quot;/usr/lib/python2.7/httplib.py&quot;, line 772, in connect
+        self.timeout, self.source_address)
+    File &quot;/usr/lib/python2.7/socket.py&quot;, line 571, in create_connection
+        raise err
+IOError: [Errno socket error] [Errno 101] Network is unreachable</pre>
+<p>La solución es descargarlo a mano e indicarle al instalador la carpeta donde esta el archivo. Se hace de la siguiente forma:</p>
+<pre class="brush: bash; gutter: true">$ cd ~/Descargas
+$ wget http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz
+--2014-10-07 08:27:53--  http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz
+Resolving proxy.unlu.edu.ar (proxy.unlu.edu.ar)... 170.210.96.10
+Connecting to proxy.unlu.edu.ar (proxy.unlu.edu.ar)|170.210.96.10|:8080... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 14142192 (13M) [application/x-gzip]
+Saving to: ‘adobe-flashplugin_11.2.202.406.orig.tar.gz’
+
+100%[==============================================================================================================================&gt;] 14.142.192   992KB/s   in 15s    
+
+2014-10-07 08:28:09 (934 KB/s) - ‘adobe-flashplugin_11.2.202.406.orig.tar.gz’ saved [14142192/14142192]
+$ sudo dpkg-reconfigure flashplugin-installer</pre>
+<p>En el paso del wget, utilizar el enlace que nos mostro apt antes de que aparezca el error, en el ejemplo era http://archive.canonical.com/pool/partner/a/adobe-flashplugin/adobe-flashplugin_11.2.202.406.orig.tar.gz</p>
+<p>Al ejecutar el ultimo paso, aparece una interfaz en ncurses, donde debemos ingresar la carpeta donde descargamos el archivo (No hay que ingresar el nombre del archivo).</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206.png"><img class="aligncenter wp-image-318 size-full" src="http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206.png" alt="Screenshot from 2014-10-07 08:42:06" width="1344" height="358" srcset="http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206.png 1344w, http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206-300x79.png 300w, http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206-1024x272.png 1024w, http://tomasdel.com/wp-content/uploads/2014/10/Screenshot-from-2014-10-07-084206-700x186.png 700w" sizes="(max-width: 1344px) 100vw, 1344px" /></a>Si todo esta correcto, la instalación finaliza con la siguiente salida:</p>
+<pre class="brush: actionscript3; gutter: true">Installing from local file /home/tomas/Descargas//adobe-flashplugin_11.2.202.406.orig.tar.gz
+Installing from local file /home/tomas/Descargas//adobe-flashplugin_11.2.202.406.orig.tar.gz
+Flash Plugin installed.
+Flash Plugin installed.</pre>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/317/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Mensajes &#8216;Unknown media type in type&#8217; usando apt en Ubuntu</title>
+		<link>http://tomasdel.com/233</link>
+		<comments>http://tomasdel.com/233#respond</comments>
+		<pubDate>Wed, 07 May 2014 23:55:39 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Soluciones]]></category>
+		<category><![CDATA[apt]]></category>
+		<category><![CDATA[aptitude]]></category>
+		<category><![CDATA[Bash]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=233</guid>
+		<description><![CDATA[Utilizando aptitude para instalar cosas en Ubuntu 14.04, me encontraba que luego de instalar los paquetes en cuestión se veían mensajes como los siguientes: ... Processing triggers for shared-mime-info (1.2-0ubuntu3) ... Unknown media type in type &#039;all/all&#039; Unknown media type in type &#039;all/allfiles&#039; Unknown media type in type &#039;uri/mms&#039; Unknown media type in type &#039;uri/mmst&#039; [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Utilizando aptitude para instalar cosas en Ubuntu 14.04, me encontraba que luego de instalar los paquetes en cuestión se veían mensajes como los siguientes:</p>
+<pre>...
+Processing triggers for shared-mime-info (1.2-0ubuntu3) ...
+Unknown media type in type &#039;all/all&#039;
+Unknown media type in type &#039;all/allfiles&#039;
+Unknown media type in type &#039;uri/mms&#039;
+Unknown media type in type &#039;uri/mmst&#039;
+Unknown media type in type &#039;uri/mmsu&#039;
+Unknown media type in type &#039;uri/pnm&#039;
+Unknown media type in type &#039;uri/rtspt&#039;
+Unknown media type in type &#039;uri/rtspu&#039;
+...</pre>
+<p>Esta claro que no es un problema, pero me molestaban los mensajes, entonces <a href="http://askubuntu.com/questions/18806/why-does-update-mime-database-complain-about-uri-rtspt-and-other-unusual-types" target="_blank">encontré esto</a>, y replico acá la alternativa que yo aplique:</p>
+<pre class="brush: bash; gutter: true">sudo rm /usr/share/mime/packages/kde.xml
+sudo update-mime-database /usr/share/mime</pre>
+<p>Por ahora los mensajes no volvieron a aparecer.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/233/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Pasar una imagen de cd .ngr a .iso en Ubuntu y Debian</title>
+		<link>http://tomasdel.com/9</link>
+		<comments>http://tomasdel.com/9#comments</comments>
+		<pubDate>Thu, 06 Oct 2011 23:09:36 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[Bash]]></category>
+		<category><![CDATA[Comandos]]></category>
+		<category><![CDATA[Imagen de CD]]></category>
+		<category><![CDATA[ISO]]></category>
+		<category><![CDATA[NRG]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=9</guid>
+		<description><![CDATA[.Nrg es un formato de imagen de cd del programa Nero. Para mi es mas común manejarme con archivos .iso. Por eso, hoy tenia una imagen .nrg y necesitaba pasarla a .iso en mi Ubuntu  9.04. Busque en Internet, y en un gran blog que sigo hace tiempo, Ubuntu Life (Que recomiendo tener en el [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><em>.Nrg</em> es un formato de imagen de cd del programa <em>Nero</em>. Para mi es mas común manejarme con archivos <em>.iso</em>.</p>
+<p>Por eso, hoy tenia una imagen <em>.nrg</em> y necesitaba pasarla a <em>.iso</em> en mi <em>Ubuntu  9.04</em>.</p>
+<p>Busque en Internet, y en un gran <em>blog</em> que sigo hace tiempo, <a href="http://ubuntulife.wordpress.com/" target="_blank">Ubuntu Life</a> (Que recomiendo tener en el lector RSS de todo linuxero/ubuntero), encontré cortito y sencillo <a href="http://ubuntulife.wordpress.com/2007/05/18/convertir-un-nrg-nero-a-iso-en-ubuntu/" target="_blank">el programa que necesitaba y la forma de hacerlo</a></p>
+<p>El método seria el siguiente:</p>
+<pre class="brush: bash; gutter: true">$ sudo apt-get install nrg2iso
+...
+$ nrg2iso archivo_imagen.nrg archivo_imagen.iso
+|==============================================&gt;[100%]
+archivo_imagen.iso written : 525072540 bytes
+$</pre>
+<p>Lo anterior es solo un ejemplo, la barra de progreso se iba actualizando a medida que transformaba la imagen.</p>
+<p>Luego monte el archivo <em>.iso</em> sin ningún problema.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/9/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

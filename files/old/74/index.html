@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/Article" lang="es-ES">
+<head>
+<base href="http://tomasdelvechio.github.io/old" />
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://tomasdelvechio.github.io/old/xmlrpc.php" />
+	<!--[if lt IE 9]>
+	<script src="http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<title>Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (IV) &#8211; El Blog de Tomas</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Feed" href="http://tomasdelvechio.github.io/old/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; RSS de los comentarios" href="http://tomasdelvechio.github.io/old/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (IV) RSS de los comentarios" href="http://tomasdelvechio.github.io/old/74/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/tomasdelvechio.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/fonts/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='independent-publisher-style-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/style.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='customizer-css'  href='http://tomasdelvechio.github.io/old/wp-admin/admin-ajax.php?action=independent_publisher_customizer_css&#038;ver=1.7' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/fade-post-title.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/enhanced-comment-form.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='http://tomasdelvechio.github.io/old/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tomasdelvechio.github.io/old/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tomasdelvechio.github.io/old/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='B-trees, Sistemas de archivos y un blog muy interesante' href='http://tomasdelvechio.github.io/old/69' />
+<link rel='next' title='Poca actividad en el blog' href='http://tomasdelvechio.github.io/old/75' />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel="canonical" href="http://tomasdelvechio.github.io/old/74" />
+<link rel='shortlink' href='http://tomasdelvechio.github.io/old/?p=74' />
+<link rel="alternate" type="application/json+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F74" />
+<link rel="alternate" type="text/xml+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F74&#038;format=xml" />
+
+<link rel="stylesheet" href="http://tomasdelvechio.github.io/old/wp-content/plugins/count-per-day/counter.css" type="text/css" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style></head>
+
+<body class="post-template-default single single-post postid-74 single-format-standard h-entry hentry" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+
+
+<div id="page" class="site">
+	<header id="masthead" class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+
+		<div class="site-header-info">
+											
+					<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+				<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />			</a>
+		
+		<div class="site-title"><span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span></div>
+		<div class="site-description"></div>
+
+		
+		<div class="site-published-separator"></div>
+		<h2 class="site-published">Publicado</h2>
+		<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/74" title="Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (IV)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-09-26T06:34:20+0000" itemprop="datePublished" pubdate="pubdate">septiembre 26, 2009</time></a></h2>
+				
+									</div>
+
+				
+			</header>
+	<!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<main id="content" class="site-content" role="main">
+
+			
+				
+<article id="post-74" class="post-74 post type-post status-publish format-standard category-academicos" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+		<header class="entry-header">
+					<h2 class="entry-title-meta">
+			<span class="entry-title-meta-author">
+				<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>			</span>
+				en <a href="http://tomasdelvechio.github.io/old/category/academicos" rel="category tag">academicos</a>				<span class="entry-title-meta-post-date">
+				<span class="sep"> | </span>
+					<a href="http://tomasdelvechio.github.io/old/74" title="Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (IV)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-09-26T06:34:20+0000" itemprop="datePublished" pubdate="pubdate">septiembre 26, 2009</time></a>			</span>
+							</h2>
+			<h1 class="entry-title p-name" itemprop="name">Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (IV)</h1>
+			</header>
+	<!-- .entry-header -->
+	<div class="entry-content e-content" itemprop="mainContentOfPage">
+		<p>*10. Realice un programa que calcule el tiempo medio de espera para el método de administración de Round Robin. Considere un tiempo de conmutación de Q/10.*</p>
+<p>*11. Realice un programa que calcule el tiempo de retorno para los métodos SJF y Round Robin.*</p>
+<p>Estas respuestas quedan pendientes dado que implican programas. Yo los tengo hechos, pero hay que pulirlos, y emprolijarlos.</p>
+<p>*12. ¿Qué se entiende por proceso demonio en un SO Unix, cuando son ejecutados, dónde se los declara y como se los da de baja del sistema? ¿Cuales son los demonios más comunes dentro del Unix, y que utilidad brindan?*</p>
+<p>Un demonio, _daemon_ o _dæmon_ (de sus siglas en inglés Disk And Execution Monitor), es un tipo especial de proceso informático que se ejecuta en segundo plano en vez de ser controlado directamente por el usuario (es un proceso no interactivo). Este tipo de programas se ejecutan de forma continua (infinita), vale decir, que aunque se intente cerrar o matar el proceso, este continuará en ejecución o se reiniciará automáticamente. Todo esto sin intervención de terceros y sin dependencia de consola alguna.[1]</p>
+<p>*13. ¿Qué comando Unix puedo usar para ver los procesos que están funcionando en el sistema? ¿Qué modificadores se pueden utilizar?*</p>
+<p>El comando Unix mas conocido para monitoreo de procesos del sistema en un momento dado es _ps_.</p>
+<p>Según el propio manual del comando _ps_: ??report a snapshot of the current processes.??</p>
+<p>Parámetros usados comúnmente con _ps_[2]:</p>
+<p>bc. $ ps -e<br />
+  PID TTY          TIME CMD<br />
+    1 ?        00:00:01 init<br />
+    2 ?        00:00:00 kthreadd<br />
+    3 ?        00:00:00 migration/0<br />
+    4 ?        00:00:00 ksoftirqd/0<br />
+    5 ?        00:00:00 watchdog/0<br />
+    6 ?        00:00:00 events/0<br />
+    7 ?        00:00:00 khelper<br />
+   41 ?        00:00:00 kblockd/0<br />
+   44 ?        00:00:00 kacpid<br />
+   45 ?        00:00:00 kacpi_notify<br />
+  114 ?        00:00:00 kseriod<br />
+  148 ?        00:00:00 pdflush<br />
+  149 ?        00:00:00 pdflush<br />
+  150 ?        00:00:00 kswapd0<br />
+  191 ?        00:00:00 aio/0 </p>
+<p>Otro ejemplo:</p>
+<p>bc. $ ps aux<br />
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND<br />
+root         1  0.0  0.1   2844  1660 ?        Ss   18:06   0:01 /sbin/init<br />
+root         2  0.0  0.0      0     0 ?        S<   18:06   0:00 [kthreadd] 
+root         3  0.0  0.0      0     0 ?        S<   18:06   0:00 [migration/0] 
+root         4  0.0  0.0      0     0 ?        S<   18:06   0:00 [ksoftirqd/0] 
+root         5  0.0  0.0      0     0 ?        S<   18:06   0:00 [watchdog/0] 
+root         6  0.0  0.0      0     0 ?        S<   18:06   0:00 [events/0] 
+root         7  0.0  0.0      0     0 ?        S<   18:06   0:00 [khelper] 
+root        41  0.0  0.0      0     0 ?        S<   18:06   0:00 [kblockd/0] 
+root        44  0.0  0.0      0     0 ?        S<   18:06   0:00 [kacpid] 
+root        45  0.0  0.0      0     0 ?        S<   18:06   0:00 [kacpi_notify] 
+root       114  0.0  0.0      0     0 ?        S<   18:06   0:00 [kseriod] 
+root       148  0.0  0.0      0     0 ?        S    18:07   0:00 [pdflush] 
+root       149  0.0  0.0      0     0 ?        S    18:07   0:00 [pdflush] 
+root       150  0.0  0.0      0     0 ?        S<   18:07   0:00 [kswapd0] 
+root       191  0.0  0.0      0     0 ?        S<   18:07   0:00 [aio/0] 
+
+Tiene múltiples opciones, las más usadas son[3]:
+
+* -a Muestra todos los procesos con consola controlada, excepto el proceso de usuario actual. 
+* -r Muestra solo los procesos en ejecución. 
+* -x Muestra los procesos que no tienen una terminal controlada. 
+* -u Muestra los propietarios de los procesos. 
+* -f Visualiza las relaciones padre/hijo entre los procesos. 
+* -l Produce un listado en formato largo. 
+* -w Muestra los parámetros de la línea de comandos de los procesos (hasta media línea). 
+* -ww Muestra todos los parámetros de la línea de comandos de los procesos, independientemente de su longitud. Y combinaciones de los anteriores.
+
+Existe un comando mas “avanzado” (si cabe la Expresión) para el monitoreo de procesos, el comando _top_:
+
+bc. $ top
+top - 19:46:51 up  1:39,  2 users,  load average: 0.39, 0.20, 0.16 
+Tasks:  93 total,   4 running,  89 sleeping,   0 stopped,   0 zombie 
+Cpu(s): 13.0%us,  0.7%sy,  0.0%ni, 86.3%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st 
+Mem:    968300k total,   807592k used,   160708k free,    23436k buffers 
+Swap:   979956k total,        0k used,   979956k free,   555116k cached 
+PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+ COMMAND                                                          
+5343 root      20   0  110m  38m 7712 S  3.3  4.1   2:04.43 Xorg                                                             
+5659 sherlock  20   0 31648 7164 3812 S  3.3  0.7   2:02.27 pulseaudio                                                       
+6320 sherlock  20   0 83900  25m  12m R  1.3  2.7   0:02.16 terminator                                                       
+5671 sherlock  20   0 21696  12m 7664 S  0.7  1.3   0:06.72 metacity                                                         
+5999 sherlock  20   0 42972  18m 9944 R  0.7  1.9   0:28.46 smplayer                                                            
+1 root      20   0  2844 1660  520 S  0.0  0.2   0:01.38 init                                                                
+2 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                            
+3 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                         
+4 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 ksoftirqd/0                                                         
+5 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/0                                                          
+6 root      15  -5     0    0    0 S  0.0  0.0   0:00.04 events/0                                                            
+7 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 khelper                                                            
+41 root      15  -5     0    0    0 S  0.0  0.0   0:00.10 kblockd/0                                                          
+44 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                             
+45 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                      
+114 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                           
+148 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pdflush                                                           
+149 root      20   0     0    0    0 S  0.0  0.0   0:00.06 pdflush                                                            
+150 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 kswapd0                                                           
+191 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 aio/0                                                            
+1462 root      15  -5     0    0    0 S  0.0  0.0   0:00.32 ata/0                                                            
+1468 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                          
+1471 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                    
+1479 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 khubd                                                            
+1490 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 scsi_eh_0                                                        
+1495 root      15  -5     0    0    0 S  0.0  0.0   0:00.58 scsi_eh_1                                                        
+2418 root      15  -5     0    0    0 S  0.0  0.0   0:00.04 kjournald                                                        
+2624 root      16  -4  2412  844  272 S  0.0  0.1   0:00.36 udevd                                                            
+2828 root      15  -5     0    0    0 S  0.0  0.0   0:27.02 ntos_wq                                                          
+2830 root      15  -5     0    0    0 S  0.0  0.0   0:00.00 ndis_wq         
+
+Lo avanzado de este comando respecto de _ps_ es que, además de la información adicional de la cabecera, también tiene un comportamiento particular: Se “actualiza” cada n segundos (aproximadamente 2 o 3 segundos) con lo cual, no solo vemos una “foto” del estado actual de los procesos, sino que vemos una “serie de fotos”, lo que permite un monitoreo mas interesante.
+
+*14. ¿Qué es el _shell_ de un usuario, qué parámetros encuentro definido en él? ¿Qué ventajas me brinda su empleo?*
+
+Es un programa informático que actúa como interfaz de usuario para comunicar al usuario con el sistema operativo mediante una ventana que espera ordenes escritas por el usuario en el teclado, los interpreta y los entrega al sistema operativo para su ejecución. La respuesta del sistema operativo es mostrada al usuario en la misma ventana. A continuación, El programa _shell_ queda esperando más instrucciones. Se interactúa con la información de la manera más sencilla posible, sin gráficas, solo el texto crudo.[4]
+
+Existen varias _shells_, algunas son: 
+* Bourne SHell (sh) – La _shell_ clásica que se encuentra en todos los sistemas UNIX. 
+* Korn SHell (ksh). 
+* C SHell (csh). 
+* Bourne-Again SHell (bash) – La _shell_ de GNU que se encuentra en todos los sistemas Linux y en muchos otros UNIX. Es la que vamos a utilizar. 
+
+Las ventajas incluyen el menor consumo de memoria y la más rápida manipulación de pantalla. Además, las aplicaciones en modo texto tienen unos requisitos de ancho de banda relativamente bajos en uso remoto. Una desventaja obvia del modo texto es la restricción del contenido de pantalla, que lo hace inviable para muchos tipos de aplicaciones.[5]
+
+*Bibliografía:*
+
+# W. Stallings. Sistemas Operativos.
+# A. Tanenbaum. Sistemas Operativos modernos.
+# Silberschatz-Galvin. Fundamentos de Sistemas Operativos.
+
+*Notas al pie:*
+
+fn1. http://es.wikipedia.org/wiki/Demonio_(inform%C3%A1tica)
+
+fn2. Pruebas hechas en un Ubuntu Hardy 8.04
+
+fn3. LOC: Linux Original Courseware. Premiere IT S.R.L. Pag 62.
+
+fn4. http://es.wikipedia.org/wiki/L%C3%ADnea_de_comandos
+
+fn5. http://es.wikipedia.org/wiki/Modo_texto
+</p>
+
+		
+									</div>
+	<!-- .entry-content -->
+
+			<div class="post-author-bottom">
+			<div class="post-author-card">
+				<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+					<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />				</a>
+
+				<div class="post-author-info">
+					<div class="site-title">
+						<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>					</div>
+
+					<div class="site-description"></div>
+				</div>
+				<div class="post-published-date">
+					<h2 class="site-published">Publicado</h2>
+					<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/74" title="Materia: Sistemas Operativos &#8211; Trabajo Practico: Planificadores y procesos (IV)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-09-26T06:34:20+0000" itemprop="datePublished" pubdate="pubdate">septiembre 26, 2009</time></a></h2>
+										
+					
+				</div>
+			</div>
+		</div>
+		<!-- .post-author-bottom -->
+		
+	<footer class="entry-meta">
+		
+					<div id="share-comment-button">
+				<button>
+					<i class="share-comment-icon"></i>¿Algo para decir?				</button>
+			</div>
+		
+			</footer>
+	<!-- .entry-meta -->
+
+</article><!-- #post-74 -->
+
+				
+
+<!-- *******************************************************************************************************************-->
+<!-- Comments Evolved for Wordpress v1.6.3 ( http://wordpress.org/plugins/gplus-comments/ ) -->
+<!-- *******************************************************************************************************************-->
+
+<!-- comments-evolved-tabs -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.comment_tab_width = $('#comments-evolved-tabs').innerWidth();
+});
+</script>
+<div id="comments-evolved-tabs">
+<a name="comments"></a>
+    <ul class="controls inline clearfix">
+    <li class="active" id='comments-evolved-gplus-control'><a href='#comments-evolved-gplus-tab'><img id='comments-evolved-gplus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/gplus.png'><span id='comments-evolved-gplus-label'></span></a></li>
+<li id='comments-evolved-facebook-control'><a href='#comments-evolved-facebook-tab'><img id='comments-evolved-facebook-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/facebook.png'><span id='comments-evolved-facebook-label'></span></a></li>
+<li id='comments-evolved-wordpress-control'><a href='#comments-evolved-wordpress-tab'><img id='comments-evolved-wordpress-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/wordpress.png'><span id='comments-evolved-wordpress-label'></span></a></li>
+<li id='comments-evolved-disqus-control'><a href='#comments-evolved-disqus-tab'><img id='comments-evolved-disqus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/disqus.png'><span id='comments-evolved-disqus-label'></span></a></li>
+  </ul>
+  <!-- comments-evolved-gplus-tab -->
+<div id='comments-evolved-gplus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('#comments-evolved-gplus-tab').html('<div class="g-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/74" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>');
+  });
+</script>
+<script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+<noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+</div>
+<!-- // comments-evolved-gplus-tab -->
+<!-- comments-evolved-facebook-tab -->
+<div id='comments-evolved-facebook-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div id="fb-root"></div>
+<div id="fb-comments">Loading Facebook Comments ...</div>
+<script type="text/javascript">
+  jQuery(document).ready(function($)
+  {
+    $('#fb-comments').html('<div class="fb-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/74" data-num-posts="20" data-colorscheme="light" data-mobile="auto"></div>');
+  });
+</script>
+<script async type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1">FB.init();</script>
+<noscript>Please enable JavaScript to view the <a href="https://www.facebook.com/">comments powered by Facebook.</a></noscript>
+
+
+</div>
+<!-- // comments-evolved-facebook-tab -->
+<!-- comments-evolved-wordpress-tab -->
+<div id='comments-evolved-wordpress-tab' class='comments-evolved-embed-container content-tab clearfix'>
+
+	<div id="commentform-top"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/74" style="display:none;">Cancelar respuesta</a></small></h3>			<form action="http://tomasdelvechio.github.io/old/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<div id="main-reply-title"><h3>¿Algo para decir?</h3></div><div class="comment-form-reply-title"><p>Comentario</p></div><p class="comment-form-comment" id="comment-form-field"><textarea id="comment" name="comment" cols="60" rows="6" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Nombre</label><input id="author" name="author" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label><input id="email" name="email" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Sitio web</label><input id="url" name="url" type="text" value="" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Enviar Comentario" /> <input type='hidden' name='comment_post_ID' value='74' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="b69575b65c" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="174"/></p>			</form>
+			</div><!-- #respond -->
+	
+
+	<div id="comments" class="comments-area">
+				
+		
+		
+		
+		
+	</div><!-- #comments .comments-area -->
+
+</div>
+<!-- // comments-evolved-wordpress-tab -->
+<!-- comments-evolved-disqus-tab -->
+<div id='comments-evolved-disqus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div class="comments-evolved-embed-container clearfix" id="disqus_thread">Loading Disqus Comments ...</div>
+<script type="text/javascript">
+  var disqus_shortname = 'tomasdel';
+  (function(d) {
+    var dsq = d.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(dsq);
+  })(document);
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- // comments-evolved-disqus-tab -->
+</div>
+<!-- //comments-evolved-tabs -->
+
+				
+				
+			
+		</main>
+		<!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+<div id="secondary" class="widget-area" role="complementary">
+	</div><!-- #secondary .widget-area -->
+
+</div><!-- #main .site-main -->
+
+<footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<div class="site-info">
+		<a href="http://independentpublisher.me" rel="designer" title="Independent Publisher: A beautiful reader-focused WordPress theme, for you.">Independent Publisher</a> potencializado por <a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>	</div>
+	<!-- .site-info -->
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<link rel='stylesheet' id='comments_evolved_tabs_css-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/styles/plugin.css?ver=1.6.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+<script async="async" type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/plugins/akismet/_inc/form.js?ver=4.0.2'></script>
+<!-- Comments Evolved plugin -->
+<script>jQuery("#comments-evolved-tabs").tabs();</script>
+<!-- //Comments Evolved plugin -->
+
+</body>
+</html>

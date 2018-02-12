@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Ubuntu &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/ubuntu/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Ver menú del Grub sin editar /etc/default/grub</title>
+		<link>http://tomasdel.com/390</link>
+		<comments>http://tomasdel.com/390#respond</comments>
+		<pubDate>Sat, 31 Jan 2015 19:43:49 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[grub]]></category>
+		<category><![CDATA[menu]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=390</guid>
+		<description><![CDATA[Siguiendo con el envión de postear cosas cortas, dejo un tip que siempre me olvido a la hora de usar el Grub.]]></description>
+				<content:encoded><![CDATA[<p>Siguiendo con el envión de postear cosas cortas, dejo un tip que siempre me olvido a la hora de usar el Grub.</p>
+<p>Grub tiene una configuración por defecto en la cual si existe un único Sistema Operativo en el equipo, el menú no se muestra y se accede directamente al SO.</p>
+<p>Pero me paso que yo necesitaba ver el menú una única vez, para lanzar el memtest, entonces la solución de editar el archivo en /etc/default/grub, y modificar las variables en cuestión es demasiado. Yo necesitaba algo que funciones una vez sola y que siga como antes.</p>
+<p>Encontré por ahí que si luego del POST de la BIOS, se presiona</p>
+<pre>Shift</pre>
+<p>se puede ver el menú del grub. Lo probé y es cierto.</p>
+<p>Lo unico que resta aclarar es que a veces hay que hacerlo repetidas veces por las dudas.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/390/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Mi experiencia con Chromecast</title>
+		<link>http://tomasdel.com/361</link>
+		<comments>http://tomasdel.com/361#comments</comments>
+		<pubDate>Sat, 15 Nov 2014 17:48:12 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[opinión]]></category>
+		<category><![CDATA[tecnologia]]></category>
+		<category><![CDATA[Aplicaciones]]></category>
+		<category><![CDATA[Chromecast]]></category>
+		<category><![CDATA[Google]]></category>
+		<category><![CDATA[Streaming]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=361</guid>
+		<description><![CDATA[Introducción Aprovechando que era una de las pocas cosas no infladas en precio del CyberMonday que se hizo en Argentina, me compre un Chromecast de Google. A diferencia de mi post anterior donde me dedique a criticar a Google, en este me encuentro con un buen producto, que me sorprendió hasta el momento y me [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Introducción</h2>
+<p>Aprovechando que era una de las pocas cosas no infladas en precio del CyberMonday que se hizo en Argentina, me compre un <a href="https://www.google.es/chrome/devices/chromecast/" target="_blank">Chromecast de Google</a>.</p>
+<p>A diferencia de <a title="Inbox by Gmail: Una visión" href="http://tomasdel.com/351">mi post anterior donde me dedique a criticar a Google</a>, en este me encuentro con un buen producto, que me sorprendió hasta el momento y me resulto muy cómodo. Vamos a la review.</p>
+<h2>¿Que es Chromecast?</h2>
+<p>Versión corta para los que no saben de que hablo. Chromecast es un dispositivo de un tamaño muy similar a un pendrive, que se conecta a cualquier TV con HDMI (Sea o no Smart) y permite enviar audio/video a la misma mediante programas instalados en una Notebook, Celular o Tablet Android, etc&#8230;</p>
+<p>¿Para quienes puede ser útil este &#8220;aparatito&#8221;? En mi caso, me pasaba que muchas veces terminaba conectando la PC vía HDMI, por ejemplo, para ver una película o serie que se reproduce en la compu pero que se vea por la TV. En esos casos, siempre quedaba &#8220;cruzando&#8221; un cable, sea el HDMI o el mousse, para poder apretar pausa, subir el volumen, etc. En estos casos Chromecast resulto hasta el momento un buen sustituto.</p>
+<p>La realidad es que tenia colegas que me decían que estaba bueno, y yo estaba escéptico hasta que lo empece a probar, y la realidad es que se ajusta a muchas de mis necesidades. No resuelve todo, como veremos, pero no fue una mala inversión en mi caso.</p>
+<div style="max-width: 163px" class="wp-caption aligncenter"><a href="http://ecx.images-amazon.com/images/I/81dgptmSieL._SL1500_.jpg" target="_blank"><img src="http://ecx.images-amazon.com/images/I/81dgptmSieL._SL1500_.jpg" alt="Chromecast" width="153" height="257" /></a><p class="wp-caption-text">Chromecast</p></div>
+<h2>Compra e instalación</h2>
+<p>Realice la compra a través de Mercado Libre, y a los dos días ya estaba el dispositivo esperándome en correo local de mi ciudad. El paquetito es mas bien chico, y luego de sacar todo de la caja, les muestro lo que trae:</p>
+<p><img class="aligncenter" src="https://lh6.googleusercontent.com/-LIsW_qXuukU/VGd02BbmEHI/AAAAAAAALZk/z37vKgcCgLE/w635-h591-no/IMG_20141115_124353616.jpg" alt="Chromecast unboxing" width="484" height="451" /></p>
+<p>De izquierda a derecha:</p>
+<ul>
+<li>El Chromecast: Con un HDMI &#8220;macho&#8221; y un micro usb &#8220;hembra&#8221;.</li>
+<li>Cable USB micro de un extremo y USB normal del otro. Es para alimentación de energía al Chromecast vía USB.</li>
+<li>Alargue HDMI. Yo no lo use, pero supongo que en algunas TVs con muchos dispositivos amontonados, puede ser útil si el Chromecast no entra.</li>
+<li>Transformador. Con conexión USB, para el caso en que deseamos alimentar al dispositivo desde un toma (por falta de USB o lo que sea).</li>
+</ul>
+<p>Para comenzar la instalación, se debe conectar al TV via HDMI (y elegir en la Tele la fuente o &#8220;source&#8221; correspondiente) y algún tipo de alimentación (puede ser a un USB libre de la TV o a algún toma corriente que se encuentre cerca).</p>
+<p>Seguido a esto, se vera en la pantalla que Chrome nos pide que nos dirijamos a la pagina de Google (a una dirección determinada) para configurar. Se puede tomar uno de dos caminos: Instalar en un dispositivo Android la aplicación de Chromecast, o ir con un browser a la pagina indicada y realizar los pasos que ahí se indican. Yo elegi la primera. A grandes rasgos, la aplicación busca el dispositivo, cuando lo encuentra te ofrece ponerle un nombre (por si se tienen varios Chromecast), y luego pide configurar la red, por si tenes WiFi con password, aquí solicitara la clave de acceso.</p>
+<p>Yo acá tuve un problema extraño, veía las redes Wireless de mis vecinos, pero no la mía, que si era detectada por mi Computadora, mi Teléfono, etc. Buscando, <a href="http://superuser.com/questions/683581/chromecast-setup-doesnt-show-wifi-network" target="_blank">encontré un bug muy bizarro</a> que dice que el Chromecast no ve redes Inalambricas cuyo canal sea el 13. Así que tuve que ingresar a la configuración de mi Router y me encontré con que lo tenia configurado en 13, como no podía ser de otro modo :p. Hecho esto, pude ver en el panel de selección mi red WiFi sin problemas.</p>
+<p>Cuando estuvo configurado, se conecto a internet y detecto que había una actualización, así que estuvo uno 15 minutos descargando e instalando algo. Cuando terminó, mostró una pantalla que decía que Chromecast estaba listo para recibir contenido. El booteo es muy rápido (No le lleva mas de 10 segundos hasta donde pude notar).</p>
+<h2>¿En que cosas es útil Chromecast?</h2>
+<p>Voy a hacer un repaso en las cosas que a mi me resultaron interesantes y que Chromecast me ayudo a mejorar las cosas tal y como las venia haciendo:</p>
+<p><strong>Ver videos desde Internet</strong>: Chromecast maneja nativamente aplicaciones de Netflix y Youtube. De esta manera, si se tiene instalado en un Smartphone o Tablet las aplicaciones de Youtube y/o Netflix, en ambas aparecen iconos parecidos a los siguientes:</p>
+<p><a href="http://chromespot.com/wp-content/uploads/2014/03/chromecast-icons-2.png"><img class="aligncenter" src="http://chromespot.com/wp-content/uploads/2014/03/chromecast-icons-2.png" alt="Chromecast icon" width="158" height="189" /></a></p>
+<p>Presionando en ellos, la aplicación del celular pasa a ser una especie de control remoto de la aplicación que vamos a ver arrancando en la TV. A mi me ocurrió que la primera vez como que no se conectaba bien, pero luego de apagar y prender algunas veces el Chomecast, empezó a funcionar bien y no volví a tener problemas.</p>
+<p>En el caso de Youtube, se pueden encolar videos desde muchos dispositivos, entonces si estamos con amigos, entre varios se puede armar una cola de videos/música. Muy bueno.</p>
+<p>La aplicación de Netflix también dispone de las opciones generales que se esperan: Seleccionar una serie o película, volumen, pausa, subtitulo, idioma. Alcanza para el 99% de los usos.</p>
+<p>Para que quede claro, el manejo se hace desde el dispositivo y la reproducción la hace el Chromecast desde la TV.</p>
+<p><strong>Pestañas arbitrarias a través de Chrome</strong>: Instalando en un Navegador Chrome el plugin de Chromecast, este permite hacer Streaming a la TV de una pestaña que elijamos del navegador.</p>
+<p>No importa que contenga la pestaña, hace Streaming del contenido y el audio. Yo lo estoy usando mucho para abrir una pestaña con Grooveshark, y entonces escucho música por la TV y sigo trabajando en la Compu en otras pestañas. El audio de las otras pestañas sigue saliendo por la notebook, eso es algo bueno.</p>
+<p>2 cosas malas: Solo se puede hacer con el navegador Chrome (Ya nos tiene acostumbrados Google a esa ambivalencia entre buenos productos cerraditos en su ecosistema).</p>
+<p>Lo segundo es el tamaño de la pantalla. Por defecto la pestaña en la pantalla de la TV no se muestra en todo el ancho posible, se ve una franja arriba y abajo de color negro y para lograr quitarla, es necesario poner el Navegador en modo Pantalla Completa (F11).</p>
+<p><strong>Ver videos disponibles localmente en una PC</strong>: Si repasan lo dicho hasta ahora, en ningún momento les hable de reproducir en Chromecast contenido local. Me paso que tenia un mp4, y queria verlo en la TV a traves de Chomecast. Buscando, encontre en la tienda de aplicaciones del Navegador Chrome una aplicación llamada Videostream:</p>
+<p><img class="aligncenter" src="https://lh6.ggpht.com/xx7-_6vXi5Yf2Gyv84lKXyayyGnLGfZ1J1d61_mb7cUNtg1uoInPhqfvuAFJctN3iKI=w300" alt="Videocast for Chromecast" width="121" height="121" /></p>
+<p>La misma instala un cliente en el navegador que permite cargar un video que se encuentre en el disco rígido, dando opciones de calidad, subtitulos, etc&#8230;</p>
+<p>Todo bien, pero que pasa si queremos tirarnos un rato y mirar la tele, pero sin tener la notebook a mano? No tenemos forma de apretar pausa, por ejemplo. Sin embargo, se me ocurrió buscar en la tienda de google y encontré que los mismos desarrolladores de Videostream tienen una aplicación de control remoto, la instale (no pesa nada), y al toque de abrirla detecto que estaba viendo algo y me ofreció las opciones básicas (pausa, volumen).</p>
+<h2>Conclusiones</h2>
+<p>Chromecast tiene, en mi opinión, mucho potencial en lo que respecta a manejar multimedia a través de la TV. Permite agregar comportamiento tipo Smart a Televisores que hoy no lo son (En mercados emergentes es común comprar estos TV ya que a igual tamaño de TV, un smart contra un no smart representa una diferencia económica apreciable para el bolsillo).</p>
+<p>Aun teniendo un SmartTV, es notable las limitaciones de estos en diferentes contextos. Quien tenga uno, nota que son limitados, por el hecho de que usarlos con el control remoto de la TV es un verdadero problema. Ademas las aplicaciones son aun limitadas, y las existentes a veces son lentas y poco flexibles. Por ejemplo, en la casa de mis padres, la Aplicación de Youtube del TV no permite elegir la resolución de un video, y siempre intenta la mayor disponible. Los videos en HD nunca cargan correctamente y la experiencia de usuario es horrible. Es cierto, con una conexión decente esto no ocurriría, pero las aplicaciones deben disponer de opciones que las hagan flexibles a diferentes situaciones. Con chromecast yo no he tenido este problema, con lo cual, Chromecast puede constituir un mercado aun en ciertos contextos como el descrito anteriormente.</p>
+<p>La tendencia en cuanto a aplicaciones, parece ser tener una app que haga streaming al dispositivo, o le pase el control a este, y disponer de funciones de control remoto ya sea vía navegador o dispositivo móvil (tablet / smartphone). Esto es una comodidad para el usuario, aunque se debería ver la posibilidad de que todas las aplicaciones de control puedan ser centralizadas en una única aplicación maestra de control, con opciones genéricas, y dichas opciones sean activables a demanda según la aplicación de chromecast que se utilice. Por ejemplo, la App de youtube le dice a esta posible app de control que acepta funciones de Pausa/Subir y Bajar Volumen, etc&#8230; y esas opciones muestra el control como disponibles, ocultando otras. De otra forma, vamos a terminar teniendo en nuestros Androids tantas aplicaciones de control como aplicaciones se usen en Chomecast.</p>
+<p>La única gran critica, es que el ecosistema del Chromecast es muy cerrado (Ni siquiera parece un android lo que corre en el dispositivo), lo cual para mi esta limitando que masivamente desarrolladores se vuelquen a programar aplicaciones de cara necesidades emergentes de los usuarios.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/361/feed</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Post instalación Ubuntu 14.04</title>
+		<link>http://tomasdel.com/338</link>
+		<comments>http://tomasdel.com/338#respond</comments>
+		<pubDate>Mon, 20 Oct 2014 22:13:29 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[apt-get]]></category>
+		<category><![CDATA[aptitude]]></category>
+		<category><![CDATA[compilacion]]></category>
+		<category><![CDATA[dpkg]]></category>
+		<category><![CDATA[instalacion]]></category>
+		<category><![CDATA[Pos-Instalacion]]></category>
+		<category><![CDATA[programas]]></category>
+		<category><![CDATA[software]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+		<category><![CDATA[Ubuntu 14.04]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=338</guid>
+		<description><![CDATA[Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación. Así que la intención del post este es tener una referencia o machete [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación.</p>
+<p>Así que la intención del post este es tener una referencia o machete personal en linea para todo lo que tiene que ver con la post instalación de Ubuntu, y por ahí a alguno le sirve.</p>
+<h2>1 &#8211; Agregar Repositorios adicionales</h2>
+<p>Algunos repositorios de terceros no vienen agregados de forma predeterminada por cuestiones legales, sin embargo, suele tener software adicional o mas actualizado que los repositorios oficiales.</p>
+<p>La forma mas sencilla de activarlo es buscando la aplicación &#8220;Software &amp; Updates&#8221; o &#8220;Software y actualizaciones&#8221;, y una vez allí, visitar las pestañas Software de Ubuntu (Activar main, universe, restricted y multiverse, Código fuente es opcional y yo no lo activo), Otro Software (Socios de Canonical e Independientes, de nuevo puede activarse opcionalmente los referentes al código fuente, y yo no lo hago) y Actualizaciones (security, updates, proposed y backports).</p>
+<p>Una vez realizado lo anterior, es recomendable realizar una actualización general:</p>
+<pre class="brush: bash; gutter: true">sudo apt-get update &amp;&amp; sudo apt-get upgrade</pre>
+<p>Quiero agregar que esto lo hago en mi notebook personal que es de uso &#8220;Desktop&#8221;, para el caso de un servidor es posible que existan otras precauciones y debería consultarse algún tipo de literatura especializada.</p>
+<h2>2 &#8211; Software adicional</h2>
+<p>Lo siguiente que hago es instalar el software que utilizo de forma diaria o rutinaria para mis tareas personales y laborales, algunos de estos programas se consiguen desde los repositorios oficiales, otros los descargo desde las webs oficiales. Cada uno de estos tipos de software sera comentado de forma separada.</p>
+<h3>2.1 &#8211; Software desde los repositorios oficiales</h3>
+<p>Cabe aclarar que el listado siguiente es un listado de cosas que a mi me sirven, así que es posible que muchas de las cosas que aparecen ustedes quieran obviarlas.</p>
+<pre class="brush: bash; gutter: false">build-essential
+aptitude
+synaptic
+htop
+nmap
+mc
+gummi
+guake
+xchat
+subversion
+git
+mercurial
+postgresql
+php5
+php5-pgsql
+pgadmin3
+apache2
+audacious
+shutter
+gparted
+ipython
+gimp
+meld
+openjdk-7-jdk
+adobe-flashplugin
+wine
+ssh
+vlc
+aria2</pre>
+<h3>2.2 &#8211; Software que descargo desde las paginas oficiales</h3>
+<p>El siguiente listado es de aquellos programas que descargo desde sus respectivas paginas oficiales. Dejo los nombres de los programas, con los links a las paginas de descargas, y algunos comentarios en los casos que lo requieran.</p>
+<p><a href="https://netbeans.org/downloads/" target="_blank">Netbeans</a>: Descarga un archivo de extensión .sh, que debe ser ejecutado desde la terminal, previamente agregándole permisos de ejecución (chmod +x archivo.sh).<br />
+<a href="http://www.sublimetext.com/3" target="_blank">Sublime3</a><br />
+<a href="http://www.mendeley.com/download-mendeley-desktop/" target="_blank">Mendeley</a><br />
+<a href="http://www.google.com/intl/es-419/chrome/" target="_blank">Chrome</a><br />
+<a href="http://www.geany.org/Download/Releases" target="_blank">Geany</a>: En este caso descargo el código fuente en un archivo .tar.gz, lo compilo e instalo (./configure, make y sudo make install). El paso del configure siempre falla porque necesita dependencias, si es el caso, instalar libgtk2.0-dev e intltool.<br />
+<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Virtualbox</a><br />
+<a href="http://www.teamviewer.com/es/download/linux.aspx" target="_blank">Teamviewer</a>: En este caso, a pesar de instalar una versión de SO de 64bits, la versión de TV para la misma arquitectura siempre falla en la instalación. Por ello, la solución fácil es bajar la versión de 32bits sin importar que arquitectura se uso en el SO. A mi me anduvo siempre sin problemas.<br />
+<a href="http://www.skype.com/es/download-skype/skype-for-computer/" target="_blank">Skype</a>: Tiene sus trucos, ver mas abajo.<br />
+<a href="https://www.dropbox.com/install" target="_blank">Dropbox</a><br />
+<a href="http://www.vagrantup.com/downloads.html" target="_blank">Vagrant</a></p>
+<h4>2.2.3 &#8211; Skype</h4>
+<p>Al intentar instalar Skype, mediante el paquete .deb descargado desde el sitio oficial, puede ocurrir que se encuentren con un error como el siguiente:</p>
+<pre class="brush: bash; gutter: true"> skype:i386 : Depends: libqt4-dbus:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqt4-network:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqt4-xml:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqtcore4:i386 (&gt;= 4:4.7.0~beta1) but it is not going to be installed.
+              Depends: libqtgui4:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqtwebkit4:i386 (&gt;= 2.2~2011week36) but it is not going to be installed.
+              Depends: libstdc++6:i386 (&gt;= 4.2.1) but it is not going to be installed.
+              Depends: libxss1:i386 but it is not going to be installed.
+              Depends: libxv1:i386 but it is not going to be installed.
+              Depends: libssl1.0.0:i386 but it is not going to be installed.
+              Depends: libpulse0:i386 but it is not going to be installed.
+              Depends: libasound2-plugins:i386 but it is not going to be installed.</pre>
+<p>En este caso, hay que instalar las dependencias indicadas, les dejo la linea de aptitude para dicha instalación.</p>
+<pre class="brush: bash; gutter: false">sudo aptitude install libqt4-dbus:i386 libqt4-network:i386 libqt4-xml:i386 libqtcore4:i386 libqtgui4:i386 libqtwebkit4:i386 libstdc++6:i386 libxss1:i386 libxv1:i386 libssl1.0.0:i386 libpulse0:i386 libasound2-plugins:i386</pre>
+<p>Si en la instalación les dice que el paquete skype esta parcialmente instalado y quiere desinstalarlo, acéptenlo sin problemas, y la próxima vez que intenten instalar Skype, el error inicial no debería aparecer.</p>
+<h3>2.3 &#8211; Instalación manual de programas</h3>
+<h4>2.3.1 &#8211; Si se dispone del código fuente</h4>
+<p>Lo normal cuando se disponga del código fuente de un programa, es tener que realizar los siguientes 3 pasos:</p>
+<pre class="brush: bash; gutter: true">./configure
+make
+sudo make install</pre>
+<p>El primer paso revisa que todas las librerías que necesita el software para compilarse se encuentran en el sistema. En caso que exista un error en este paso, sera necesario buscar en la documentación del software particular que librerías necesita, o buscarlo en la Web.</p>
+<p>El comando make compila el software, es decir, crea los binarios a partir del código fuente, que sera lo que se ejecute posteriormente en nuestro equipo.</p>
+<p>El comando make install ubica los binarios y crea accesos directos y variables de entorno para que el software recién compilado sea utilizable desde el sistema. Como puede necesitar escribir en carpetas del sistema, es necesario ejecutarlo con permisos de root (por eso sudo adelante).</p>
+<p>Una vez realizado el make install, la carpeta donde se realizo la compilación puede ser eliminada, pero en caso de no querer borrarla para probar o recompilar posteriormente sin necesidad de bajar el software nuevamente, recomiendo ejecutar un cuarto comando make clean, que elimina archivos intermedios utilizados durante la compilación, y que ocupan lugar en el disco y no son necesarios.</p>
+<h4>2.3.2 &#8211; Si se descargaron archivos con extensión .deb</h4>
+<p>Muchos de los programas ofrecen binarios precompilados de extension .deb, instalables en Debian/Ubuntu etc&#8230;</p>
+<p>Para instalar dicho programas, solo es necesario ejecutar lo siguiente:</p>
+<pre class="brush: bash; gutter: false">sudo dpkg -i archivo.deb</pre>
+<p>En la medida que recuerde mas tareas pos-instalación, la idea es agregarla. Si se les ocurre algún software adicional que ustedes usen, etc&#8230; los invito a compartirlo en los comentarios del blog (Les agregue redes sociales para que no tengan que hacerse ni un usuario en el sitio, no sean vagos :p ).</p>
+<p><strong>UPDATE:</strong> Leyendo blogs, me encontré con este post que mediante dpkg genera un archivo con la lista de paquetes instalados en un sistema (Debian, Ubuntu o derivados). Lo interesante es que de paso muestra como re instalar en el nuevo sistema los paquetes a partir del archivo generado.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/338/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Netflix ya funciona en Ubuntu (Con Chrome)</title>
+		<link>http://tomasdel.com/322</link>
+		<comments>http://tomasdel.com/322#respond</comments>
+		<pubDate>Fri, 10 Oct 2014 22:26:09 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[tecnologia]]></category>
+		<category><![CDATA[Web]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[netflix]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=322</guid>
+		<description><![CDATA[&#160; Vía Insights Ubuntu me entero de la muy grata noticia que de forma nativa, sin instalar cosas raras (que a mi nunca me funcionaron), Netflix ya funciona de forma nativa en Ubuntu, siempre que se tenga instalado Google Chrome en su versión 37 o mayor. Lo primero que hice es abrir Chrome, loguearme en [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>&nbsp;</p>
+<p><img class=" aligncenter" src="http://blogs-images.forbes.com/merrillbarr/files/2014/04/netflix-logo.png" alt="" width="186" height="195" /></p>
+<p>Vía <a href="http://goo.gl/3gDjH2" target="_blank">Insights Ubuntu</a> me entero de la muy grata noticia que de forma nativa, sin instalar cosas raras (que a mi nunca me funcionaron), Netflix ya funciona de forma nativa en Ubuntu, siempre que se tenga instalado Google Chrome en su versión 37 o mayor.</p>
+<p>Lo primero que hice es abrir Chrome, loguearme en mi cuenta de Netflix, y abrir la primer serie que encontré. Me funciono sin problemas. Un punto mas para Linux y no tener que reiniciar a Windows. <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /> ¡Difundan la noticia!</p>
+<p>Actualización: Encontré entre links perdidos <a href="http://planetadiego.com/2014/09/22/tecnicamente-ya-es-posible-reproducir-netflix-en-ubuntu/" target="_blank">este mas viejo</a> que anunciaba que esto iba a ser posible.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/322/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Barra de Titulos en Nautilus &#8211; Ubuntu Gnome 13.10</title>
+		<link>http://tomasdel.com/255</link>
+		<comments>http://tomasdel.com/255#respond</comments>
+		<pubDate>Fri, 30 May 2014 00:11:53 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[Extensiones]]></category>
+		<category><![CDATA[GNOME]]></category>
+		<category><![CDATA[GNOME 3]]></category>
+		<category><![CDATA[Nautilus]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=255</guid>
+		<description><![CDATA[Esto es un tip bastante bobo, pero a mi me vino bien. En GNOME 3.8 (Y anteriores), cuando se maximiza la ventana de Nautilus, se oculta la barra de títulos, lo que genera por ejemplo, que no aparezca el botón cerrar de la ventana. Si bien se puede cerrar la ventana desde el menú o [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Esto es un tip bastante bobo, pero a mi me vino bien. En GNOME 3.8 (Y anteriores), cuando se maximiza la ventana de Nautilus, se oculta la barra de títulos, lo que genera por ejemplo, que no aparezca el botón cerrar de la ventana.</p>
+<p>Si bien se puede cerrar la ventana desde el menú o con Alt+F4, si por costumbre queremos tener la barra de títulos, existe <a title="Extension Ignore Request Hide Titlebar" href="https://extensions.gnome.org/extension/515/ignore_request_hide_titlebar/" target="_blank">esta extensión</a>.</p>
+<p>Lo probe en Ubuntu GNOME 13.10 y pase de ver algo asi:</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default.png"><img class="aligncenter size-medium wp-image-256" src="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default-300x166.png" alt="nautilus_default" width="300" height="166" srcset="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default-300x166.png 300w, http://tomasdel.com/wp-content/uploads/2014/05/nautilus_default.png 354w" sizes="(max-width: 300px) 100vw, 300px" /></a>A ver algo asi:</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension.png"><img class="aligncenter size-medium wp-image-257" src="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension-300x89.png" alt="nautilus_extension" width="300" height="89" srcset="http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension-300x89.png 300w, http://tomasdel.com/wp-content/uploads/2014/05/nautilus_extension.png 561w" sizes="(max-width: 300px) 100vw, 300px" /></a>Las imágenes no son de mi autoría, son encontradas en la web.</p>
+<p>PD: En Ubuntu GNOME 14.10 ya no es necesario porque el botón cerrar esta integrado en la barra de herramientas.</p>
+<p>PD2: Es posible que luego de instalar haya que cerrar sesión y volver a entrar para ver los cambios (No alcanza ni siquiera con ALt+F2-&gt;r).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/255/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Corrector ortográfico para español en Sublime Text 3</title>
+		<link>http://tomasdel.com/244</link>
+		<comments>http://tomasdel.com/244#respond</comments>
+		<pubDate>Wed, 21 May 2014 03:22:09 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[Corrector Ortografico]]></category>
+		<category><![CDATA[Sublime Text]]></category>
+		<category><![CDATA[Sublime Text 3]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=244</guid>
+		<description><![CDATA[Sublime Text 3 (ST3) es el editor de texto de moda. Lamentablemente no es libre, sin embargo yo lo estoy usando últimamente porque es muy ligero (mas que Geany para mi gusto), y tiene muchas características interesantes. Me encontraba armando un archivo en Markdown (Para documentacion de un proyecto) y al escribir rápido, quería verificar [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Sublime Text 3 (ST3) es el editor de texto de moda. Lamentablemente no es libre, sin embargo yo lo estoy usando últimamente porque es muy ligero (mas que Geany para mi gusto), y tiene muchas características interesantes.</p>
+<p>Me encontraba armando un archivo en Markdown (Para documentacion de un proyecto) y al escribir rápido, quería verificar si no se me había pasado alguna falta de ortografía grosera.</p>
+<p>Los correctores no son infalibles, pero ayudan, entonces busque si era posible en ST3 tener un corrector, y en español (Idioma de la documentación).</p>
+<p>Descubrí que ST3 trae un corrector incorporado (+1), pero obviamente el único idioma por defecto es el ingles (-1). Buscando, en <a title="Diccionario español Sublime Text 2" href="http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/" target="_blank">este blog</a> encuentro una solución para la version 2 del editor que al menos a mi me sirvió para la versión 3:</p>
+<ul>
+<li>Ingresar a <b><a title="Diccionarios" href="https://github.com/SublimeText/Dictionaries/" target="_blank">https://github.com/SublimeText/Dictionaries/</a></b></li>
+<li>Descargar los siguientes archivos:
+<ul>
+<li><span class="css-truncate css-truncate-target"><a id="0f7789341773d0b6fb93f0c2d31ff60b-c4e53584c897251c0e806b40565d2314b3d78759" class="js-directory-link" title="Spanish.aff" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.aff">Spanish.aff</a></span></li>
+<li><span class="css-truncate css-truncate-target"><a id="c271b5605c6477f52cfe0afd2182f63f-178073a15a27641fa7c3222343eb376e3427b3c4" class="js-directory-link" title="Spanish.dic" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.dic">Spanish.dic</a></span></li>
+<li><span class="css-truncate css-truncate-target"><a id="ce01f79ee22807957526fefeb287f8ef-98b5ad4cf05821ef60ef50b9b3fb57909c31cefe" class="js-directory-link" title="Spanish.txt" href="https://github.com/SublimeText/Dictionaries/blob/master/Spanish.txt">Spanish.txt</a></span></li>
+</ul>
+</li>
+<li>Crear una carpeta de nombre &#8220;Language – Spanish&#8221; y guardar los 3 archivos dentro.</li>
+<li>Mover el directorio creado a la carpeta de extensiones de ST3. En mi caso, instale ST3 desde el <a title="Sublime Text 3 - Deb file" href="http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb" target="_blank">.deb descargable del sitio oficial</a>. Dicho paquete, ubica los archivos de usuario en $HOME/.config/sublime-text-3/Packages/, con lo cual, allí fue movido el directorio &#8220;Language &#8211; Spanish/&#8221; con los 3 archivos previamente descargados.</li>
+<li>Una vez hecho esto, desde ST3 vamos al menu &#8220;View-&gt;Spell Check&#8221; para activar el corrector ortográfico, y luego a &#8220;View-&gt;Dictionary-&gt;Languaje &#8211; Spanish-&gt;Spanish&#8221;.</li>
+</ul>
+<p>Una vez hecho lo anterior, pude corregir el documento en cuestión de forma similar a como se hace en cualquier Procesador de Textos.</p>
+<p>FUENTE: <a href="http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/" target="_blank">http://desarrollosublimetext.wordpress.com/2012/10/22/adicionar-diccionario-en-espanol-a-sublime-text2-windows-7/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/244/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

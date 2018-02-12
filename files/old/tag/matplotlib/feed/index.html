@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>matplotlib &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/matplotlib/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Jugando con IPython notebook y timeit</title>
+		<link>http://tomasdel.com/332</link>
+		<comments>http://tomasdel.com/332#respond</comments>
+		<pubDate>Sat, 18 Oct 2014 00:25:01 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Programación]]></category>
+		<category><![CDATA[ipython notebook]]></category>
+		<category><![CDATA[matplotlib]]></category>
+		<category><![CDATA[pyar]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[timeit]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=332</guid>
+		<description><![CDATA[Hace unas semanas hice una consulta en la lista de correo de PyAr, donde planteaba una duda acerca de como generar un nombre de archivo que podía estar repetido en el directorio donde necesitaba crearlo. La forma mas sencilla de hacer esto es usar un contador y concatenar el numero al nombre del archivo. Si [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Hace unas semanas hice <a href="http://listas.python.org.ar/pipermail/pyar/2014-October/031489.html" target="_blank">una consulta en la lista de correo de PyAr</a>, donde planteaba una duda acerca de como generar un nombre de archivo que podía estar repetido en el directorio donde necesitaba crearlo.</p>
+<p>La forma mas sencilla de hacer esto es usar un contador y concatenar el numero al nombre del archivo. Si bien sencillo, se me ocurrió consultar por si se conocían alguna propuesta mejor.</p>
+<p>Como siempre, <a href="http://listas.python.org.ar/pipermail/pyar/2014-October/thread.html#31489" target="_blank">hubo muchas propuestas diferentes</a>, con muchos enfoques interesantes. Como me gustaron varias, pero quería probar eficiencia de cada propuesta, me pareció que podía ser de interés usar el <a href="https://docs.python.org/2/library/timeit.html" target="_blank">modulo timeit</a> para medir el tiempo que le tomaba a cada propuesta procesar un mismo numero de veces. De paso, aprendía a usar dicho modulo.</p>
+<p>Arme un <a href="http://nbviewer.ipython.org/gist/tomasdelvechio/d5f294b954692ef28173/comparacionTecnicasParaGenerarFilename.ipynb" target="_blank">notebook de ipython</a>, que les dejo enlazado con todos los métodos comparados, y de paso, encontré un cruce entre timeit y matplotlib, muy fácil de usar llamado <a href="https://github.com/cseager/timeit_plot" target="_blank">timeit_plot</a>. Algunos ejemplos de uso están al final del mismo notebook que les comenté.</p>
+<p>Al fina de todo, me termine quedando con la idea original del contador :), pero bueno, lo aprendido en el andar valió la pena.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/332/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Ver imagenes de graficos generados en Ipython Notebook</title>
+		<link>http://tomasdel.com/282</link>
+		<comments>http://tomasdel.com/282#respond</comments>
+		<pubDate>Wed, 09 Jul 2014 14:15:32 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Programación]]></category>
+		<category><![CDATA[ipython notebook]]></category>
+		<category><![CDATA[matplotlib]]></category>
+		<category><![CDATA[pylab]]></category>
+		<category><![CDATA[python]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=282</guid>
+		<description><![CDATA[Usando Ipython Notebook, una de las cosas interesantes que nos permite es generar gráficas (vía matplotlib generalmente) y que la herramienta las muestre en la interfaz automáticamente. Si bien esto es muy útil, al iniciar por defecto Ipython Notebook esto no funciona, de hecho, si se genera una gráfica, lo único que se vera es [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Usando <a href="http://ipython.org/notebook.html" target="_blank">Ipython Notebook</a>, una de las cosas interesantes que nos permite es generar gráficas (vía matplotlib generalmente) y que la herramienta las muestre en la interfaz automáticamente. Si bien esto es muy útil, al iniciar por defecto Ipython Notebook esto no funciona, de hecho, si se genera una gráfica, lo único que se vera es algo del estilo</p>
+<pre class="brush: python; gutter: false">&lt;matplotlib.figure.Figure at 0x110b9c450&gt;</pre>
+<p>Esto ocurre porque en realidad hay que usar un parámetro al iniciar la aplicación.</p>
+<p>Si lanzamos la aplicación de la siguiente manera:</p>
+<p><span class="comment-copy"><code>ipython notebook --pylab inline</code></span></p>
+<p>Se verán las gráficas e imágenes de forma automática.</p>
+<p>Por otro lado, si ya iniciamos el programa y no queremos cerrar y lanzar nuevamente, ejecutar lo siguiente dentro de la notebook:</p>
+<pre class="brush: python; gutter: false">%matplotlib inline</pre>
+<p>Esto también funciona.</p>
+<p>Soluciones encontradas <a href="http://stackoverflow.com/questions/19410042/how-to-make-ipython-notebook-inline-matplotlib-graphics" target="_blank">acá</a>.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/282/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

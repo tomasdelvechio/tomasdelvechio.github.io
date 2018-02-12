@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>apuntes &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/category/apuntes/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Post instalación Ubuntu 14.04</title>
+		<link>http://tomasdel.com/338</link>
+		<comments>http://tomasdel.com/338#respond</comments>
+		<pubDate>Mon, 20 Oct 2014 22:13:29 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[apt-get]]></category>
+		<category><![CDATA[aptitude]]></category>
+		<category><![CDATA[compilacion]]></category>
+		<category><![CDATA[dpkg]]></category>
+		<category><![CDATA[instalacion]]></category>
+		<category><![CDATA[Pos-Instalacion]]></category>
+		<category><![CDATA[programas]]></category>
+		<category><![CDATA[software]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+		<category><![CDATA[Ubuntu 14.04]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=338</guid>
+		<description><![CDATA[Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación. Así que la intención del post este es tener una referencia o machete [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Por diversos motivos, tuve que reinstalar Ubuntu 14.04 en mi notebook. Siempre me ocurre que cada vez que necesito instalar de cero o reinstalar, tengo que recordar o anotar previamente cuales son los programas y configuraciones que tenia en la vieja instalación.</p>
+<p>Así que la intención del post este es tener una referencia o machete personal en linea para todo lo que tiene que ver con la post instalación de Ubuntu, y por ahí a alguno le sirve.</p>
+<h2>1 &#8211; Agregar Repositorios adicionales</h2>
+<p>Algunos repositorios de terceros no vienen agregados de forma predeterminada por cuestiones legales, sin embargo, suele tener software adicional o mas actualizado que los repositorios oficiales.</p>
+<p>La forma mas sencilla de activarlo es buscando la aplicación &#8220;Software &amp; Updates&#8221; o &#8220;Software y actualizaciones&#8221;, y una vez allí, visitar las pestañas Software de Ubuntu (Activar main, universe, restricted y multiverse, Código fuente es opcional y yo no lo activo), Otro Software (Socios de Canonical e Independientes, de nuevo puede activarse opcionalmente los referentes al código fuente, y yo no lo hago) y Actualizaciones (security, updates, proposed y backports).</p>
+<p>Una vez realizado lo anterior, es recomendable realizar una actualización general:</p>
+<pre class="brush: bash; gutter: true">sudo apt-get update &amp;&amp; sudo apt-get upgrade</pre>
+<p>Quiero agregar que esto lo hago en mi notebook personal que es de uso &#8220;Desktop&#8221;, para el caso de un servidor es posible que existan otras precauciones y debería consultarse algún tipo de literatura especializada.</p>
+<h2>2 &#8211; Software adicional</h2>
+<p>Lo siguiente que hago es instalar el software que utilizo de forma diaria o rutinaria para mis tareas personales y laborales, algunos de estos programas se consiguen desde los repositorios oficiales, otros los descargo desde las webs oficiales. Cada uno de estos tipos de software sera comentado de forma separada.</p>
+<h3>2.1 &#8211; Software desde los repositorios oficiales</h3>
+<p>Cabe aclarar que el listado siguiente es un listado de cosas que a mi me sirven, así que es posible que muchas de las cosas que aparecen ustedes quieran obviarlas.</p>
+<pre class="brush: bash; gutter: false">build-essential
+aptitude
+synaptic
+htop
+nmap
+mc
+gummi
+guake
+xchat
+subversion
+git
+mercurial
+postgresql
+php5
+php5-pgsql
+pgadmin3
+apache2
+audacious
+shutter
+gparted
+ipython
+gimp
+meld
+openjdk-7-jdk
+adobe-flashplugin
+wine
+ssh
+vlc
+aria2</pre>
+<h3>2.2 &#8211; Software que descargo desde las paginas oficiales</h3>
+<p>El siguiente listado es de aquellos programas que descargo desde sus respectivas paginas oficiales. Dejo los nombres de los programas, con los links a las paginas de descargas, y algunos comentarios en los casos que lo requieran.</p>
+<p><a href="https://netbeans.org/downloads/" target="_blank">Netbeans</a>: Descarga un archivo de extensión .sh, que debe ser ejecutado desde la terminal, previamente agregándole permisos de ejecución (chmod +x archivo.sh).<br />
+<a href="http://www.sublimetext.com/3" target="_blank">Sublime3</a><br />
+<a href="http://www.mendeley.com/download-mendeley-desktop/" target="_blank">Mendeley</a><br />
+<a href="http://www.google.com/intl/es-419/chrome/" target="_blank">Chrome</a><br />
+<a href="http://www.geany.org/Download/Releases" target="_blank">Geany</a>: En este caso descargo el código fuente en un archivo .tar.gz, lo compilo e instalo (./configure, make y sudo make install). El paso del configure siempre falla porque necesita dependencias, si es el caso, instalar libgtk2.0-dev e intltool.<br />
+<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Virtualbox</a><br />
+<a href="http://www.teamviewer.com/es/download/linux.aspx" target="_blank">Teamviewer</a>: En este caso, a pesar de instalar una versión de SO de 64bits, la versión de TV para la misma arquitectura siempre falla en la instalación. Por ello, la solución fácil es bajar la versión de 32bits sin importar que arquitectura se uso en el SO. A mi me anduvo siempre sin problemas.<br />
+<a href="http://www.skype.com/es/download-skype/skype-for-computer/" target="_blank">Skype</a>: Tiene sus trucos, ver mas abajo.<br />
+<a href="https://www.dropbox.com/install" target="_blank">Dropbox</a><br />
+<a href="http://www.vagrantup.com/downloads.html" target="_blank">Vagrant</a></p>
+<h4>2.2.3 &#8211; Skype</h4>
+<p>Al intentar instalar Skype, mediante el paquete .deb descargado desde el sitio oficial, puede ocurrir que se encuentren con un error como el siguiente:</p>
+<pre class="brush: bash; gutter: true"> skype:i386 : Depends: libqt4-dbus:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqt4-network:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqt4-xml:i386 (&gt;= 4:4.5.3) but it is not going to be installed.
+              Depends: libqtcore4:i386 (&gt;= 4:4.7.0~beta1) but it is not going to be installed.
+              Depends: libqtgui4:i386 (&gt;= 4:4.8.0) but it is not going to be installed.
+              Depends: libqtwebkit4:i386 (&gt;= 2.2~2011week36) but it is not going to be installed.
+              Depends: libstdc++6:i386 (&gt;= 4.2.1) but it is not going to be installed.
+              Depends: libxss1:i386 but it is not going to be installed.
+              Depends: libxv1:i386 but it is not going to be installed.
+              Depends: libssl1.0.0:i386 but it is not going to be installed.
+              Depends: libpulse0:i386 but it is not going to be installed.
+              Depends: libasound2-plugins:i386 but it is not going to be installed.</pre>
+<p>En este caso, hay que instalar las dependencias indicadas, les dejo la linea de aptitude para dicha instalación.</p>
+<pre class="brush: bash; gutter: false">sudo aptitude install libqt4-dbus:i386 libqt4-network:i386 libqt4-xml:i386 libqtcore4:i386 libqtgui4:i386 libqtwebkit4:i386 libstdc++6:i386 libxss1:i386 libxv1:i386 libssl1.0.0:i386 libpulse0:i386 libasound2-plugins:i386</pre>
+<p>Si en la instalación les dice que el paquete skype esta parcialmente instalado y quiere desinstalarlo, acéptenlo sin problemas, y la próxima vez que intenten instalar Skype, el error inicial no debería aparecer.</p>
+<h3>2.3 &#8211; Instalación manual de programas</h3>
+<h4>2.3.1 &#8211; Si se dispone del código fuente</h4>
+<p>Lo normal cuando se disponga del código fuente de un programa, es tener que realizar los siguientes 3 pasos:</p>
+<pre class="brush: bash; gutter: true">./configure
+make
+sudo make install</pre>
+<p>El primer paso revisa que todas las librerías que necesita el software para compilarse se encuentran en el sistema. En caso que exista un error en este paso, sera necesario buscar en la documentación del software particular que librerías necesita, o buscarlo en la Web.</p>
+<p>El comando make compila el software, es decir, crea los binarios a partir del código fuente, que sera lo que se ejecute posteriormente en nuestro equipo.</p>
+<p>El comando make install ubica los binarios y crea accesos directos y variables de entorno para que el software recién compilado sea utilizable desde el sistema. Como puede necesitar escribir en carpetas del sistema, es necesario ejecutarlo con permisos de root (por eso sudo adelante).</p>
+<p>Una vez realizado el make install, la carpeta donde se realizo la compilación puede ser eliminada, pero en caso de no querer borrarla para probar o recompilar posteriormente sin necesidad de bajar el software nuevamente, recomiendo ejecutar un cuarto comando make clean, que elimina archivos intermedios utilizados durante la compilación, y que ocupan lugar en el disco y no son necesarios.</p>
+<h4>2.3.2 &#8211; Si se descargaron archivos con extensión .deb</h4>
+<p>Muchos de los programas ofrecen binarios precompilados de extension .deb, instalables en Debian/Ubuntu etc&#8230;</p>
+<p>Para instalar dicho programas, solo es necesario ejecutar lo siguiente:</p>
+<pre class="brush: bash; gutter: false">sudo dpkg -i archivo.deb</pre>
+<p>En la medida que recuerde mas tareas pos-instalación, la idea es agregarla. Si se les ocurre algún software adicional que ustedes usen, etc&#8230; los invito a compartirlo en los comentarios del blog (Les agregue redes sociales para que no tengan que hacerse ni un usuario en el sitio, no sean vagos :p ).</p>
+<p><strong>UPDATE:</strong> Leyendo blogs, me encontré con este post que mediante dpkg genera un archivo con la lista de paquetes instalados en un sistema (Debian, Ubuntu o derivados). Lo interesante es que de paso muestra como re instalar en el nuevo sistema los paquetes a partir del archivo generado.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/338/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Hadoop: Introduccion, articulos e Instalación</title>
+		<link>http://tomasdel.com/326</link>
+		<comments>http://tomasdel.com/326#respond</comments>
+		<pubDate>Mon, 13 Oct 2014 14:32:15 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[Materias]]></category>
+		<category><![CDATA[Soluciones]]></category>
+		<category><![CDATA[tutoriales]]></category>
+		<category><![CDATA[big data]]></category>
+		<category><![CDATA[charlas]]></category>
+		<category><![CDATA[hadoop]]></category>
+		<category><![CDATA[instalacion]]></category>
+		<category><![CDATA[slides]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=326</guid>
+		<description><![CDATA[El día miércoles 8/10/2014 en el marco de una materia me invitaron a exponer la experiencia que vengo reuniendo en lo que respecta al Big Data y a Hadoop en particular. Ya tenia preparada una diapositiva introductoria, la cual amplié y corregí de cara al curso, el cual es sobre Sistemas Distribuidos y agregue algún [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>El día miércoles 8/10/2014 en el marco de una materia me invitaron a exponer la experiencia que vengo reuniendo en lo que respecta al Big Data y a Hadoop en particular. Ya tenia preparada una diapositiva introductoria, la cual amplié y corregí de cara al curso, el cual es sobre Sistemas Distribuidos y agregue algún contenido adicional sobre como opera HDFS de forma mas detallada.</p>
+<p>Las slides:</p>
+<p><iframe src="//slides.com/tomasdelvechio/hadoop--2/embed" width="576" height="420" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe></p>
+<p>Por otro lado, el profesor me pidió, de la vasta documentación en el tema, 1 articulo o dos para ofrecer como bibliografia. Si bien podría haber dicho el libro de Tom White, que es la referencia en el tema, me pareció que para un curso que no es especifico de Hadoop dos artículos mas específicos podrían ser un mejor aporte. Los artículos que elegí fueron:</p>
+<p><b>[DEA,2004]</b>: Dean, J. Et. all. &#8220;<a href="http://static.googleusercontent.com/media/research.google.com/es-419//archive/mapreduce-osdi04.pdf" target="_blank"><i>MapReduce: Simplified Data Processing on Large Clusters</i></a>&#8220;.  OSDI. 2004.</p>
+<p><b>[SHV,2010]:</b> Shvachko, K. Et. all. &#8220;<a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=799A2C18A3A740620B51A4AE65476312?doi=10.1.1.178.989&amp;rep=rep1&amp;type=pdf" target="_blank">The Hadoop Distributed File System</a>&#8220;. IEEE. 2010.</p>
+<p>Por ultimo, Agrego dos tutoriales que armamos con dos colegas (Esteban y Alejandro) para instalar Hadoop para desarrollo (conocida como single-node) y como cluster.</p>
+<p><script src="https://gist.github.com/tomasdelvechio/26e709368d461406d91d.js"></script></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/326/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Algo de Javascript: Alternativa para evento onload del tag BODY</title>
+		<link>http://tomasdel.com/139</link>
+		<comments>http://tomasdel.com/139#respond</comments>
+		<pubDate>Mon, 07 Mar 2011 14:25:39 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=139</guid>
+		<description><![CDATA[El evento OnLoad de Javascript es utilizado generalmente en la etiqueta BODY de una pagina HTML con el fin de ejecutar una porción de código especifica cuando la pagina termina de cargar. Es un evento que hace sencillo realzar algunas verificaciones complementarias vía JS. Sin embargo, si trabajamos con esquemas de plantillas heredadas, como por [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>El evento OnLoad de Javascript es utilizado generalmente en la etiqueta BODY de una pagina HTML con el fin de ejecutar una porción de código especifica cuando la pagina termina de cargar. Es un evento que hace sencillo realzar algunas verificaciones complementarias vía JS.</p>
+<p>Sin embargo, si trabajamos con esquemas de plantillas heredadas, como por ejemplo Jinja2, es muy posible que no tengamos disponible la etiqueta BODY. En estos casos, lo mejor es usar código Javascript en HTML embebido en un tag SCRIPT.</p>
+<p>En cualquier lugar del template colocamos:</p>
+<p>bc. <script type="text/javascript">
+    window.onload = function()
+    { ... }
+</script></p>
+<p>Todo lo que escribamos allí se ejecutara cuando nuestra pagina termine de cargar.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/139/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Montar servidor subversion con svnserve</title>
+		<link>http://tomasdel.com/130</link>
+		<comments>http://tomasdel.com/130#respond</comments>
+		<pubDate>Thu, 13 May 2010 01:02:31 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=130</guid>
+		<description><![CDATA[Ando con poco tiempo, así que esto es mas un posteo de un link. La cuestión es que para el laburo andamos investigando diferentes cuestiones relativas a configurar un entorno de desarrollo distribuido, y toco el turno a como montar un servidor de _Subversion_. Hay dos opciones, montarlo usando los servicios de Apache, o usar [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Ando con poco tiempo, así que esto es mas un posteo de un link.</p>
+<p>La cuestión es que para el laburo andamos investigando diferentes cuestiones relativas a configurar un entorno de desarrollo distribuido, y toco el turno a como montar un servidor de _Subversion_.</p>
+<p>Hay dos opciones, montarlo usando los servicios de Apache, o usar el servidor integrado a _Subversion_, llamado _svnserve_. Opte por esta segunda opción, para ver algo que no conocía (Apache es muy usado, y supongo que no debe haber complicaciones extrañas).</p>
+<p>De todas las paginas que consulte, la mas sencilla y clara &#8220;fue esta&#8221;:http://www.kopernix.com/?q=svnd_como</p>
+<p>Realmente salio funcionando con las explicaciones de la pagina, sin dar vueltas.</p>
+<p>Por ello, a pesar de ser simplemente un enlace, es el resultado de una búsqueda, y creo que aporta algo.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/130/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Aplicar diferentes orientaciones de paginas en un mismo documento de Openoffice.org Writer</title>
+		<link>http://tomasdel.com/129</link>
+		<comments>http://tomasdel.com/129#respond</comments>
+		<pubDate>Tue, 11 May 2010 21:28:18 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=129</guid>
+		<description><![CDATA[Pues bueno, el titulo del post es bastante descriptivo. Lo que ocurre es que busque esta respuesta mucho tiempo, y no podía encontrarla. No podía encontrar la manera de poner diferentes orientaciones de paginas en un mismo documento, y si bien el método es un poco largo para algo dentro de todo sencillo, funciona. La [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Pues bueno, el titulo del post es bastante descriptivo. Lo que ocurre es que busque esta respuesta mucho tiempo, y no podía encontrarla.</p>
+<p>No podía encontrar la manera de poner diferentes orientaciones de paginas en un mismo documento, y si bien el método es un poco largo para algo dentro de todo sencillo, funciona.</p>
+<p>La respuesta correcta &#8220;aquí&#8221;:http://user.services.openoffice.org/es/forum/viewtopic.php?f=17&#038;t=141#p394</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/129/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Prueba de codigo</title>
+		<link>http://tomasdel.com/124</link>
+		<comments>http://tomasdel.com/124#respond</comments>
+		<pubDate>Wed, 24 Mar 2010 03:15:43 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=124</guid>
+		<description><![CDATA[notextile.. # -*- coding: iso8859-15 -*- # diccionario de comidas preferidas de cada persona comidas = { &#8220;Juan&#8221; : &#8220;tiburón en escabeche&#8221;, &#8220;Pablo&#8221; : &#8220;paella don Beto&#8221;, &#8220;Alfredo&#8221; : &#8220;sesos de mono&#8221;, &#8220;Fulano&#8221; : &#8220;cucarachas fritas&#8221;, &#8220;Sonia&#8221; : &#8220;burros&#8221;, &#8220;Lucas&#8221; : &#8220;hamburguesas Mr Paul&#8221;, &#8220;Jose&#8221; : &#8220;ceviche&#8221;, &#8220;Cesar&#8221; : &#8220;arroz con pollo&#8221; } afirmativas = [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>notextile.. <txp:fox_code language=“php”><br />
+<?php
+     $a = 'hola mundo';
+     echo $a;
+?><br />
+</txp:fox_code></p>
+<p><txp:fox_code language=“python”><br />
+# -*- coding: iso8859-15 -*-<br />
+# diccionario de comidas preferidas de cada persona<br />
+comidas = {<br />
+   &#8220;Juan&#8221; : &#8220;tiburón en escabeche&#8221;,<br />
+   &#8220;Pablo&#8221; : &#8220;paella don Beto&#8221;,<br />
+   &#8220;Alfredo&#8221; : &#8220;sesos de mono&#8221;,<br />
+   &#8220;Fulano&#8221; : &#8220;cucarachas fritas&#8221;,<br />
+   &#8220;Sonia&#8221; : &#8220;burros&#8221;,<br />
+   &#8220;Lucas&#8221; : &#8220;hamburguesas Mr Paul&#8221;,<br />
+   &#8220;Jose&#8221; : &#8220;ceviche&#8221;,<br />
+   &#8220;Cesar&#8221; : &#8220;arroz con pollo&#8221;<br />
+}<br />
+afirmativas = set([&#8216;si&#8217;,&#8217;s&#8217;,&#8217;mucho&#8217;,&#8217;porfa&#8217;])</p>
+<p>def saluda(nombre, comida):<br />
+    respuesta = raw_input(&#8220;Hola &#8221; + nombre + &#8220;, ¿te gusta &#8221; + comida + &#8220;? &#8220;)<br />
+    if respuesta not in afirmativas:<br />
+        pregunta(nombre)</p>
+<p>def pregunta(nombre):<br />
+    respuesta = raw_input(&#8220;Hola &#8221; + nombre + &#8220;, ¿qué comida te gusta? &#8220;)<br />
+    comidas[nombre] = respuesta</p>
+<p>for nombre in [&#8220;Juan&#8221;, &#8220;Pablo&#8221;, &#8220;Alfredo&#8221;, &#8220;Fulano&#8221;, &#8220;Sonia&#8221;, &#8220;Lucas&#8221;, &#8220;Mengano&#8221;,&#8221;Cesar&#8221;]:<br />
+    if nombre in comidas and comidas[nombre] is not None:<br />
+        saluda(nombre, comidas[nombre])<br />
+    else:<br />
+        pregunta(nombre)<br />
+</txp:fox_code></p>
+<p>p. Es un _plugin_ de _Textpattern_ para colorear sintaxis llamado _Fox Code_. Funciona <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /> aunque es posible que le haga algunas &#8220;mejoras&#8221;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/124/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Comando alias, paths completos y otra yerbas&#8230;</title>
+		<link>http://tomasdel.com/97</link>
+		<comments>http://tomasdel.com/97#respond</comments>
+		<pubDate>Sat, 06 Mar 2010 11:06:10 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=97</guid>
+		<description><![CDATA[Hace unos meses en la lista de _GRULIC_ se armo &#8220;una discusión sobre el uso de alias sobre comandos básicos&#8221;:http://proposicion.org.ar/lurker/message/20090812.021722.4cb825da.es.html a la hora de que estos sean usado en _scripts_. El hilo se llamaba *una razón para no usar &#8216;alias ls=&#8221;ls &#8211;color&#8221;&#8216;* y quien hacia el planteo comentaba que al hacer un _script_, este le [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Hace unos meses en la lista de _GRULIC_ se armo &#8220;una discusión sobre el uso de alias sobre comandos básicos&#8221;:http://proposicion.org.ar/lurker/message/20090812.021722.4cb825da.es.html a la hora de que estos sean usado en _scripts_.</p>
+<p>El hilo se llamaba *una razón para no usar &#8216;alias ls=&#8221;ls &#8211;color&#8221;&#8216;* y quien hacia el planteo comentaba que al hacer un _script_, este le arrojaba un extraño error que tenia su origen en el mecanismo de &#8220;alias de comandos&#8221;:http://clinuxera.org/gulp/?p=704.</p>
+<p>Entonces se plantea como primera conclusión, que era importante no usar ese dichoso comando, alias, para los comandos, porque podía dar origen a este tipo de problemas.</p>
+<p>Allí es el momento donde intervienen los mas experimentados en programación, y rectifican la conclusión, diciendo que el problema no es si usar o no usar el comando _alias_, sino que en todo _script_ medianamente serio, no deben invocarse los comandos sin mas, como cuando estamos trabajando en el _Shell_ sino que debe invocarse el _path_ completo, es decir, la ruta completa del binario.</p>
+<p>Así, por ejemplo, invocar a _ls_ en un _script_ no es simplemente escribiendo dicho comando, sino escribiendo */bin/ls*.</p>
+<p>En realidad, esta necesidad (la de poner la ruta completa al ejecutable) no se basa solo en el hecho del comando alias, sino que al estar llamando a un programa, si no se lo invoca con su dirección absoluta, como es bien explicado por uno de los intervinientes en la discusión:</p>
+<p>bq. [&#8230;] en gral. en scripts siempre es buena idea usar los paths<br />
+completos a los programas. Justamente para evitar problemas con<br />
+distintos valores de PATH (por ejemplo porque ha cambiado el usuario<br />
+que ejecuta el script) y esquivar problemas de alias en el shell<br />
+como estos.</p>
+<p>La lectura de este hilo se dio en un contexto que por motivos de laburo yo mismo estaba probando mucho de _scripts_ y haciendo pequeñas funcionalidades para automatizar algunas tareas.</p>
+<p>Por eso, y como me sirvió, lo quería compartir.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/97/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Tamaño de una base de datos en PostgreSQL</title>
+		<link>http://tomasdel.com/106</link>
+		<comments>http://tomasdel.com/106#respond</comments>
+		<pubDate>Tue, 12 Jan 2010 11:25:22 +0000</pubDate>
+		<dc:creator><![CDATA[tdelvechio]]></dc:creator>
+				<category><![CDATA[apuntes]]></category>
+		<category><![CDATA[software libre]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=106</guid>
+		<description><![CDATA[La otra vez, por un requerimiento del trabajo, tenia que pasar en un informe el tamaño de una Base de datos de _PostgreSQL_ de un sistema interno que estoy manteniendo. Nunca me había puesto a pensar, pero _PostgreSQL_ no es como otras bases de datos (como _Firebird_) que tienen un archivo único por cada base [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>La otra vez, por un requerimiento del trabajo, tenia que pasar en un informe el tamaño de una Base de datos de _PostgreSQL_ de un sistema interno que estoy manteniendo.</p>
+<p>Nunca me había puesto a pensar, pero _PostgreSQL_ no es como otras bases de datos (como _Firebird_) que tienen un archivo único por cada base de datos, sino que maneja las DB de una manera interna.</p>
+<p>No voy a emitir juicio de valor sobre las ventajas y desventajas de una u otra forma, lo que era claro que para lo que tenia que obtener, la cosa no iba a ser tan fácil.</p>
+<p>O eso creía. La cuestión esta resuelta en &#8220;esta pagina&#8221;:http://www.summersault.com/community/weblog/2005/10/25/reporting-on-disk-space-usage-for-postgresql-and-mysql-databases.html y el _script_ es el siguiente:</p>
+<p>bc. SELECT pg_database.datname,<br />
+       pg_shadow.usename AS owner,<br />
+       pg_database_size(pg_database.datname) AS size,<br />
+       pg_size_pretty(pg_database_size(pg_database.datname)) AS pretty_size<br />
+FROM pg_database<br />
+JOIN pg_shadow ON pg_database.datdba = pg_shadow.usesysid;</p>
+<p>Obtenemos así un listado donde la primer columna contiene el nombre de cada DB y la ultima columna nos da el tamaño en Bytes de dicha DB. </p>
+<p>Resta comentar que es necesario ser administrador de _PostgreSQL_ para ejecutar el _script_, o que nuestro usuario tenga permiso de lectura sobre la tabla *pg_shadow*.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/106/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>
