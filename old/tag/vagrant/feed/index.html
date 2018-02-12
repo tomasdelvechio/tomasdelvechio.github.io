@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Vagrant &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/vagrant/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Entendiendo Vagrant: Otra Introducción</title>
+		<link>http://tomasdel.com/260</link>
+		<comments>http://tomasdel.com/260#respond</comments>
+		<pubDate>Fri, 13 Jun 2014 01:22:29 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[Deploy]]></category>
+		<category><![CDATA[Maquinas Virtuales]]></category>
+		<category><![CDATA[Vagrant]]></category>
+		<category><![CDATA[Virtualbox]]></category>
+
+		<guid isPermaLink="false">http://www.tomasdelvechio.com.ar/?p=260</guid>
+		<description><![CDATA[Introducción Para un trabajo estoy usando Vagrant. Es una herramienta interesante, ya que permite realizar un deploy de maquinas virtuales (VMs) con relativa facilidad. Pero me costo un poco la curva inicial, tuve que leer bastante porque utiliza ciertos conceptos que parecen &#8220;nuevos&#8221; aunque luego son cosas conocidas una vez que se lee la documentación, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Introducción</h2>
+<p><img class="size-full wp-image-261 alignleft" src="http://tomasdel.com/wp-content/uploads/2014/06/logo_vagrant-81478652.png" alt="logo_vagrant-81478652" width="248" height="64" />Para un trabajo estoy usando <a title="Vagrant" href="http://www.vagrantup.com/" target="_blank">Vagrant</a>. Es una herramienta interesante, ya que permite realizar un deploy de maquinas virtuales (VMs) con relativa facilidad.</p>
+<p>Pero me costo un poco la curva inicial, tuve que leer bastante porque utiliza ciertos conceptos que parecen &#8220;nuevos&#8221; aunque luego son cosas conocidas una vez que se lee <a title="Documentacion de Vagrant" href="http://docs.vagrantup.com/v2/" target="_blank">la documentación</a>, la que por cierto, esta muy completa, pero en Ingles.</p>
+<p>La intención con este post, es dar mi introducción corta a esta herramienta, y remitir a otros posts y documentación que me sirvió para entender como funciona.</p>
+<p>Muchas de las ideas acá expuestas surgieron de la lectura de la trilogía de Posts de <a href="http://www.erikaheidi.com/blog/a-begginers-guide-to-vagrant-getting-your-portable-development-e" class="broken_link">Erika Heidi</a>.</p>
+<p>La idea detrás de Vagrant es automatizar la construcción y despliegue (deploy) de Maquinas virtuales que serán utilizadas para tareas similares o idénticas.</p>
+<p>Un caso posible es un entorno de desarrollo, donde cada nuevo desarrollador debería instalar el sistema en base al software necesario para programar, teniendo en cuenta las versiones y configuraciones particulares de los mismos. En su lugar, se podría crear un repositorio con las configuraciones para Vagrant, entonces el desarrollador en cuestión se descargaría un par de archivos de textos, y mediante una cantidad mínima de comandos tendría una VM con la configuración lista para comenzar a desarrollar.</p>
+<p>El siguiente Mapa Conceptual muestra a grandes rasgos los conceptos relacionados con Vagrant.</p>
+<p><a href="http://tomasdel.com/wp-content/uploads/2014/06/test.png"><img class="aligncenter wp-image-267 size-large" src="http://tomasdel.com/wp-content/uploads/2014/06/test-1024x473.png" alt="Vagrant" width="700" height="323" srcset="http://tomasdel.com/wp-content/uploads/2014/06/test-1024x473.png 1024w, http://tomasdel.com/wp-content/uploads/2014/06/test-300x138.png 300w, http://tomasdel.com/wp-content/uploads/2014/06/test.png 1096w" sizes="(max-width: 700px) 100vw, 700px" /></a>Como se observa, Vagrant actúa como &#8220;pegamento&#8221; de otras tecnologías previamente existentes, y las integra en un único comando con diversas opciones.</p>
+<h2>Conceptos</h2>
+<p>Vamos a explicar alguno de los conceptos que aparecen en el mapa conceptual:</p>
+<p><strong>Providers:</strong> Nombre que asigna Vagrant a los Hypervisores o Software para gestionar VMs. Por defecto utiliza Virtualbox. En el caso de VMware, según entiendo, ademas de la licencia propia de este, hay que pagar una licencia por el plugin de Vagrant para utilizarlo.</p>
+<p><strong>Box:</strong> Es una instalación de un sistema operativo concreto, en un archivo que Vagrant utiliza. Es normal que diferentes desarrolladores de SO o personas independientes publiquen sus Boxes en internet, para poder descargarnos un entorno ya instalado y pre-configurado. Algunos ejemplos <a href="http://www.vagrantbox.es/" target="_blank">acá</a>, <a href="https://cloud-images.ubuntu.com/vagrant/" target="_blank">acá</a> y <a href="http://www.dev-metal.com/list-downloadable-vagrant-boxes-centos-5-9-6-4-ubuntu-12-13-debian-6-7-7-1-7-2/" target="_blank">acá</a>.</p>
+<p><strong>Provisioning:</strong> Tiene nombre parecido a Providers, pero son ideas diferentes. Un provisioning es un software para automatizar tareas en una VM. Es independiente y previo a Vagrant, aunque este utiliza dicho Software para alcanzar el objetivo de crear documentos de actualización, control y mantenimiento de las Boxes.</p>
+<h2>Vagrantfile</h2>
+<p>Una box de vagrant puede ser replicada cuantas veces se desee, y las diferencias entre cada entorno se establecen a través de un archivo por cada &#8220;instalación&#8221; que se llama Vagrantfile.</p>
+<p>El archivo es en realidad un script en Ruby, que es leído por el comando vagrant para realizar las diferentes acciones.</p>
+<p>Para tener una VM con vagrant, alcanza con tener una carpeta y un archivo Vagrantfile con la configuración adecuada.</p>
+<p>En Internet hay muchos proyectos para extraer ejemplos, acá agrego una configuración posible:</p>
+<pre class="brush: ruby; gutter: true">Vagrant.configure(&quot;2&quot;) do |config|
+    config.vm.box = &quot;precise64&quot;
+    config.vm.box_url = &quot;http://files.vagrantup.com/precise64.box&quot;
+    config.vm.network :private_network, ip: &quot;192.168.33.101&quot;
+    config.vm.synced_folder &quot;./&quot;, &quot;/vagrant&quot;
+end</pre>
+<p>Teniendo el archivo anterior, y haciendo vagrant up en la carpeta, comenzara a descargar la box si es que no la tiene previamente descargada, creara una red privada entre el host y el guest, y montara una carpeta compartida entre ambos para poder intercambiar datos. En el Vagrantfile anterior, descarga un Ubuntu 12.04 (Precise) de 64 bits.</p>
+<p>Una referencia mas exhaustiva de configuraciones las pueden encontrar en la <a href="http://docs.vagrantup.com/v2/vagrantfile/index.html" target="_blank">documentación oficial</a> del proyecto.</p>
+<h2>Algunos tips</h2>
+<h3>Paquetes</h3>
+<p>Por algun motivo, es mejor descargar Vagrant desde la pagina oficial, y no instalarlo desde los repositorios. En lo personal, también puedo hacer la misma recomendación respecto de Virtualbox. Con paquetes desactualizados suelen ocurrir problemas no convencionales (Por ejemplo, al instalar las Guests Additions puede fallar a veces).</p>
+<h3>vagrant init o vagrant up</h3>
+<p>En esta introducción yo sugiero crear un archivo Vagrantfile, y luego hacer vagrant up para instalar la VM. En otros lugares encontraran que en su lugar, se puede usar el comando init sin necesidad de crear el Vagrantfile. No hay una forma correcta y otra incorrecta. En el caso de usar init, Vagrant creara un Vagrantfile por default con las configuraciones mínimas necesarias para que funcione la VM. En el caso de usar up, el archivo Vagrantfile debe existir.</p>
+<h3>stdin: is not a tty</h3>
+<p>Si el mensaje</p>
+<pre class="brush: text; gutter: true">stdin: is not a tty</pre>
+<p>Aparece cuando se esta iniciando una VM, no se hagan problema (no es un error), pero si quieren solucionarlo, dentro de la VM hagan lo siguiente:</p>
+<pre class="brush: shell; gutter: true">sed -i &#039;s/^mesg n$/tty -s \&amp;\&amp; mesg n/g&#039; /root/.profile</pre>
+<p>Cuando se inicie nuevamente la VM, el mensaje no aparecerá nuevamente.</p>
+<p><a href="https://github.com/mitchellh/vagrant/issues/1673#issuecomment-26650102" target="_blank">Solución vista en github</a></p>
+<h3>Problemas con acceso ssh automático</h3>
+<p>Por diferentes motivos, puede ocurrir que se pierda el acceso vía ssh a la VM. En mi caso, me encontraba haciendo pruebas de logueo automático en diferentes VMs y borre accidentalmente la carpeta ~/.ssh del usuario vagrant (La que usa el comando para mágicamente loguearnos cuando hacemos vagrant ssh).</p>
+<p>En estos casos, lo mejor es iniciar la VM con la GUI predeterminada (Por ejemplo, a traves de Virtualbox), loguearse con el usuario vagrant de forma normal, y allí dentro ejecutar el script postinstall.sh con sudo. Luego de eso, reiniciar la VM, y el acceso estará restablecido.</p>
+<p>La realidad es que parece una pavada, pero no encontré en foros o listas sobre esto (se que es un error muy pavo, pero me pasó), y estuve un rato para encontrar el script en cuestión.</p>
+<h2>Fuentes y recursos</h2>
+<p><a href="https://www.vagrantup.com/docs/" target="_blank">Documentación</a></p>
+<p><a href="http://www.erikaheidi.com/blog/a-begginers-guide-to-vagrant-getting-your-portable-development-e" target="_blank" class="broken_link">http://www.erikaheidi.com/blog/a-begginers-guide-to-vagrant-getting-your-portable-development-e</a></p>
+<p><a href="http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-part-2-provisioning-and-puppet" target="_blank">http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-part-2-provisioning-and-puppet</a></p>
+<p><a href="http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-and-puppet-part-3-facts-conditional" target="_blank">http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-and-puppet-part-3-facts-conditional</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/260/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

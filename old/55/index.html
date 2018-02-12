@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/Article" lang="es-ES">
+<head>
+<base href="http://tomasdelvechio.github.io/old" />
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://tomasdelvechio.github.io/old/xmlrpc.php" />
+	<!--[if lt IE 9]>
+	<script src="http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<title>Atool, descomprimir y comprimir archivos en linux (I) &#8211; El Blog de Tomas</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Feed" href="http://tomasdelvechio.github.io/old/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; RSS de los comentarios" href="http://tomasdelvechio.github.io/old/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Atool, descomprimir y comprimir archivos en linux (I) RSS de los comentarios" href="http://tomasdelvechio.github.io/old/55/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/tomasdelvechio.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/fonts/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='independent-publisher-style-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/style.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='customizer-css'  href='http://tomasdelvechio.github.io/old/wp-admin/admin-ajax.php?action=independent_publisher_customizer_css&#038;ver=1.7' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/fade-post-title.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/enhanced-comment-form.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='http://tomasdelvechio.github.io/old/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tomasdelvechio.github.io/old/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tomasdelvechio.github.io/old/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Capturar toda la salida de consola en un archivo de texto' href='http://tomasdelvechio.github.io/old/53' />
+<link rel='next' title='Se relanzan las CTT de CaFeLUG' href='http://tomasdelvechio.github.io/old/58' />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel="canonical" href="http://tomasdelvechio.github.io/old/55" />
+<link rel='shortlink' href='http://tomasdelvechio.github.io/old/?p=55' />
+<link rel="alternate" type="application/json+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F55" />
+<link rel="alternate" type="text/xml+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F55&#038;format=xml" />
+
+<link rel="stylesheet" href="http://tomasdelvechio.github.io/old/wp-content/plugins/count-per-day/counter.css" type="text/css" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style></head>
+
+<body class="post-template-default single single-post postid-55 single-format-standard h-entry hentry" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+
+
+<div id="page" class="site">
+	<header id="masthead" class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+
+		<div class="site-header-info">
+											
+					<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+				<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />			</a>
+		
+		<div class="site-title"><span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span></div>
+		<div class="site-description"></div>
+
+		
+		<div class="site-published-separator"></div>
+		<h2 class="site-published">Publicado</h2>
+		<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/55" title="Atool, descomprimir y comprimir archivos en linux (I)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-07-26T18:53:13+0000" itemprop="datePublished" pubdate="pubdate">julio 26, 2009</time></a></h2>
+				
+									</div>
+
+				
+			</header>
+	<!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<main id="content" class="site-content" role="main">
+
+			
+				
+<article id="post-55" class="post-55 post type-post status-publish format-standard category-software-libre category-tutoriales" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+		<header class="entry-header">
+					<h2 class="entry-title-meta">
+			<span class="entry-title-meta-author">
+				<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>			</span>
+				en <a href="http://tomasdelvechio.github.io/old/category/software-libre" rel="category tag">software libre</a>, <a href="http://tomasdelvechio.github.io/old/category/tutoriales" rel="category tag">tutoriales</a>				<span class="entry-title-meta-post-date">
+				<span class="sep"> | </span>
+					<a href="http://tomasdelvechio.github.io/old/55" title="Atool, descomprimir y comprimir archivos en linux (I)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-07-26T18:53:13+0000" itemprop="datePublished" pubdate="pubdate">julio 26, 2009</time></a>			</span>
+							</h2>
+			<h1 class="entry-title p-name" itemprop="name">Atool, descomprimir y comprimir archivos en linux (I)</h1>
+			</header>
+	<!-- .entry-header -->
+	<div class="entry-content e-content" itemprop="mainContentOfPage">
+		<p>&#8220;Atool&#8221;:http://www.nongnu.org/atool/ es una herramienta que desde consola nos permite comprimir/descomprimir archivos y carpetas en diversos formatos.</p>
+<p>Es una manera de olvidarnos para siempre de los -nunca recordables- parámetros del comando _tar_. Es en definitiva, una interesante alternativa a _tar_.</p>
+<p>*NOTA*: En este primer post nos ocuparemos de ver características generales del programa y como instalarlo. En un segundo post veremos ejemplos de como comprimir y descomprimir con las herramienta que incluye _atool_ para ese efecto, y en un tercer post centraremos nuestra atención en las otras restantes funciones que incluye _atool_.</p>
+<p>* Instalar _atool_ en Ubuntu Jaunty 9.04:</p>
+<p>bc. $ sudo aptitude install atool</p>
+<p>Si preferimos bajar directamente el paquete _.deb_ o _.rpm_, o el código fuente, lo podemos hacer desde la &#8220;propia pagina del software&#8221;:http://www.nongnu.org/atool/.</p>
+<p>¿Que diferencia hay? La versión de _Ubuntu_ es la 0.35, y en la pagina descargaríamos la versión 0.36.</p>
+<p>* Instalara _atool_ desde el código fuente</p>
+<p>Solo para ver como se hace, instalaremos la versión 0.36 desde el código fuente. </p>
+<p>+Descargar el código fuente de _atool_+</p>
+<p>Input</p>
+<p>bc. $ wget http://savannah.nongnu.org/download/atool/atool-0.36.0.tar.gz</p>
+<p>Output</p>
+<p>bc. &#8211;2009-07-26 14:58:36&#8211;  http://savannah.nongnu.org/download/atool/atool-0.36.0.tar.gz<br />
+Resolviendo download.savannah.gnu.org&#8230; 199.232.41.75<br />
+Conectando a download.savannah.gnu.org|199.232.41.75|:80&#8230; conectado.<br />
+Petición HTTP enviada, esperando respuesta&#8230; 302 Found<br />
+Ubicación: http://mirrors.openfountain.cl/savannah/atool/atool-0.36.0.tar.gz [siguiente]<br />
+&#8211;2009-07-26 14:58:37&#8211;  http://mirrors.openfountain.cl/savannah/atool/atool-0.36.0.tar.gz<br />
+Resolviendo mirrors.openfountain.cl&#8230; 190.96.70.35<br />
+Conectando a mirrors.openfountain.cl|190.96.70.35|:80&#8230; conectado.<br />
+Petición HTTP enviada, esperando respuesta&#8230; 200 OK<br />
+Longitud: 106622 (104K) [application/x-gzip]<br />
+Guardando: «atool-0.36.0.tar.gz»<br />
+2009-07-26 14:58:39 (98,9 KB/s) &#8211; `atool-0.36.0.tar.gz&#8217; guardado [106622/106622]</p>
+<p>Un vez hecho esto, tendremos en nuestro disco el código de _atool_. Nos queda descomprimirlo y compilarlo.</p>
+<p>+Preparar el sistema para la compilación+</p>
+<p>Antes de intentar compilar, hay que corroborar que tenemos instalado el compilador _GCC_. Nos aseguramos tecleando:</p>
+<p>bc. $ sudo aptitude install build-essential</p>
+<p>Luego de esto, podremos estar seguros de que tenemos lo necesario para compilar programas.</p>
+<p>Input</p>
+<p>bc. $ mkdir atool &#038;&#038; cp atool-0.36.0.tar.gz atool &#038;&#038; cd atool<br />
+$ tar -zxvf atool-0.36.0.tar.gz<br />
+$ cp -r atool-0.36.0/* ./<br />
+$ rm -r atool-0.36.0*</p>
+<p>Lo que hacemos aquí es crear una carpeta llamada _atool/_, mover el archivo descargado en el paso anterior, descomprimirlo con _tar_ (Ultima vez que lo usaremos :-D), y borrar el comprimido una vez hecha la descompresión.</p>
+<p>+Proceso de compilación+</p>
+<p>Básicamente, el proceso de compilación de un programa consta de 3 partes:</p>
+<p># ./configure<br />
+# make<br />
+# make install</p>
+<p>Los problemas de compilación se dan cuando falla alguno de estos comandos en medio de su ejecución. A mi no me ha ocurrido nada inesperado, así que si les llega a surgir algún error, comenten y vemos como podemos solucionarlo.</p>
+<p>@$ sudo ./configure@</p>
+<p>bc. [sudo] password for tomas:<br />
+checking for a BSD-compatible install&#8230; /usr/bin/install -c<br />
+checking whether build environment is sane&#8230; yes<br />
+checking for a thread-safe mkdir -p&#8230; /bin/mkdir -p<br />
+checking for gawk&#8230; gawk<br />
+checking whether make sets $(MAKE)&#8230; yes<br />
+checking for perl&#8230; /usr/bin/perl<br />
+configure: creating ./config.status<br />
+config.status: creating atool.1<br />
+config.status: creating atool.spec<br />
+config.status: creating Makefile<br />
+config.status: executing acat-link commands<br />
+config.status: executing adiff-link commands<br />
+config.status: executing als-link commands<br />
+config.status: executing apack-link commands<br />
+config.status: executing aunpack-link commands<br />
+config.status: executing arepack-link commands</p>
+<p>@$ sudo make@</p>
+<p>bc. touch atool<br />
+sed -r &#8220;1~s|[^ ]*|#!/usr/bin/perl|;/^\\$::SYSCONFDIR = /s|&#8217;.*&#8217;|&#8217;/usr/local/etc&#8217;|;<br />
+/^\\$::PACKAGE = /s/&#8217;.*&#8217;/&#8217;atool&#8217;/;/^\\$::VERSION = /s/&#8217;.*&#8217;/&#8217;0.36.0&#8242;<br />
+/;/^\\$::BUG_EMAIL = /s/&#8217;.*&#8217;/&#8217;oskar@osk.mine.nu&#8217;/&#8221; < atool > atool.tmp \<br />
+	  &#038;&#038; mv atool .atool-old \<br />
+	  &#038;&#038; mv atool.tmp atool<br />
+chmod a+x atool<br />
+touch .atool-stamp</p>
+<p>@$ sudo make install@</p>
+<p>bc. make[1]: se ingresa al directorio `/home/tomas/atool&#8217;<br />
+test -z &#8220;/usr/local/bin&#8221; || /bin/mkdir -p &#8220;/usr/local/bin&#8221;<br />
+ /usr/bin/install -c &#8216;atool&#8217; &#8216;/usr/local/bin/atool&#8217;<br />
+mkdir -p /usr/local/bin<br />
+mkdir -p /usr/local/share/man/man1<br />
+for f in aunpack arepack apack acat als adiff; do \<br />
+	  ln -s -f atool /usr/local/bin/$f; \<br />
+	  ln -s -f atool.1 /usr/local/share/man/man1/$f.1; \<br />
+	done<br />
+test -z &#8220;/usr/local/share/man/man1&#8221; || /bin/mkdir -p &#8220;/usr/local/share/man/man1&#8221;<br />
+ /usr/bin/install -c -m 644 &#8216;./atool.1&#8217; &#8216;/usr/local/share/man/man1/atool.1&#8242;<br />
+make[1]: se sale del directorio `/home/tomas/atool&#8217;</p>
+<p>+Comprobación de que la instalación se realiza de manera correcta+</p>
+<p>@$ atool &#8211;version@</p>
+<p>bc. atool 0.36.0<br />
+Copyright (C) 2001, 2002, 2003, 2004, 2005, 2007, 2008 Oskar Liljeblad<br />
+This is free software.  You may redistribute copies of it under the terms of<br />
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.<br />
+There is NO WARRANTY, to the extent permitted by law.<br />
+Written by Oskar Liljeblad.</p>
+<p>Como vemos, nos dice que tenemos la versión 0.36, que fue la que descargamos, por lo tanto, damos por finalizado la instalación.</p>
+<p>* Algunas consideraciones</p>
+<p>_Atool_ es un conjunto de _scripts_ que ayudan a manejar formatos de compresión. Maneja los clásicos _.zip_, pero también _.tar_, _.bz2_, _.gz_, etc&#8230;</p>
+<p>Se integra de 6 sub-programas que detallo a continuación:</p>
+<p># aunpack: Herramienta encargada de descomprimir<br />
+# apack: Herramienta encargada de comprimir<br />
+# als: Herramienta que lista los archivos que hay dentro de un comprimido.<br />
+# acat: Extrae los archivos del comprimido y los muestra por la salida estándar.<br />
+# adiff: Se encarga de mostrar las diferencias entre dos archivos comprimidos.<br />
+# arepack: Sirve para pasar de un formato de comprimido a otro sin realizar manualmente el paso intermedio de descompresión.</p>
+<p>Del manual de _atool_ podemos ver que maneja los siguientes formatos de archivo comprimidos:</p>
+<p># tar+gzip (.tar.gz, .tgz): Todos los comandos son soportados.<br />
+# tar+bzip (.tar.bz, .tbz): Todos los comandos son soportados.<br />
+# tar+bzip2 (.tar.bz2, .tbz2): Todos los comandos son soportados.<br />
+# tar+compress (.tar.Z, .tZ): Todos los comandos son soportados.<br />
+# tar+lzop (.tar.lzo, .tzo): Todos los comandos son soportados.<br />
+# tar+7z (.tar.7z, .t7z): Todos los comandos son soportados.<br />
+# tar (.tar): Todos los comandos son soportados.<br />
+# zip (.zip): Todos los comandos son soportados.<br />
+# jar (.jar, .war): Los comandos soportados son listar, extraer y agregar archivos.<br />
+# rar (.rar): Todos los comandos son soportados.<br />
+# lha (.lha, .lzh): Todos los comandos son soportados.<br />
+# 7z (.7z): Los comandos soportados son listar, extraer y agregar archivos.<br />
+# alzip (.alz): Es soportado el comando extraer.<br />
+# ace (.ace): Son soportados los comandos listar y extraer.<br />
+# ar (.a): Todos los comandos son soportados.<br />
+# arj (.arj): Los comandos soportados son listar, extraer y agregar archivos.<br />
+# arc (.arc): Todos los comandos son soportados.<br />
+# rpm (.rpm): Los comandos soportados son listar y extraer archivos.<br />
+# deb (.deb): Los comandos soportados son listar y extraer archivos.<br />
+# cab (.cab): Los comandos soportados son Cat, listar y extraer archivos.<br />
+# gzip (.gz): Los comandos soportados son Cat, agregar y extraer archivos.<br />
+# bzip (.bz): Los comandos soportados son Cat, agregar y extraer archivos.<br />
+# bzip2 (.bz2): Los comandos soportados son Cat, agregar y extraer archivos.<br />
+# compress (.Z): Los comandos soportados son Cat, agregar y extraer archivos.<br />
+# lzma (.lzma): Los comandos soportados son Cat, agregar y extraer archivos.<br />
+# lzop (.lzo): Los comandos soportados son Cat, agregar y extraer archivos.<br />
+# rzip (.rz): Los comandos soportados son agregar y extraer archivos.<br />
+# lrzip (.lrz): Los comandos soportados son agregar y extraer archivos.<br />
+# 7zip (.7z): Todos los comandos son soportados.<br />
+# cpio (.cpio): Los comandos soportados son listar, agregar y extraer archivos.</p>
+<p>Para mas detalles, ver el manual de la herramienta. Pero a simple vista podemos observar que muchos formatos son soportados.</p>
+<p>+Algunos datos adicionales+</p>
+<p>Para los formatos mas comunes, soporta el uso de contraseñas al extraer. (Es decir, si alguien le agrego contraseña a un comprimido, _atool_ nos la preguntara y hará la extracción correspondiente).</p>
+<p>No menciona en ningún lado que permita crear archivos con contraseña. Si lo encuentro después les cuento.</p>
+<p>Damos por finalizada esta primera parte del tutoría. Para la segunda parte, me tomare algunos días.</p>
+<p>Si encuentran errores, comenten el post.</p>
+<p>*Actualización(27/06/09):* La carpeta desde donde se instalo _atool_ cuando compilamos el código (en caso de haber seguido dicho procedimiento), no debería ser borrada, debido a que posteriormente nos podría servir para desinstalar el programa en caso de querer hacerlo.</p>
+<p>Para desinstalar el programa, dentro de la carpeta _atool/_ donde instalamos el programa (Donde hicimos la secuencia @./configure@, @make@ y @make install@), tipeamos (desde una consola)</p>
+<p>bc. $ sudo make uninstall</p>
+<p>Luego de unos comandos, el programa quedara desinstalado.</p>
+
+		
+									</div>
+	<!-- .entry-content -->
+
+			<div class="post-author-bottom">
+			<div class="post-author-card">
+				<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+					<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />				</a>
+
+				<div class="post-author-info">
+					<div class="site-title">
+						<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>					</div>
+
+					<div class="site-description"></div>
+				</div>
+				<div class="post-published-date">
+					<h2 class="site-published">Publicado</h2>
+					<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/55" title="Atool, descomprimir y comprimir archivos en linux (I)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-07-26T18:53:13+0000" itemprop="datePublished" pubdate="pubdate">julio 26, 2009</time></a></h2>
+										
+					
+				</div>
+			</div>
+		</div>
+		<!-- .post-author-bottom -->
+		
+	<footer class="entry-meta">
+		
+					<div id="share-comment-button">
+				<button>
+					<i class="share-comment-icon"></i>¿Algo para decir?				</button>
+			</div>
+		
+			</footer>
+	<!-- .entry-meta -->
+
+</article><!-- #post-55 -->
+
+				
+
+<!-- *******************************************************************************************************************-->
+<!-- Comments Evolved for Wordpress v1.6.3 ( http://wordpress.org/plugins/gplus-comments/ ) -->
+<!-- *******************************************************************************************************************-->
+
+<!-- comments-evolved-tabs -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.comment_tab_width = $('#comments-evolved-tabs').innerWidth();
+});
+</script>
+<div id="comments-evolved-tabs">
+<a name="comments"></a>
+    <ul class="controls inline clearfix">
+    <li class="active" id='comments-evolved-gplus-control'><a href='#comments-evolved-gplus-tab'><img id='comments-evolved-gplus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/gplus.png'><span id='comments-evolved-gplus-label'></span></a></li>
+<li id='comments-evolved-facebook-control'><a href='#comments-evolved-facebook-tab'><img id='comments-evolved-facebook-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/facebook.png'><span id='comments-evolved-facebook-label'></span></a></li>
+<li id='comments-evolved-wordpress-control'><a href='#comments-evolved-wordpress-tab'><img id='comments-evolved-wordpress-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/wordpress.png'><span id='comments-evolved-wordpress-label'></span></a></li>
+<li id='comments-evolved-disqus-control'><a href='#comments-evolved-disqus-tab'><img id='comments-evolved-disqus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/disqus.png'><span id='comments-evolved-disqus-label'></span></a></li>
+  </ul>
+  <!-- comments-evolved-gplus-tab -->
+<div id='comments-evolved-gplus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('#comments-evolved-gplus-tab').html('<div class="g-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/55" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>');
+  });
+</script>
+<script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+<noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+</div>
+<!-- // comments-evolved-gplus-tab -->
+<!-- comments-evolved-facebook-tab -->
+<div id='comments-evolved-facebook-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div id="fb-root"></div>
+<div id="fb-comments">Loading Facebook Comments ...</div>
+<script type="text/javascript">
+  jQuery(document).ready(function($)
+  {
+    $('#fb-comments').html('<div class="fb-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/55" data-num-posts="20" data-colorscheme="light" data-mobile="auto"></div>');
+  });
+</script>
+<script async type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1">FB.init();</script>
+<noscript>Please enable JavaScript to view the <a href="https://www.facebook.com/">comments powered by Facebook.</a></noscript>
+
+
+</div>
+<!-- // comments-evolved-facebook-tab -->
+<!-- comments-evolved-wordpress-tab -->
+<div id='comments-evolved-wordpress-tab' class='comments-evolved-embed-container content-tab clearfix'>
+
+	<div id="commentform-top"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/55" style="display:none;">Cancelar respuesta</a></small></h3>			<form action="http://tomasdelvechio.github.io/old/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<div id="main-reply-title"><h3>¿Algo para decir?</h3></div><div class="comment-form-reply-title"><p>Comentario</p></div><p class="comment-form-comment" id="comment-form-field"><textarea id="comment" name="comment" cols="60" rows="6" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Nombre</label><input id="author" name="author" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label><input id="email" name="email" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Sitio web</label><input id="url" name="url" type="text" value="" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Enviar Comentario" /> <input type='hidden' name='comment_post_ID' value='55' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="ab5fff3084" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="10"/></p>			</form>
+			</div><!-- #respond -->
+	
+
+	<div id="comments" class="comments-area">
+				
+		
+		
+		
+		
+	</div><!-- #comments .comments-area -->
+
+</div>
+<!-- // comments-evolved-wordpress-tab -->
+<!-- comments-evolved-disqus-tab -->
+<div id='comments-evolved-disqus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div class="comments-evolved-embed-container clearfix" id="disqus_thread">Loading Disqus Comments ...</div>
+<script type="text/javascript">
+  var disqus_shortname = 'tomasdel';
+  (function(d) {
+    var dsq = d.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(dsq);
+  })(document);
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- // comments-evolved-disqus-tab -->
+</div>
+<!-- //comments-evolved-tabs -->
+
+				
+				
+			
+		</main>
+		<!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+<div id="secondary" class="widget-area" role="complementary">
+	</div><!-- #secondary .widget-area -->
+
+</div><!-- #main .site-main -->
+
+<footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<div class="site-info">
+		<a href="http://independentpublisher.me" rel="designer" title="Independent Publisher: A beautiful reader-focused WordPress theme, for you.">Independent Publisher</a> potencializado por <a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>	</div>
+	<!-- .site-info -->
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<link rel='stylesheet' id='comments_evolved_tabs_css-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/styles/plugin.css?ver=1.6.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+<script async="async" type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/plugins/akismet/_inc/form.js?ver=4.0.2'></script>
+<!-- Comments Evolved plugin -->
+<script>jQuery("#comments-evolved-tabs").tabs();</script>
+<!-- //Comments Evolved plugin -->
+
+</body>
+</html>

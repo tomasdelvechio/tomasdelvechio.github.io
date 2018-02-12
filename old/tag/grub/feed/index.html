@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>grub &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/grub/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Ver menú del Grub sin editar /etc/default/grub</title>
+		<link>http://tomasdel.com/390</link>
+		<comments>http://tomasdel.com/390#respond</comments>
+		<pubDate>Sat, 31 Jan 2015 19:43:49 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[grub]]></category>
+		<category><![CDATA[menu]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=390</guid>
+		<description><![CDATA[Siguiendo con el envión de postear cosas cortas, dejo un tip que siempre me olvido a la hora de usar el Grub.]]></description>
+				<content:encoded><![CDATA[<p>Siguiendo con el envión de postear cosas cortas, dejo un tip que siempre me olvido a la hora de usar el Grub.</p>
+<p>Grub tiene una configuración por defecto en la cual si existe un único Sistema Operativo en el equipo, el menú no se muestra y se accede directamente al SO.</p>
+<p>Pero me paso que yo necesitaba ver el menú una única vez, para lanzar el memtest, entonces la solución de editar el archivo en /etc/default/grub, y modificar las variables en cuestión es demasiado. Yo necesitaba algo que funciones una vez sola y que siga como antes.</p>
+<p>Encontré por ahí que si luego del POST de la BIOS, se presiona</p>
+<pre>Shift</pre>
+<p>se puede ver el menú del grub. Lo probé y es cierto.</p>
+<p>Lo unico que resta aclarar es que a veces hay que hacerlo repetidas veces por las dudas.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/390/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

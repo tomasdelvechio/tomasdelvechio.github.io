@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dns &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/dns/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Elegir el DNS abierto más rápido</title>
+		<link>http://tomasdel.com/411</link>
+		<comments>http://tomasdel.com/411#respond</comments>
+		<pubDate>Tue, 28 Apr 2015 00:16:03 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Redes]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[redes]]></category>
+		<category><![CDATA[retardo]]></category>
+		<category><![CDATA[rtt]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=411</guid>
+		<description><![CDATA[En CommandLineFu siempre se comparten snippets de código interesante. Hoy me encontré con el siguiente:]]></description>
+				<content:encoded><![CDATA[<p>En <a href="http://www.commandlinefu.com/" target="_blank">CommandLineFu</a> siempre se comparten snippets de código interesante. Hoy me encontré con <a href="http://www.commandlinefu.com/commands/view/14188/a-function-to-find-the-fastest-free-dns-server" target="_blank">el siguiente</a>:</p>
+<p>Verificar y mostrar que servidor DNS abierto es mas rápido en su respuesta.</p>
+<pre class="brush: bash; gutter: true">parallel -j0 --tag dig @{} &quot;$*&quot; ::: 208.67.222.222 208.67.220.220 198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 | grep Query | sort -nk5;</pre>
+<p>En mi caso, la respuesta tuvo esta forma:</p>
+<pre class="brush: bash; gutter: true">8.8.4.4	;; Query time: 22 msec
+8.8.8.8	;; Query time: 26 msec
+208.67.220.220	;; Query time: 219 msec
+208.67.222.222	;; Query time: 230 msec
+156.154.70.1	;; Query time: 244 msec
+198.153.194.1	;; Query time: 246 msec
+156.154.71.1	;; Query time: 258 msec
+198.153.192.1	;; Query time: 300 msec</pre>
+<p>Para usar el comando es necesario tener instalado GNU parallel:</p>
+<pre class="brush: bash; gutter: true">sudo apt-get install parallel</pre>
+<p>Los tiempos cambian en función de nuestra ubicación geográfica, sobrecarga de los servidores y del canal de comunicación, etc&#8230;</p>
+<p>Cada uno sabrá que hacer con los resultados de este comando <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/411/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

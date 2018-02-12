@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html itemscope="itemscope" itemtype="http://schema.org/Article" lang="es-ES">
+<head>
+<base href="http://tomasdelvechio.github.io/old" />
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://tomasdelvechio.github.io/old/xmlrpc.php" />
+	<!--[if lt IE 9]>
+	<script src="http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<title>Atool, descomprimir y comprimir archivos en linux (II) &#8211; El Blog de Tomas</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Feed" href="http://tomasdelvechio.github.io/old/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; RSS de los comentarios" href="http://tomasdelvechio.github.io/old/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="El Blog de Tomas &raquo; Atool, descomprimir y comprimir archivos en linux (II) RSS de los comentarios" href="http://tomasdelvechio.github.io/old/57/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/tomasdelvechio.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/fonts/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='independent-publisher-style-css'  href='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/style.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='customizer-css'  href='http://tomasdelvechio.github.io/old/wp-admin/admin-ajax.php?action=independent_publisher_customizer_css&#038;ver=1.7' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/fade-post-title.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/enhanced-comment-form.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='http://tomasdelvechio.github.io/old/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tomasdelvechio.github.io/old/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tomasdelvechio.github.io/old/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Nuevo diseño del blog: Comentarios y aprendizaje' href='http://tomasdelvechio.github.io/old/87' />
+<link rel='next' title='Cambio de look :-P' href='http://tomasdelvechio.github.io/old/98' />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel="canonical" href="http://tomasdelvechio.github.io/old/57" />
+<link rel='shortlink' href='http://tomasdelvechio.github.io/old/?p=57' />
+<link rel="alternate" type="application/json+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F57" />
+<link rel="alternate" type="text/xml+oembed" href="http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftomasdelvechio.github.io%2F57&#038;format=xml" />
+
+<link rel="stylesheet" href="http://tomasdelvechio.github.io/old/wp-content/plugins/count-per-day/counter.css" type="text/css" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style></head>
+
+<body class="post-template-default single single-post postid-57 single-format-standard h-entry hentry" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+
+
+<div id="page" class="site">
+	<header id="masthead" class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+
+		<div class="site-header-info">
+											
+					<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+				<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />			</a>
+		
+		<div class="site-title"><span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span></div>
+		<div class="site-description"></div>
+
+		
+		<div class="site-published-separator"></div>
+		<h2 class="site-published">Publicado</h2>
+		<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/57" title="Atool, descomprimir y comprimir archivos en linux (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-12-20T13:55:54+0000" itemprop="datePublished" pubdate="pubdate">diciembre 20, 2009</time></a></h2>
+				
+									</div>
+
+				
+			</header>
+	<!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<main id="content" class="site-content" role="main">
+
+			
+				
+<article id="post-57" class="post-57 post type-post status-publish format-standard category-software-libre category-tutoriales" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+		<header class="entry-header">
+					<h2 class="entry-title-meta">
+			<span class="entry-title-meta-author">
+				<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>			</span>
+				en <a href="http://tomasdelvechio.github.io/old/category/software-libre" rel="category tag">software libre</a>, <a href="http://tomasdelvechio.github.io/old/category/tutoriales" rel="category tag">tutoriales</a>				<span class="entry-title-meta-post-date">
+				<span class="sep"> | </span>
+					<a href="http://tomasdelvechio.github.io/old/57" title="Atool, descomprimir y comprimir archivos en linux (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-12-20T13:55:54+0000" itemprop="datePublished" pubdate="pubdate">diciembre 20, 2009</time></a>			</span>
+							</h2>
+			<h1 class="entry-title p-name" itemprop="name">Atool, descomprimir y comprimir archivos en linux (II)</h1>
+			</header>
+	<!-- .entry-header -->
+	<div class="entry-content e-content" itemprop="mainContentOfPage">
+		<p>Un poco tarde, retomo este segundo post, que lo tenia a medio armar.</p>
+<p>El primer post lo consiguen &#8220;aquí&#8221;:http://blog.tomasdelvechio.com.ar/index.php?id=16.</p>
+<p>Antes de leer esta parte del post, lean el enlace anterior.</p>
+<p>A continuación los ejemplos de _apack_, en los cuales se reproducen las salidas sin modificaciones.</p>
+<p>h3. Comprimir varios archivos con formato .tar</p>
+<p>bc. $ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas   38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas 3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas   30 2009-07-25 12:47 ejemplo4.log<br />
+$ apack prueba.tar ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+ejemplo1.txt<br />
+ejemplo2.txt<br />
+ejemplo3.sh<br />
+ejemplo4.log<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas 10240 2009-07-26 04:23 prueba.tar</p>
+<p>El comando anterior crea un archivo llamado _prueba.tar_ que tiene dentro los 4 archivos que se pasan como parámetro. Entonces, el formato es pasarle el nombre del archivo destino, y luego los archivos origen.</p>
+<p>h3. Comprimir los cuatro archivos a un _.zip_</p>
+<p>bc. $ apack prueba.zip ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+  adding: ejemplo1.txt (deflated 24%)<br />
+  adding: ejemplo2.txt (deflated 24%)<br />
+  adding: ejemplo3.sh (deflated 63%)<br />
+  adding: ejemplo4.log (stored 0%)<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  2243 2009-07-26 04:31 prueba.zip</p>
+<p>h3. Crear un _.tar.bz2_</p>
+<p>bc. $ apack prueba.tar.bz2 ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+ejemplo1.txt<br />
+ejemplo2.txt<br />
+ejemplo3.sh<br />
+ejemplo4.log<br />
+tomas@laptop1:~/pruebas$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1942 2009-07-26 04:34 prueba.tar.bz2</p>
+<p>h3. Crear un _.7z_</p>
+<p>bc. $ apack prueba.7z ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log </p>
+<p>bc. 7-Zip  4.58 beta  Copyright (c) 1999-2008 Igor Pavlov  2008-05-05<br />
+p7zip Version 4.58 (locale=es_AR.UTF-8,Utf16=on,HugeFiles=on,1 CPU)<br />
+Scanning</p>
+<p>bc. Creating archive prueba.7z</p>
+<p>bc. Compressing  ejemplo3.sh<br />
+Compressing  ejemplo1.txt<br />
+Compressing  ejemplo2.txt<br />
+Compressing  ejemplo4.log      </p>
+<p>bc. Everything is Ok<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1842 2009-07-26 04:38 prueba.7z</p>
+<p>h3. Crear un _.tar.gz_</p>
+<p>bc. $ apack prueba.tar.gz ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log<br />
+ejemplo1.txt<br />
+ejemplo2.txt<br />
+ejemplo3.sh<br />
+ejemplo4.log<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1852 2009-07-26 04:40 prueba.tar.gz</p>
+<p>h3. Crear un _.rar_</p>
+<p>bc. $ apack prueba.rar ejemplo1.txt ejemplo2.txt ejemplo3.sh ejemplo4.log </p>
+<p>bc. RAR 3.80   Copyright (c) 1993-2008 Alexander Roshal   16 Sep 2008<br />
+Shareware version         Type RAR -? for help</p>
+<p>bc. Evaluation copy. Please register.</p>
+<p>bc. Creating archive prueba.rar</p>
+<p>bc. Adding    ejemplo1.txt                                                OK<br />
+Adding    ejemplo2.txt                                                OK<br />
+Adding    ejemplo3.sh                                                 OK<br />
+Adding    ejemplo4.log                                                OK<br />
+Done<br />
+$ ls -l<br />
+-rwxr&#8211;r&#8211; 1 tomas tomas    38 2009-07-25 12:47 ejemplo1.txt<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas   223 2009-07-25 12:47 ejemplo2.txt<br />
+-rwxr-xr-x 1 tomas tomas  3942 2009-07-25 12:47 ejemplo3.sh<br />
+-rwxr-xr-x 1 tomas tomas    30 2009-07-25 12:47 ejemplo4.log<br />
+-rw-r&#8211;r&#8211; 1 tomas tomas  1953 2009-07-26 04:41 prueba.rar</p>
+<p>Creo que se ve claramente como funciona _apack_. La próxima entrada veremos como desempaquetar y el resto de utilidades de _atool_.</p>
+
+		
+									</div>
+	<!-- .entry-content -->
+
+			<div class="post-author-bottom">
+			<div class="post-author-card">
+				<a class="site-logo" href="http://tomasdelvechio.github.io/old">
+					<img alt='' src='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=100&#038;r=g' srcset='http://1.gravatar.com/avatar/4fdb0ae104a98516c5cae9ff140d1a71?s=200&#038;r=g 2x' class='avatar avatar-100 photo u-photo' height='100' width='100' />				</a>
+
+				<div class="post-author-info">
+					<div class="site-title">
+						<span class="byline"><span class="author p-author vcard h-card"><a class="u-url url fn n" href="http://tomasdelvechio.github.io/old" title="Ver todos los Post por tdelvechio" rel="author">tdelvechio</a></span></span>					</div>
+
+					<div class="site-description"></div>
+				</div>
+				<div class="post-published-date">
+					<h2 class="site-published">Publicado</h2>
+					<h2 class="site-published-date"><a href="http://tomasdelvechio.github.io/old/57" title="Atool, descomprimir y comprimir archivos en linux (II)" rel="bookmark"><time class="entry-date dt-published" datetime="2009-12-20T13:55:54+0000" itemprop="datePublished" pubdate="pubdate">diciembre 20, 2009</time></a></h2>
+										
+					
+				</div>
+			</div>
+		</div>
+		<!-- .post-author-bottom -->
+		
+	<footer class="entry-meta">
+		
+					<div id="share-comment-button">
+				<button>
+					<i class="share-comment-icon"></i>¿Algo para decir?				</button>
+			</div>
+		
+			</footer>
+	<!-- .entry-meta -->
+
+</article><!-- #post-57 -->
+
+				
+
+<!-- *******************************************************************************************************************-->
+<!-- Comments Evolved for Wordpress v1.6.3 ( http://wordpress.org/plugins/gplus-comments/ ) -->
+<!-- *******************************************************************************************************************-->
+
+<!-- comments-evolved-tabs -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.comment_tab_width = $('#comments-evolved-tabs').innerWidth();
+});
+</script>
+<div id="comments-evolved-tabs">
+<a name="comments"></a>
+    <ul class="controls inline clearfix">
+    <li class="active" id='comments-evolved-gplus-control'><a href='#comments-evolved-gplus-tab'><img id='comments-evolved-gplus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/gplus.png'><span id='comments-evolved-gplus-label'></span></a></li>
+<li id='comments-evolved-facebook-control'><a href='#comments-evolved-facebook-tab'><img id='comments-evolved-facebook-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/facebook.png'><span id='comments-evolved-facebook-label'></span></a></li>
+<li id='comments-evolved-wordpress-control'><a href='#comments-evolved-wordpress-tab'><img id='comments-evolved-wordpress-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/wordpress.png'><span id='comments-evolved-wordpress-label'></span></a></li>
+<li id='comments-evolved-disqus-control'><a href='#comments-evolved-disqus-tab'><img id='comments-evolved-disqus-icon' src='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/images/icons/default/disqus.png'><span id='comments-evolved-disqus-label'></span></a></li>
+  </ul>
+  <!-- comments-evolved-gplus-tab -->
+<div id='comments-evolved-gplus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('#comments-evolved-gplus-tab').html('<div class="g-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/57" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>');
+  });
+</script>
+<script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+<noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+</div>
+<!-- // comments-evolved-gplus-tab -->
+<!-- comments-evolved-facebook-tab -->
+<div id='comments-evolved-facebook-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div id="fb-root"></div>
+<div id="fb-comments">Loading Facebook Comments ...</div>
+<script type="text/javascript">
+  jQuery(document).ready(function($)
+  {
+    $('#fb-comments').html('<div class="fb-comments" data-width="'+window.comment_tab_width+'" data-href="http://tomasdelvechio.github.io/old/57" data-num-posts="20" data-colorscheme="light" data-mobile="auto"></div>');
+  });
+</script>
+<script async type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1">FB.init();</script>
+<noscript>Please enable JavaScript to view the <a href="https://www.facebook.com/">comments powered by Facebook.</a></noscript>
+
+
+</div>
+<!-- // comments-evolved-facebook-tab -->
+<!-- comments-evolved-wordpress-tab -->
+<div id='comments-evolved-wordpress-tab' class='comments-evolved-embed-container content-tab clearfix'>
+
+	<div id="commentform-top"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/57" style="display:none;">Cancelar respuesta</a></small></h3>			<form action="http://tomasdelvechio.github.io/old/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<div id="main-reply-title"><h3>¿Algo para decir?</h3></div><div class="comment-form-reply-title"><p>Comentario</p></div><p class="comment-form-comment" id="comment-form-field"><textarea id="comment" name="comment" cols="60" rows="6" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Nombre</label><input id="author" name="author" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label><input id="email" name="email" type="text" value="" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Sitio web</label><input id="url" name="url" type="text" value="" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Enviar Comentario" /> <input type='hidden' name='comment_post_ID' value='57' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="cef9f26ae0" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="110"/></p>			</form>
+			</div><!-- #respond -->
+	
+
+	<div id="comments" class="comments-area">
+				
+		
+		
+		
+		
+	</div><!-- #comments .comments-area -->
+
+</div>
+<!-- // comments-evolved-wordpress-tab -->
+<!-- comments-evolved-disqus-tab -->
+<div id='comments-evolved-disqus-tab' class='comments-evolved-embed-container content-tab clearfix'>
+<div class="comments-evolved-embed-container clearfix" id="disqus_thread">Loading Disqus Comments ...</div>
+<script type="text/javascript">
+  var disqus_shortname = 'tomasdel';
+  (function(d) {
+    var dsq = d.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(dsq);
+  })(document);
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- // comments-evolved-disqus-tab -->
+</div>
+<!-- //comments-evolved-tabs -->
+
+				
+				
+			
+		</main>
+		<!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+<div id="secondary" class="widget-area" role="complementary">
+	</div><!-- #secondary .widget-area -->
+
+</div><!-- #main .site-main -->
+
+<footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<div class="site-info">
+		<a href="http://independentpublisher.me" rel="designer" title="Independent Publisher: A beautiful reader-focused WordPress theme, for you.">Independent Publisher</a> potencializado por <a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>	</div>
+	<!-- .site-info -->
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<link rel='stylesheet' id='comments_evolved_tabs_css-css'  href='http://tomasdelvechio.github.io/old/wp-content/plugins/gplus-comments/assets/styles/plugin.css?ver=1.6.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/themes/independent-publisher/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+<script async="async" type='text/javascript' src='http://tomasdelvechio.github.io/old/wp-content/plugins/akismet/_inc/form.js?ver=4.0.2'></script>
+<!-- Comments Evolved plugin -->
+<script>jQuery("#comments-evolved-tabs").tabs();</script>
+<!-- //Comments Evolved plugin -->
+
+</body>
+</html>

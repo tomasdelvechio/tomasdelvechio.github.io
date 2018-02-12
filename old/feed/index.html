@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Cómo escribir un mensaje de commit de git</title>
+		<link>http://tomasdel.com/440</link>
+		<comments>http://tomasdel.com/440#comments</comments>
+		<pubDate>Mon, 07 Sep 2015 21:52:37 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Programación]]></category>
+		<category><![CDATA[commit]]></category>
+		<category><![CDATA[Desarrollo]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[programacion]]></category>
+		<category><![CDATA[versiones]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=440</guid>
+		<description><![CDATA[Este post es una traducción del post How to Write a Git Commit Message, de @cbeams. Este trabajo se realizo en colaboración con @may_cabrera con permiso del autor original. Gracias a ambos! Teniendo como excusa el formato y uso de comentarios en Git, el post nos muestra diversas formas de uso de este SCV, cuestiones metodológicas [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><em>Este post es una traducción del post <a href="http://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a>, de <a href="https://twitter.com/cbeams">@cbeams</a>. Este trabajo se realizo en colaboración con <a href="https://twitter.com/may_cabrera">@may_cabrera</a> con permiso del autor original. Gracias a ambos!</em></p>
+<p><em>Teniendo como excusa el formato y uso de comentarios en Git, el post nos muestra diversas formas de uso de este SCV, cuestiones metodológicas y de uso cotidiano de Git. Es muy interesante en muchos sentidos, así que les recomiendo tomarse un tiempo para su lectura.</em></p>
+<div class="post">
+<p>&nbsp;</p>
+<hr />
+<p><a href="http://xkcd.com/1296/"><img src="http://imgs.xkcd.com/comics/git_commit.png" alt="" /></a></p>
+<hr />
+<p><center><br />
+<a href="#intro">Introducción</a> | <a href="#seven-rules">Las Siete Reglas</a> | <a href="#tips">Consejos</a></center></p>
+<hr />
+<p><a name="intro"></a></p>
+<h2>Introducción: ¿Por qué es importante un buen mensaje de commit?</h2>
+<p>Si navegas el registro de un repositorio Git al azar probablemente encuentres que sus mensajes de commit son mas o menos un lío. Por ejemplo, echemos un vistazo a <a href="https://github.com/spring-projects/spring-framework/commits/e5f4b49?author=cbeams">estas gemas</a> de mis primeros días desarrollando para Spring:</p>
+<pre class="brush: text; gutter: true">$ git log --oneline -5 --author cbeams --before &quot;Fri Mar 26 2009&quot;
+
+e5f4b49 Re-adding ConfigurationPostProcessorTests after its brief removal in r814. @Ignore-ing the testCglibClassesAreLoadedJustInTimeForEnhancement() method as it turns out this was one of the culprits in the recent build breakage. The classloader hacking causes subtle downstream effects, breaking unrelated tests. The test method is still useful, but should only be run on a manual basis to ensure CGLIB is not prematurely classloaded, and should not be run as part of the automated build.
+2db0f12 fixed two build-breaking issues: + reverted ClassMetadataReadingVisitor to revision 794 + eliminated ConfigurationPostProcessorTests until further investigation determines why it causes downstream tests to fail (such as the seemingly unrelated ClassPathXmlApplicationContextTests)
+147709f Tweaks to package-info.java files
+22b25e0 Consolidated Util and MutableAnnotationUtils classes into existing AsmUtils
+7f96f57 polishing</pre>
+<p>Uff. Compara eso con estos commits <a href="https://github.com/spring-projects/spring-framework/commits/5ba3db?author=philwebb">más recientes</a> del mismo repositorio:</p>
+<pre class="brush: text; gutter: true">$ git log --oneline -5 --author pwebb --before &quot;Sat Aug 30 2014&quot;
+
+5ba3db6 Fix failing CompositePropertySourceTests
+84564a0 Rework @PropertySource early parsing logic
+e142fd1 Add tests for ImportSelector meta-data
+887815f Update docbook dependency and generate epub
+ac8326d Polish mockito usage</pre>
+<p>¿Qué prefieres leer?</p>
+<p>El primero cambia mucho en forma y tamaño; el último es conciso y consistente. El primero es lo que ocurre por defecto; el segundo nunca ocurre por accidente.</p>
+<p>Mientras muchos logs de repositorio se ven como el primero, hay excepciones. El <a href="https://github.com/torvalds/linux/commits/master">kernel de Linux</a> y <a href="https://github.com/git/git/commits/master">git en sí</a> son grandes ejemplos. Mira <a href="https://github.com/spring-projects/spring-boot/commits/master">Spring Boot</a>, o cualquier repositorio gestionado por <a href="https://github.com/tpope/vim-pathogen/commits/master">Tim Pope</a> .</p>
+<p>Los contribuidores de estos repositorios saben que un mensaje de commit git bien elaborado es la mejor manera de comunicar el <em>contexto</em> sobre un cambio al resto de los colegas desarrolladores (y ciertamente a sí mismos en el futuro). Un diff dirá <em>lo que</em> ha cambiado, pero sólo el mensaje de commit puede decir correctamente <em>por qué.</em> Peter Hutterer <a href="http://who-t.blogspot.co.at/2009/12/on-commit-messages.html">señala este punto</a> así:</p>
+<blockquote><p>Restablecer el contexto de una pieza de código es un desperdicio. No podemos evitarlo por completo, entonces nuestros esfuerzos deberían estar en <a href="http://www.osnews.com/story/19266/WTFs_m">reducirlo</a> [tanto] como sea posible. Los mensajes de commits pueden hacer exactamente eso, y como resultado, <em>el mensaje muestra si un desarrollador es un buen colaborador.</em></p></blockquote>
+<p>Si no te has puesto a pensar en como generar un buen mensaje de commit de git, puede ser que no hayas gastado suficiente tiempo usando <code>git log</code> y herramientas relacionadas. Existe un circulo vicioso aquí: Debido a que el historial de commit carece de estructura y consistencia, uno no gasta demasiado tiempo usándolo o teniéndolo en cuenta. Y debido a que no es usado o tenido en cuenta, este se mantiene sin estructura e inconsistente</p>
+<p>Sin embargo un log cuidado es algo hermoso y útil. <code>git blame</code> , <code>revert</code> , <code>rebase</code> , <code>log</code> , <code>shortlog</code> y otros subcomandos cobran vida. Revisar commits y pull requests de otros se convierte en algo digno de hacerse, y de repente se puede hacer de forma independiente. Entender porque algo sucedió hace meses o años se convierte en algo no solo posible, sino también eficiente.</p>
+<p>El éxito a largo plazo de un proyecto descansa (entre otras cosas) en su facilidad de mantenimiento, y un desarrollador tiene pocas herramientas más poderosas que el log del proyecto. Vale la pena tomarse el tiempo para aprender cómo cargarlo de una forma adecuada. Lo que puede ser una molestia en un principio pronto se convierte en hábito, y, finalmente, un motivo de orgullo y productividad para todos los involucrados.</p>
+<p>En este artículo, me refiero sólo al elemento más básico para mantener un historial saludable de commits: cómo escribir un mensaje de commit particular. Hay otras prácticas importantes como commit squashing que no serán tratadas aquí. Tal vez lo haré en un post posterior.</p>
+<p>La mayoría de los lenguajes de programación tienen convenciones bien establecidas de lo que conforma el estilo idiomático, es decir, de nombres y formato y cosas así. Hay variaciones en estas convenciones, por supuesto, pero la mayoría de los desarrolladores están de acuerdo en que escoger una y ajustarse a ella es mucho mejor que el caos que se produce cuando todo el mundo lo hace a su manera.</p>
+<p>El enfoque de un equipo con su log de commits no debería ser diferente. Con el fin de crear un historial de revisiones útiles, los equipos primero deben ponerse de acuerdo sobre una convención en mensajes de commits que defina al menos las siguientes tres cosas:</p>
+<p><strong>Estilo.</strong> La sintaxis, los límites de márgenes, la gramática, la capitalización, la puntuación. Explica claramente estos puntos, elimina la ambigüedad y hazlo lo más claro posible. El resultado final será un log muy coherente que no sólo será fácil de leer, sino que en realidad <em>será leído</em> de forma regular.</p>
+<p><strong>Contenido.</strong> ¿Qué tipo de información debe contener el cuerpo del mensaje de commit (si lo hay)? ¿Que <em>no</em> debería contener?</p>
+<p><strong>Metadatos.</strong> ¿Cómo se debe marcar el identificador de un issue, el numero de pull request, etc. ?</p>
+<p>Afortunadamente, hay convenciones bien establecidas sobre lo que hace a un commit un mensaje idiomático De hecho, muchas de estas convenciones se asumen como la forma determinada en ciertos comandos git. No hay nada que necesite ser reinventado. Sólo tienes que seguir las <a href="#seven-rules">siete reglas</a> descritas abajo y ya estarás en camino para hacer commits como un profesional.</p>
+<p><a name="seven-rules"></a></p>
+<h2>Las siete reglas de un gran mensaje de commit de git</h2>
+<blockquote><p><em>Tenga en cuenta: <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Todo</a> <a href="http://www.git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Commit-Guidelines">esto</a> <a href="https://github.com/torvalds/subsurface/blob/master/README#L82-109">ya</a> <a href="http://who-t.blogspot.co.at/2009/12/on-commit-messages.html">ha sido</a> <a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages">dicho</a> <a href="https://github.com/spring-projects/spring-framework/blob/30bce7/CONTRIBUTING.md#format-commit-messages">antes</a> .</em></p></blockquote>
+<ol>
+<li><a href="#separate">Separa el título del cuerpo con una línea en blanco</a></li>
+<li><a href="#limit-50">Limita título a 50 caracteres</a></li>
+<li><a href="#capitalize">Capitaliza el título</a></li>
+<li><a href="#end">No termines el título con un punto</a></li>
+<li><a href="#imperative">Utiliza el modo imperativo en el título</a></li>
+<li><a href="#wrap-72">Limita el cuerpo a 72 caracteres</a></li>
+<li><a href="#why-not-how">Utiliza el cuerpo para explicar <em>qué</em> y <em>por qué</em> vs <em>cómo</em></a></li>
+</ol>
+<p>Por ejemplo:</p>
+<pre class="brush: text; gutter: true">Resumir los cambios en aproximadamente 50 caracteres o menos
+ 
+Mas texto descriptivo, si es necesario.  Límita aproximadamente a 72 caracteres o menos. En algunos contextos, la primera línea se establece como el asunto del commit y el resto es el cuerpo. La línea en blanco que separa el asunto del cuerpo es fundamental (a menos que se omita el cuerpo por completo); diversas herramientas como `log`,` y `shortlog` y `rebase` pueden confundirse si ejecuta los dos juntos.
+
+Explique el problema que el commit está resolviendo. Concéntrese en por qué usted está haciendo este cambio en comparación de cómo  (pues el código explica esa parte).
+¿Hay efectos secundarios u otros consecuencias poco intuitivas en este cambio? Este es el lugar para explicarlos.
+
+Otros párrafos vienen después de líneas en blanco.
+
+ - Las viñetas o listas son aceptables también 
+ - Normalmente, un guión o asterisco se utiliza para la viñeta, precedido por un solo espacio, con líneas en blanco en el medio, pero hay diferentes convenciones 
+
+Si utiliza un administrador de &quot;issues&quot;, coloque referencias a ellos en la parte inferior, así: 
+
+Resuelve: # 123 
+Consulte también: # 456, # 789</pre>
+<p><a name="separate"></a></p>
+<h3>1. Separa el título del cuerpo del mensaje con una linea en blanco</h3>
+<p>Desde la <a href="https://www.kernel.org/pub/software/scm/git/docs/git-commit.html#_discussion">página de manual</a> de <code>git commit</code> :</p>
+<blockquote><p>Aunque no es necesario, es una buena idea iniciar el mensaje de commit con una sola linea corta (menos de 50 caracteres) que resuma el cambio, seguida de una línea en blanco y, a continuación una descripción más completa. El texto sobre la primera línea en blanco en el mensaje del commit es tratado como el título del commit, y este título se utiliza en todo Git. Por ejemplo, git-format-patch (1) convierte un commit en un correo electrónico, y utiliza el título como asunto y el resto del commit en el cuerpo.</p></blockquote>
+<p>En primer lugar, no todo commit requiere tanto un título como un cuerpo. A veces una sola línea está bien, sobre todo cuando el cambio es tan simple que agregar más contexto no es necesario. Por ejemplo:</p>
+<pre class="brush: text; gutter: true">Fix typo in introduction to user guide</pre>
+<p>No es necesario decir nada más; si el lector se pregunta cuál fue el error tipográfico, simplemente puede echar un vistazo al cambio, mediante el uso de <code>git show</code> o <code>git diff</code> o <code>git log -p</code> .</p>
+<p>Si estás realizando un commit de este tipo en la línea de comandos, es fácil de usar el parametro <code>-m</code> para <code>git commit</code> :</p>
+<pre class="brush: text; gutter: true">$ git commit -m &quot;Fix typo in introduction to user guide&quot;</pre>
+<p>Sin embargo, cuando un commit merece un poco de explicación y contexto, es necesario escribir un cuerpo. Por ejemplo:</p>
+<pre class="brush: text; gutter: true">Derezz the master control program
+
+MCP turned out to be evil and had become intent on world domination.
+This commit throws Tron&#039;s disc into MCP (causing its deresolution)
+and turns it back into a chess game.</pre>
+<p>Esto no es tan fácil de hacer con el parametro <code>-m</code> , realmente necesitas de un editor adecuado. Si aún no dispones de un editor configurado para usar con git en la línea de comandos, lee <a href="http://git-scm.com/book/ch7-1.html#Basic-Client-Configuration">esta sección de Pro Git</a> .</p>
+<p>En cualquier caso, la separación del titulo y cuerpo vale la pena cuando se navega por el log. Aquí está la entrada del log completo:</p>
+<pre class="brush: text; gutter: true">$ git log
+commit 42e769bdf4894310333942ffc5a15151222a87be
+Author: Kevin Flynn &lt;kevin@flynnsarcade.com&gt;
+Date:   Fri Jan 01 00:00:00 1982 -0200
+
+Derezz the master control program
+
+MCP turned out to be evil and had become intent on world domination.
+This commit throws Tron&#039;s disc into MCP (causing its deresolution) 
+and turns it back into a chess game.</pre>
+<p>Y ahora <code>git log --oneline</code>, que imprime sólo la línea de título:</p>
+<pre class="brush: text; gutter: true">$ git log --oneline
+42e769 Derezz the master control program</pre>
+<p>O, <code>git shortlog</code> , que agrupa commits por usuario, de nuevo mostrando sólo la línea de titulo para ser conciso:</p>
+<pre class="brush: text; gutter: true">$ git shortlog
+Kevin Flynn (1):
+      Derezz the master control program
+
+Alan Bradley (1):
+      Introduce security program &quot;Tron&quot;
+
+Ed Dillinger (3):
+      Rename chess program to &quot;MCP&quot;
+      Modify chess program
+      Upgrade chess program
+
+Walter Gibbs (1):
+      Introduce protoype chess program</pre>
+<p>Hay numerosos contextos en git donde la distinción entre titulo y cuerpo entran en acción, pero ninguno de ellos funciona correctamente sin la línea en blanco en el medio.</p>
+<p><a name="limit-50"></a></p>
+<h3>2. Limita la línea de título a 50 caracteres</h3>
+<p>50 caracteres no es un límite estricto, sólo una regla práctica. Mantener las líneas de título en esta longitud asegura que sean legibles, y obliga al autor a pensar por un momento acerca de la forma más concisa de explicar lo que está enviando.</p>
+<blockquote><p><em>Consejo: Si estás teniendo dificultades para resumir, podrías estar realizando un commit con demasiados cambios de una sola vez. Intenta realizar <a href="http://www.freshconsulting.com/atomic-commits/"><em>commits atómicos</em></a> (un tema para un post aparte).</em></p></blockquote>
+<p>La Interfaz de GitHub es plenamente consciente de estas convenciones. Te avisará si te pasas del límite de 50 caracteres:</p>
+<p><img src="http://i.imgur.com/zyBU2l6.png" alt="gh1" /></p>
+<p>Y truncará cualquier título de más de 69 caracteres con puntos suspensivos:</p>
+<p><img src="http://i.imgur.com/27n9O8y.png" alt="gh2" /></p>
+<p>Así que intenta con 50 caracteres, pero considera como limite máximo 69.</p>
+<p><a name="capitalize"></a></p>
+<h3>3. Capitaliza la línea de título</h3>
+<p>Esto es tan simple como suena. Comienza todas las líneas de título con una letra mayúscula.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li><span style="color: green;">Acelerar a 88 millas por hora</span></li>
+</ul>
+<p>En lugar de:</p>
+<ul>
+<li><span style="color: red;">acelerar a 88 millas por hora</span></li>
+</ul>
+<p><a name="end"></a></p>
+<h3>4. No termines la línea de título con un punto</h3>
+<p>Usar puntuación es innecesario en las líneas de título. Además, el espacio es muy valioso cuando se está tratando de mantener en <a href="http://chris.beams.io/posts/git-commit/#limit-50">50 caracteres o menos</a> .</p>
+<p>Ejemplo:</p>
+<ul>
+<li><span style="color: green;">Abrir la ranura de la puerta de la bodega</span></li>
+</ul>
+<p>En lugar de:</p>
+<ul>
+<li><span style="color: red;">Abrir la ranura de la puerta de la bodega.</span></li>
+</ul>
+<p><a name="imperative"></a></p>
+<h3>5. Utiliza el modo imperativo en la línea de título</h3>
+<p><em>Modo imperativo</em> simplemente significa &#8220;hablar o escribir como si dieras una orden o instrucción&#8221;. Algunos ejemplos:</p>
+<ul>
+<li>Limpia tu habitación</li>
+<li>Cierra la puerta</li>
+<li>Saca la basura</li>
+</ul>
+<p>Cada una de las siete reglas que estás leyendo ahora mismo están escritas en imperativo (&#8220;Limita el cuerpo a 72 caracteres&#8221;, etc).</p>
+<p>El imperativo puede sonar un poco grosero; es por eso que a menudo no lo usamos. Pero es perfecto para el título de un commit. Una razón para esto es que <strong>git mismo utiliza el imperativo cada vez que crea un commit con tu nombre.</strong></p>
+<p>Por ejemplo, el mensaje predeterminado creado al utilizar <code>git merge</code> es:</p>
+<pre class="brush: text; gutter: true">Merge branch &#039;myfeature&#039;</pre>
+<p>Y al usar <code>git revert</code> :</p>
+<pre class="brush: text; gutter: true">Revert &quot;Add the thing with the stuff&quot;
+
+This reverts commit cc87791524aedd593cff5a74532befe7ab69ce9d.</pre>
+<p>O cuando se hace clic en el botón &#8220;Merge&#8221; en un pull request de Github</p>
+<pre class="brush: text; gutter: true">Merge pull request #123 from someuser / somebranch</pre>
+<p>Así que cuando escribas mensajes de commit en forma imperativa, realmente estás siguiendo las mismas convenciones incorporadas por git. Por ejemplo:</p>
+<ul>
+<li>Refactor subsystem X for readability</li>
+<li>Update getting started documentation</li>
+<li>Remove deprecated methods</li>
+<li>Release version 1.0.0</li>
+</ul>
+<p>Escribir de esta manera puede ser un poco incómodo al principio. Estamos más acostumbrados a hablar en <em>el modo indicativo,</em> que está más relacionado para informar hechos. Es por eso que los mensajes de commits terminan leyéndose así:</p>
+<ul>
+<li>Fixed bug with Y</li>
+<li>Changing behaviour of X</li>
+</ul>
+<p>Y a veces los mensajes se escriben como una descripción de su contenido:</p>
+<ul>
+<li>More fixes broken stuff</li>
+<li>Sweet new API methods</li>
+</ul>
+<p>Para eliminar cualquier confusión, aquí hay simple regla para hacerlo bien cada vez.</p>
+<p><strong>Un commit de git formado adecuadamente siempre debe ser capaz de completar la siguiente frase:</strong></p>
+<ul>
+<li>If applied, this commit will <em><u>your subject line here</u></em></li>
+</ul>
+<p>Por ejemplo:</p>
+<ul>
+<li>If applied, this commit will <span style="color: green;"><em>refactor subsystem X for readability</em></span></li>
+<li>If applied, this commit will <span style="color: green;"><em>update getting started documentation</em></span></li>
+<li>If applied, this commit will<span style="color: green;"><em> remove deprecated methods</em></span></li>
+<li>If applied, this commit will <span style="color: green;"><em>release version 1.0.0</em></span></li>
+<li>If applied, this commit will <span style="color: green;"><em>merge pull request #123 from user/branch</em></span></li>
+</ul>
+<p>Observa cómo esto no funciona para las otras formas no imperativas:</p>
+<ul>
+<li>If applied, this commit will <span style="color: red;"><em> fixed bug with Y</em></span></li>
+<li>If applied, this commit will <span style="color: red;"><em>changing behaviour of X</em></span></li>
+<li>If applied, this commit will <span style="color: red;"><em>more fixes for broken stuff</em></span></li>
+<li>If applied, this commit will <span style="color: red;"><em>sweet new API methods</em></span></li>
+</ul>
+<blockquote><p><em>Recuerda: El uso del imperativo es importante sólo en el título. Puedes omitir esta restricción cuando estés escribiendo el cuerpo</em></p></blockquote>
+<p><a name="wrap-72"></a></p>
+<h3>6. Ajusta el cuerpo a 72 caracteres</h3>
+<p>Git nunca ajusta el texto automáticamente. Cuando escribes el cuerpo de un mensaje de commit, debes recordar su margen derecho, y ajustar el texto manualmente.</p>
+<p>La recomendación es hacer esto en 72 caracteres, por lo que git tiene mucho espacio para indentar texto mientras se mantiene todo debajo de 80 caracteres en general.</p>
+<p>Un buen editor de texto puede ayudar aquí. Es fácil de configurar en Vim, por ejemplo, para ajustar el texto a 72 caracteres cuando se está escribiendo un git commit. Tradicionalmente, sin embargo, los IDEs han sido desastrosos para proveer un apoyo inteligente en el ajuste de texto en los mensajes de commit (aunque en las versiones recientes, IntelliJ IDEA ha <a href="http://youtrack.jetbrains.com/issue/IDEA-53615">conseguido</a> <a href="http://youtrack.jetbrains.com/issue/IDEA-53615#comment=27-448299">finalmente</a> <a href="http://youtrack.jetbrains.com/issue/IDEA-53615#comment=27-446912">mejorar</a> sobre esto).</p>
+<p><a name="why-not-how"></a></p>
+<h3>7. Utilizar el cuerpo para explicar qué y porqué en lugar de como</h3>
+<p>Este <a href="https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6">commit del repositorio Bitcoin Core</a> es un gran ejemplo de sobre explicar lo que ha cambiado y por qué:</p>
+<pre class="brush: text; gutter: true">commit eb0b56b19017ab5c16c745e6da39c53126924ed6
+Author: Pieter Wuille &lt;pieter.wuille@gmail.com&gt;
+Date:   Fri Aug 1 22:57:55 2014 +0200
+
+   Simplify serialize.h&#039;s exception handling
+
+   Remove the &#039;state&#039; and &#039;exceptmask&#039; from serialize.h&#039;s stream
+   implementations, as well as related methods.
+
+   As exceptmask always included &#039;failbit&#039;, and setstate was always
+   called with bits = failbit, all it did was immediately raise an
+   exception. Get rid of those variables, and replace the setstate
+   with direct exception throwing (which also removes some dead
+   code).
+
+   As a result, good() is never reached after a failure (there are
+   only 2 calls, one of which is in tests), and can just be replaced
+   by !eof().
+
+   fail(), clear(n) and exceptions() are just never called. Delete
+   them.</pre>
+<p>Echa una mirada al <a href="https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6">diff completo</a> y sólo piensa en la cantidad de tiempo que el autor le ahorro a los colegas y futuros desarrolladores por tomarse el tiempo para proporcionar este contexto, aquí y ahora. Si él no lo hubiera hecho, esto probablemente se perdería para siempre.</p>
+<p>En la mayoría de los casos, puedes ignorar los detalles sobre cómo se ha hecho un cambio. El código es generalmente auto-explicativo en este sentido (y si el código es tan complejo como para necesitar ser explicados en prosa, esa es la función de los comentarios en el código fuente). Sólo céntrate en aclarar las razones por las que has realizado el cambio, como funcionaban las cosas antes del cambio (y que había de malo con eso), la forma en que funciona ahora, y por qué decidiste resolverlo de la forma en la que lo hiciste.</p>
+<p>¡El futuro programador agradecido puedes ser tú mismo!</p>
+<p><a name="tips"></a></p>
+<h2>Consejos</h2>
+<h3>Aprendé a amar la línea de comandos. Deja el IDE atrás.</h3>
+<p>Debido a la gran cantidad de subcomandos git que hay, es prudente adoptar la línea de comandos. Git es increíblemente poderoso; los IDEs lo son tambien, pero cada uno a su manera. Yo uso un IDE todos los días (IntelliJ IDEA) y he utilizado otros extensivamente (Eclipse), pero nunca he visto una integración del IDE con git que coincida con la facilidad y el poder de la línea de comandos (una vez que lo sepas hacer).</p>
+<p>Ciertas funciones de los IDE relacionadas con git son invaluables, como llamar a <code>git rm</code> cuando eliminamos un archivo, y hacer las cosas bien con <code>git</code> al renombrarlo. Todo se cae cuando se comienza a intentar hacer commits, merge, rebase, o hacer un análisis sofisticado de la historia a través del IDE.</p>
+<p>Cuando se trata de utilizar todo el poder de git, la línea de comandos es la manera.</p>
+<p>Recuerda que si usas Bash o Z shell, hay <a href="http://git-scm.com/book/en/Git-Basics-Tips-and-Tricks">scripts de autocompletado</a> que alivian gran parte del dolor de recordar los subcomandos.</p>
+<h3>Lee Pro Git</h3>
+<p>El libro <a href="http://git-scm.com/book">Pro Git</a> está disponible en línea de forma gratuita, y es fantástico. ¡Aprovechalo!</p>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/440/feed</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Silenciar una pestaña en Chrome</title>
+		<link>http://tomasdel.com/422</link>
+		<comments>http://tomasdel.com/422#respond</comments>
+		<pubDate>Fri, 22 May 2015 18:53:43 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[tecnologia]]></category>
+		<category><![CDATA[Web]]></category>
+		<category><![CDATA[audio]]></category>
+		<category><![CDATA[chrome]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[navegadores]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=422</guid>
+		<description><![CDATA[Algo que empece a necesitar, y no encontré la forma de hacerlo en Firefox, es tener varias pestañas con "audio", pero querer silenciar algunas en particular y no otras.
+
+Silenciar una aplicación es relativamente fácil en los escritorios de hoy en día, en mi caso con Ubuntu Gnome, el panel de configuración de audio permite silenciar una Aplicación completa. Pero esto es mas especifico.
+
+Dentro de un Browser, poder indicar que se silencie algunas pestañas si y otras no. Esto es muy útil en casos como en los que alguna aplicación Flash que no tenga control de volumen, no hay forma de dejarla corriendo sin que el sonido tape otras pestañas (Donde estemos mirando un video de Youtube, por decir un caso).]]></description>
+				<content:encoded><![CDATA[<p>Algo que empece a necesitar, y no encontré la forma de hacerlo en Firefox, es tener varias pestañas con &#8220;audio&#8221;, pero querer silenciar algunas en particular y no otras.</p>
+<p>Silenciar una aplicación es relativamente fácil en los escritorios de hoy en día, en mi caso con Ubuntu Gnome, el panel de configuración de audio permite silenciar una Aplicación completa. Pero esto es mas especifico.</p>
+<p>Dentro de un Browser, poder indicar que se silencie algunas pestañas si y otras no. Esto es muy útil en casos como en los que alguna aplicación Flash que no tenga control de volumen, no hay forma de dejarla corriendo sin que el sonido tape otras pestañas (Donde estemos mirando un video de Youtube, por decir un caso).</p>
+<p>La cuestión es que ahora en Chrome es bastante sencillo hacerlo, al menos en la versión estable que dispongo ya funciona (Versión 43).</p>
+<p>Abran una pestaña, coloquen en la misma <em>chrome://flags/#enable-tab-audio-muting </em>y hagan click en Habilitar o Enable (dependiendo del idioma del Browser). Es necesario reiniciar Chrome, y luego podrán ver al lado del botón de cerrar pestaña un icono de audio (Si la pestaña esta reproduciendo algo con audio). Haciendo click en dicho icono se activa y desactiva esa opción.</p>
+<p>Si alguien conoce algún plugin o feature para replicar esto en Firefox, se los agradezco, y si no existe, pónganse las pilas muchachos de Firefox.</p>
+<p><a href="http://www.puntogeek.com/2015/05/15/funcion-oculta-de-chrome-permite-silenciar-el-audio-de-las-pestanas-con-un-click/" target="_blank">Visto acá.</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/422/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Diff y Patch en 10 minutos</title>
+		<link>http://tomasdel.com/416</link>
+		<comments>http://tomasdel.com/416#respond</comments>
+		<pubDate>Wed, 06 May 2015 01:49:02 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Programación]]></category>
+		<category><![CDATA[codigo]]></category>
+		<category><![CDATA[diff]]></category>
+		<category><![CDATA[parches]]></category>
+		<category><![CDATA[patch]]></category>
+		<category><![CDATA[programacion]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=416</guid>
+		<description><![CDATA[Típico post rápido, esta pagina siempre la tengo q volver a buscar en Google para acordarme la sintaxis de Diff y Patch, comandos para crear parches de código (y aplicarlos). http://stephenjungels.com/jungels.net/articles/diff-patch-ten-minutes.html La agrego porque últimamente la tenia en una pestaña abierta de forma constante y ya era molesto, queda acá para el archivo.]]></description>
+				<content:encoded><![CDATA[<p>Típico post rápido, esta pagina siempre la tengo q volver a buscar en Google para acordarme la sintaxis de Diff y Patch, comandos para crear parches de código (y aplicarlos).</p>
+<p><a href="http://stephenjungels.com/jungels.net/articles/diff-patch-ten-minutes.html" target="_blank">http://stephenjungels.com/jungels.net/articles/diff-patch-ten-minutes.html</a></p>
+<p>La agrego porque últimamente la tenia en una pestaña abierta de forma constante y ya era molesto, queda acá para el archivo.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/416/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Elegir el DNS abierto más rápido</title>
+		<link>http://tomasdel.com/411</link>
+		<comments>http://tomasdel.com/411#respond</comments>
+		<pubDate>Tue, 28 Apr 2015 00:16:03 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Redes]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[redes]]></category>
+		<category><![CDATA[retardo]]></category>
+		<category><![CDATA[rtt]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=411</guid>
+		<description><![CDATA[En CommandLineFu siempre se comparten snippets de código interesante. Hoy me encontré con el siguiente:]]></description>
+				<content:encoded><![CDATA[<p>En <a href="http://www.commandlinefu.com/" target="_blank">CommandLineFu</a> siempre se comparten snippets de código interesante. Hoy me encontré con <a href="http://www.commandlinefu.com/commands/view/14188/a-function-to-find-the-fastest-free-dns-server" target="_blank">el siguiente</a>:</p>
+<p>Verificar y mostrar que servidor DNS abierto es mas rápido en su respuesta.</p>
+<pre class="brush: bash; gutter: true">parallel -j0 --tag dig @{} &quot;$*&quot; ::: 208.67.222.222 208.67.220.220 198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 | grep Query | sort -nk5;</pre>
+<p>En mi caso, la respuesta tuvo esta forma:</p>
+<pre class="brush: bash; gutter: true">8.8.4.4	;; Query time: 22 msec
+8.8.8.8	;; Query time: 26 msec
+208.67.220.220	;; Query time: 219 msec
+208.67.222.222	;; Query time: 230 msec
+156.154.70.1	;; Query time: 244 msec
+198.153.194.1	;; Query time: 246 msec
+156.154.71.1	;; Query time: 258 msec
+198.153.192.1	;; Query time: 300 msec</pre>
+<p>Para usar el comando es necesario tener instalado GNU parallel:</p>
+<pre class="brush: bash; gutter: true">sudo apt-get install parallel</pre>
+<p>Los tiempos cambian en función de nuestra ubicación geográfica, sobrecarga de los servidores y del canal de comunicación, etc&#8230;</p>
+<p>Cada uno sabrá que hacer con los resultados de este comando <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/411/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Ver menú del Grub sin editar /etc/default/grub</title>
+		<link>http://tomasdel.com/390</link>
+		<comments>http://tomasdel.com/390#respond</comments>
+		<pubDate>Sat, 31 Jan 2015 19:43:49 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[grub]]></category>
+		<category><![CDATA[menu]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=390</guid>
+		<description><![CDATA[Siguiendo con el envión de postear cosas cortas, dejo un tip que siempre me olvido a la hora de usar el Grub.]]></description>
+				<content:encoded><![CDATA[<p>Siguiendo con el envión de postear cosas cortas, dejo un tip que siempre me olvido a la hora de usar el Grub.</p>
+<p>Grub tiene una configuración por defecto en la cual si existe un único Sistema Operativo en el equipo, el menú no se muestra y se accede directamente al SO.</p>
+<p>Pero me paso que yo necesitaba ver el menú una única vez, para lanzar el memtest, entonces la solución de editar el archivo en /etc/default/grub, y modificar las variables en cuestión es demasiado. Yo necesitaba algo que funciones una vez sola y que siga como antes.</p>
+<p>Encontré por ahí que si luego del POST de la BIOS, se presiona</p>
+<pre>Shift</pre>
+<p>se puede ver el menú del grub. Lo probé y es cierto.</p>
+<p>Lo unico que resta aclarar es que a veces hay que hacerlo repetidas veces por las dudas.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/390/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Ping: Ver estadísticas sin cortar la ejecución</title>
+		<link>http://tomasdel.com/385</link>
+		<comments>http://tomasdel.com/385#respond</comments>
+		<pubDate>Fri, 30 Jan 2015 20:40:39 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[redes]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=385</guid>
+		<description><![CDATA[Vía systemadmin.es me encuentro con que hay una manera de ver las estadísticas del ping sin cortar la ejecución del mismo. Mientras se ejecuta un ping, hay que enviar la señal SIGQUIT (Se logra con CTRL+&#8217;\&#8217;). La salida del ping usando esto luce mas o menos de esta manera: $ ping localhost PING localhost (127.0.0.1) [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Vía <a href="http://systemadmin.es/2015/01/estadisticas-de-ping" target="_blank">systemadmin.es</a> me encuentro con que hay una manera de ver las estadísticas del ping sin cortar la ejecución del mismo.</p>
+<p>Mientras se ejecuta un ping, hay que enviar la señal SIGQUIT (Se logra con CTRL+&#8217;\&#8217;).</p>
+<p>La salida del ping usando esto luce mas o menos de esta manera:</p>
+<pre class="brush: bash; gutter: true">$ ping localhost
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.059 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.059 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.058 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=64 time=0.064 ms
+4/4 packets, 0% loss, min/avg/ewma/max = 0.058/0.060/0.059/0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=5 ttl=64 time=0.061 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=6 ttl=64 time=0.057 ms
+6/6 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+6/6 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=7 ttl=64 time=0.057 ms
+7/7 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+7/7 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=8 ttl=64 time=0.065 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=9 ttl=64 time=0.059 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=10 ttl=64 time=0.059 ms
+10/10 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.065 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=11 ttl=64 time=0.063 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=12 ttl=64 time=0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=13 ttl=64 time=0.065 ms
+^C
+--- localhost ping statistics ---
+13 packets transmitted, 13 received, 0% packet loss, time 11993ms
+rtt min/avg/max/mdev = 0.057/0.060/0.065/0.010 ms</pre>
+<p>Si observan bien, verán un resumen de las estadísticas entre lineas, que son las veces que lance la señal SIGQUIT.</p>
+<p>La moraleja de todo esto es que hay que leer el man de los comandos mas seguido :p</p>
+<p>Source: <a href="http://systemadmin.es/2015/01/estadisticas-de-ping">http://systemadmin.es/2015/01/estadisticas-de-ping</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/385/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Avances sobre mi trabajo de Tesis</title>
+		<link>http://tomasdel.com/379</link>
+		<comments>http://tomasdel.com/379#respond</comments>
+		<pubDate>Wed, 24 Dec 2014 16:36:44 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[academicos]]></category>
+		<category><![CDATA[charlas]]></category>
+		<category><![CDATA[hadoop 2]]></category>
+		<category><![CDATA[materias]]></category>
+		<category><![CDATA[programacion]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=379</guid>
+		<description><![CDATA[Cuando hay poca actividad por esta vía, es porque tengo mucho que hacer en mi trabajo y estudio, así que eso es bueno en lineas generales. Diciembre fue un mes bastante activo desde lo académico (En mi trabajo también, pero eso es otra historia). Fui invitado a las JCU como Estudiante que esta realizando su [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Cuando hay poca actividad por esta vía, es porque tengo mucho que hacer en mi trabajo y estudio, así que eso es bueno en lineas generales.</p>
+<p>Diciembre fue un mes bastante activo desde lo académico (En mi trabajo también, pero eso es otra historia). Fui invitado a las JCU como Estudiante que esta realizando su Tesis, y me pidieron que contara en 20 minutos cual es mi trabajo de Tesis. El resultado de ese pedido fue una charla con <a href="http://tomasdelvechio.github.io/slides-jcu-2014/#/" target="_blank" class="broken_link">estas slides</a>.</p>
+<p>También agregue un nuevo Indexador a mi repositorio de código <a href="https://github.com/tomasdelvechio/YarnExamples" target="_blank">Hadoop en Github</a>. Si vienen siguiendo mi trabajo, esta vez agregue un Indexador basado en las ideas de Dean y Ghemawat pero agregando un patrón Combiner in-mapper, tal como se explica en el libro <a href="http://lintool.github.io/MapReduceAlgorithms/index.html" target="_blank">MapReduce Algorithm Design</a>. Este texto es ya una referencia obligada en mi trabajo con Hadoop, y posiblemente le dedique bastantes horas en lo que sigue para poder extraer muchas de las buenas ideas que se plantean en el.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/379/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Mi experiencia con Chromecast</title>
+		<link>http://tomasdel.com/361</link>
+		<comments>http://tomasdel.com/361#comments</comments>
+		<pubDate>Sat, 15 Nov 2014 17:48:12 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[opinión]]></category>
+		<category><![CDATA[tecnologia]]></category>
+		<category><![CDATA[Aplicaciones]]></category>
+		<category><![CDATA[Chromecast]]></category>
+		<category><![CDATA[Google]]></category>
+		<category><![CDATA[Streaming]]></category>
+		<category><![CDATA[Ubuntu]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=361</guid>
+		<description><![CDATA[Introducción Aprovechando que era una de las pocas cosas no infladas en precio del CyberMonday que se hizo en Argentina, me compre un Chromecast de Google. A diferencia de mi post anterior donde me dedique a criticar a Google, en este me encuentro con un buen producto, que me sorprendió hasta el momento y me [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>Introducción</h2>
+<p>Aprovechando que era una de las pocas cosas no infladas en precio del CyberMonday que se hizo en Argentina, me compre un <a href="https://www.google.es/chrome/devices/chromecast/" target="_blank">Chromecast de Google</a>.</p>
+<p>A diferencia de <a title="Inbox by Gmail: Una visión" href="http://tomasdel.com/351">mi post anterior donde me dedique a criticar a Google</a>, en este me encuentro con un buen producto, que me sorprendió hasta el momento y me resulto muy cómodo. Vamos a la review.</p>
+<h2>¿Que es Chromecast?</h2>
+<p>Versión corta para los que no saben de que hablo. Chromecast es un dispositivo de un tamaño muy similar a un pendrive, que se conecta a cualquier TV con HDMI (Sea o no Smart) y permite enviar audio/video a la misma mediante programas instalados en una Notebook, Celular o Tablet Android, etc&#8230;</p>
+<p>¿Para quienes puede ser útil este &#8220;aparatito&#8221;? En mi caso, me pasaba que muchas veces terminaba conectando la PC vía HDMI, por ejemplo, para ver una película o serie que se reproduce en la compu pero que se vea por la TV. En esos casos, siempre quedaba &#8220;cruzando&#8221; un cable, sea el HDMI o el mousse, para poder apretar pausa, subir el volumen, etc. En estos casos Chromecast resulto hasta el momento un buen sustituto.</p>
+<p>La realidad es que tenia colegas que me decían que estaba bueno, y yo estaba escéptico hasta que lo empece a probar, y la realidad es que se ajusta a muchas de mis necesidades. No resuelve todo, como veremos, pero no fue una mala inversión en mi caso.</p>
+<div style="max-width: 163px" class="wp-caption aligncenter"><a href="http://ecx.images-amazon.com/images/I/81dgptmSieL._SL1500_.jpg" target="_blank"><img src="http://ecx.images-amazon.com/images/I/81dgptmSieL._SL1500_.jpg" alt="Chromecast" width="153" height="257" /></a><p class="wp-caption-text">Chromecast</p></div>
+<h2>Compra e instalación</h2>
+<p>Realice la compra a través de Mercado Libre, y a los dos días ya estaba el dispositivo esperándome en correo local de mi ciudad. El paquetito es mas bien chico, y luego de sacar todo de la caja, les muestro lo que trae:</p>
+<p><img class="aligncenter" src="https://lh6.googleusercontent.com/-LIsW_qXuukU/VGd02BbmEHI/AAAAAAAALZk/z37vKgcCgLE/w635-h591-no/IMG_20141115_124353616.jpg" alt="Chromecast unboxing" width="484" height="451" /></p>
+<p>De izquierda a derecha:</p>
+<ul>
+<li>El Chromecast: Con un HDMI &#8220;macho&#8221; y un micro usb &#8220;hembra&#8221;.</li>
+<li>Cable USB micro de un extremo y USB normal del otro. Es para alimentación de energía al Chromecast vía USB.</li>
+<li>Alargue HDMI. Yo no lo use, pero supongo que en algunas TVs con muchos dispositivos amontonados, puede ser útil si el Chromecast no entra.</li>
+<li>Transformador. Con conexión USB, para el caso en que deseamos alimentar al dispositivo desde un toma (por falta de USB o lo que sea).</li>
+</ul>
+<p>Para comenzar la instalación, se debe conectar al TV via HDMI (y elegir en la Tele la fuente o &#8220;source&#8221; correspondiente) y algún tipo de alimentación (puede ser a un USB libre de la TV o a algún toma corriente que se encuentre cerca).</p>
+<p>Seguido a esto, se vera en la pantalla que Chrome nos pide que nos dirijamos a la pagina de Google (a una dirección determinada) para configurar. Se puede tomar uno de dos caminos: Instalar en un dispositivo Android la aplicación de Chromecast, o ir con un browser a la pagina indicada y realizar los pasos que ahí se indican. Yo elegi la primera. A grandes rasgos, la aplicación busca el dispositivo, cuando lo encuentra te ofrece ponerle un nombre (por si se tienen varios Chromecast), y luego pide configurar la red, por si tenes WiFi con password, aquí solicitara la clave de acceso.</p>
+<p>Yo acá tuve un problema extraño, veía las redes Wireless de mis vecinos, pero no la mía, que si era detectada por mi Computadora, mi Teléfono, etc. Buscando, <a href="http://superuser.com/questions/683581/chromecast-setup-doesnt-show-wifi-network" target="_blank">encontré un bug muy bizarro</a> que dice que el Chromecast no ve redes Inalambricas cuyo canal sea el 13. Así que tuve que ingresar a la configuración de mi Router y me encontré con que lo tenia configurado en 13, como no podía ser de otro modo :p. Hecho esto, pude ver en el panel de selección mi red WiFi sin problemas.</p>
+<p>Cuando estuvo configurado, se conecto a internet y detecto que había una actualización, así que estuvo uno 15 minutos descargando e instalando algo. Cuando terminó, mostró una pantalla que decía que Chromecast estaba listo para recibir contenido. El booteo es muy rápido (No le lleva mas de 10 segundos hasta donde pude notar).</p>
+<h2>¿En que cosas es útil Chromecast?</h2>
+<p>Voy a hacer un repaso en las cosas que a mi me resultaron interesantes y que Chromecast me ayudo a mejorar las cosas tal y como las venia haciendo:</p>
+<p><strong>Ver videos desde Internet</strong>: Chromecast maneja nativamente aplicaciones de Netflix y Youtube. De esta manera, si se tiene instalado en un Smartphone o Tablet las aplicaciones de Youtube y/o Netflix, en ambas aparecen iconos parecidos a los siguientes:</p>
+<p><a href="http://chromespot.com/wp-content/uploads/2014/03/chromecast-icons-2.png"><img class="aligncenter" src="http://chromespot.com/wp-content/uploads/2014/03/chromecast-icons-2.png" alt="Chromecast icon" width="158" height="189" /></a></p>
+<p>Presionando en ellos, la aplicación del celular pasa a ser una especie de control remoto de la aplicación que vamos a ver arrancando en la TV. A mi me ocurrió que la primera vez como que no se conectaba bien, pero luego de apagar y prender algunas veces el Chomecast, empezó a funcionar bien y no volví a tener problemas.</p>
+<p>En el caso de Youtube, se pueden encolar videos desde muchos dispositivos, entonces si estamos con amigos, entre varios se puede armar una cola de videos/música. Muy bueno.</p>
+<p>La aplicación de Netflix también dispone de las opciones generales que se esperan: Seleccionar una serie o película, volumen, pausa, subtitulo, idioma. Alcanza para el 99% de los usos.</p>
+<p>Para que quede claro, el manejo se hace desde el dispositivo y la reproducción la hace el Chromecast desde la TV.</p>
+<p><strong>Pestañas arbitrarias a través de Chrome</strong>: Instalando en un Navegador Chrome el plugin de Chromecast, este permite hacer Streaming a la TV de una pestaña que elijamos del navegador.</p>
+<p>No importa que contenga la pestaña, hace Streaming del contenido y el audio. Yo lo estoy usando mucho para abrir una pestaña con Grooveshark, y entonces escucho música por la TV y sigo trabajando en la Compu en otras pestañas. El audio de las otras pestañas sigue saliendo por la notebook, eso es algo bueno.</p>
+<p>2 cosas malas: Solo se puede hacer con el navegador Chrome (Ya nos tiene acostumbrados Google a esa ambivalencia entre buenos productos cerraditos en su ecosistema).</p>
+<p>Lo segundo es el tamaño de la pantalla. Por defecto la pestaña en la pantalla de la TV no se muestra en todo el ancho posible, se ve una franja arriba y abajo de color negro y para lograr quitarla, es necesario poner el Navegador en modo Pantalla Completa (F11).</p>
+<p><strong>Ver videos disponibles localmente en una PC</strong>: Si repasan lo dicho hasta ahora, en ningún momento les hable de reproducir en Chromecast contenido local. Me paso que tenia un mp4, y queria verlo en la TV a traves de Chomecast. Buscando, encontre en la tienda de aplicaciones del Navegador Chrome una aplicación llamada Videostream:</p>
+<p><img class="aligncenter" src="https://lh6.ggpht.com/xx7-_6vXi5Yf2Gyv84lKXyayyGnLGfZ1J1d61_mb7cUNtg1uoInPhqfvuAFJctN3iKI=w300" alt="Videocast for Chromecast" width="121" height="121" /></p>
+<p>La misma instala un cliente en el navegador que permite cargar un video que se encuentre en el disco rígido, dando opciones de calidad, subtitulos, etc&#8230;</p>
+<p>Todo bien, pero que pasa si queremos tirarnos un rato y mirar la tele, pero sin tener la notebook a mano? No tenemos forma de apretar pausa, por ejemplo. Sin embargo, se me ocurrió buscar en la tienda de google y encontré que los mismos desarrolladores de Videostream tienen una aplicación de control remoto, la instale (no pesa nada), y al toque de abrirla detecto que estaba viendo algo y me ofreció las opciones básicas (pausa, volumen).</p>
+<h2>Conclusiones</h2>
+<p>Chromecast tiene, en mi opinión, mucho potencial en lo que respecta a manejar multimedia a través de la TV. Permite agregar comportamiento tipo Smart a Televisores que hoy no lo son (En mercados emergentes es común comprar estos TV ya que a igual tamaño de TV, un smart contra un no smart representa una diferencia económica apreciable para el bolsillo).</p>
+<p>Aun teniendo un SmartTV, es notable las limitaciones de estos en diferentes contextos. Quien tenga uno, nota que son limitados, por el hecho de que usarlos con el control remoto de la TV es un verdadero problema. Ademas las aplicaciones son aun limitadas, y las existentes a veces son lentas y poco flexibles. Por ejemplo, en la casa de mis padres, la Aplicación de Youtube del TV no permite elegir la resolución de un video, y siempre intenta la mayor disponible. Los videos en HD nunca cargan correctamente y la experiencia de usuario es horrible. Es cierto, con una conexión decente esto no ocurriría, pero las aplicaciones deben disponer de opciones que las hagan flexibles a diferentes situaciones. Con chromecast yo no he tenido este problema, con lo cual, Chromecast puede constituir un mercado aun en ciertos contextos como el descrito anteriormente.</p>
+<p>La tendencia en cuanto a aplicaciones, parece ser tener una app que haga streaming al dispositivo, o le pase el control a este, y disponer de funciones de control remoto ya sea vía navegador o dispositivo móvil (tablet / smartphone). Esto es una comodidad para el usuario, aunque se debería ver la posibilidad de que todas las aplicaciones de control puedan ser centralizadas en una única aplicación maestra de control, con opciones genéricas, y dichas opciones sean activables a demanda según la aplicación de chromecast que se utilice. Por ejemplo, la App de youtube le dice a esta posible app de control que acepta funciones de Pausa/Subir y Bajar Volumen, etc&#8230; y esas opciones muestra el control como disponibles, ocultando otras. De otra forma, vamos a terminar teniendo en nuestros Androids tantas aplicaciones de control como aplicaciones se usen en Chomecast.</p>
+<p>La única gran critica, es que el ecosistema del Chromecast es muy cerrado (Ni siquiera parece un android lo que corre en el dispositivo), lo cual para mi esta limitando que masivamente desarrolladores se vuelquen a programar aplicaciones de cara necesidades emergentes de los usuarios.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/361/feed</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Desarrollo en Hadoop</title>
+		<link>http://tomasdel.com/356</link>
+		<comments>http://tomasdel.com/356#respond</comments>
+		<pubDate>Sun, 09 Nov 2014 20:21:32 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[academicos]]></category>
+		<category><![CDATA[Programación]]></category>
+		<category><![CDATA[software libre]]></category>
+		<category><![CDATA[charlas]]></category>
+		<category><![CDATA[hadoop]]></category>
+		<category><![CDATA[hadoop 2]]></category>
+		<category><![CDATA[mapreduce]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=356</guid>
+		<description><![CDATA[Como ya comenté anteriormente, me encuentro realizando mi tesis de grado en un tema que propone una cruza de las áreas de Big Data y Recuperación de Información. En dicho contexto, utilizo Hadoop como Framework y Java como lenguaje de desarrollo. En dicha oportunidad prometí un post con contenido sobre desarrollo para Hadoop. Acá les [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Como <a title="Hadoop, otra introducción" href="http://tomasdel.com/293" target="_blank">ya comenté anteriormente</a>, me encuentro realizando mi tesis de grado en un tema que propone una cruza de las áreas de Big Data y Recuperación de Información. En dicho contexto, utilizo <a title="Hadoop: Introduccion, articulos e Instalación" href="http://tomasdel.com/326">Hadoop como Framework</a> y <a title="Un poco de Java y NetBeans" href="http://tomasdel.com/302">Java</a> como lenguaje de desarrollo.</p>
+<p>En dicha oportunidad prometí un post con contenido sobre desarrollo para Hadoop. Acá les dejo unas diapositivas que prepare especialmente para introducir en el tema.</p>
+<p><center><iframe src="//slides.com/tomasdelvechio/hadoop-dev/embed" width="576" height="420" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe></center>En dichas slides se puede acceder a un tutorial de instalación de Hadoop 2 en modo local y cluster, y algunos ejemplos de código.</p>
+<p>Ya que estamos, si quieren mirar código y si tienen tiempo colaborar, estoy subiendo mis implementaciones a un <a href="https://github.com/tomasdelvechio/YarnExamples" target="_blank">repositorio público</a> en Github. Es un repositorio íntegramente funcional sobre Hadoop 2. Ademas estoy tratando de ir subiendo issues para favorecer la colaboración (De alguna manera marca el estado de avance de los proyectos y da una idea de lo que falta hacer).</p>
+<p>Si tienen intenciones de colaborar o forkear, no duden en contactarse conmigo.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/356/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Inbox by Gmail: Una visión</title>
+		<link>http://tomasdel.com/351</link>
+		<comments>http://tomasdel.com/351#respond</comments>
+		<pubDate>Tue, 04 Nov 2014 03:36:06 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[opinión]]></category>
+		<category><![CDATA[tecnologia]]></category>
+		<category><![CDATA[Web]]></category>
+		<category><![CDATA[android]]></category>
+		<category><![CDATA[gmail]]></category>
+		<category><![CDATA[Google]]></category>
+		<category><![CDATA[hangouts]]></category>
+		<category><![CDATA[inbox]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=351</guid>
+		<description><![CDATA[Lo que sigue será una visión personal acerca de la ultima aplicación de Google: Inbox. El objetivo de esta app intenta ser, según entiendo, ofrecer una capa de servicios que se integren a Gmail, pero que permitan usos no clásicos del mismo. Este es un análisis en caliente: Llevo probando la aplicación en cuestión un [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Lo que sigue será una visión personal acerca de la ultima aplicación de Google: Inbox. El objetivo de esta app intenta ser, según entiendo, ofrecer una capa de servicios que se integren a Gmail, pero que permitan usos no clásicos del mismo.</p>
+<p>Este es un análisis en caliente: Llevo probando la aplicación en cuestión un par de horas solamente. Volveré al post si hay cosas que merezcan ser rectificadas.</p>
+<p>TL;DR para vagos: Todo lo que ofrece Inbox, IMHO, podría ser integrado a Gmail. Las cosas que no me convencen son mucho mas que las cosas interesantes, pero esta claro que están evolucionando el servicio para dar el salto a otra cosa. Similar a lo que les ocurrió con Hangout, demasiado ambicioso con los objetivos, pero dejan de lado cosas simples pero de uso cotidiano. Intentan revolucionar ecosistemas que funcionan muy bien con herramientas demasiado inmaduras.</p>
+<h2>Algunas cosas interesantes</h2>
+<p>Inbox ofrece la posibilidad de que un mail sea &#8220;<strong>Pospuesto</strong>&#8220;. Posponer un mail o conversación implica que la misma desaparecerá de la bandeja de recibidos hasta el día y hora que se le indique. Entonces esto permite aprovechar el correo para ofrecer una especie de planificador de tareas. Cómodo, sencillo, útil.</p>
+<p>Otra cuestión interesante es la posibilidad de &#8220;<strong>Fijar</strong>&#8221; un elemento (conversación), y la interfaz ofrece un filtro rápido entre las cosas fijadas y el resto de los elementos. De esta forma, se rescata la idea ya existente en Gmail de marcar conversaciones como &#8220;Importantes&#8221;. Sin embargo, si en Gmail la categoría de importante intentaba realizar una predicción que iba &#8220;aprendiendo&#8221; de nuestros comportamientos, la característica de &#8220;fijar&#8221; esta disponible y el usuario decide cuando utilizarla. Yo soy de los que nunca encontró demasiado útil el concepto de &#8220;Importante&#8221; dentro de Gmail, pero se de colegas que si lo utilizaban y les era funcional. El fijar para mi es útil y adecuado, pero a estos colegas les va a sonar como que les sacaron una utilidad (La parte predictiva). Desde el punto de vista personal, es una buena idea, bien integrada en la interfaz y que seguramente voy a usar.</p>
+<p>Ademas de poder redactar un correo, ofrece la posibilidad de redactar &#8220;Recordatorios&#8221;. Esto esta bueno, porque reemplaza al viejo pero útil mail a uno mismo con cosas a ser recordadas.</p>
+<h2>Algunas cosas que no aportan mucho</h2>
+<p>Para terminar con funcionalidad nueva, quiero decir que la función de marcar como &#8220;<strong>Hecho</strong>&#8221; a mi entender es un cambio de nombre al viejo &#8220;<strong>Archivar</strong>&#8221; conversaciones de Gmail. El cambio de nombre se debe claramente a la intención de que Inbox maneje otros conceptos ademas de correos (Por ejemplo, tareas). A futuro supongo que intentaran integrar otros servicios de Google.</p>
+<p>Ademas de una interfaz web, Google ofrece Inbox vía Google Play para Android, y también tiene una versión para iOS. Hoy en día no ofrecer una aplicación para móviles para un nuevo servicio no es demasiado coherente. Descargue la App en mi Moto G, y todo ok, ofrece la misma funcionalidad con un comportamiento mas adecuado que si abriera Inbox en un Browser desde el dispositivo.</p>
+<p>Google sigue con la idea que antes les dio esa sensación de tener un servicio de elite. La gente se suma al servicio a través de invitaciones. Me parece una pavada a esta altura, pero entiendo que usan esto como forma de deploy controlado, externalización del testing de interfaz, etc&#8230;.</p>
+<h2>Varios puntos negativos</h2>
+<p>El soporte para uso de etiquetas es deficiente: En pos de promover un uso ágil (?) de Inbox, se desprecio la usabilidad de las etiquetas. Es cierto que aparecen tal y como las tenemos definidas en Gmail, pero no esta agrupadas sino que están en &#8220;Plano&#8221; (Si tenias etiquetas jerarquizadas en Gmail, en Inbox vas a tardar en adaptarte para reubicar todo). Cuando se intenta etiquetar conversaciones, desapareció el filtro rápido, y en mi caso que soy de etiquetar todo el correo, me vi recorriendo un scroll interminable muchas veces. Porque tampoco esta mas disponible la posibilidad de arrastrar conversaciones a la etiqueta en la barra lateral, ni tampoco al revés, arrastrar y soltar la etiqueta sobre conversaciones.</p>
+<p>Hangout: Si, esto es un punto negativo. Una aplicación de chat que no permite diferenciar entre varios estados es una mala idea. Es lenta. Es pesada. Rompe compatibilidad con personas que usan Gtalk (Las obliga a activar Hangout para ciertas cosas).  Ordena los contactos como el quiere (por frecuencia, yo los quiero por orden alfabético). Que la opción de chat sea Hangout es algo negativo, en G+ tengo esta herramienta desactivada, ahora también la tendré que desactivar en Inbox.</p>
+<p>Agrupar mensajes en Recibidos: Algo que parece interesante es que para una etiqueta dada o categoría de esas que inventaron ahora en Google (Viajes (?), Compras, Finanzas (?), Social, Notificaciones, Foros, Promociones (?)), se agrupan en la bandeja si se lo configuramos, de forma que puede haber muchas conversaciones por esa categoría que ocupen el lugar de una conversación, y presionando allí, las despliega y muestra. Con esto nos permite hacer operaciones sobre todas ellas sin seleccionar cada una. El problema con esto es que viene a solucionar otro problema que comentare después, y que hasta donde pude notar, para nuestras etiquetas esta desactivado, con lo que hay que ingresar a cada una de las etiquetas y tildar la opción que lo activa.</p>
+<p>Gestión deficiente de los elementos: Si descubrís la forma de seleccionar masivamente elementos, por favor, avisame en un comentario. No hay forma, ni un botón &#8220;Seleccionar todo&#8221;, ni el viejo Click, Shift+Click. Si queremos seleccionar varios mensajes, hay que tildarlos uno por uno. Casi que me ilusione con el hecho de que muestre la foto de perfil en la conversación, porque tengo colegas de igual nombre que cuando estoy moviendo mensajes se me mezclan, pero basta con seleccionar una conversación, para que en el resto de los mensajes no seleccionados se cambie el avatar por un ícono de selección vacío. De que sirve eso, si dejaran los avatares seria mucho mas útil!!!!</p>
+<p>Desprecio por el concepto de &#8220;No Leído&#8221;: Para los que usamos correos, la diferencia entre leído y no leído es importantes. Esto se incrementa cuando tenemos filtro para correos que deben ignorar la bandeja de recibidos, e ir directamente a las etiquetas. La lista de etiquetas no diferencia entre etiquetas con contenido sin leer y leído, con lo cual, habría que recorrer todas las etiquetas para averiguarlo. Una vez dentro, tuvieron la inteligencia de poner en negrita lo no leído. Menos mal. Sin embargo, para marcar cosas como leídas, hay que entrar a cada una. Si existe alguna función para hacerlo sin ingresar, no es intuitiva.</p>
+<p>Exclusividad en Chrome: Google, sos Microsoft hace 15 años. Tener software que solo funcione en tu navegador es algo malo para vos. Yo puedo elegir no usarte. Entiendo que tal vez tengan algún mecanismo para que al desarrollador le sea sencillo migrar aplicaciones entre Chrome y Android, pero no se cuantos cambios necesitaría ese código para funcionar en Firefox u otro navegador actual. Un mensaje para instalar Chrome si alguien ingresa con otro browser atrasa una década al menos.</p>
+<p>Hay carpetas que importan: Spam, Papelera, son carpetas que importan. Si no me ofrece un mecanismo de selección masiva de elementos, podría ofrecer una opción de &#8220;Vaciar Papelera&#8221; o &#8220;Eliminar Spam&#8221;. Pero no. Igualmente, al lado de las otras cosas, esto parece un chiste (Irónicamente, la idea del post arranco por acá, al ver cosas en Spam y que sin querer las pase a recibidos intentando eliminarlas).</p>
+<h2>Conclusiones</h2>
+<p>Hay conceptos interesantes en Inbox. Pero no tiene todo lo que se necesita para gestionar el correo día a día, con lo cual, te obliga a tener Gmail abierto en otra pestaña (De Chrome, obvio). La obsesión es tener la bandeja de entrada limpia, sin importar lo que eso implique (Cuando lo usan van a entender esta afirmación).</p>
+<p>Avanza en ideas interesantes (recordatorios, posponer), pero se olvida de cosas rutinarias (gestión de etiquetas y selección de elementos).</p>
+<p>A mi por ahora me queda una sensación al igual que con Hangouts, promete mucho sin aportar lo suficiente. Igualmente lo seguiré utilizando.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/351/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

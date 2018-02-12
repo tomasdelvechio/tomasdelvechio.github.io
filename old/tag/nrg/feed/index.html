@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>NRG &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/nrg/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Pasar una imagen de cd .ngr a .iso en Ubuntu y Debian</title>
+		<link>http://tomasdel.com/9</link>
+		<comments>http://tomasdel.com/9#comments</comments>
+		<pubDate>Thu, 06 Oct 2011 23:09:36 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[Herramientas]]></category>
+		<category><![CDATA[Bash]]></category>
+		<category><![CDATA[Comandos]]></category>
+		<category><![CDATA[Imagen de CD]]></category>
+		<category><![CDATA[ISO]]></category>
+		<category><![CDATA[NRG]]></category>
+
+		<guid isPermaLink="false">http://blog2.tomasdelvechio.com.ar/?p=9</guid>
+		<description><![CDATA[.Nrg es un formato de imagen de cd del programa Nero. Para mi es mas común manejarme con archivos .iso. Por eso, hoy tenia una imagen .nrg y necesitaba pasarla a .iso en mi Ubuntu  9.04. Busque en Internet, y en un gran blog que sigo hace tiempo, Ubuntu Life (Que recomiendo tener en el [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><em>.Nrg</em> es un formato de imagen de cd del programa <em>Nero</em>. Para mi es mas común manejarme con archivos <em>.iso</em>.</p>
+<p>Por eso, hoy tenia una imagen <em>.nrg</em> y necesitaba pasarla a <em>.iso</em> en mi <em>Ubuntu  9.04</em>.</p>
+<p>Busque en Internet, y en un gran <em>blog</em> que sigo hace tiempo, <a href="http://ubuntulife.wordpress.com/" target="_blank">Ubuntu Life</a> (Que recomiendo tener en el lector RSS de todo linuxero/ubuntero), encontré cortito y sencillo <a href="http://ubuntulife.wordpress.com/2007/05/18/convertir-un-nrg-nero-a-iso-en-ubuntu/" target="_blank">el programa que necesitaba y la forma de hacerlo</a></p>
+<p>El método seria el siguiente:</p>
+<pre class="brush: bash; gutter: true">$ sudo apt-get install nrg2iso
+...
+$ nrg2iso archivo_imagen.nrg archivo_imagen.iso
+|==============================================&gt;[100%]
+archivo_imagen.iso written : 525072540 bytes
+$</pre>
+<p>Lo anterior es solo un ejemplo, la barra de progreso se iba actualizando a medida que transformaba la imagen.</p>
+<p>Luego monte el archivo <em>.iso</em> sin ningún problema.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/9/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

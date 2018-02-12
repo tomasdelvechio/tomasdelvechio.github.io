@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>ping &#8211; El Blog de Tomas</title>
+	<atom:link href="http://tomasdel.com/tag/ping/feed" rel="self" type="application/rss+xml" />
+	<link>http://tomasdel.com</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2017 00:09:35 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Ping: Ver estadísticas sin cortar la ejecución</title>
+		<link>http://tomasdel.com/385</link>
+		<comments>http://tomasdel.com/385#respond</comments>
+		<pubDate>Fri, 30 Jan 2015 20:40:39 +0000</pubDate>
+		<dc:creator><![CDATA[Tomas]]></dc:creator>
+				<category><![CDATA[software libre]]></category>
+		<category><![CDATA[ping]]></category>
+		<category><![CDATA[redes]]></category>
+
+		<guid isPermaLink="false">http://tomasdel.com/?p=385</guid>
+		<description><![CDATA[Vía systemadmin.es me encuentro con que hay una manera de ver las estadísticas del ping sin cortar la ejecución del mismo. Mientras se ejecuta un ping, hay que enviar la señal SIGQUIT (Se logra con CTRL+&#8217;\&#8217;). La salida del ping usando esto luce mas o menos de esta manera: $ ping localhost PING localhost (127.0.0.1) [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Vía <a href="http://systemadmin.es/2015/01/estadisticas-de-ping" target="_blank">systemadmin.es</a> me encuentro con que hay una manera de ver las estadísticas del ping sin cortar la ejecución del mismo.</p>
+<p>Mientras se ejecuta un ping, hay que enviar la señal SIGQUIT (Se logra con CTRL+&#8217;\&#8217;).</p>
+<p>La salida del ping usando esto luce mas o menos de esta manera:</p>
+<pre class="brush: bash; gutter: true">$ ping localhost
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.059 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.059 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.058 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=64 time=0.064 ms
+4/4 packets, 0% loss, min/avg/ewma/max = 0.058/0.060/0.059/0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=5 ttl=64 time=0.061 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=6 ttl=64 time=0.057 ms
+6/6 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+6/6 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=7 ttl=64 time=0.057 ms
+7/7 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+7/7 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=8 ttl=64 time=0.065 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=9 ttl=64 time=0.059 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=10 ttl=64 time=0.059 ms
+10/10 packets, 0% loss, min/avg/ewma/max = 0.057/0.059/0.059/0.065 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=11 ttl=64 time=0.063 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=12 ttl=64 time=0.064 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=13 ttl=64 time=0.065 ms
+^C
+--- localhost ping statistics ---
+13 packets transmitted, 13 received, 0% packet loss, time 11993ms
+rtt min/avg/max/mdev = 0.057/0.060/0.065/0.010 ms</pre>
+<p>Si observan bien, verán un resumen de las estadísticas entre lineas, que son las veces que lance la señal SIGQUIT.</p>
+<p>La moraleja de todo esto es que hay que leer el man de los comandos mas seguido :p</p>
+<p>Source: <a href="http://systemadmin.es/2015/01/estadisticas-de-ping">http://systemadmin.es/2015/01/estadisticas-de-ping</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://tomasdel.com/385/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>
