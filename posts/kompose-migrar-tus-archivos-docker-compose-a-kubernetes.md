@@ -5,11 +5,9 @@
 .. tags: cluster, orchestration, kubernetes, devops, deploy, containers, kompose
 .. category: devops
 .. link:
-.. description:
+.. description: Migrar apps desplegadas con Docker Compose a Kubernetes utilizando Kompose
 .. type: text
 -->
-
-# Kompose: Migrar apps desplegadas con Docker Kompose a Kubernetes
 
 En un [post anterior](/blog/algunas-notas-sobre-kubernetes) desplegamos un
 cluster de pruebas con contenedores usando [Kubernetes](https://kubernetes.io) y

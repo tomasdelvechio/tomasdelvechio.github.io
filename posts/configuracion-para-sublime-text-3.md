@@ -5,11 +5,11 @@
 .. tags: dev, tools, sublime, programming
 .. category: dev
 .. link:
-.. description:
+.. description: Configuracion personalizada para Sublime Text 3
 .. type: text
 -->
 
-# Configuración para Sublime Text 3
+![Logo Sublime Text 3](/img/blog/2018/logo-sublime-text-3.png "Logo de Sublime Text 3")
 
 Soy usuario activo de Sublime Text 3. Para proyectos pequeños o creacion de
 scripts, es el editor con el que me siento mas comodo trabajando.
