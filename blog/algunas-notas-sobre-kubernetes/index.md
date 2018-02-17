@@ -4,10 +4,8 @@
 .. tags: cluster, orchestration, kubernetes, devops, deploy, containers
 .. category: devops
 .. link:
-.. description:
+.. description: Una introducción a Kubernetes para la administracion de clusters Docker
 .. type: text
-
-# Kubernetes
 
 ![Logo Kubernetes](/img/blog/2018/logo-kubernetes.png "Logo de Kubernetes")
 
