@@ -12,6 +12,7 @@
 <link rel="canonical" href="http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tomás Delvechio">
 <link rel="prev" href="../configuracion-para-sublime-text-3/" title="Configuración para Sublime Text 3" type="text/html">
+<link rel="next" href="../curso-de-git/" title="Curso de Git" type="text/html">
 <meta property="og:site_name" content="Tomás Delvechio">
 <meta property="og:title" content="Kompose: Migrar tus archivos Docker Compose a Kubernetes">
 <meta property="og:url" content="http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/">
@@ -124,6 +125,13 @@ bastante. Entonces se ejecuta</p>
 
 
 <p>y eso ya levanta con Kubernetes todos los contenedores indicados.</p>
+<h3>Troubleshooting</h3>
+<pre class="code literal-block"><span></span>kompose up
+
+WARN Unsupported root level volumes key - ignoring 
+WARN Unsupported depends_on key - ignoring        
+WARN Volume mount on the host "." isn't supported - ignoring path on the host
+</pre>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
@@ -138,6 +146,9 @@ bastante. Entonces se ejecuta</p>
 <ul class="pager hidden-print">
 <li class="previous">
                 <a href="../configuracion-para-sublime-text-3/" rel="prev" title="Configuración para Sublime Text 3">Publicación anterior</a>
+            </li>
+            <li class="next">
+                <a href="../curso-de-git/" rel="next" title="Curso de Git">Siguiente publicación</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
         

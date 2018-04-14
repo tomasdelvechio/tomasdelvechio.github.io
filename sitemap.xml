@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/archive.html</loc>
-  <lastmod>2018-02-12T00:34:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/</loc>
-  <lastmod>2018-02-04T19:44:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</loc>
@@ -30,12 +30,20 @@
   <lastmod>2018-02-03T15:27:00Z</lastmod>
  </url>
  <url>
+  <loc>http://tomasdelvechio.github.io/blog/curso-de-git/</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</loc>
   <lastmod>2018-02-04T19:44:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/</loc>
-  <lastmod>2018-02-04T19:44:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/cat_charlas/</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_dev/</loc>
@@ -44,6 +52,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_devops/</loc>
   <lastmod>2018-01-26T03:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/charlas/</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cluster/</loc>
@@ -64,6 +76,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/categories/devops/</loc>
   <lastmod>2018-01-26T03:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/git/</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/kompose/</loc>
@@ -88,6 +104,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/categories/tools/</loc>
   <lastmod>2018-02-03T15:27:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/vcs/</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/</loc>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre devops)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/cat_devops.xml" type="application/rss+xml" rel="self"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Tomás Delvechio (Publicaciones sobre devops)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/cat_devops.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 17 Feb 2018 23:24:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 14 Apr 2018 16:58:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
 cluster de pruebas con contenedores usando &lt;a href="https://kubernetes.io"&gt;Kubernetes&lt;/a&gt; y
 &lt;a href="https://github.com/kubernetes/minikube"&gt;Minikube&lt;/a&gt;. Este esquema resulta util
 cuando lo que se quiere es desplegar y escalar un contenedor.&lt;/p&gt;
@@ -35,7 +35,14 @@ bastante. Entonces se ejecuta&lt;/p&gt;
 &lt;/pre&gt;
 
 
-&lt;p&gt;y eso ya levanta con Kubernetes todos los contenedores indicados.&lt;/p&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="Logo Kubernetes" src="http://tomasdelvechio.github.io/img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"&gt;&lt;/p&gt;
+&lt;p&gt;y eso ya levanta con Kubernetes todos los contenedores indicados.&lt;/p&gt;
+&lt;h3&gt;Troubleshooting&lt;/h3&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kompose up
+
+WARN Unsupported root level volumes key - ignoring 
+WARN Unsupported depends_on key - ignoring        
+WARN Volume mount on the host "." isn't supported - ignoring path on the host
+&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="Logo Kubernetes" src="http://tomasdelvechio.github.io/img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"&gt;&lt;/p&gt;
 &lt;p&gt;Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del &lt;a href="https://kubernetes.io"&gt;tutorial oficial&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;1. Crear un cluster&lt;/h3&gt;

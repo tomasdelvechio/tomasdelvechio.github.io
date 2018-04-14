@@ -6,63 +6,79 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/cat_charlas.xml</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_dev.xml</loc>
-  <lastmod>2018-02-03T15:34:00Z</lastmod>
+  <lastmod>2018-02-17T23:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_devops.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/charlas.xml</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cluster.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/containers.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/deploy.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/dev.xml</loc>
-  <lastmod>2018-02-03T15:34:00Z</lastmod>
+  <lastmod>2018-02-17T23:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/devops.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/git.xml</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/kompose.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/kubernetes.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/orchestration.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/programming.xml</loc>
-  <lastmod>2018-02-03T15:34:00Z</lastmod>
+  <lastmod>2018-02-17T23:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/sublime.xml</loc>
-  <lastmod>2018-02-03T15:34:00Z</lastmod>
+  <lastmod>2018-02-17T23:21:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/tools.xml</loc>
-  <lastmod>2018-02-03T15:34:00Z</lastmod>
+  <lastmod>2018-02-17T23:21:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/vcs.xml</loc>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/rss.xml</loc>
-  <lastmod>2018-02-09T22:52:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/sitemap.xml</loc>
-  <lastmod>2018-02-12T00:34:00Z</lastmod>
+  <lastmod>2018-04-14T16:58:00Z</lastmod>
  </sitemap>
 </sitemapindex>
