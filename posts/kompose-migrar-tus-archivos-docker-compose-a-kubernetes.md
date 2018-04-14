@@ -47,3 +47,11 @@ bastante. Entonces se ejecuta
 	kompose up
 
 y eso ya levanta con Kubernetes todos los contenedores indicados.
+
+## Troubleshooting
+
+	kompose up
+
+	WARN Unsupported root level volumes key - ignoring 
+	WARN Unsupported depends_on key - ignoring        
+	WARN Volume mount on the host "." isn't supported - ignoring path on the host 
