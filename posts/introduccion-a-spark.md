@@ -23,6 +23,10 @@ Spark acepta Java, Scala, Python y R, aunque no todos estan soportados de la mis
 
 ## Otras herramientas
 
-Spark ofrece ademas una consola interactiva para Scala, Python y R con capacidades REPL (Read, Evaluate, Print y Loop).
+Spark ofrece ademas una consola interactiva para Scala, Python y R con capacidades **REPL** (Read, Evaluate, Print y Loop).
 
-Ademas del core, Spark ofrece algunas librerias para tareas comunes en el ambito de big data: SparkSQL, Spark Streaming, Spark MLlib y Spark GraphX.
+Ademas del core, Spark ofrece algunas librerias para tareas comunes en el ambito de big data: *SparkSQL*, *Spark Streaming*, *Spark MLlib* y *Spark GraphX*.
+
+## Arquitectura
+
+![Arquitectura Spark](/img/blog/2018/spark-arquitectura.png "Arquitectura de Spark")
