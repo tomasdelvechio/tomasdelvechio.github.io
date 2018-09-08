@@ -27,6 +27,8 @@ Spark ofrece ademas una consola interactiva para Scala, Python y R con capacidad
 
 Ademas del core, Spark ofrece algunas librerias para tareas comunes en el ambito de big data: *SparkSQL*, *Spark Streaming*, *Spark MLlib* y *Spark GraphX*.
 
+Es posible vincular Spark a una Notebook de Jupyter y trabajar desde la interfaz de esta herramienta para hacer pruebas. (TODO: Agregar link a la notebook).
+
 ## Arquitectura
 
 Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser *Spark Master* (standalone) *Mesos Master* (Apache Mesos) o *ResourceManager* (Apache Hadoop - YARN). Luego un proceso driver que se conoce como SparkContext y por ultimo de los workers.
