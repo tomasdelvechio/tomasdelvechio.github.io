@@ -29,5 +29,5 @@ Ademas del core, Spark ofrece algunas librerias para tareas comunes en el ambito
 
 ## Arquitectura
 
-Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser Spark Master (standalone) Mesos Master (Apache Mesos) o ResourceManager (Apache Hadoop - YARN).
+Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser *Spark Master* (standalone) *Mesos Master* (Apache Mesos) o *ResourceManager* (Apache Hadoop - YARN). Luego un proceso driver que se conoce como SparkContext y por ultimo de los workers.
 
