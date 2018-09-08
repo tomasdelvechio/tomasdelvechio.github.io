@@ -15,15 +15,19 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/archive.html</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</loc>
   <lastmod>2018-01-26T03:22:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</loc>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</loc>
@@ -34,12 +38,20 @@
   <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
  <url>
+  <loc>http://tomasdelvechio.github.io/blog/introduccion-a-spark/</loc>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</loc>
   <lastmod>2018-02-04T19:44:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/big-data/</loc>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_charlas/</loc>
@@ -52,6 +64,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_devops/</loc>
   <lastmod>2018-01-26T03:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/cat_distributed-systems/</loc>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/charlas/</loc>
@@ -78,6 +94,10 @@
   <lastmod>2018-01-26T03:25:00Z</lastmod>
  </url>
  <url>
+  <loc>http://tomasdelvechio.github.io/categories/distributed-systems/</loc>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://tomasdelvechio.github.io/categories/git/</loc>
   <lastmod>2018-04-14T16:58:00Z</lastmod>
  </url>
@@ -96,6 +116,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/categories/programming/</loc>
   <lastmod>2018-02-03T15:27:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/spark/</loc>
+  <lastmod>2018-09-08T18:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/sublime/</loc>

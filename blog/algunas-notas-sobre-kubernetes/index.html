@@ -401,6 +401,32 @@ el cluster tenga disponibles.</p>
 <li>¿Un Pod es equivalente a un container?</li>
 </ul>
 <p>Un pod es un container de una aplicación en particular gestionado por kubernetes</p>
+<h2>Troubleshooting</h2>
+<ul>
+<li>Al querer ejecutar <code>minikube start</code> se obtiene el error "Error starting host: Error getting state for host: machine does not exist".</li>
+</ul>
+<p>El error completo es:</p>
+<pre class="code literal-block"><span></span>$ minikube start
+Starting <span class="nb">local</span> Kubernetes v1.9.0 cluster...
+Starting VM...
+E0428 <span class="m">17</span>:06:43.557255   <span class="m">18070</span> start.go:159<span class="o">]</span> Error starting host: Error getting state <span class="k">for</span> host: machine does not exist.
+
+ Retrying.
+E0428 <span class="m">17</span>:06:43.557517   <span class="m">18070</span> start.go:165<span class="o">]</span> Error starting host:  Error getting state <span class="k">for</span> host: machine does not <span class="nv">exist</span>
+<span class="o">================================================================================</span>
+An error has occurred. Would you like to opt in to sending anonymized crash
+information to minikube to <span class="nb">help</span> prevent future errors?
+To opt out of these messages, run the command:
+        minikube config <span class="nb">set</span> WantReportErrorPrompt <span class="nb">false</span>
+<span class="o">================================================================================</span>
+Please enter your response <span class="o">[</span>Y/n<span class="o">]</span>: n
+</pre>
+
+
+<p>Esto me pasó a mi por borrar en algun momento la vm de Virtualbox que crea minikube. La forma mas facil de recuperarse de este error es:</p>
+<pre class="code literal-block"><span></span>$ minikube delete
+$ minikube start
+</pre>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

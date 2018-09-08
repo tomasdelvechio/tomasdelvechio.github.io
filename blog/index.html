@@ -63,7 +63,93 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="curso-de-git/" class="u-url">Curso de Git</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="introduccion-a-spark/" class="u-url">Introducción a Spark</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tomás Delvechio
+            </span></p>
+            <p class="dateline"><a href="introduccion-a-spark/" rel="bookmark"><time class="published dt-published" datetime="2018-09-08T15:15:18-03:00" title="2018-09-08 15:15">2018-09-08 15:15</time></a></p>
+                <p class="commentline">
+        
+    <a href="introduccion-a-spark/#disqus_thread" data-disqus-identifier="cache/posts/introduccion-a-spark.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Apache Spark es un framework de procesamiento muy de moda en entornos de procesamiento para Big Data, IoT y Machine Learning.</p>
+<h3>Pipeline</h3>
+<p>El pipeline de trabajo en spark es conocido como <strong>DAG</strong> (Directed Acyclic Graph) y se basa en armar un grafo de trabajo donde las tareas se sucedan unas a otras segun se establezca.</p>
+<p>Ademas, propone que muchas operaciones que en MapReduce involucran operaciones de entrada salida a disco, se hagan en memoria principal, lo que genera un rendimiento mayor comparado con su predecesor.</p>
+<h3>Lenguajes</h3>
+<p>Spark acepta Java, Scala, Python y R, aunque no todos estan soportados de la misma forma y de manera completa.</p>
+<h3>Otras herramientas</h3>
+<p>Spark ofrece ademas una consola interactiva para Scala, Python y R con capacidades REPL (Read, Evaluate, Print y Loop).</p>
+<p>Ademas del core, Spark ofrece algunas librerias para tareas comunes en el ambito de big data: SparkSQL, Spark Streaming, Spark MLlib y Spark GraphX.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="automatizando-deploy-con-helm/" class="u-url">Automatizando deploy con Helm</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Tomás Delvechio
+            </span></p>
+            <p class="dateline"><a href="automatizando-deploy-con-helm/" rel="bookmark"><time class="published dt-published" datetime="2018-04-28T16:22:28-03:00" title="2018-04-28 16:22">2018-04-28 16:22</time></a></p>
+                <p class="commentline">
+        
+    <a href="automatizando-deploy-con-helm/#disqus_thread" data-disqus-identifier="cache/posts/automatizando-deploy-con-helm.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Automatizando Deploy con Helm</h2>
+<ol>
+<li>Tener un cluster kubernetes andando y corriendo (por ejemplo minikube)</li>
+</ol>
+<pre class="code literal-block"><span></span>$ minikube start
+</pre>
+
+
+<ol>
+<li>Instalar Helm y Tiller</li>
+</ol>
+<p>Tiller es un servidor in cluster de helm (Se instala en el cluster). Para mas detalle, ver la <a href="https://docs.helm.sh/using_helm/#quickstart">doc oficial</a>.</p>
+<pre class="code literal-block"><span></span>$ helm init
+Creating /home/tomas/.helm
+Creating /home/tomas/.helm/repository
+Creating /home/tomas/.helm/repository/cache
+Creating /home/tomas/.helm/repository/local
+Creating /home/tomas/.helm/plugins
+Creating /home/tomas/.helm/starters
+Creating /home/tomas/.helm/cache/archive
+Creating /home/tomas/.helm/repository/repositories.yaml
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com
+Adding <span class="nb">local</span> repo with URL: http://127.0.0.1:8879/charts
+<span class="nv">$HELM_HOME</span> has been configured at /home/tomas/.helm.
+
+Tiller <span class="o">(</span>the Helm server-side component<span class="o">)</span> has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure <span class="s1">'allow unauthenticated users'</span> policy.
+For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
+Happy Helming!
+</pre>
+
+
+<ol>
+<li>Actualizar Respositorio de Charts</li>
+</ol>
+<p>Los programas que se instalan via Helm se llaman Charts. Antes de instalar un chart, se debe actualizar la lista de charts disponibles</p>
+<pre class="code literal-block"><span></span>helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈
+</pre>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="curso-de-git/" class="u-url">Curso de Git</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Tomás Delvechio
@@ -539,6 +625,32 @@ el cluster tenga disponibles.</p>
 <li>¿Un Pod es equivalente a un container?</li>
 </ul>
 <p>Un pod es un container de una aplicación en particular gestionado por kubernetes</p>
+<h2>Troubleshooting</h2>
+<ul>
+<li>Al querer ejecutar <code>minikube start</code> se obtiene el error "Error starting host: Error getting state for host: machine does not exist".</li>
+</ul>
+<p>El error completo es:</p>
+<pre class="code literal-block"><span></span>$ minikube start
+Starting <span class="nb">local</span> Kubernetes v1.9.0 cluster...
+Starting VM...
+E0428 <span class="m">17</span>:06:43.557255   <span class="m">18070</span> start.go:159<span class="o">]</span> Error starting host: Error getting state <span class="k">for</span> host: machine does not exist.
+
+ Retrying.
+E0428 <span class="m">17</span>:06:43.557517   <span class="m">18070</span> start.go:165<span class="o">]</span> Error starting host:  Error getting state <span class="k">for</span> host: machine does not <span class="nv">exist</span>
+<span class="o">================================================================================</span>
+An error has occurred. Would you like to opt in to sending anonymized crash
+information to minikube to <span class="nb">help</span> prevent future errors?
+To opt out of these messages, run the command:
+        minikube config <span class="nb">set</span> WantReportErrorPrompt <span class="nb">false</span>
+<span class="o">================================================================================</span>
+Please enter your response <span class="o">[</span>Y/n<span class="o">]</span>: n
+</pre>
+
+
+<p>Esto me pasó a mi por borrar en algun momento la vm de Virtualbox que crea minikube. La forma mas facil de recuperarse de este error es:</p>
+<pre class="code literal-block"><span></span>$ minikube delete
+$ minikube start
+</pre>
 </div>
     </div>
     </article>
