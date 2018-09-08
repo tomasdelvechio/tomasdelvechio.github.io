@@ -29,4 +29,5 @@ Ademas del core, Spark ofrece algunas librerias para tareas comunes en el ambito
 
 ## Arquitectura
 
-![Arquitectura Spark](/img/blog/2018/spark-arquitectura.png "Arquitectura de Spark")
+Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser Spark Master (standalone) Mesos Master (Apache Mesos) o ResourceManager (Apache Hadoop - YARN).
+
