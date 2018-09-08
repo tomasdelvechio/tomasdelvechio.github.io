@@ -307,3 +307,32 @@ el cluster tenga disponibles.
  + ¿Un Pod es equivalente a un container?
 
 Un pod es un container de una aplicación en particular gestionado por kubernetes
+
+# Troubleshooting
+
++ Al querer ejecutar `minikube start` se obtiene el error "Error starting host: Error getting state for host: machine does not exist".
+
+El error completo es:
+```
+$ minikube start
+Starting local Kubernetes v1.9.0 cluster...
+Starting VM...
+E0428 17:06:43.557255   18070 start.go:159] Error starting host: Error getting state for host: machine does not exist.
+
+ Retrying.
+E0428 17:06:43.557517   18070 start.go:165] Error starting host:  Error getting state for host: machine does not exist
+================================================================================
+An error has occurred. Would you like to opt in to sending anonymized crash
+information to minikube to help prevent future errors?
+To opt out of these messages, run the command:
+        minikube config set WantReportErrorPrompt false
+================================================================================
+Please enter your response [Y/n]: n
+```
+
+Esto me pasó a mi por borrar en algun momento la vm de Virtualbox que crea minikube. La forma mas facil de recuperarse de este error es:
+
+```
+$ minikube delete
+$ minikube start
+```
