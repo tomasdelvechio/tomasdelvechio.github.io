@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://tomasdelvechio.github.io/</loc>
-  <lastmod>2018-10-07T14:22:00Z</lastmod>
+  <lastmod>2018-10-07T14:35:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/2018/</loc>
@@ -2348,10 +2348,6 @@
  <url>
   <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/carrusel/carrusel.html</loc>
   <lastmod>2018-01-24T19:41:00Z</lastmod>
- </url>
- <url>
-  <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/mvc-framework/</loc>
-  <lastmod>2018-10-02T21:39:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/toggle-passwd-input/</loc>
