@@ -199,3 +199,17 @@ a:hover, a:focus, a:active {
   top: 1.143em;
   text-align: center;
 }
+
+
+@media (max-width: 992px) {
+.bg-primary {
+  background-color: #3d867f !important;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fbfbfb;
+}
+
+}
