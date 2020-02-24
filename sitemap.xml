@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://tomasdelvechio.github.io/</loc>
-  <lastmod>2018-10-07T14:35:00Z</lastmod>
+  <lastmod>2020-02-23T22:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/2018/</loc>
@@ -15,7 +15,7 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/archive.html</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/</loc>
@@ -132,10 +132,6 @@
  <url>
   <loc>http://tomasdelvechio.github.io/categories/vcs/</loc>
   <lastmod>2018-04-14T16:58:00Z</lastmod>
- </url>
- <url>
-  <loc>http://tomasdelvechio.github.io/google91952daabf945870/</loc>
-  <lastmod>2018-10-07T14:22:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/</loc>
@@ -2336,6 +2332,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed/</loc>
   <lastmod>2018-02-12T00:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/old_index/</loc>
+  <lastmod>2020-02-23T21:39:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/</loc>

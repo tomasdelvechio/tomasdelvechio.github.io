@@ -222,7 +222,7 @@ a:hover, a:focus, a:active {
 
 .tags {
   list-style: none;
-  overflow: hidden; 
+  overflow: hidden;
   padding: 0;
   display: block;
   margin-top: -20px;
@@ -230,7 +230,7 @@ a:hover, a:focus, a:active {
 }
 
 .tags li {
-  float: left; 
+  float: left;
 }
 
 .tag {
@@ -276,5 +276,11 @@ a:hover, a:focus, a:active {
 }
 
 .tag:hover::after {
-   border-left-color: #495057; 
+   border-left-color: #495057;
+}
+
+.anio-title {
+  color: #3d867f !important;
+  margin: 0px;
+  font-weight: bolder;
 }

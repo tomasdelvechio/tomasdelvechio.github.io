@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Tomás Delvechio (Publicaciones sobre cluster)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="http://tomasdelvechio.github.io/categories/cluster.xml"></atom:link><language>es</language><copyright>Contents © 2018 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre cluster)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/cluster.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2020 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sat, 08 Sep 2018 18:48:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 23 Feb 2020 21:33:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
 cluster de pruebas con contenedores usando &lt;a href="https://kubernetes.io"&gt;Kubernetes&lt;/a&gt; y
 &lt;a href="https://github.com/kubernetes/minikube"&gt;Minikube&lt;/a&gt;. Este esquema resulta util
 cuando lo que se quiere es desplegar y escalar un contenedor.&lt;/p&gt;
@@ -31,18 +31,18 @@ encuentra documentada en la &lt;a href="http://kompose.io/installation/"&gt;pagi
 &lt;p&gt;La forma mas sencilla de utilizar es la segunda, dado que contamos con un
 proyecto con un archivo docker-compose.yml o en general conocemos ese formato
 bastante. Entonces se ejecuta&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kompose up
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kompose up&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;y eso ya levanta con Kubernetes todos los contenedores indicados.&lt;/p&gt;
 &lt;h3&gt;Troubleshooting&lt;/h3&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kompose up
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;kompose&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;
 
-WARN Unsupported root level volumes key - ignoring 
-WARN Unsupported depends_on key - ignoring        
-WARN Volume mount on the host "." isn't supported - ignoring path on the host
-&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="Logo Kubernetes" src="http://tomasdelvechio.github.io/img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"&gt;&lt;/p&gt;
+&lt;span class="n"&gt;WARN&lt;/span&gt; &lt;span class="n"&gt;Unsupported&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="k"&gt;level&lt;/span&gt; &lt;span class="n"&gt;volumes&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ignoring&lt;/span&gt; 
+&lt;span class="n"&gt;WARN&lt;/span&gt; &lt;span class="n"&gt;Unsupported&lt;/span&gt; &lt;span class="n"&gt;depends_on&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ignoring&lt;/span&gt;        
+&lt;span class="n"&gt;WARN&lt;/span&gt; &lt;span class="n"&gt;Volume&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;host&lt;/span&gt; &lt;span class="ss"&gt;"."&lt;/span&gt; &lt;span class="n"&gt;isn&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ignoring&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;host&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item><item><title>Algunas notas sobre Kubernetes</title><link>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="Logo Kubernetes" src="http://tomasdelvechio.github.io/img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"&gt;&lt;/p&gt;
 &lt;p&gt;Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del &lt;a href="https://kubernetes.io"&gt;tutorial oficial&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;1. Crear un cluster&lt;/h3&gt;
@@ -62,29 +62,29 @@ Instala un cluster y facilita la configuracion de kubernetes (Instalarlo a mano
 era complejo).&lt;/p&gt;
 &lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
 &lt;p&gt;Testear la version de minikube&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;minikube version
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;minikube version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Iniciar un cluster usando minikube&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;minikube start
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;minikube start&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Linea de comandos de Kubernetes: &lt;code&gt;kubectl&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Version de kubectl (Para verificar que esta instalado):&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl version
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver información de cluster&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl cluster-info
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl cluster-info&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver nodos del cluster&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get nodes
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get nodes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;h3&gt;2. Crear deploys con kubectl&lt;/h3&gt;
@@ -95,20 +95,20 @@ ejecuta sobre los nodos.&lt;/p&gt;
 regenera nuevamente.&lt;/p&gt;
 &lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
 &lt;p&gt;Correr un ejemplo&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl run kubernetes-bootcamp \
-    --image=docker.io/jocatalin/kubernetes-bootcamp:v1 \
-    --port=8080
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl run kubernetes-bootcamp \&lt;/span&gt;
+&lt;span class="err"&gt;    --image=docker.io/jocatalin/kubernetes-bootcamp:v1 \&lt;/span&gt;
+&lt;span class="err"&gt;    --port=8080&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver la app en ejecucion&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get deployments
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get deployments&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Generar un entrypoint al cluster (temporal para pruebas)&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl proxy
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl proxy&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;h3&gt;3. Explorar la App&lt;/h3&gt;
@@ -117,28 +117,28 @@ asociados.&lt;/p&gt;
 &lt;p&gt;Los Pods son creados por Kubernetes al realizar el deploy de la app. Se crean
 siempre en un nodo.&lt;/p&gt;
 &lt;p&gt;Operaciones mas usadas de &lt;code&gt;kubectl&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get
-kubectl describe
-kubectl logs
-kubectl exec
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get&lt;/span&gt;
+&lt;span class="err"&gt;kubectl describe&lt;/span&gt;
+&lt;span class="err"&gt;kubectl logs&lt;/span&gt;
+&lt;span class="err"&gt;kubectl exec&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
 &lt;p&gt;Listar pods&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get pods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Para obtener información detallada de los Pods&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe pods
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl describe pods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Para acceder a los Pods, que funcionan en una red aislada y privada, se utiliza
 el &lt;code&gt;proxy&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl proxy
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl proxy&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Dicho proxy expone temporalmente la red y permite la comunicación con el host.
@@ -146,24 +146,24 @@ Esto se utiliza para acceder a la API de los Pods y realizar consultas de forma
 directa (Por ejemplo, usando el comando &lt;code&gt;curl&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;Para diversas operaciones con los pods, es necesario obtener el nombre que
 Kubernetes le asigno al mismo. Un comando para hacer esto es:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export POD_NAME=$(kubectl get pods -o go-template --template '&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;range&lt;/span&gt; &lt;span class="nv"&gt;.items&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;.metadata.name&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="s2"&gt;"\n"&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;export POD_NAME=$(kubectl get pods -o go-template --template '&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;range&lt;/span&gt; &lt;span class="nv"&gt;.items&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;.metadata.name&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="s2"&gt;"\n"&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Para ver los logs:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl logs $POD_NAME
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl logs $POD_NAME&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Todo lo que los proceso envien a stdout es expuesto como logs del pod.&lt;/p&gt;
 &lt;p&gt;Ejecutar comandos en un pod:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl exec $POD_NAME env
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl exec $POD_NAME env&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Abrir una consola en un POD:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl exec -ti $POD_NAME bash
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl exec -ti $POD_NAME bash&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;h3&gt;4. Usar un servicio para exponer la App&lt;/h3&gt;
@@ -176,62 +176,62 @@ politicas de acceso sobre un conjunto lógico de Pods.&lt;/p&gt;
 objetivos (taggear versiones, separar versiones para test, debug y produccion).&lt;/p&gt;
 &lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
 &lt;p&gt;Listar servicios expuestos:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get services
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get services&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Exponer un servicio:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver detalles de servicios:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe services/kubernetes-bootcamp
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl describe services/kubernetes-bootcamp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver que puerto fue abierto externamente:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
 &lt;span class="x"&gt;echo NODE_PORT=$NODE_PORT&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Una vez expuesto, se puede consultar el servicio directamente con:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;curl host01:$NODE_PORT
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;curl host01:$NODE_PORT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Consultar los pods que estan etiquetados con un label particular:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods -l run=kubernetes-bootcamp
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get pods -l run=kubernetes-bootcamp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;El label en el caso anterior es &lt;code&gt;run=kubernetes-bootcamp&lt;/code&gt;. Funciona
 identicamente para consultar servicios:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get services -l run=kubernetes-bootcamp
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get services -l run=kubernetes-bootcamp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Obtener el nombre del POD&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export POD_NAME=$(kubectl get pods -o go-template --template '&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;range&lt;/span&gt; &lt;span class="nv"&gt;.items&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;.metadata.name&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="s2"&gt;"\n"&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;export POD_NAME=$(kubectl get pods -o go-template --template '&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;range&lt;/span&gt; &lt;span class="nv"&gt;.items&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;.metadata.name&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="s2"&gt;"\n"&lt;/span&gt;&lt;span class="cp"&gt;}}{{&lt;/span&gt;&lt;span class="nv"&gt;end&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
 &lt;span class="x"&gt;echo Name of the Pod: $POD_NAME&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Aplicar un nuevo label a un Pod:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl label pod $POD_NAME app=v1
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl label pod $POD_NAME app=v1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Consultar el label recien aplicado:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe pods $POD_NAME
-kubectl get pods -l app=v1
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl describe pods $POD_NAME&lt;/span&gt;
+&lt;span class="err"&gt;kubectl get pods -l app=v1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Borrar un servicio:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl delete service -l run=kubernetes-bootcamp
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl delete service -l run=kubernetes-bootcamp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;h3&gt;5. Multiples instancias de una App&lt;/h3&gt;
@@ -240,50 +240,50 @@ incrementos de trafico en la aplicación. Los services manejan el trafico hacia
 los pods mendiante un load-balancer.&lt;/p&gt;
 &lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
 &lt;p&gt;Escalar (scale up) un deployment llamado kubernetes-bootcamp a 4 replicas:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl scale deployments/kubernetes-bootcamp --replicas=4
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl scale deployments/kubernetes-bootcamp --replicas=4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver los deployments:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get deployments
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get deployments&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Controlar los pods (Tiene que haber 4):&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods -o wide
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get pods -o wide&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver el deployment de forma mas detallada:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe deployments/kubernetes-bootcamp
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl describe deployments/kubernetes-bootcamp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver el servicio:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe services/kubernetes-bootcamp
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl describe services/kubernetes-bootcamp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Recuperar el nodo:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
 &lt;span class="x"&gt;echo NODE_PORT=$NODE_PORT&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ejecutar varias veces:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;curl host01:$NODE_PORT
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;curl host01:$NODE_PORT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Deberian responder diferentes pods de la misma app.&lt;/p&gt;
 &lt;p&gt;Ejecutar ahora solo 2 replicas (Scale down):&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl scale deployments/kubernetes-bootcamp --replicas=2
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl scale deployments/kubernetes-bootcamp --replicas=2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Confirmar el cambio:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get deployments
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get deployments&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;h3&gt;6. Realizando actualizaciones progresivas&lt;/h3&gt;
@@ -294,52 +294,52 @@ sin tener downtimes y ademas puede ser revertido en caso de problemas
 (rollbacks).&lt;/p&gt;
 &lt;h4&gt;Tutorial interactivo&lt;/h4&gt;
 &lt;p&gt;Ver imagen actual de los pods (Campo image):&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl describe pods
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl describe pods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Actualizar la image:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver información de los Pods:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get pods
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get pods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;No actualiza los viejos pods, sino que termina los anteirores y crea pods
 nuevos.&lt;/p&gt;
 &lt;p&gt;Verificar que la app actualizo:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;kubectl describe services/kubernetes-bootcamp&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;kubectl describe services/kubernetes-bootcamp&lt;/span&gt;
 &lt;span class="x"&gt;export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;.spec.ports&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;.nodePort&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;')&lt;/span&gt;
 &lt;span class="x"&gt;echo NODE_PORT=$NODE_PORT&lt;/span&gt;
 &lt;span class="x"&gt;curl host01:$NODE_PORT&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Tambien puede verificarse el exito mediante:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl rollout status deployments/kubernetes-bootcamp
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl rollout status deployments/kubernetes-bootcamp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Deployar una version "con errores":&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Ver problemas:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl get deployments
-kubectl get pods
-kubectl describe pods
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl get deployments&lt;/span&gt;
+&lt;span class="err"&gt;kubectl get pods&lt;/span&gt;
+&lt;span class="err"&gt;kubectl describe pods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Rollback:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;kubectl rollout undo deployments/kubernetes-bootcamp
-kubectl get pods
-kubectl describe pods
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kubectl rollout undo deployments/kubernetes-bootcamp&lt;/span&gt;
+&lt;span class="err"&gt;kubectl get pods&lt;/span&gt;
+&lt;span class="err"&gt;kubectl describe pods&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;h2&gt;Dudas&lt;/h2&gt;
@@ -358,7 +358,7 @@ el cluster tenga disponibles.&lt;/p&gt;
 &lt;li&gt;Al querer ejecutar &lt;code&gt;minikube start&lt;/code&gt; se obtiene el error "Error starting host: Error getting state for host: machine does not exist".&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;El error completo es:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ minikube start
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ minikube start
 Starting &lt;span class="nb"&gt;local&lt;/span&gt; Kubernetes v1.9.0 cluster...
 Starting VM...
 E0428 &lt;span class="m"&gt;17&lt;/span&gt;:06:43.557255   &lt;span class="m"&gt;18070&lt;/span&gt; start.go:159&lt;span class="o"&gt;]&lt;/span&gt; Error starting host: Error getting state &lt;span class="k"&gt;for&lt;/span&gt; host: machine does not exist.
@@ -372,10 +372,10 @@ To opt out of these messages, run the command:
         minikube config &lt;span class="nb"&gt;set&lt;/span&gt; WantReportErrorPrompt &lt;span class="nb"&gt;false&lt;/span&gt;
 &lt;span class="o"&gt;================================================================================&lt;/span&gt;
 Please enter your response &lt;span class="o"&gt;[&lt;/span&gt;Y/n&lt;span class="o"&gt;]&lt;/span&gt;: n
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Esto me pasó a mi por borrar en algun momento la vm de Virtualbox que crea minikube. La forma mas facil de recuperarse de este error es:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ minikube delete
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ minikube delete
 $ minikube start
-&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</guid><pubDate>Fri, 26 Jan 2018 03:18:56 GMT</pubDate></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</guid><pubDate>Fri, 26 Jan 2018 03:18:56 GMT</pubDate></item></channel></rss>

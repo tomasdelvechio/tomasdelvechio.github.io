@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tomás Delvechio</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
@@ -15,69 +16,76 @@
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
 
-<!-- Menubar -->
-
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
-<!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Mostrar navegación</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+<!-- Header and menu bar -->
+<div class="container">
+      <header class="blog-header py-3"><div class="row nbb-header align-items-center">
+          <div class="col-md-3 col-xs-2 col-sm-2" style="width: auto;">
+            <button class="navbar-toggler navbar-light bg-light nbb-navbar-toggler" type="button" data-toggle="collapse" data-target=".bs-nav-collapsible" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="http://tomasdelvechio.github.io/">
-
-                <span id="blog-title">Tomás Delvechio</span>
-            </a>
+            <div class="collapse bs-nav-collapsible bootblog4-search-form-holder">
+                
+            </div>
         </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="../blog">Blog</a>
+          <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
+            <a class="navbar-brand blog-header-logo text-dark" href="http://tomasdelvechio.github.io/">
+
+            <span id="blog-title">Tomás Delvechio</span>
+        </a>
+          </div>
+            <div class="col-md-3 justify-content-end align-items-center bs-nav-collapsible collapse flex-collapse bootblog4-right-nav">
+            <nav class="navbar navbar-light bg-white"><ul class="navbar-nav bootblog4-right-nav"></ul></nav>
+</div>
+    </div>
+</header><nav class="navbar navbar-expand-md navbar-light bg-white static-top"><div class="collapse navbar-collapse bs-nav-collapsible" id="bs-navbar">
+            <ul class="navbar-nav nav-fill d-flex w-100">
+<li class="nav-item">
+<a href="../blog" class="nav-link">Blog</a>
                 </li>
-<li>
-<a href="../old">Old Blog</a>
+<li class="nav-item">
+<a href="../old" class="nav-link">Old Blog</a>
                 </li>
-<li>
-<a href="../rss.xml">RSS</a>
+<li class="nav-item">
+<a href="../rss.xml" class="nav-link">RSS</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
-    </div>
-<!-- /.container -->
-</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+</nav>
+</div>
+
+<div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
-        <div class="row">
-            
-            
-
-    
-
-
-    
-<div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="introduccion-a-spark/" class="u-url">Introducción a Spark</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Tomás Delvechio
-            </span></p>
-            <p class="dateline"><a href="introduccion-a-spark/" rel="bookmark"><time class="published dt-published" datetime="2018-09-08T15:15:18-03:00" title="2018-09-08 15:15">2018-09-08 15:15</time></a></p>
-                <p class="commentline">
         
-    <a href="introduccion-a-spark/#disqus_thread" data-disqus-identifier="cache/posts/introduccion-a-spark.html">Comments</a>
+        
+        
+    
+        
+
+    
+        
+    <div class="postindex">
+            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="introduccion-a-spark/" class="u-url">Introducción a Spark</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Tomás Delvechio
+                    </span></p>
+            <p class="dateline">
+            <a href="introduccion-a-spark/" rel="bookmark">
+            <time class="published dt-published" datetime="2018-09-08T15:15:18-03:00" itemprop="datePublished" title="2018-09-08 15:15">2018-09-08 15:15</time></a>
+            </p>
+                        <p class="commentline">
+        
+    <a href="introduccion-a-spark/#disqus_thread" data-disqus-identifier="cache/posts/introduccion-a-spark.html">Comentarios</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p>Apache Spark es un framework de procesamiento muy de moda en entornos de procesamiento para Big Data, IoT y Machine Learning.</p>
 <h3>Pipeline</h3>
 <p>El pipeline de trabajo en spark es conocido como <strong>DAG</strong> (Directed Acyclic Graph) y se basa en armar un grafo de trabajo donde las tareas se sucedan unas a otras segun se establezca.</p>
@@ -91,35 +99,38 @@
 <h3>Arquitectura</h3>
 <p>Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser <em>Spark Master</em> (standalone) <em>Mesos Master</em> (Apache Mesos) o <em>ResourceManager</em> (Apache Hadoop - YARN). Luego un proceso driver que se conoce como SparkContext y por ultimo de los workers.</p>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="automatizando-deploy-con-helm/" class="u-url">Automatizando deploy con Helm</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Tomás Delvechio
-            </span></p>
-            <p class="dateline"><a href="automatizando-deploy-con-helm/" rel="bookmark"><time class="published dt-published" datetime="2018-04-28T16:22:28-03:00" title="2018-04-28 16:22">2018-04-28 16:22</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="automatizando-deploy-con-helm/" class="u-url">Automatizando deploy con Helm</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Tomás Delvechio
+                    </span></p>
+            <p class="dateline">
+            <a href="automatizando-deploy-con-helm/" rel="bookmark">
+            <time class="published dt-published" datetime="2018-04-28T16:22:28-03:00" itemprop="datePublished" title="2018-04-28 16:22">2018-04-28 16:22</time></a>
+            </p>
+                        <p class="commentline">
         
-    <a href="automatizando-deploy-con-helm/#disqus_thread" data-disqus-identifier="cache/posts/automatizando-deploy-con-helm.html">Comments</a>
+    <a href="automatizando-deploy-con-helm/#disqus_thread" data-disqus-identifier="cache/posts/automatizando-deploy-con-helm.html">Comentarios</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <h2>Automatizando Deploy con Helm</h2>
 <ol>
 <li>Tener un cluster kubernetes andando y corriendo (por ejemplo minikube)</li>
 </ol>
-<pre class="code literal-block"><span></span>$ minikube start
-</pre>
+<pre class="code literal-block"><span></span><code>$ minikube start
+</code></pre>
 
 
 <ol>
 <li>Instalar Helm y Tiller</li>
 </ol>
 <p>Tiller es un servidor in cluster de helm (Se instala en el cluster). Para mas detalle, ver la <a href="https://docs.helm.sh/using_helm/#quickstart">doc oficial</a>.</p>
-<pre class="code literal-block"><span></span>$ helm init
+<pre class="code literal-block"><span></span><code>$ helm init
 Creating /home/tomas/.helm
 Creating /home/tomas/.helm/repository
 Creating /home/tomas/.helm/repository/cache
@@ -137,57 +148,63 @@ Tiller <span class="o">(</span>the Helm server-side component<span class="o">)</
 Please note: by default, Tiller is deployed with an insecure <span class="s1">'allow unauthenticated users'</span> policy.
 For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
 Happy Helming!
-</pre>
+</code></pre>
 
 
 <ol>
 <li>Actualizar Respositorio de Charts</li>
 </ol>
 <p>Los programas que se instalan via Helm se llaman Charts. Antes de instalar un chart, se debe actualizar la lista de charts disponibles</p>
-<pre class="code literal-block"><span></span>helm repo update
-Hang tight while we grab the latest from your chart repositories...
-...Skip local chart repository
-...Successfully got an update from the "stable" chart repository
-Update Complete. ⎈ Happy Helming!⎈
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">helm repo update</span>
+<span class="err">Hang tight while we grab the latest from your chart repositories...</span>
+<span class="err">...Skip local chart repository</span>
+<span class="err">...Successfully got an update from the "stable" chart repository</span>
+<span class="err">Update Complete. ⎈ Happy Helming!⎈</span>
+</code></pre>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="curso-de-git/" class="u-url">Curso de Git</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Tomás Delvechio
-            </span></p>
-            <p class="dateline"><a href="curso-de-git/" rel="bookmark"><time class="published dt-published" datetime="2018-04-14T12:09:54-03:00" title="2018-04-14 12:09">2018-04-14 12:09</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="curso-de-git/" class="u-url">Curso de Git</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Tomás Delvechio
+                    </span></p>
+            <p class="dateline">
+            <a href="curso-de-git/" rel="bookmark">
+            <time class="published dt-published" datetime="2018-04-14T12:09:54-03:00" itemprop="datePublished" title="2018-04-14 12:09">2018-04-14 12:09</time></a>
+            </p>
+                        <p class="commentline">
         
-    <a href="curso-de-git/#disqus_thread" data-disqus-identifier="cache/posts/curso-de-git.html">Comments</a>
+    <a href="curso-de-git/#disqus_thread" data-disqus-identifier="cache/posts/curso-de-git.html">Comentarios</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p>El sabado 07 de Abril de 2018 estuvimos haciendo un taller de GIT en la UNLu. </p>
 <p>Fue una experiencia muy interesante. Esperabamos muy poca gente y sin embargo el aula se lleno durante las 3 horas y media que duró el taller. Para algunos usar Git es algo tan omnipresente, que a veces cometemos el error de creer que <em>es facil</em> o que <em>todos lo usan</em>.</p>
 <p>Durante mas de 3 horas, 38 personas con conocimientos muy diverso respecto a computación estuvieron aprendiendo como usar Git, surgieron dudas muy interesantes y creo que todos nos llevamos algo nuevo.</p>
 <p>El material que se utilizó esta <a href="https://docs.google.com/presentation/d/1LAns3-PGIOVf2KiMyw1sS4Uy7LaGV-bUPlJDQ22gDrc/edit?usp=sharing">disponible aca</a>.</p>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" class="u-url">Kompose: Migrar tus archivos Docker Compose a Kubernetes</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Tomás Delvechio
-            </span></p>
-            <p class="dateline"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" rel="bookmark"><time class="published dt-published" datetime="2018-02-04T16:28:51-03:00" title="2018-02-04 16:28">2018-02-04 16:28</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" class="u-url">Kompose: Migrar tus archivos Docker Compose a Kubernetes</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Tomás Delvechio
+                    </span></p>
+            <p class="dateline">
+            <a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" rel="bookmark">
+            <time class="published dt-published" datetime="2018-02-04T16:28:51-03:00" itemprop="datePublished" title="2018-02-04 16:28">2018-02-04 16:28</time></a>
+            </p>
+                        <p class="commentline">
         
-    <a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/kompose-migrar-tus-archivos-docker-compose-a-kubernetes.html">Comments</a>
+    <a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/kompose-migrar-tus-archivos-docker-compose-a-kubernetes.html">Comentarios</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p>En un <a href="algunas-notas-sobre-kubernetes">post anterior</a> desplegamos un
 cluster de pruebas con contenedores usando <a href="https://kubernetes.io">Kubernetes</a> y
 <a href="https://github.com/kubernetes/minikube">Minikube</a>. Este esquema resulta util
@@ -216,72 +233,75 @@ encuentra documentada en la <a href="http://kompose.io/installation/">pagina ofi
 <p>La forma mas sencilla de utilizar es la segunda, dado que contamos con un
 proyecto con un archivo docker-compose.yml o en general conocemos ese formato
 bastante. Entonces se ejecuta</p>
-<pre class="code literal-block"><span></span>kompose up
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kompose up</span>
+</code></pre>
 
 
 <p>y eso ya levanta con Kubernetes todos los contenedores indicados.</p>
 <h3>Troubleshooting</h3>
-<pre class="code literal-block"><span></span>kompose up
+<pre class="code literal-block"><span></span><code><span class="n">kompose</span> <span class="n">up</span>
 
-WARN Unsupported root level volumes key - ignoring 
-WARN Unsupported depends_on key - ignoring        
-WARN Volume mount on the host "." isn't supported - ignoring path on the host
-</pre>
+<span class="n">WARN</span> <span class="n">Unsupported</span> <span class="n">root</span> <span class="k">level</span> <span class="n">volumes</span> <span class="k">key</span> <span class="o">-</span> <span class="n">ignoring</span> 
+<span class="n">WARN</span> <span class="n">Unsupported</span> <span class="n">depends_on</span> <span class="k">key</span> <span class="o">-</span> <span class="n">ignoring</span>        
+<span class="n">WARN</span> <span class="n">Volume</span> <span class="n">mount</span> <span class="k">on</span> <span class="n">the</span> <span class="k">host</span> <span class="ss">"."</span> <span class="n">isn</span><span class="err">'</span><span class="n">t</span> <span class="n">supported</span> <span class="o">-</span> <span class="n">ignoring</span> <span class="n">path</span> <span class="k">on</span> <span class="n">the</span> <span class="k">host</span>
+</code></pre>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="configuracion-para-sublime-text-3/" class="u-url">Configuración para Sublime Text 3</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Tomás Delvechio
-            </span></p>
-            <p class="dateline"><a href="configuracion-para-sublime-text-3/" rel="bookmark"><time class="published dt-published" datetime="2018-02-03T12:15:40-03:00" title="2018-02-03 12:15">2018-02-03 12:15</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="configuracion-para-sublime-text-3/" class="u-url">Configuración para Sublime Text 3</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Tomás Delvechio
+                    </span></p>
+            <p class="dateline">
+            <a href="configuracion-para-sublime-text-3/" rel="bookmark">
+            <time class="published dt-published" datetime="2018-02-03T12:15:40-03:00" itemprop="datePublished" title="2018-02-03 12:15">2018-02-03 12:15</time></a>
+            </p>
+                        <p class="commentline">
         
-    <a href="configuracion-para-sublime-text-3/#disqus_thread" data-disqus-identifier="cache/posts/configuracion-para-sublime-text-3.html">Comments</a>
+    <a href="configuracion-para-sublime-text-3/#disqus_thread" data-disqus-identifier="cache/posts/configuracion-para-sublime-text-3.html">Comentarios</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p><img alt="Logo Sublime Text 3" src="../img/blog/2018/logo-sublime-text-3.png" title="Logo de Sublime Text 3"></p>
 <p>Soy usuario activo de Sublime Text 3. Para proyectos pequeños o creacion de
 scripts, es el editor con el que me siento mas comodo trabajando.</p>
 <p>La configuración default que tiene visual tiene algunos problemas. Lo primero
 que hago al instalar Sublime es editar un par de estas configuraciones, y dejo
 aca el archivo de configuración tal como lo tengo actualmente</p>
-<pre class="code literal-block"><span></span>{
-    "bold_folder_labels": true,
-    "caret_style": "phase",
-    "draw_white_space": "all",
-    "fade_fold_buttons": false,
-    "font_face": "Inconsolata",
-    "font_size": 12,
-    "highlight_line": true,
-    "highlight_modified_tabs": true,
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "line_padding_bottom": 5.5,
-    "line_padding_top": 5.5,
-    "rulers":
-    [
-        80,
-        120
-    ],
-    "tab_size": 4,
-    "trim_trailing_white_space_on_save": true
-}
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">{</span>
+<span class="err">    "bold_folder_labels": true,</span>
+<span class="err">    "caret_style": "phase",</span>
+<span class="err">    "draw_white_space": "all",</span>
+<span class="err">    "fade_fold_buttons": false,</span>
+<span class="err">    "font_face": "Inconsolata",</span>
+<span class="err">    "font_size": 12,</span>
+<span class="err">    "highlight_line": true,</span>
+<span class="err">    "highlight_modified_tabs": true,</span>
+<span class="err">    "ignored_packages":</span>
+<span class="err">    [</span>
+<span class="err">        "Vintage"</span>
+<span class="err">    ],</span>
+<span class="err">    "line_padding_bottom": 5.5,</span>
+<span class="err">    "line_padding_top": 5.5,</span>
+<span class="err">    "rulers":</span>
+<span class="err">    [</span>
+<span class="err">        80,</span>
+<span class="err">        120</span>
+<span class="err">    ],</span>
+<span class="err">    "tab_size": 4,</span>
+<span class="err">    "trim_trailing_white_space_on_save": true</span>
+<span class="err">}</span>
+</code></pre>
 
 
 <h4>Sobre las fuentes</h4>
 <p>La configuración <code>font_face</code> indica la fuente utilizada. Inconsolata no es una
 fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:</p>
-<pre class="code literal-block"><span></span>sudo apt install fonts-inconsolata
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">sudo apt install fonts-inconsolata</span>
+</code></pre>
 
 
 <h3>Plugines</h3>
@@ -301,22 +321,25 @@ fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:<
 <p>Existen muchisimos temas para Sublime. Puntualmente estoy en estos momentos
 utilizando <a href="https://github.com/kenwheeler/brogrammer-theme">Brogrammer</a>.</p>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="algunas-notas-sobre-kubernetes/" class="u-url">Algunas notas sobre Kubernetes</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Tomás Delvechio
-            </span></p>
-            <p class="dateline"><a href="algunas-notas-sobre-kubernetes/" rel="bookmark"><time class="published dt-published" datetime="2018-01-26T00:18:56-03:00" title="2018-01-26 00:18">2018-01-26 00:18</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="algunas-notas-sobre-kubernetes/" class="u-url">Algunas notas sobre Kubernetes</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Tomás Delvechio
+                    </span></p>
+            <p class="dateline">
+            <a href="algunas-notas-sobre-kubernetes/" rel="bookmark">
+            <time class="published dt-published" datetime="2018-01-26T00:18:56-03:00" itemprop="datePublished" title="2018-01-26 00:18">2018-01-26 00:18</time></a>
+            </p>
+                        <p class="commentline">
         
-    <a href="algunas-notas-sobre-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/algunas-notas-sobre-kubernetes.html">Comments</a>
+    <a href="algunas-notas-sobre-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/algunas-notas-sobre-kubernetes.html">Comentarios</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p><img alt="Logo Kubernetes" src="../img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"></p>
 <p>Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del <a href="https://kubernetes.io">tutorial oficial</a>.</p>
@@ -337,29 +360,29 @@ Instala un cluster y facilita la configuracion de kubernetes (Instalarlo a mano
 era complejo).</p>
 <h4>Tutorial interactivo</h4>
 <p>Testear la version de minikube</p>
-<pre class="code literal-block"><span></span>minikube version
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">minikube version</span>
+</code></pre>
 
 
 <p>Iniciar un cluster usando minikube</p>
-<pre class="code literal-block"><span></span>minikube start
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">minikube start</span>
+</code></pre>
 
 
 <p>Linea de comandos de Kubernetes: <code>kubectl</code>.</p>
 <p>Version de kubectl (Para verificar que esta instalado):</p>
-<pre class="code literal-block"><span></span>kubectl version
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl version</span>
+</code></pre>
 
 
 <p>Ver información de cluster</p>
-<pre class="code literal-block"><span></span>kubectl cluster-info
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl cluster-info</span>
+</code></pre>
 
 
 <p>Ver nodos del cluster</p>
-<pre class="code literal-block"><span></span>kubectl get nodes
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get nodes</span>
+</code></pre>
 
 
 <h3>2. Crear deploys con kubectl</h3>
@@ -370,20 +393,20 @@ ejecuta sobre los nodos.</p>
 regenera nuevamente.</p>
 <h4>Tutorial interactivo</h4>
 <p>Correr un ejemplo</p>
-<pre class="code literal-block"><span></span>kubectl run kubernetes-bootcamp \
-    --image=docker.io/jocatalin/kubernetes-bootcamp:v1 \
-    --port=8080
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl run kubernetes-bootcamp \</span>
+<span class="err">    --image=docker.io/jocatalin/kubernetes-bootcamp:v1 \</span>
+<span class="err">    --port=8080</span>
+</code></pre>
 
 
 <p>Ver la app en ejecucion</p>
-<pre class="code literal-block"><span></span>kubectl get deployments
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get deployments</span>
+</code></pre>
 
 
 <p>Generar un entrypoint al cluster (temporal para pruebas)</p>
-<pre class="code literal-block"><span></span>kubectl proxy
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl proxy</span>
+</code></pre>
 
 
 <h3>3. Explorar la App</h3>
@@ -392,28 +415,28 @@ asociados.</p>
 <p>Los Pods son creados por Kubernetes al realizar el deploy de la app. Se crean
 siempre en un nodo.</p>
 <p>Operaciones mas usadas de <code>kubectl</code>:</p>
-<pre class="code literal-block"><span></span>kubectl get
-kubectl describe
-kubectl logs
-kubectl exec
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get</span>
+<span class="err">kubectl describe</span>
+<span class="err">kubectl logs</span>
+<span class="err">kubectl exec</span>
+</code></pre>
 
 
 <h4>Tutorial interactivo</h4>
 <p>Listar pods</p>
-<pre class="code literal-block"><span></span>kubectl get pods
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get pods</span>
+</code></pre>
 
 
 <p>Para obtener información detallada de los Pods</p>
-<pre class="code literal-block"><span></span>kubectl describe pods
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl describe pods</span>
+</code></pre>
 
 
 <p>Para acceder a los Pods, que funcionan en una red aislada y privada, se utiliza
 el <code>proxy</code>:</p>
-<pre class="code literal-block"><span></span>kubectl proxy
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl proxy</span>
+</code></pre>
 
 
 <p>Dicho proxy expone temporalmente la red y permite la comunicación con el host.
@@ -421,24 +444,24 @@ Esto se utiliza para acceder a la API de los Pods y realizar consultas de forma
 directa (Por ejemplo, usando el comando <code>curl</code>).</p>
 <p>Para diversas operaciones con los pods, es necesario obtener el nombre que
 Kubernetes le asigno al mismo. Un comando para hacer esto es:</p>
-<pre class="code literal-block"><span></span><span class="x">export POD_NAME=$(kubectl get pods -o go-template --template '</span><span class="cp">{{</span><span class="nv">range</span> <span class="nv">.items</span><span class="cp">}}{{</span><span class="nv">.metadata.name</span><span class="cp">}}{{</span><span class="s2">"\n"</span><span class="cp">}}{{</span><span class="nv">end</span><span class="cp">}}</span><span class="x">')</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="x">export POD_NAME=$(kubectl get pods -o go-template --template '</span><span class="cp">{{</span><span class="nv">range</span> <span class="nv">.items</span><span class="cp">}}{{</span><span class="nv">.metadata.name</span><span class="cp">}}{{</span><span class="s2">"\n"</span><span class="cp">}}{{</span><span class="nv">end</span><span class="cp">}}</span><span class="x">')</span>
+</code></pre>
 
 
 <p>Para ver los logs:</p>
-<pre class="code literal-block"><span></span>kubectl logs $POD_NAME
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl logs $POD_NAME</span>
+</code></pre>
 
 
 <p>Todo lo que los proceso envien a stdout es expuesto como logs del pod.</p>
 <p>Ejecutar comandos en un pod:</p>
-<pre class="code literal-block"><span></span>kubectl exec $POD_NAME env
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl exec $POD_NAME env</span>
+</code></pre>
 
 
 <p>Abrir una consola en un POD:</p>
-<pre class="code literal-block"><span></span>kubectl exec -ti $POD_NAME bash
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl exec -ti $POD_NAME bash</span>
+</code></pre>
 
 
 <h3>4. Usar un servicio para exponer la App</h3>
@@ -451,62 +474,62 @@ politicas de acceso sobre un conjunto lógico de Pods.</p>
 objetivos (taggear versiones, separar versiones para test, debug y produccion).</p>
 <h4>Tutorial interactivo</h4>
 <p>Listar servicios expuestos:</p>
-<pre class="code literal-block"><span></span>kubectl get services
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get services</span>
+</code></pre>
 
 
 <p>Exponer un servicio:</p>
-<pre class="code literal-block"><span></span>kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080</span>
+</code></pre>
 
 
 <p>Ver detalles de servicios:</p>
-<pre class="code literal-block"><span></span>kubectl describe services/kubernetes-bootcamp
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl describe services/kubernetes-bootcamp</span>
+</code></pre>
 
 
 <p>Ver que puerto fue abierto externamente:</p>
-<pre class="code literal-block"><span></span><span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
+<pre class="code literal-block"><span></span><code><span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
 <span class="x">echo NODE_PORT=$NODE_PORT</span>
-</pre>
+</code></pre>
 
 
 <p>Una vez expuesto, se puede consultar el servicio directamente con:</p>
-<pre class="code literal-block"><span></span>curl host01:$NODE_PORT
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">curl host01:$NODE_PORT</span>
+</code></pre>
 
 
 <p>Consultar los pods que estan etiquetados con un label particular:</p>
-<pre class="code literal-block"><span></span>kubectl get pods -l run=kubernetes-bootcamp
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get pods -l run=kubernetes-bootcamp</span>
+</code></pre>
 
 
 <p>El label en el caso anterior es <code>run=kubernetes-bootcamp</code>. Funciona
 identicamente para consultar servicios:</p>
-<pre class="code literal-block"><span></span>kubectl get services -l run=kubernetes-bootcamp
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get services -l run=kubernetes-bootcamp</span>
+</code></pre>
 
 
 <p>Obtener el nombre del POD</p>
-<pre class="code literal-block"><span></span><span class="x">export POD_NAME=$(kubectl get pods -o go-template --template '</span><span class="cp">{{</span><span class="nv">range</span> <span class="nv">.items</span><span class="cp">}}{{</span><span class="nv">.metadata.name</span><span class="cp">}}{{</span><span class="s2">"\n"</span><span class="cp">}}{{</span><span class="nv">end</span><span class="cp">}}</span><span class="x">')</span>
+<pre class="code literal-block"><span></span><code><span class="x">export POD_NAME=$(kubectl get pods -o go-template --template '</span><span class="cp">{{</span><span class="nv">range</span> <span class="nv">.items</span><span class="cp">}}{{</span><span class="nv">.metadata.name</span><span class="cp">}}{{</span><span class="s2">"\n"</span><span class="cp">}}{{</span><span class="nv">end</span><span class="cp">}}</span><span class="x">')</span>
 <span class="x">echo Name of the Pod: $POD_NAME</span>
-</pre>
+</code></pre>
 
 
 <p>Aplicar un nuevo label a un Pod:</p>
-<pre class="code literal-block"><span></span>kubectl label pod $POD_NAME app=v1
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl label pod $POD_NAME app=v1</span>
+</code></pre>
 
 
 <p>Consultar el label recien aplicado:</p>
-<pre class="code literal-block"><span></span>kubectl describe pods $POD_NAME
-kubectl get pods -l app=v1
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl describe pods $POD_NAME</span>
+<span class="err">kubectl get pods -l app=v1</span>
+</code></pre>
 
 
 <p>Borrar un servicio:</p>
-<pre class="code literal-block"><span></span>kubectl delete service -l run=kubernetes-bootcamp
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl delete service -l run=kubernetes-bootcamp</span>
+</code></pre>
 
 
 <h3>5. Multiples instancias de una App</h3>
@@ -515,50 +538,50 @@ incrementos de trafico en la aplicación. Los services manejan el trafico hacia
 los pods mendiante un load-balancer.</p>
 <h4>Tutorial interactivo</h4>
 <p>Escalar (scale up) un deployment llamado kubernetes-bootcamp a 4 replicas:</p>
-<pre class="code literal-block"><span></span>kubectl scale deployments/kubernetes-bootcamp --replicas=4
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl scale deployments/kubernetes-bootcamp --replicas=4</span>
+</code></pre>
 
 
 <p>Ver los deployments:</p>
-<pre class="code literal-block"><span></span>kubectl get deployments
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get deployments</span>
+</code></pre>
 
 
 <p>Controlar los pods (Tiene que haber 4):</p>
-<pre class="code literal-block"><span></span>kubectl get pods -o wide
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get pods -o wide</span>
+</code></pre>
 
 
 <p>Ver el deployment de forma mas detallada:</p>
-<pre class="code literal-block"><span></span>kubectl describe deployments/kubernetes-bootcamp
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl describe deployments/kubernetes-bootcamp</span>
+</code></pre>
 
 
 <p>Ver el servicio:</p>
-<pre class="code literal-block"><span></span>kubectl describe services/kubernetes-bootcamp
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl describe services/kubernetes-bootcamp</span>
+</code></pre>
 
 
 <p>Recuperar el nodo:</p>
-<pre class="code literal-block"><span></span><span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
+<pre class="code literal-block"><span></span><code><span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
 <span class="x">echo NODE_PORT=$NODE_PORT</span>
-</pre>
+</code></pre>
 
 
 <p>Ejecutar varias veces:</p>
-<pre class="code literal-block"><span></span>curl host01:$NODE_PORT
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">curl host01:$NODE_PORT</span>
+</code></pre>
 
 
 <p>Deberian responder diferentes pods de la misma app.</p>
 <p>Ejecutar ahora solo 2 replicas (Scale down):</p>
-<pre class="code literal-block"><span></span>kubectl scale deployments/kubernetes-bootcamp --replicas=2
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl scale deployments/kubernetes-bootcamp --replicas=2</span>
+</code></pre>
 
 
 <p>Confirmar el cambio:</p>
-<pre class="code literal-block"><span></span>kubectl get deployments
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get deployments</span>
+</code></pre>
 
 
 <h3>6. Realizando actualizaciones progresivas</h3>
@@ -569,52 +592,52 @@ sin tener downtimes y ademas puede ser revertido en caso de problemas
 (rollbacks).</p>
 <h4>Tutorial interactivo</h4>
 <p>Ver imagen actual de los pods (Campo image):</p>
-<pre class="code literal-block"><span></span>kubectl describe pods
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl describe pods</span>
+</code></pre>
 
 
 <p>Actualizar la image:</p>
-<pre class="code literal-block"><span></span>kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2</span>
+</code></pre>
 
 
 <p>Ver información de los Pods:</p>
-<pre class="code literal-block"><span></span>kubectl get pods
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get pods</span>
+</code></pre>
 
 
 <p>No actualiza los viejos pods, sino que termina los anteirores y crea pods
 nuevos.</p>
 <p>Verificar que la app actualizo:</p>
-<pre class="code literal-block"><span></span><span class="x">kubectl describe services/kubernetes-bootcamp</span>
+<pre class="code literal-block"><span></span><code><span class="x">kubectl describe services/kubernetes-bootcamp</span>
 <span class="x">export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='</span><span class="cp">{{</span><span class="o">(</span><span class="nv">index</span> <span class="nv">.spec.ports</span> <span class="m">0</span><span class="o">)</span><span class="nv">.nodePort</span><span class="cp">}}</span><span class="x">')</span>
 <span class="x">echo NODE_PORT=$NODE_PORT</span>
 <span class="x">curl host01:$NODE_PORT</span>
-</pre>
+</code></pre>
 
 
 <p>Tambien puede verificarse el exito mediante:</p>
-<pre class="code literal-block"><span></span>kubectl rollout status deployments/kubernetes-bootcamp
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl rollout status deployments/kubernetes-bootcamp</span>
+</code></pre>
 
 
 <p>Deployar una version "con errores":</p>
-<pre class="code literal-block"><span></span>kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10</span>
+</code></pre>
 
 
 <p>Ver problemas:</p>
-<pre class="code literal-block"><span></span>kubectl get deployments
-kubectl get pods
-kubectl describe pods
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl get deployments</span>
+<span class="err">kubectl get pods</span>
+<span class="err">kubectl describe pods</span>
+</code></pre>
 
 
 <p>Rollback:</p>
-<pre class="code literal-block"><span></span>kubectl rollout undo deployments/kubernetes-bootcamp
-kubectl get pods
-kubectl describe pods
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">kubectl rollout undo deployments/kubernetes-bootcamp</span>
+<span class="err">kubectl get pods</span>
+<span class="err">kubectl describe pods</span>
+</code></pre>
 
 
 <h2>Dudas</h2>
@@ -633,7 +656,7 @@ el cluster tenga disponibles.</p>
 <li>Al querer ejecutar <code>minikube start</code> se obtiene el error "Error starting host: Error getting state for host: machine does not exist".</li>
 </ul>
 <p>El error completo es:</p>
-<pre class="code literal-block"><span></span>$ minikube start
+<pre class="code literal-block"><span></span><code>$ minikube start
 Starting <span class="nb">local</span> Kubernetes v1.9.0 cluster...
 Starting VM...
 E0428 <span class="m">17</span>:06:43.557255   <span class="m">18070</span> start.go:159<span class="o">]</span> Error starting host: Error getting state <span class="k">for</span> host: machine does not exist.
@@ -647,38 +670,38 @@ To opt out of these messages, run the command:
         minikube config <span class="nb">set</span> WantReportErrorPrompt <span class="nb">false</span>
 <span class="o">================================================================================</span>
 Please enter your response <span class="o">[</span>Y/n<span class="o">]</span>: n
-</pre>
+</code></pre>
 
 
 <p>Esto me pasó a mi por borrar en algun momento la vm de Virtualbox que crea minikube. La forma mas facil de recuperarse de este error es:</p>
-<pre class="code literal-block"><span></span>$ minikube delete
+<pre class="code literal-block"><span></span><code>$ minikube delete
 $ minikube start
-</pre>
+</code></pre>
 </div>
-    </div>
-    </article>
+                </div>
+            </article>
 </div>
+    
 
-
-
+    
         
-       <script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-</div>
-        <!--End of body content-->
-
-        <footer id="footer"><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+       <script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer"><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.
+            
             
         </footer>
 </div>
 </div>
 
 
-            <script src="../assets/js/all-nocdn.js"></script><script src="../assets/js/colorbox-i18n/jquery.colorbox-es.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
-    moment.locale("es");
-    fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates --><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-16017127-6"></script><script>
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-16017127-6"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());

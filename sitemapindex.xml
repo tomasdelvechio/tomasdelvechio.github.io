@@ -7,94 +7,94 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/big-data.xml</loc>
-  <lastmod>2018-09-08T20:35:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_charlas.xml</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_dev.xml</loc>
-  <lastmod>2018-02-17T23:21:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_devops.xml</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_distributed-systems.xml</loc>
-  <lastmod>2018-09-08T20:35:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/charlas.xml</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cluster.xml</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/containers.xml</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/deploy.xml</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/dev.xml</loc>
-  <lastmod>2018-02-17T23:21:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/devops.xml</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/distributed-systems.xml</loc>
-  <lastmod>2018-09-08T20:35:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/git.xml</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/kompose.xml</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/kubernetes.xml</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/orchestration.xml</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/programming.xml</loc>
-  <lastmod>2018-09-08T20:35:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/spark.xml</loc>
-  <lastmod>2018-09-08T20:35:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/sublime.xml</loc>
-  <lastmod>2018-02-17T23:21:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/tools.xml</loc>
-  <lastmod>2018-02-17T23:21:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/vcs.xml</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/rss.xml</loc>
-  <lastmod>2018-09-08T20:35:00Z</lastmod>
+  <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/sitemap.xml</loc>
-  <lastmod>2018-10-07T14:35:00Z</lastmod>
+  <lastmod>2020-02-23T22:11:00Z</lastmod>
  </sitemap>
 </sitemapindex>

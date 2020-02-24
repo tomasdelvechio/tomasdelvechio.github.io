@@ -1,168 +1,362 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sitio Académico | Tomás Delvechio</title>
-<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<meta name="theme-color" content="#5670d4">
-<meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-<link rel="canonical" href="http://tomasdelvechio.github.io/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><meta name="author" content="Tomás Delvechio">
-<meta property="og:site_name" content="Tomás Delvechio">
-<meta property="og:title" content="Sitio Académico">
-<meta property="og:url" content="http://tomasdelvechio.github.io/">
-<meta property="og:description" content="Bio
-				
-					Licenciado en Sistemas de Información, Docente y Desarrollador Web. Mis principales intereses están relacionados a las áreas de Datos Masivos, Redes de Datos y Desarrollo Web (Backend pr">
-<meta property="og:type" content="article">
-<meta property="article:published_time" content="2017-12-31T16:28:52-03:00">
-</head>
-<body>
-<a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
+<html lang="en">
 
-<!-- Menubar -->
+  <head>
 
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
-<!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Mostrar navegación</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="http://tomasdelvechio.github.io/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-                <span id="blog-title">Tomás Delvechio</span>
-            </a>
-        </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="blog">Blog</a>
-                </li>
-<li>
-<a href="old">Old Blog</a>
-                </li>
-<li>
-<a href="rss.xml">RSS</a>
+    <title>Tomas Delvechio</title>
 
-                
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/resume.css" rel="stylesheet">
+    <script>
+        /**
+         * Array con las imagenes y enlaces que se iran mostrando en la web
+         */
+        var imagenes=new Array(
+            ['img/profile/profile.jpg',''],
+            ['img/profile/profile1.jpg',''],
+            ['img/profile/profile2.jpg','']
+        );
+        var contador= Math.floor(Math.random() * 10 + 1);
+        /**
+         * Funcion para cambiar la imagen y link
+         */
+
+        function rotarImagenes()
+        {
+            // cambiamos la imagen y la url
+            contador++
+            document.getElementById("imagen").src=imagenes[contador%imagenes.length][0];
+        }
+
+        /**
+         * Función que se ejecuta una vez cargada la página
+         */
+        onload=function()
+
+        {
+            // Cargamos una imagen aleatoria
+            rotarImagenes();
+            // Indicamos que cada 5 segundos cambie la imagen
+            setInterval(rotarImagenes,60000);
+        }
+    </script>
+
+
+
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Tomas Delvechio</span>
+
+        <span class="d-none d-lg-block">
+          <img id="imagen" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Bio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#academic">Academic Activities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#talks">Talks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#research">Research</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#subjects">Subjects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/old">Old Blog</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 class="mb-0">Tomás
+          </h1>
+          <h1 class="text-primary font-strong">DELVECHIO</h1>
+          <div class="subheading mb-5"> Luján · Buenos Aires · Argentina
+            <a href="mailto:tomasdelvechio17@gmail.com ">tomasdelvechio17@gmail.com </a>
+          </div>
+          <p class="mb-5"> Licenciado en Sistemas de Información, Docente y Desarrollador Web.
+          <br>
+          Mis principales intereses están relacionados a las áreas de Datos Masivos, Redes de Datos y Desarrollo Web (Backend principalmente).
+          </p>
+
+            <ul class="tags">
+              <li class="tag">WEB</li>
+              <li class="tag">DEVOPS</li>
+              <li class="tag">LINUX</li>
+            </ul>
+
+          <ul class="list-inline list-social-icons mb-0">
+            <li class="list-inline-item">
+              <a target="_blank" href="https://twitter.com/tdelvechio">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
             </li>
-</ul>
-<ul class="nav navbar-nav navbar-right"></ul>
-</div>
-<!-- /.navbar-collapse -->
-    </div>
-<!-- /.container -->
-</nav><!-- End of Menubar --><div class="container" id="content" role="main">
-    <div class="body-content">
-        <!--Body content-->
-        <div class="row">
-            
-            
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header></header><div class="e-content entry-content" itemprop="articleBody text">
-    <section id="about" class="section-about"><div style="overflow: auto;">
-			<div class="foto">
-				<img src="img/foto.jpg">
-</div>
-			<div class="about">
-				<h2>Bio</h2>
-				<p>
-					Licenciado en Sistemas de Información, Docente y Desarrollador Web. Mis principales intereses están relacionados a las áreas de Datos Masivos, Redes de Datos y Desarrollo Web (Backend principalmente).
-				</p>
-			</div>
-			<div class="social">
-				<span>
-					<a href="https://twitter.com/tdelvechio" target="__blank"><img src="img/networks/twitter.png"></a>
-				</span>
-				<span>
-					<a href="https://gitlab.com/tomasdelvechio" target="__blank"><img src="img/networks/gitlab.png"></a>
-				</span>
-				<span>
-					<a href="https://github.com/tomasdelvechio" target="__blank"><img src="img/networks/github.png"></a>
-				</span>
-				<span>
-					<a href="https://stackoverflow.com/users/3792059/tuxman" target="__blank"><img src="img/networks/stackoverflow.png"></a>
-				</span>
-				<span>
-					<a href="https://t.me/tomasdelvechio" target="__blank"><img src="img/networks/telegram.png"></a>
-				</span>
-			</div>
-		</div>
-	</section><section id="academic" class="bloque academic"><h2 id="AcademicActivities">Academic Activities</h2>
-		<ul>
+
+
+            <li class="list-inline-item">
+              <a target="_blank" href="https://t.me/tomasdelvechio">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-telegram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a target="_blank" href="https://gitlab.com/tomasdelvechio">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-gitlab fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a target="_blank" href="https://github.com/tomasdelvechio">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a target="_blank" href="https://stackoverflow.com/users/3792059/tuxman">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+
+
+
+
+<!-- Academic -->
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="academic">
+        <div class="my-auto">
+          <h2 class="mb-5">Academic Activities</h2>
+          <ul class="fa-ul mb-0 academic-item">
             <li>
-				Delvechio, T., &amp; Tolosa, G. H. (2017). <span class="paper-title">Indexación distribuida con restricción de recursos.</span> In Simposio Argentino de GRANdes DAtos (AGRANDA)-JAIIO 46 (Córdoba, 2017).
-				<a href="http://hdl.handle.net/10915/63172" target="__blank">[Sedici]</a>
-				<a href="academic/jaiio-2017/JAIIO2017-Tolosa-et-al.pdf">[Artículo]</a>
-			</li>
-			<li>
-				Tolosa, G. H., Banchero, S., Ríssola, E. A., Delvechio, T., Lavallen, P. J., &amp; Feuerstein, E. (2017, August). <span class="paper-title">Grandes datos y algoritmos eficientes para aplicaciones de escala web.</span> In XIX Workshop de Investigadores en Ciencias de la Computación (Buenos Aires, Argentina).
-				<a href="http://hdl.handle.net/10915/61716" target="__blank">[Sedici]</a>
-				<a href="academic/wicc-2017/WICC2017-Tolosa-et-al.pdf">[Artículo]</a>
-				<a href="academic/wicc-2017/PosterWICC-2017.pdf">[Poster]</a>
-			</li>
-			<li>
-				Tolosa, G. H., Banchero, S., Ríssola, E. A., Delvechio, T., &amp; Feuerstein, E. (2016, May). <span class="paper-title">Grandes datos y algoritmos eficientes para búsquedas de escala web.</span> In XVIII Workshop de Investigadores en Ciencias de la Computación (Entre Ríos, Argentina).
-				<a href="http://hdl.handle.net/10915/52852" target="__blank">[Sedici]</a>
-				<a href="academic/wicc-2016/WICC2016-Tolosa-et-al.pdf">[Artículo]</a>
-				<a href="academic/wicc-2016/PosterWICC-2016.pdf">[Poster]</a>
-			</li>
-			<li>
-				Tolosa, G. H., Banchero, S., Ríssola, E. A., Delvechio, T., Ricci, S., &amp; Feuerstein, E. (2015, May). <span class="paper-title">Algoritmos eficientes para búsquedas a gran escala integrando datos masivos.</span> In XVII Workshop de Investigadores en Ciencias de la Computación (Salta, Argentina).
-				<a href="http://hdl.handle.net/10915/45516" target="__blank">[Sedici]</a>
-				<a href="academic/wicc-2015/WICC2015-Tolosa-et-al.pdf">[Artículo]</a>
-				<a href="academic/wicc-2015/PosterWICC-2015.pdf">[Poster]</a>
-			</li>
-		</ul></section><section id="talk" class="bloque talk"><h2 id="Talks">Talks</h2>
-		<ul>
-<li>Delvechio, T. (2017, Oct). <span class="paper-title">Construcción de Índices para Datos Masivos.</span> In 2das Jornadas de Computación de la UNLu (Luján, Buenos Aires, Argentina). <a href="http://cidetic.unlu.edu.ar/jcu/" target="__blank">[Web]</a> <a href="talks/jcu-2017/">[Slides]</a>
-</li>
-			<li>Delvechio, T. y Cuestas, Y. (2017, Oct). <span class="paper-title">Introducción al Lenguaje de Programación Python.</span> In 2das Jornadas de Computación de la UNLu (Luján, Buenos Aires, Argentina). <a href="http://cidetic.unlu.edu.ar/jcu/" target="__blank">[Web]</a> <a href="https://drive.google.com/drive/folders/0B9oGyBVDaakbbTgtMW9TdEQwV00" target="__blank">[Material]</a>
-</li>
-			<li>Delvechio, T. (2014, Dec). <span class="paper-title">Big Data y Construcción de Indices para motores de búsqueda.</span> In 1ras Jornadas de Computación de la UNLu (Luján, Buenos Aires, Argentina). <a href="http://cidetic.unlu.edu.ar/jcu/" target="__blank">[Web]</a> <a href="talks/jcu-2014/">[Slides]</a>
-</li>
-		</ul></section><section id="research" class="bloque research"><h2 id="Research">Research</h2>
-		<ul>
-<li>Proyecto de Investigación: <strong>Estudio epidemiológico y seguimiento de pacientes con enfermedad celiaca (EC) asistidos por software y técnicas avanzadas de análisis de datos.</strong> Departamento de Ciencias Básicas. Universidad Nacional de Luján.</li>
-		</ul></section><section id="subject" class="bloque subject"><h2 id="Subjects">Subjects</h2>
-		<article><h3>Teleinformática y Redes - UNLu</h3>
-			<ul>
-<li>Ayudante de Segunda :: Periodo 2013-2017</li>
-			</ul></article><article><h3>Programación en Ambientes Web - UNLu</h3>
-			<ul>
-<li>Ayudante de Segunda :: Periodo 2016-2017</li>
-				<li><a href="subjects/paw-ejemplos/">Ejemplos y Materiales</a></li>
-			</ul></article></section>
-</div>
-    
+              <h4 class="anio-title text-info">2019</h4>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Tolosa, G. H.; Lavallen, P. J.; Delvechio, T.; Marrone, A.; Giordano, A.; Ríssola, E. A.</small>
+              <h4 class="paper-title">Modelos y algoritmos para problemas de procesamiento en entornos de Big Data.</h4>
+              In XXI Workshop de Investigadores en Ciencias de la Computación (San Juan, Argentina).
+              <br>
+              <a href="http://sedici.unlp.edu.ar/handle/10915/78017" target="__blank">[Sedici]</a>
+              <a href="academic/wicc-2019/WICC2019-Tolosa-et-al.pdf">[Artículo]</a>
+              <a href="academic/wicc-2019/PosterWICC-2019.pdf">[Poster]</a>
+            </li>
 
-</article>
-</div>
-        <!--End of body content-->
+            <li>
+              <h4 class="anio-title text-info">2018</h4>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Tolosa, G. H.; Lavallen, P. J.; Delvechio, T.; Marrone, A.; Tonin Monzon, F.; Radeljak, F.; Ríssola, E. A.; Feuerstein, E.</small>
+              <h4 class="paper-title">Estructuras de datos y algoritmos eficientes para búsquedas web y procesamiento de grandes datos.</h4>
+              In XX Workshop de Investigadores en Ciencias de la Computación (Corrientes, Argentina).
+              <br>
+              <a href="http://sedici.unlp.edu.ar/handle/10915/67237" target="__blank">[Sedici]</a>
+              <a href="academic/wicc-2018/WICC2018-Tolosa-et-al.pdf">[Artículo]</a>
+              <a href="academic/wicc-2018/PosterWICC-2018.pdf">[Poster]</a>
+            </li>
 
-        <footer id="footer"><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
-<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-<img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.
-            
-        </footer>
-</div>
-</div>
+            <li>
+              <h4 class="anio-title text-info">2017</h4>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Delvechio, T., &amp; Tolosa, G. H.</small>
+              <h4 class="paper-title">Indexación distribuida con restricción de recursos.</h4>
+              In Simposio Argentino de GRANdes DAtos (AGRANDA)-JAIIO 46 (Córdoba, 2017).
+              <br>
+              <a href="http://hdl.handle.net/10915/63172" target="__blank">[Sedici]</a>
+              <a href="academic/jaiio-2017/JAIIO2017-Tolosa-et-al.pdf">[Artículo]</a>
+            </li>
+
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <h4 class="anio-title text-info">2017</h4>
+              <small>Tolosa, G. H., Banchero, S., Ríssola, E. A., Delvechio, T., Lavallen, P. J., &amp; Feuerstein, E.</small>
+              <h4 class="paper-title">Grandes datos y algoritmos eficientes para aplicaciones de escala web.</h4>
+              In XIX Workshop de Investigadores en Ciencias de la Computación (Buenos Aires, Argentina).
+              <br>
+              <a href="http://hdl.handle.net/10915/61716" target="__blank">[Sedici]</a>
+              <a href="academic/wicc-2017/WICC2017-Tolosa-et-al.pdf">[Artículo]</a>
+              <a href="academic/wicc-2017/PosterWICC-2017.pdf">[Poster]</a>
+            </li>
+
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <h4 class="anio-title text-info">2016</h4>
+              <small>Tolosa, G. H., Banchero, S., Ríssola, E. A., Delvechio, T., &amp; Feuerstein, E.</small>
+              <h4 class="paper-title">Grandes datos y algoritmos eficientes para búsquedas de escala web.</h4>
+              In XVIII Workshop de Investigadores en Ciencias de la Computación (Entre Ríos, Argentina).
+              <br>
+              <a href="http://hdl.handle.net/10915/52852" target="__blank">[Sedici]</a>
+              <a href="academic/wicc-2016/WICC2016-Tolosa-et-al.pdf">[Artículo]</a>
+              <a href="academic/wicc-2016/PosterWICC-2016.pdf">[Poster]</a>
+            </li>
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <h4 class="anio-title text-info">2015</h4>
+              <small>Tolosa, G. H., Banchero, S., Ríssola, E. A., Delvechio, T., Ricci, S., &amp; Feuerstein, E.</small>
+              <h4 class="paper-title">Algoritmos eficientes para búsquedas a gran escala integrando datos masivos.</h4>
+              In XVII Workshop de Investigadores en Ciencias de la Computación (Salta, Argentina).
+              <br>
+              <a href="http://hdl.handle.net/10915/45516" target="__blank">[Sedici]</a>
+              <a href="academic/wicc-2015/WICC2015-Tolosa-et-al.pdf">[Artículo]</a>
+              <a href="academic/wicc-2015/PosterWICC-2015.pdf">[Poster]</a>
+            </li>
+          </ul>
+          <p></p>
+        </div>
+      </section>
+
+<!-- TALKS -->
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="talks">
+        <div class="my-auto">
+          <h2 class="mb-5">Talks</h2>
+          <ul class="fa-ul mb-0 academic-item">
+
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Delvechio, T. (2017, Oct)</small>
+              <h4>Construcción de Índices para Datos Masivos.</h4>
+              In 2das Jornadas de Computación de la UNLu (Luján, Buenos Aires, Argentina).
+              <br>
+              <a target="_blank" href="http://cidetic.unlu.edu.ar/jcu/"> [web]</a>
+              <a target="_blank" href="http://http://tomasdelvechio.github.io/talks/jcu-2017/"> [Slides]</a>
+            </li>
+
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Delvechio, T. y Cuestas, Y. (2017, Oct)</small>
+              <h4>Introducción al Lenguaje de Programación Python.</h4>
+              In 2das Jornadas de Computación de la UNLu (Luján, Buenos Aires, Argentina).
+              <br>
+              <a target="_blank" href="http://cidetic.unlu.edu.ar/jcu/"> [web]</a>
+              <a target="_blank" href="https://drive.google.com/drive/folders/0B9oGyBVDaakbbTgtMW9TdEQwV00"> [Material]</a>
+            </li>
+
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Delvechio, T. (2014, Dec).</small>
+              <h4>Big Data y Construcción de Indices para motores de búsqueda.</h4>
+               In 1ras Jornadas de Computación de la UNLu (Luján, Buenos Aires, Argentina).
+              <br>
+              <a target="_blank" href="http://cidetic.unlu.edu.ar/jcu/"> [web]</a>
+              <a target="_blank" href="http://tomasdelvechio.github.io/talks/jcu-2014/"> [Slides]</a>
+            </li>
+
+          </ul>
+          <p></p>
+        </div>
+      </section>
 
 
-            <script src="assets/js/all-nocdn.js"></script><script src="assets/js/colorbox-i18n/jquery.colorbox-es.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
-    moment.locale("es");
-    fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates --><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-16017127-6"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!-- Research -->
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="research">
+        <div class="my-auto">
+          <h2 class="mb-5">Research</h2>
+          <ul class="fa-ul mb-0 academic-item">
 
-  gtag('config', 'UA-16017127-6');
-</script>
-</body>
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Proyecto de Investigación</small>
+              <h4>Estudio epidemiológico y seguimiento de pacientes con enfermedad celiaca (EC) asistidos por software y técnicas avanzadas de análisis de datos.</h4>
+              Departamento de Ciencias Básicas. Universidad Nacional de Luján.
+              <br>
+            </li>
+
+          </ul>
+          <p></p>
+        </div>
+      </section>
+
+
+<!-- Subjects -->
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="subjects">
+        <div class="my-auto">
+          <h2 class="mb-5">Subjects</h2>
+          <ul class="fa-ul mb-0 academic-item">
+
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Ayudante de Primera</small>
+              <h4>Teleinformática y Redes</h4>
+              Universidad Nacional de  Luján - Periodo 2013-Actualidad
+              <br>
+            </li>
+
+            <li>
+              <i class="academic-fa-li fa fa-circle text-info"></i>
+              <small>Ayudante de Primera</small>
+              <h4>Programación en Ambientes Web</h4>
+              Universidad Nacional de  Luján - Periodo 2016-Actualidad
+              <br>
+              <a href="subjects/paw-ejemplos/">Ejemplos y Materiales</a>
+            </li>
+
+          </ul>
+          <p></p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../assets/js/resume.min.js"></script>
+
+  </body>
+
 </html>

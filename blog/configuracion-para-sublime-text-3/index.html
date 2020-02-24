@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Configuración para Sublime Text 3 | Tomás Delvechio</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
@@ -27,58 +28,65 @@
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
 
-<!-- Menubar -->
-
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
-<!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Mostrar navegación</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+<!-- Header and menu bar -->
+<div class="container">
+      <header class="blog-header py-3"><div class="row nbb-header align-items-center">
+          <div class="col-md-3 col-xs-2 col-sm-2" style="width: auto;">
+            <button class="navbar-toggler navbar-light bg-light nbb-navbar-toggler" type="button" data-toggle="collapse" data-target=".bs-nav-collapsible" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="http://tomasdelvechio.github.io/">
-
-                <span id="blog-title">Tomás Delvechio</span>
-            </a>
+            <div class="collapse bs-nav-collapsible bootblog4-search-form-holder">
+                
+            </div>
         </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="../../blog">Blog</a>
+          <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
+            <a class="navbar-brand blog-header-logo text-dark" href="http://tomasdelvechio.github.io/">
+
+            <span id="blog-title">Tomás Delvechio</span>
+        </a>
+          </div>
+            <div class="col-md-3 justify-content-end align-items-center bs-nav-collapsible collapse flex-collapse bootblog4-right-nav">
+            <nav class="navbar navbar-light bg-white"><ul class="navbar-nav bootblog4-right-nav"></ul></nav>
+</div>
+    </div>
+</header><nav class="navbar navbar-expand-md navbar-light bg-white static-top"><div class="collapse navbar-collapse bs-nav-collapsible" id="bs-navbar">
+            <ul class="navbar-nav nav-fill d-flex w-100">
+<li class="nav-item">
+<a href="../../blog" class="nav-link">Blog</a>
                 </li>
-<li>
-<a href="../../old">Old Blog</a>
+<li class="nav-item">
+<a href="../../old" class="nav-link">Old Blog</a>
                 </li>
-<li>
-<a href="../../rss.xml">RSS</a>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
-    </div>
-<!-- /.container -->
-</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+</nav>
+</div>
+
+<div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
-        <div class="row">
-            
-            
+        
+        
+        
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Configuración para Sublime Text 3</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Tomás Delvechio
             </span></p>
-            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2018-02-03T12:15:40-03:00" itemprop="datePublished" title="2018-02-03 12:15">2018-02-03 12:15</time></a></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2018-02-03T12:15:40-03:00" itemprop="datePublished" title="2018-02-03 12:15">2018-02-03 12:15</time></a>
+            </p>
                 <p class="commentline">
         
-    <a href="#disqus_thread" data-disqus-identifier="cache/posts/configuracion-para-sublime-text-3.html">Comments</a>
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/configuracion-para-sublime-text-3.html">Comentarios</a>
 
 
             
@@ -95,37 +103,37 @@ scripts, es el editor con el que me siento mas comodo trabajando.</p>
 <p>La configuración default que tiene visual tiene algunos problemas. Lo primero
 que hago al instalar Sublime es editar un par de estas configuraciones, y dejo
 aca el archivo de configuración tal como lo tengo actualmente</p>
-<pre class="code literal-block"><span></span>{
-    "bold_folder_labels": true,
-    "caret_style": "phase",
-    "draw_white_space": "all",
-    "fade_fold_buttons": false,
-    "font_face": "Inconsolata",
-    "font_size": 12,
-    "highlight_line": true,
-    "highlight_modified_tabs": true,
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "line_padding_bottom": 5.5,
-    "line_padding_top": 5.5,
-    "rulers":
-    [
-        80,
-        120
-    ],
-    "tab_size": 4,
-    "trim_trailing_white_space_on_save": true
-}
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">{</span>
+<span class="err">    "bold_folder_labels": true,</span>
+<span class="err">    "caret_style": "phase",</span>
+<span class="err">    "draw_white_space": "all",</span>
+<span class="err">    "fade_fold_buttons": false,</span>
+<span class="err">    "font_face": "Inconsolata",</span>
+<span class="err">    "font_size": 12,</span>
+<span class="err">    "highlight_line": true,</span>
+<span class="err">    "highlight_modified_tabs": true,</span>
+<span class="err">    "ignored_packages":</span>
+<span class="err">    [</span>
+<span class="err">        "Vintage"</span>
+<span class="err">    ],</span>
+<span class="err">    "line_padding_bottom": 5.5,</span>
+<span class="err">    "line_padding_top": 5.5,</span>
+<span class="err">    "rulers":</span>
+<span class="err">    [</span>
+<span class="err">        80,</span>
+<span class="err">        120</span>
+<span class="err">    ],</span>
+<span class="err">    "tab_size": 4,</span>
+<span class="err">    "trim_trailing_white_space_on_save": true</span>
+<span class="err">}</span>
+</code></pre>
 
 
 <h4>Sobre las fuentes</h4>
 <p>La configuración <code>font_face</code> indica la fuente utilizada. Inconsolata no es una
 fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:</p>
-<pre class="code literal-block"><span></span>sudo apt install fonts-inconsolata
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">sudo apt install fonts-inconsolata</span>
+</code></pre>
 
 
 <h3>Plugines</h3>
@@ -181,23 +189,23 @@ utilizando <a href="https://github.com/kenwheeler/brogrammer-theme">Brogrammer</
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section></article><script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-</div>
-        <!--End of body content-->
-
-        <footer id="footer"><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+        </section></article><script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer"><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.
+            
             
         </footer>
 </div>
 </div>
 
 
-            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/colorbox-i18n/jquery.colorbox-es.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
-    moment.locale("es");
-    fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates --><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-16017127-6"></script><script>
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-16017127-6"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
