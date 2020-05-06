@@ -13,7 +13,7 @@
 
 1. Tener un cluster kubernetes andando y corriendo (por ejemplo minikube)
 
-```
+```bash
 $ minikube start
 ```
 
@@ -21,7 +21,7 @@ $ minikube start
 
 Tiller es un servidor in cluster de helm (Se instala en el cluster). Para mas detalle, ver la [doc oficial](https://docs.helm.sh/using_helm/#quickstart).
 
-```
+```bash
 $ helm init
 Creating /home/tomas/.helm
 Creating /home/tomas/.helm/repository
@@ -42,11 +42,11 @@ For more information on securing your installation see: https://docs.helm.sh/usi
 Happy Helming!
 ```
 
-3. Actualizar Respositorio de Charts
+ 3. Actualizar Respositorio de Charts
 
 Los programas que se instalan via Helm se llaman Charts. Antes de instalar un chart, se debe actualizar la lista de charts disponibles
 
-```
+```bash
 helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository

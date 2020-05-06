@@ -3,7 +3,7 @@
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 23 Feb 2020 21:33:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Introducción a Spark</title><link>http://tomasdelvechio.github.io/blog/introduccion-a-spark/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;Apache Spark es un framework de procesamiento muy de moda en entornos de procesamiento para Big Data, IoT y Machine Learning.&lt;/p&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Wed, 06 May 2020 20:46:02 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Introducción a Spark</title><link>http://tomasdelvechio.github.io/blog/introduccion-a-spark/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;Apache Spark es un framework de procesamiento muy de moda en entornos de procesamiento para Big Data, IoT y Machine Learning.&lt;/p&gt;
 &lt;h3&gt;Pipeline&lt;/h3&gt;
 &lt;p&gt;El pipeline de trabajo en spark es conocido como &lt;strong&gt;DAG&lt;/strong&gt; (Directed Acyclic Graph) y se basa en armar un grafo de trabajo donde las tareas se sucedan unas a otras segun se establezca.&lt;/p&gt;
 &lt;p&gt;Ademas, propone que muchas operaciones que en MapReduce involucran operaciones de entrada salida a disco, se hagan en memoria principal, lo que genera un rendimiento mayor comparado con su predecesor.&lt;/p&gt;
@@ -51,11 +51,11 @@ Happy Helming!
 &lt;li&gt;Actualizar Respositorio de Charts&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Los programas que se instalan via Helm se llaman Charts. Antes de instalar un chart, se debe actualizar la lista de charts disponibles&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;helm repo update&lt;/span&gt;
-&lt;span class="err"&gt;Hang tight while we grab the latest from your chart repositories...&lt;/span&gt;
-&lt;span class="err"&gt;...Skip local chart repository&lt;/span&gt;
-&lt;span class="err"&gt;...Successfully got an update from the "stable" chart repository&lt;/span&gt;
-&lt;span class="err"&gt;Update Complete. ⎈ Happy Helming!⎈&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;helm repo update
+Hang tight &lt;span class="k"&gt;while&lt;/span&gt; we grab the latest from your chart repositories...
+...Skip &lt;span class="nb"&gt;local&lt;/span&gt; chart repository
+...Successfully got an update from the &lt;span class="s2"&gt;"stable"&lt;/span&gt; chart repository
+Update Complete. ⎈ Happy Helming!⎈
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><guid>http://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</guid><pubDate>Sat, 28 Apr 2018 19:22:28 GMT</pubDate></item><item><title>Curso de Git</title><link>http://tomasdelvechio.github.io/blog/curso-de-git/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;El sabado 07 de Abril de 2018 estuvimos haciendo un taller de GIT en la UNLu. &lt;/p&gt;
 &lt;p&gt;Fue una experiencia muy interesante. Esperabamos muy poca gente y sin embargo el aula se lleno durante las 3 horas y media que duró el taller. Para algunos usar Git es algo tan omnipresente, que a veces cometemos el error de creer que &lt;em&gt;es facil&lt;/em&gt; o que &lt;em&gt;todos lo usan&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Durante mas de 3 horas, 38 personas con conocimientos muy diverso respecto a computación estuvieron aprendiendo como usar Git, surgieron dudas muy interesantes y creo que todos nos llevamos algo nuevo.&lt;/p&gt;
