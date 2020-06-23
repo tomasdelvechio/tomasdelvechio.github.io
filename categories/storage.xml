@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre storage)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/storage.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2020 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+&lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
+&lt;img alt="Creative Commons License BY-NC-SA"
+style="border-width:0; margin-bottom:12px;"
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 23 Jun 2020 00:38:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Volumenes de Docker y Discos USB Externos</title><link>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.&lt;/p&gt;
+&lt;h3&gt;El Problema&lt;/h3&gt;
+&lt;p&gt;Como tengo todo mi contenido multimedia en un disco USB externo, aproveche y le vincule los volumenes al contenedor directamente a los paths del disco.&lt;/p&gt;
+&lt;p&gt;Entonces, los volumenes quedaban mas o menos como sigue. Uso la notación que pone Ubuntu al montar los discos externos:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/media/tomas/Elements/series:/series
+/media/tomas/Elements/peliculas:/peliculas
+....
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;De lado derecho es el path del directorio en el host. Del lado izquierdo es el directorio dentro del contenedor.&lt;/p&gt;
+&lt;p&gt;Como esto se hace en un equipo particular, eventualmente se reinicia (o se apaga y prende). Esto me genero 1 gran problema.&lt;/p&gt;
+&lt;p&gt;El servicio de Docker inicia durante el proceso de boot del equipo. Sin embargo, Ubuntu monta el disco al momento en el que el usuario inicia sesión.&lt;/p&gt;
+&lt;p&gt;Esto genera que Docker intente buscar los directorios de los volumenes en el Host, y al no encontrarlos, los crea. Este comportamiento se conoce como propagación y esta documentado&lt;a href="https://docs.docker.com/storage/#tips-for-using-bind-mounts-or-volumes"&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Sin embargo, sucedia que al iniciar sesión, Ubuntu intentaba montar en el directorio &lt;code&gt;/media/tomas/Elements&lt;/code&gt;, pero debido a que este ya existia (dado que Docker lo creaba por el mecanismo de propagación), Ubuntu monta el disco en &lt;code&gt;/media/tomas/Elements1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;El efecto de esto es que perdia acceso a los directorios dentro del contenedor.&lt;/p&gt;
+&lt;h3&gt;La idea de solución&lt;/h3&gt;
+&lt;p&gt;Buscando ayuda, lo que me sugieren y que es la solución es cambiar el orden del booteo, para que Docker inicie despues del proceso de mount. Esto no es tan facil como puede parecer. Requiere:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Buscar la unit del servicio de mount&lt;/li&gt;
+&lt;li&gt;Buscar la unit de systemd del servicio de Docker&lt;/li&gt;
+&lt;li&gt;Agregar el servicio de mount como dependencia de Docker&lt;/li&gt;
+&lt;li&gt;Hacer que el mount del disco se haga al inicio y no al iniciar sesion&lt;/li&gt;
+&lt;li&gt;Probarlo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A esa secuencia de pasos llegue luego de un poco de prueba y error.&lt;/p&gt;
+&lt;p&gt;A continuación documentaré los pasos que tuve que hacer&lt;/p&gt;
+&lt;h3&gt;La solución&lt;/h3&gt;
+&lt;p&gt;Aclaración del setup de mi equipo: Tengo una notebook corriendo Ubuntu 18.04, que ejecuta Systemd para gestionar el proceso de arranque del Sistema Operativo. Desconozco si en otras distros esto puede variar.&lt;/p&gt;
+&lt;h4&gt;Nombre del servicio de mount en Systemd&lt;/h4&gt;
+&lt;p&gt;Despues de buscar un rato, descubrí que el servicio que maneja el mount al inicio del sistema se llama &lt;code&gt;udisks2.service&lt;/code&gt;. Una forma de ver los servicios en systemd es:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;systemctl --type&lt;span class="o"&gt;=&lt;/span&gt;service
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h4&gt;Agregar dependencia de este servicio al inicio de Docker&lt;/h4&gt;
+&lt;p&gt;En este paso, necesitamos que docker no arranque hasta que se termine el proceso &lt;code&gt;udisks2.service&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;En mi caso, la configuración de Systemd de Docker esta en &lt;code&gt;/lib/systemd/system/docker.service&lt;/code&gt; (que tiene ademas un link simbolico en &lt;code&gt;/etc/systemd/system/multi-user.target.wants/docker.service&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Alli dentro, busque la linea que contiene lo siguiente&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;After&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;network-online.target firewalld.service containerd.service&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Y agregue al final de la misma (con separación de un espacio)&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;After&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;network-online.target firewalld.service containerd.service udisks2.service&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Luego guarde y cerre el archivo.&lt;/p&gt;
+&lt;p&gt;Para que systemd tome este cambio, tuve que ejecutar:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo systemctl daemon-reload
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h4&gt;Montar el disco al inicio del sistema y no de la sesión&lt;/h4&gt;
+&lt;p&gt;A continuación, tuve que configurar para que el disco se monte al inicio del sistema. Para ello, voy tomar el camino de hacerlo via interfaz gráfica y no por consola.&lt;/p&gt;
+&lt;p&gt;Para ello, usé una app que se busca en Gnome como &lt;code&gt;Disks&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Disks Gnome App" src="http://tomasdelvechio.github.io/img/blog/2020/figure1.png" title="Disks Gnome App"&gt;&lt;/p&gt;
+&lt;p&gt;Una vez allí, elegimos el disco en cuestion y entramos a sus "opciones de montaje":&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Select Disk Mount Options" src="http://tomasdelvechio.github.io/img/blog/2020/Selection_024.png" title="Select Disk Mount Options"&gt;&lt;/p&gt;
+&lt;p&gt;En esta nueva pantalla, se indicaron las siguientes cosas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Que no se use las configuraciones por defecto para la sesión&lt;/li&gt;
+&lt;li&gt;Que se monte al arranque del sistema&lt;/li&gt;
+&lt;li&gt;Que se identifique con el UUID (Esta ultima es optativa, pero era la que me pareció que dejaba el nombre mas apropiado al directorio donde se iba a montar)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Mount Options Window" src="http://tomasdelvechio.github.io/img/blog/2020/Selection_026.png" title="Mount Options Window"&gt;&lt;/p&gt;
+&lt;h4&gt;Cambiar los paths en los volumenes&lt;/h4&gt;
+&lt;p&gt;Una vez terminado esto, pude cambiar los paths de los volumenes del lado del host, dejandolos como sigue:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/mnt/9A567...0FD/series:/series
+/mnt/9A567...0FD/peliculas:/peliculas
+....
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Probé reiniciar y todo funciono perfecto.&lt;/p&gt;&lt;/div&gt;</description><category>deploy</category><category>docker</category><category>storage</category><guid>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</guid><pubDate>Tue, 23 Jun 2020 00:30:25 GMT</pubDate></item></channel></rss>

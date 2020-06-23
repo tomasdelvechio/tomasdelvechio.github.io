@@ -47,7 +47,99 @@
 
     <div class="postindex well post-material ">
     
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="introduccion-a-spark/" class="u-url">Introducción a Spark</a></h1>
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="volumenes-de-docker-y-discos-usb-externos/" class="u-url">Volumenes de Docker y Discos USB Externos</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
+                        <i class="mdi-action-face-unlock"></i>
+                    Tomás Delvechio
+                </span>
+                <span class="dateline"><a href="volumenes-de-docker-y-discos-usb-externos/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2020-06-22T21:30:25-03:00" title="2020-06-22 21:30">2020-06-22 21:30</time></a></span>
+                    <span class="commentline">            <a href="volumenes-de-docker-y-discos-usb-externos/#disqus_thread" data-disqus-identifier="cache/posts/volumenes-de-docker-y-discos-usb-externos.html">Comentarios</a>
+
+</span>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
+<p>Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.</p>
+<h3>El Problema</h3>
+<p>Como tengo todo mi contenido multimedia en un disco USB externo, aproveche y le vincule los volumenes al contenedor directamente a los paths del disco.</p>
+<p>Entonces, los volumenes quedaban mas o menos como sigue. Uso la notación que pone Ubuntu al montar los discos externos:</p>
+<pre class="code literal-block"><span></span><code>/media/tomas/Elements/series:/series
+/media/tomas/Elements/peliculas:/peliculas
+....
+</code></pre>
+
+
+<p>De lado derecho es el path del directorio en el host. Del lado izquierdo es el directorio dentro del contenedor.</p>
+<p>Como esto se hace en un equipo particular, eventualmente se reinicia (o se apaga y prende). Esto me genero 1 gran problema.</p>
+<p>El servicio de Docker inicia durante el proceso de boot del equipo. Sin embargo, Ubuntu monta el disco al momento en el que el usuario inicia sesión.</p>
+<p>Esto genera que Docker intente buscar los directorios de los volumenes en el Host, y al no encontrarlos, los crea. Este comportamiento se conoce como propagación y esta documentado<a href="https://docs.docker.com/storage/#tips-for-using-bind-mounts-or-volumes">1</a>.</p>
+<p>Sin embargo, sucedia que al iniciar sesión, Ubuntu intentaba montar en el directorio <code>/media/tomas/Elements</code>, pero debido a que este ya existia (dado que Docker lo creaba por el mecanismo de propagación), Ubuntu monta el disco en <code>/media/tomas/Elements1</code>.</p>
+<p>El efecto de esto es que perdia acceso a los directorios dentro del contenedor.</p>
+<h3>La idea de solución</h3>
+<p>Buscando ayuda, lo que me sugieren y que es la solución es cambiar el orden del booteo, para que Docker inicie despues del proceso de mount. Esto no es tan facil como puede parecer. Requiere:</p>
+<ul>
+<li>Buscar la unit del servicio de mount</li>
+<li>Buscar la unit de systemd del servicio de Docker</li>
+<li>Agregar el servicio de mount como dependencia de Docker</li>
+<li>Hacer que el mount del disco se haga al inicio y no al iniciar sesion</li>
+<li>Probarlo</li>
+</ul>
+<p>A esa secuencia de pasos llegue luego de un poco de prueba y error.</p>
+<p>A continuación documentaré los pasos que tuve que hacer</p>
+<h3>La solución</h3>
+<p>Aclaración del setup de mi equipo: Tengo una notebook corriendo Ubuntu 18.04, que ejecuta Systemd para gestionar el proceso de arranque del Sistema Operativo. Desconozco si en otras distros esto puede variar.</p>
+<h4>Nombre del servicio de mount en Systemd</h4>
+<p>Despues de buscar un rato, descubrí que el servicio que maneja el mount al inicio del sistema se llama <code>udisks2.service</code>. Una forma de ver los servicios en systemd es:</p>
+<pre class="code literal-block"><span></span><code>systemctl --type<span class="o">=</span>service
+</code></pre>
+
+
+<h4>Agregar dependencia de este servicio al inicio de Docker</h4>
+<p>En este paso, necesitamos que docker no arranque hasta que se termine el proceso <code>udisks2.service</code>.</p>
+<p>En mi caso, la configuración de Systemd de Docker esta en <code>/lib/systemd/system/docker.service</code> (que tiene ademas un link simbolico en <code>/etc/systemd/system/multi-user.target.wants/docker.service</code>).</p>
+<p>Alli dentro, busque la linea que contiene lo siguiente</p>
+<pre class="code literal-block"><span></span><code><span class="na">After</span><span class="o">=</span><span class="s">network-online.target firewalld.service containerd.service</span>
+</code></pre>
+
+
+<p>Y agregue al final de la misma (con separación de un espacio)</p>
+<pre class="code literal-block"><span></span><code><span class="na">After</span><span class="o">=</span><span class="s">network-online.target firewalld.service containerd.service udisks2.service</span>
+</code></pre>
+
+
+<p>Luego guarde y cerre el archivo.</p>
+<p>Para que systemd tome este cambio, tuve que ejecutar:</p>
+<pre class="code literal-block"><span></span><code>sudo systemctl daemon-reload
+</code></pre>
+
+
+<h4>Montar el disco al inicio del sistema y no de la sesión</h4>
+<p>A continuación, tuve que configurar para que el disco se monte al inicio del sistema. Para ello, voy tomar el camino de hacerlo via interfaz gráfica y no por consola.</p>
+<p>Para ello, usé una app que se busca en Gnome como <code>Disks</code>:</p>
+<p><img alt="Disks Gnome App" src="../img/blog/2020/figure1.png" title="Disks Gnome App"></p>
+<p>Una vez allí, elegimos el disco en cuestion y entramos a sus "opciones de montaje":</p>
+<p><img alt="Select Disk Mount Options" src="../img/blog/2020/Selection_024.png" title="Select Disk Mount Options"></p>
+<p>En esta nueva pantalla, se indicaron las siguientes cosas:</p>
+<ol>
+<li>Que no se use las configuraciones por defecto para la sesión</li>
+<li>Que se monte al arranque del sistema</li>
+<li>Que se identifique con el UUID (Esta ultima es optativa, pero era la que me pareció que dejaba el nombre mas apropiado al directorio donde se iba a montar)</li>
+</ol>
+<p><img alt="Mount Options Window" src="../img/blog/2020/Selection_026.png" title="Mount Options Window"></p>
+<h4>Cambiar los paths en los volumenes</h4>
+<p>Una vez terminado esto, pude cambiar los paths de los volumenes del lado del host, dejandolos como sigue:</p>
+<pre class="code literal-block"><span></span><code>/mnt/9A567...0FD/series:/series
+/mnt/9A567...0FD/peliculas:/peliculas
+....
+</code></pre>
+
+
+<p>Probé reiniciar y todo funciono perfecto.</p>
+</div>
+        </div>
+        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="introduccion-a-spark/" class="u-url">Introducción a Spark</a></h1>
             <div class="metadata">
                 <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
