@@ -3,7 +3,174 @@
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 23 Jun 2020 00:38:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Volumenes de Docker y Discos USB Externos</title><link>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.&lt;/p&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Fri, 03 Jul 2020 23:36:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2020)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;h3&gt;Introducción&lt;/h3&gt;
+&lt;p&gt;Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   31G  &lt;span class="m"&gt;5&lt;/span&gt;,0G  &lt;span class="m"&gt;86&lt;/span&gt;% /
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h3&gt;Herramienta de diagnostico&lt;/h3&gt;
+&lt;p&gt;Ok, que hacer? En primer lugar, un diagnostico. La primer mano nos la puede dar la aplicación &lt;code&gt;baobab&lt;/code&gt;, que si mal no recuerdo siempre esta instalada (si tenes el escritorio por defecto de Ubuntu).&lt;/p&gt;
+&lt;p&gt;Se busca desde el launcher con ese nombre o "Analizador de Uso de Disco". Muestra las diferentes particiones y gráficos de forma cómoda directorios y sub-directorios:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Baobab Screenshoot" src="http://tomasdelvechio.github.io/img/blog/2020/baobab-screenshot.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Replicas de paquetes de Snap&lt;/h3&gt;
+&lt;p&gt;Ya usando &lt;code&gt;baobab&lt;/code&gt; investigo y encuentro que uno de los directorios que mas archivo tiene es &lt;code&gt;/var/lib/snapd/snaps&lt;/code&gt;. Ahi me encuentro con lo siguiente:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ls -la /var/lib/snapd/snaps
+total &lt;span class="m"&gt;6180056&lt;/span&gt;
+drwxr-xr-x  &lt;span class="m"&gt;3&lt;/span&gt; root root      &lt;span class="m"&gt;4096&lt;/span&gt; jul  &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;18&lt;/span&gt;:40 .
+drwxr-xr-x &lt;span class="m"&gt;21&lt;/span&gt; root root      &lt;span class="m"&gt;4096&lt;/span&gt; jul  &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;18&lt;/span&gt;:55 ..
+-rw-------  &lt;span class="m"&gt;2&lt;/span&gt; root root  &lt;span class="m"&gt;57266176&lt;/span&gt; jun &lt;span class="m"&gt;13&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;:12 bitwarden_25.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root  &lt;span class="m"&gt;57257984&lt;/span&gt; jun &lt;span class="m"&gt;29&lt;/span&gt; &lt;span class="m"&gt;21&lt;/span&gt;:35 bitwarden_26.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root  &lt;span class="m"&gt;57614336&lt;/span&gt; mar &lt;span class="m"&gt;25&lt;/span&gt; &lt;span class="m"&gt;22&lt;/span&gt;:43 core18_1705.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root  &lt;span class="m"&gt;57618432&lt;/span&gt; abr &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;14&lt;/span&gt;:28 core18_1754.snap
+-rw-------  &lt;span class="m"&gt;2&lt;/span&gt; root root  &lt;span class="m"&gt;63942656&lt;/span&gt; jun &lt;span class="m"&gt;19&lt;/span&gt; &lt;span class="m"&gt;11&lt;/span&gt;:05 core20_634.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;101724160&lt;/span&gt; jun  &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:18 core_9289.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;101191680&lt;/span&gt; jun &lt;span class="m"&gt;24&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:07 core_9436.snap
+-rw-------  &lt;span class="m"&gt;2&lt;/span&gt; root root  &lt;span class="m"&gt;61710336&lt;/span&gt; feb &lt;span class="m"&gt;27&lt;/span&gt; &lt;span class="m"&gt;02&lt;/span&gt;:55 discord_108.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root  &lt;span class="m"&gt;60096512&lt;/span&gt; mar &lt;span class="m"&gt;18&lt;/span&gt; &lt;span class="m"&gt;11&lt;/span&gt;:54 discord_109.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root  &lt;span class="m"&gt;93212672&lt;/span&gt; jun &lt;span class="m"&gt;23&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:27 drawio_37.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root  &lt;span class="m"&gt;93224960&lt;/span&gt; jun &lt;span class="m"&gt;28&lt;/span&gt; &lt;span class="m"&gt;21&lt;/span&gt;:35 drawio_38.snap
+-rw-------  &lt;span class="m"&gt;2&lt;/span&gt; root root &lt;span class="m"&gt;193806336&lt;/span&gt; may &lt;span class="m"&gt;14&lt;/span&gt;  &lt;span class="m"&gt;2019&lt;/span&gt; eclipse_40.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;220319744&lt;/span&gt; mar &lt;span class="m"&gt;25&lt;/span&gt; &lt;span class="m"&gt;07&lt;/span&gt;:39 eclipse_48.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;208605184&lt;/span&gt; mar &lt;span class="m"&gt;11&lt;/span&gt; &lt;span class="m"&gt;20&lt;/span&gt;:01 gitkraken_153.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;208609280&lt;/span&gt; abr &lt;span class="m"&gt;22&lt;/span&gt; &lt;span class="m"&gt;20&lt;/span&gt;:45 gitkraken_154.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;147488768&lt;/span&gt; may &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;:22 gnome-3-26-1604_100.snap
+-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;147501056&lt;/span&gt; nov &lt;span class="m"&gt;17&lt;/span&gt;  &lt;span class="m"&gt;2019&lt;/span&gt; gnome-3-26-1604_98.snap
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Las apps están descargadas y "backupeadas" por las dudas.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://snapcraft.io/"&gt;Snap&lt;/a&gt; es una manera de instalar apps en Linux, fuertemente impulsada por Canonical. A veces es cómoda para instalar apps que no están en los repos clásicos o están en una versión desactualizada (via Apt).&lt;/p&gt;
+&lt;p&gt;Buscando un poco, se llega al siguiente comando:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ snap list --all
+Name                     Version                     Rev   Tracking          Publisher         Notes                                                           
+bitwarden                &lt;span class="m"&gt;1&lt;/span&gt;.18.0                      &lt;span class="m"&gt;25&lt;/span&gt;    latest/stable     bitwarden✓        disabled                                                        
+bitwarden                &lt;span class="m"&gt;1&lt;/span&gt;.19.0                      &lt;span class="m"&gt;26&lt;/span&gt;    latest/stable     bitwarden✓        -                                                               
+core                     &lt;span class="m"&gt;16&lt;/span&gt;-2.45.1                   &lt;span class="m"&gt;9436&lt;/span&gt;  latest/stable     canonical✓        core                                                            
+core                     &lt;span class="m"&gt;16&lt;/span&gt;-2.45                     &lt;span class="m"&gt;9289&lt;/span&gt;  latest/stable     canonical✓        core,disabled                                                   
+core18                   &lt;span class="m"&gt;20200311&lt;/span&gt;                    &lt;span class="m"&gt;1705&lt;/span&gt;  latest/stable     canonical✓        base,disabled                                                   
+core18                   &lt;span class="m"&gt;20200427&lt;/span&gt;                    &lt;span class="m"&gt;1754&lt;/span&gt;  latest/stable     canonical✓        base                                                            
+core20                   &lt;span class="m"&gt;20&lt;/span&gt;                          &lt;span class="m"&gt;634&lt;/span&gt;   latest/stable     canonical✓        base                                                            
+discord                  &lt;span class="m"&gt;0&lt;/span&gt;.0.10                      &lt;span class="m"&gt;108&lt;/span&gt;   latest/stable     snapcrafters      disabled                                                        
+discord                  &lt;span class="m"&gt;0&lt;/span&gt;.0.10                      &lt;span class="m"&gt;109&lt;/span&gt;   latest/stable     snapcrafters      -                                                               
+drawio                   &lt;span class="m"&gt;13&lt;/span&gt;.3.1                      &lt;span class="m"&gt;37&lt;/span&gt;    latest/stable     jgraph✓           disabled                                                        
+drawio                   &lt;span class="m"&gt;13&lt;/span&gt;.3.5                      &lt;span class="m"&gt;38&lt;/span&gt;    latest/stable     jgraph✓           -                                                               
+eclipse                  &lt;span class="m"&gt;2019&lt;/span&gt;-03                     &lt;span class="m"&gt;40&lt;/span&gt;    latest/stable     snapcrafters      disabled,classic
+eclipse                  &lt;span class="m"&gt;2019&lt;/span&gt;-12                     &lt;span class="m"&gt;48&lt;/span&gt;    latest/stable     snapcrafters      classic
+gitkraken                &lt;span class="m"&gt;6&lt;/span&gt;.6.0                       &lt;span class="m"&gt;154&lt;/span&gt;   latest/stable     gitkraken✓        -
+gitkraken                &lt;span class="m"&gt;6&lt;/span&gt;.5.4                       &lt;span class="m"&gt;153&lt;/span&gt;   latest/stable     gitkraken✓        disabled
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Si en la salida anterior se observa la ultima columna (Notes), se observa que hay muchas versiones en estado &lt;code&gt;disabled&lt;/code&gt;. Así que en teoría se pueden borrar. El script que &lt;a href="https://superuser.com/a/1330590/341719"&gt;se encuentra aca&lt;/a&gt; a mi me funciono joya (ojo que avisan que según el idioma del sistema por ahí lo tienen que tocar).&lt;/p&gt;
+&lt;p&gt;Dejo una versión del script acá:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c1"&gt;# Removes old revisions of snaps&lt;/span&gt;
+&lt;span class="c1"&gt;# CLOSE ALL SNAPS BEFORE RUNNING THIS&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -eu
+
+&lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;C snap list --all &lt;span class="p"&gt;|&lt;/span&gt; awk &lt;span class="s1"&gt;'/disabled/{print $1, $3}'&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; snapname revision&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+        sudo snap remove &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$snapname&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; --revision&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$revision&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;También es una buena idea revisar programas ahí instalados y que no estés usando, y eliminarlos, por ejemplo, en mi caso había un par que no estaba usando y los elimine:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo snap remove krita gitkraken eclipse drawio bitwarden youtube-dl
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Para este punto, y solo preocupándome por Snap, la situación estaba así:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   27G  &lt;span class="m"&gt;8&lt;/span&gt;,5G  &lt;span class="m"&gt;77&lt;/span&gt;% /
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Recupere alrededor de 3.5 Gb.&lt;/p&gt;
+&lt;h3&gt;Logs is everywhere&lt;/h3&gt;
+&lt;p&gt;El siguiente directorio que tenia bastante peso era el de logs. 4Gb de logs!!!!!&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ journalctl --disk-usage
+Archived and active journals take up &lt;span class="m"&gt;3&lt;/span&gt;.7G in the file system.
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;El directorio principal de logs en un Ubuntu es &lt;code&gt;/var/log&lt;/code&gt;, y dentro de dicho directorio, el journal (el log principal del sistema) era el que mas pesaba (casi el total). Ahí veo 2 problemas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mala política de borrado de logs&lt;/li&gt;
+&lt;li&gt;Porque se están llenando tanto?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Política de borrado&lt;/h4&gt;
+&lt;p&gt;La rotación de logs es una tarea automática que hace el sistema. Básicamente va creando archivos nuevos para loguear los eventos mas actuales, y deja como históricos los viejos archivos. Para consultar estos registros, se puede usar el comando &lt;code&gt;journalctl&lt;/code&gt;. No me voy a detener en este comando que daría para un post entero. Solo decir que una primer configuración a editar es el tamaño del log del sistema. Esto se hace desde &lt;code&gt;/etc/systemd/journald.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Como root, editar ese archivo, cambiando la linea:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#SystemMaxUse=&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;por&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;SystemMaxUse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;100M&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Donde el valor después del signo igual, debería ser el tamaño que queremos que ocupe. En este caso,  100 Megas me parece un valor mas que razonable.&lt;/p&gt;
+&lt;p&gt;Para terminar de aplicar el cambio, hay que reiniciar el servicio:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo systemctl restart systemd-journald.service
+$ journalctl --disk-usage
+Archived and active journals take up &lt;span class="m"&gt;104&lt;/span&gt;.0M in the file system.
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Perfecto. Si volvemos a mirar el espacio en disco:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   24G   13G  &lt;span class="m"&gt;66&lt;/span&gt;% /
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Perfecto. ¿Con que seguir?&lt;/p&gt;
+&lt;h3&gt;Cache de APT y Librerías sin uso&lt;/h3&gt;
+&lt;p&gt;APT es la herramienta para gestión de paquetes de Ubuntu. Es típico que en el uso, genere una cache importante, y que en muchos casos queden librerías que ya no se utilizan y pueden borrarse. En mi caso no va a aportar demasiado porque estos comandos los suelo ejecutar con cierta regularidad, pero hay 3 parámetros que son muy útiles y es aconsejable ejecutarlos con cierta regularidad:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt clean
+$ sudo apt autoclean
+$ sudo apt autoremove
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;En el ultimo caso, puede querer eliminar paquetes y nos va a preguntar si estamos seguros. En general, no es problemático eliminarlos (aunque si no se esta seguro, ese ultimo comando podría no ejecutarse).&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   23G   13G  &lt;span class="m"&gt;65&lt;/span&gt;% /
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;En mi caso no ayudó mucho, pero puede ser útil este paso.&lt;/p&gt;
+&lt;h3&gt;Directorio /usr&lt;/h3&gt;
+&lt;p&gt;Si no esta pasando nada raro, y excluyendo el &lt;code&gt;/home&lt;/code&gt;, el directorio &lt;code&gt;/usr&lt;/code&gt; debería ser uno de los directorios con mas "peso" en el gráfico de &lt;code&gt;Baobab&lt;/code&gt;. Es normal y esperable, ya que todas las aplicaciones y librerías del sistema se encuentra allí.&lt;/p&gt;
+&lt;p&gt;En general no es aconsejable tocar ningún archivo de allí. En caso de tener alguna anomalía, es probable que pueda limpiarse eliminando el paquete o programa que la esta causando, pero no se aconseja eliminar archivos o sub directorios de forma directa en este caso.&lt;/p&gt;
+&lt;h3&gt;BleachBit&lt;/h3&gt;
+&lt;p&gt;Para terminar el post, es interesante mencionar esta GUI, llamada &lt;a href="https://www.bleachbit.org/"&gt;BleachBit&lt;/a&gt;, que es lo mas parecido a CCleaner que tenemos los usuarios de Linux.&lt;/p&gt;
+&lt;p&gt;Tiene una forma de eliminar cosas del sistema (usar con cuidado) pero al estar centrado en el usuario,  nos haría ganar espacio en el &lt;code&gt;/home&lt;/code&gt;. En caso de necesitarlo, es una buena opción.&lt;/p&gt;
+&lt;p&gt;Luego de borrar algunas cosas, la cantidad de disco ocupada finalmente fue la siguiente:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   23G   13G  &lt;span class="m"&gt;64&lt;/span&gt;% /
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.&lt;/p&gt;&lt;/div&gt;</description><category>disk usage</category><category>free space</category><guid>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</guid><pubDate>Fri, 03 Jul 2020 21:45:32 GMT</pubDate></item><item><title>Volumenes de Docker y Discos USB Externos</title><link>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.&lt;/p&gt;
 &lt;h3&gt;El Problema&lt;/h3&gt;
 &lt;p&gt;Como tengo todo mi contenido multimedia en un disco USB externo, aproveche y le vincule los volumenes al contenedor directamente a los paths del disco.&lt;/p&gt;
 &lt;p&gt;Entonces, los volumenes quedaban mas o menos como sigue. Uso la notación que pone Ubuntu al montar los discos externos:&lt;/p&gt;

@@ -19,11 +19,11 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/archive.html</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-07-03T22:02:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-07-03T22:02:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</loc>
@@ -32,6 +32,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</loc>
   <lastmod>2018-09-08T18:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</loc>
+  <lastmod>2020-07-03T22:02:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</loc>
@@ -55,7 +59,7 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-07-03T23:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/big-data/</loc>
@@ -102,12 +106,20 @@
   <lastmod>2018-01-26T03:25:00Z</lastmod>
  </url>
  <url>
+  <loc>http://tomasdelvechio.github.io/categories/disk-usage/</loc>
+  <lastmod>2020-07-03T23:36:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://tomasdelvechio.github.io/categories/distributed-systems/</loc>
   <lastmod>2018-09-08T18:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/docker/</loc>
   <lastmod>2020-06-23T00:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/free-space/</loc>
+  <lastmod>2020-07-03T23:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/git/</loc>

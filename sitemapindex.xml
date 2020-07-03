@@ -39,7 +39,7 @@
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/deploy.xml</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-06-23T00:38:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/dev.xml</loc>
@@ -50,12 +50,20 @@
   <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/disk-usage.xml</loc>
+  <lastmod>2020-07-03T23:36:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/distributed-systems.xml</loc>
   <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/docker.xml</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-06-23T00:38:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/free-space.xml</loc>
+  <lastmod>2020-07-03T23:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/git.xml</loc>
@@ -83,7 +91,7 @@
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/storage.xml</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-06-23T00:38:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/sublime.xml</loc>
@@ -99,10 +107,10 @@
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/rss.xml</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-07-03T23:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/sitemap.xml</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2020-07-03T23:36:00Z</lastmod>
  </sitemap>
 </sitemapindex>

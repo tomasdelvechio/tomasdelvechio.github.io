@@ -47,7 +47,191 @@
 
     <div class="postindex well post-material ">
     
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="volumenes-de-docker-y-discos-usb-externos/" class="u-url">Volumenes de Docker y Discos USB Externos</a></h1>
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="borrando-cosas-inutiles-de-ubuntu-version-2020/" class="u-url">Borrando Cosas Inutiles de Ubuntu (Versión 2020)</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
+                        <i class="mdi-action-face-unlock"></i>
+                    Tomás Delvechio
+                </span>
+                <span class="dateline"><a href="borrando-cosas-inutiles-de-ubuntu-version-2020/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2020-07-03T18:45:32-03:00" title="2020-07-03 18:45">2020-07-03 18:45</time></a></span>
+                    <span class="commentline">            <a href="borrando-cosas-inutiles-de-ubuntu-version-2020/#disqus_thread" data-disqus-identifier="cache/posts/borrando-cosas-inutiles-de-ubuntu-version-2020.html">Comentarios</a>
+
+</span>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
+<h3>Introducción</h3>
+<p>Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.</p>
+<pre class="code literal-block"><span></span><code>$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   31G  <span class="m">5</span>,0G  <span class="m">86</span>% /
+...
+</code></pre>
+
+
+<h3>Herramienta de diagnostico</h3>
+<p>Ok, que hacer? En primer lugar, un diagnostico. La primer mano nos la puede dar la aplicación <code>baobab</code>, que si mal no recuerdo siempre esta instalada (si tenes el escritorio por defecto de Ubuntu).</p>
+<p>Se busca desde el launcher con ese nombre o "Analizador de Uso de Disco". Muestra las diferentes particiones y gráficos de forma cómoda directorios y sub-directorios:</p>
+<p><img alt="Baobab Screenshoot" src="../img/blog/2020/baobab-screenshot.png"></p>
+<h3>Replicas de paquetes de Snap</h3>
+<p>Ya usando <code>baobab</code> investigo y encuentro que uno de los directorios que mas archivo tiene es <code>/var/lib/snapd/snaps</code>. Ahi me encuentro con lo siguiente:</p>
+<pre class="code literal-block"><span></span><code>$ ls -la /var/lib/snapd/snaps
+total <span class="m">6180056</span>
+drwxr-xr-x  <span class="m">3</span> root root      <span class="m">4096</span> jul  <span class="m">3</span> <span class="m">18</span>:40 .
+drwxr-xr-x <span class="m">21</span> root root      <span class="m">4096</span> jul  <span class="m">3</span> <span class="m">18</span>:55 ..
+-rw-------  <span class="m">2</span> root root  <span class="m">57266176</span> jun <span class="m">13</span> <span class="m">12</span>:12 bitwarden_25.snap
+-rw-------  <span class="m">1</span> root root  <span class="m">57257984</span> jun <span class="m">29</span> <span class="m">21</span>:35 bitwarden_26.snap
+-rw-------  <span class="m">1</span> root root  <span class="m">57614336</span> mar <span class="m">25</span> <span class="m">22</span>:43 core18_1705.snap
+-rw-------  <span class="m">1</span> root root  <span class="m">57618432</span> abr <span class="m">30</span> <span class="m">14</span>:28 core18_1754.snap
+-rw-------  <span class="m">2</span> root root  <span class="m">63942656</span> jun <span class="m">19</span> <span class="m">11</span>:05 core20_634.snap
+-rw-------  <span class="m">1</span> root root <span class="m">101724160</span> jun  <span class="m">2</span> <span class="m">16</span>:18 core_9289.snap
+-rw-------  <span class="m">1</span> root root <span class="m">101191680</span> jun <span class="m">24</span> <span class="m">16</span>:07 core_9436.snap
+-rw-------  <span class="m">2</span> root root  <span class="m">61710336</span> feb <span class="m">27</span> <span class="m">02</span>:55 discord_108.snap
+-rw-------  <span class="m">1</span> root root  <span class="m">60096512</span> mar <span class="m">18</span> <span class="m">11</span>:54 discord_109.snap
+-rw-------  <span class="m">1</span> root root  <span class="m">93212672</span> jun <span class="m">23</span> <span class="m">16</span>:27 drawio_37.snap
+-rw-------  <span class="m">1</span> root root  <span class="m">93224960</span> jun <span class="m">28</span> <span class="m">21</span>:35 drawio_38.snap
+-rw-------  <span class="m">2</span> root root <span class="m">193806336</span> may <span class="m">14</span>  <span class="m">2019</span> eclipse_40.snap
+-rw-------  <span class="m">1</span> root root <span class="m">220319744</span> mar <span class="m">25</span> <span class="m">07</span>:39 eclipse_48.snap
+-rw-------  <span class="m">1</span> root root <span class="m">208605184</span> mar <span class="m">11</span> <span class="m">20</span>:01 gitkraken_153.snap
+-rw-------  <span class="m">1</span> root root <span class="m">208609280</span> abr <span class="m">22</span> <span class="m">20</span>:45 gitkraken_154.snap
+-rw-------  <span class="m">1</span> root root <span class="m">147488768</span> may <span class="m">30</span> <span class="m">12</span>:22 gnome-3-26-1604_100.snap
+-rw-------  <span class="m">1</span> root root <span class="m">147501056</span> nov <span class="m">17</span>  <span class="m">2019</span> gnome-3-26-1604_98.snap
+</code></pre>
+
+
+<p>Las apps están descargadas y "backupeadas" por las dudas.</p>
+<p><a href="https://snapcraft.io/">Snap</a> es una manera de instalar apps en Linux, fuertemente impulsada por Canonical. A veces es cómoda para instalar apps que no están en los repos clásicos o están en una versión desactualizada (via Apt).</p>
+<p>Buscando un poco, se llega al siguiente comando:</p>
+<pre class="code literal-block"><span></span><code>$ snap list --all
+Name                     Version                     Rev   Tracking          Publisher         Notes                                                           
+bitwarden                <span class="m">1</span>.18.0                      <span class="m">25</span>    latest/stable     bitwarden✓        disabled                                                        
+bitwarden                <span class="m">1</span>.19.0                      <span class="m">26</span>    latest/stable     bitwarden✓        -                                                               
+core                     <span class="m">16</span>-2.45.1                   <span class="m">9436</span>  latest/stable     canonical✓        core                                                            
+core                     <span class="m">16</span>-2.45                     <span class="m">9289</span>  latest/stable     canonical✓        core,disabled                                                   
+core18                   <span class="m">20200311</span>                    <span class="m">1705</span>  latest/stable     canonical✓        base,disabled                                                   
+core18                   <span class="m">20200427</span>                    <span class="m">1754</span>  latest/stable     canonical✓        base                                                            
+core20                   <span class="m">20</span>                          <span class="m">634</span>   latest/stable     canonical✓        base                                                            
+discord                  <span class="m">0</span>.0.10                      <span class="m">108</span>   latest/stable     snapcrafters      disabled                                                        
+discord                  <span class="m">0</span>.0.10                      <span class="m">109</span>   latest/stable     snapcrafters      -                                                               
+drawio                   <span class="m">13</span>.3.1                      <span class="m">37</span>    latest/stable     jgraph✓           disabled                                                        
+drawio                   <span class="m">13</span>.3.5                      <span class="m">38</span>    latest/stable     jgraph✓           -                                                               
+eclipse                  <span class="m">2019</span>-03                     <span class="m">40</span>    latest/stable     snapcrafters      disabled,classic
+eclipse                  <span class="m">2019</span>-12                     <span class="m">48</span>    latest/stable     snapcrafters      classic
+gitkraken                <span class="m">6</span>.6.0                       <span class="m">154</span>   latest/stable     gitkraken✓        -
+gitkraken                <span class="m">6</span>.5.4                       <span class="m">153</span>   latest/stable     gitkraken✓        disabled
+</code></pre>
+
+
+<p>Si en la salida anterior se observa la ultima columna (Notes), se observa que hay muchas versiones en estado <code>disabled</code>. Así que en teoría se pueden borrar. El script que <a href="https://superuser.com/a/1330590/341719">se encuentra aca</a> a mi me funciono joya (ojo que avisan que según el idioma del sistema por ahí lo tienen que tocar).</p>
+<p>Dejo una versión del script acá:</p>
+<pre class="code literal-block"><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Removes old revisions of snaps</span>
+<span class="c1"># CLOSE ALL SNAPS BEFORE RUNNING THIS</span>
+<span class="nb">set</span> -eu
+
+<span class="nv">LANG</span><span class="o">=</span>C snap list --all <span class="p">|</span> awk <span class="s1">'/disabled/{print $1, $3}'</span> <span class="p">|</span>
+    <span class="k">while</span> <span class="nb">read</span> snapname revision<span class="p">;</span> <span class="k">do</span>
+        sudo snap remove <span class="s2">"</span><span class="nv">$snapname</span><span class="s2">"</span> --revision<span class="o">=</span><span class="s2">"</span><span class="nv">$revision</span><span class="s2">"</span>
+    <span class="k">done</span>
+</code></pre>
+
+
+<p>También es una buena idea revisar programas ahí instalados y que no estés usando, y eliminarlos, por ejemplo, en mi caso había un par que no estaba usando y los elimine:</p>
+<pre class="code literal-block"><span></span><code>sudo snap remove krita gitkraken eclipse drawio bitwarden youtube-dl
+</code></pre>
+
+
+<p>Para este punto, y solo preocupándome por Snap, la situación estaba así:</p>
+<pre class="code literal-block"><span></span><code>$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   27G  <span class="m">8</span>,5G  <span class="m">77</span>% /
+...
+</code></pre>
+
+
+<p>Recupere alrededor de 3.5 Gb.</p>
+<h3>Logs is everywhere</h3>
+<p>El siguiente directorio que tenia bastante peso era el de logs. 4Gb de logs!!!!!</p>
+<pre class="code literal-block"><span></span><code>$ journalctl --disk-usage
+Archived and active journals take up <span class="m">3</span>.7G in the file system.
+</code></pre>
+
+
+<p>El directorio principal de logs en un Ubuntu es <code>/var/log</code>, y dentro de dicho directorio, el journal (el log principal del sistema) era el que mas pesaba (casi el total). Ahí veo 2 problemas:</p>
+<ul>
+<li>Mala política de borrado de logs</li>
+<li>Porque se están llenando tanto?</li>
+</ul>
+<h4>Política de borrado</h4>
+<p>La rotación de logs es una tarea automática que hace el sistema. Básicamente va creando archivos nuevos para loguear los eventos mas actuales, y deja como históricos los viejos archivos. Para consultar estos registros, se puede usar el comando <code>journalctl</code>. No me voy a detener en este comando que daría para un post entero. Solo decir que una primer configuración a editar es el tamaño del log del sistema. Esto se hace desde <code>/etc/systemd/journald.conf</code>:</p>
+<p>Como root, editar ese archivo, cambiando la linea:</p>
+<pre class="code literal-block"><span></span><code><span class="c1">#SystemMaxUse=</span>
+</code></pre>
+
+
+<p>por</p>
+<pre class="code literal-block"><span></span><code><span class="na">SystemMaxUse</span><span class="o">=</span><span class="s">100M</span>
+</code></pre>
+
+
+<p>Donde el valor después del signo igual, debería ser el tamaño que queremos que ocupe. En este caso,  100 Megas me parece un valor mas que razonable.</p>
+<p>Para terminar de aplicar el cambio, hay que reiniciar el servicio:</p>
+<pre class="code literal-block"><span></span><code>$ sudo systemctl restart systemd-journald.service
+$ journalctl --disk-usage
+Archived and active journals take up <span class="m">104</span>.0M in the file system.
+</code></pre>
+
+
+<p>Perfecto. Si volvemos a mirar el espacio en disco:</p>
+<pre class="code literal-block"><span></span><code>$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   24G   13G  <span class="m">66</span>% /
+...
+</code></pre>
+
+
+<p>Perfecto. ¿Con que seguir?</p>
+<h3>Cache de APT y Librerías sin uso</h3>
+<p>APT es la herramienta para gestión de paquetes de Ubuntu. Es típico que en el uso, genere una cache importante, y que en muchos casos queden librerías que ya no se utilizan y pueden borrarse. En mi caso no va a aportar demasiado porque estos comandos los suelo ejecutar con cierta regularidad, pero hay 3 parámetros que son muy útiles y es aconsejable ejecutarlos con cierta regularidad:</p>
+<pre class="code literal-block"><span></span><code>$ sudo apt clean
+$ sudo apt autoclean
+$ sudo apt autoremove
+</code></pre>
+
+
+<p>En el ultimo caso, puede querer eliminar paquetes y nos va a preguntar si estamos seguros. En general, no es problemático eliminarlos (aunque si no se esta seguro, ese ultimo comando podría no ejecutarse).</p>
+<pre class="code literal-block"><span></span><code>$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   23G   13G  <span class="m">65</span>% /
+...
+</code></pre>
+
+
+<p>En mi caso no ayudó mucho, pero puede ser útil este paso.</p>
+<h3>Directorio /usr</h3>
+<p>Si no esta pasando nada raro, y excluyendo el <code>/home</code>, el directorio <code>/usr</code> debería ser uno de los directorios con mas "peso" en el gráfico de <code>Baobab</code>. Es normal y esperable, ya que todas las aplicaciones y librerías del sistema se encuentra allí.</p>
+<p>En general no es aconsejable tocar ningún archivo de allí. En caso de tener alguna anomalía, es probable que pueda limpiarse eliminando el paquete o programa que la esta causando, pero no se aconseja eliminar archivos o sub directorios de forma directa en este caso.</p>
+<h3>BleachBit</h3>
+<p>Para terminar el post, es interesante mencionar esta GUI, llamada <a href="https://www.bleachbit.org/">BleachBit</a>, que es lo mas parecido a CCleaner que tenemos los usuarios de Linux.</p>
+<p>Tiene una forma de eliminar cosas del sistema (usar con cuidado) pero al estar centrado en el usuario,  nos haría ganar espacio en el <code>/home</code>. En caso de necesitarlo, es una buena opción.</p>
+<p>Luego de borrar algunas cosas, la cantidad de disco ocupada finalmente fue la siguiente:</p>
+<pre class="code literal-block"><span></span><code>$ df -h 
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1        38G   23G   13G  <span class="m">64</span>% /
+...
+</code></pre>
+
+
+<p>Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.</p>
+</div>
+        </div>
+        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="volumenes-de-docker-y-discos-usb-externos/" class="u-url">Volumenes de Docker y Discos USB Externos</a></h1>
             <div class="metadata">
                 <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
