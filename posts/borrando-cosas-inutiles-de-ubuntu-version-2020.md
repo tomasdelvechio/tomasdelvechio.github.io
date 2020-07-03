@@ -131,6 +131,8 @@ El directorio principal de logs en un Ubuntu es `/var/log`, y dentro de dicho di
 * Mala política de borrado de logs
 * Porque se están llenando tanto?
 
+Lo segundo es para pensarlo un poco e investigar, para el objetivo del post me voy a centrar en el primero punto.
+
 ### Política de borrado
 
 La rotación de logs es una tarea automática que hace el sistema. Básicamente va creando archivos nuevos para loguear los eventos mas actuales, y deja como históricos los viejos archivos. Para consultar estos registros, se puede usar el comando `journalctl`. No me voy a detener en este comando que daría para un post entero. Solo decir que una primer configuración a editar es el tamaño del log del sistema. Esto se hace desde `/etc/systemd/journald.conf`:
