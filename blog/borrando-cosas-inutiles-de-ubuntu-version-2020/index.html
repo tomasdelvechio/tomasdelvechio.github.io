@@ -168,6 +168,7 @@ Archived and active journals take up <span class="m">3</span>.7G in the file sys
 <li>Mala política de borrado de logs</li>
 <li>Porque se están llenando tanto?</li>
 </ul>
+<p>Lo segundo es para pensarlo un poco e investigar, para el objetivo del post me voy a centrar en el primero punto.</p>
 <h4>Política de borrado</h4>
 <p>La rotación de logs es una tarea automática que hace el sistema. Básicamente va creando archivos nuevos para loguear los eventos mas actuales, y deja como históricos los viejos archivos. Para consultar estos registros, se puede usar el comando <code>journalctl</code>. No me voy a detener en este comando que daría para un post entero. Solo decir que una primer configuración a editar es el tamaño del log del sistema. Esto se hace desde <code>/etc/systemd/journald.conf</code>:</p>
 <p>Como root, editar ese archivo, cambiando la linea:</p>
