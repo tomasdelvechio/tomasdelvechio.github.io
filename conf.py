@@ -143,7 +143,8 @@ NAVIGATION_LINKS = {
 
 # Name of the theme to use.
 #THEME = "bootstrap4"
-THEME = "material-theme"
+#THEME = "material-theme"
+THEME = "bootblog"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
@@ -1371,7 +1372,26 @@ FILE_METADATA_UNSLUGIFY_TITLES = True
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {}
+#GLOBAL_CONTEXT = {}
+GLOBAL_CONTEXT = {'blog_sidebar': """\
+<div class="sidebar-module sidebar-module-inset">
+  <h4>Sobre Mí</h4>
+  <p>
+    Soy Tomas Delvechio y aca es donde me gusta escribir sobre
+    las herramientas que uso o lo que me interesa (mayormente de informatica,
+    pero espero ir variando el contenido).
+  </p>
+</div>
+<div class="sidebar-module">
+  <h4>Enlaces</h4>
+  <ol class="list-unstyled">
+    <li><a href="https://twitter.com/tdelvechio">@tomasdelvechio</a></li>
+    <li><a href="http://tomasdelvechio.github.io/">Sitio Principal</a></li>
+    <li><a href="https://www.goodreads.com/user/show/28103289-tomas">Libros</a></li>
+    <li><a href="https://www.pogdesign.co.uk/cat/profile/tomasdelvechio">Series</a></li>
+  </ol>
+</div>
+"""}
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be
