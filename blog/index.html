@@ -4,63 +4,67 @@
 <meta charset="utf-8">
 <meta name="description" content="Sitio Academico de Tomas Delvechio">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tomás Delvechio</title>
+<title>Tomás Delvechio | Tomás Delvechio</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://tomasdelvechio.github.io/blog/">
-<!--[if lt IE 9]>
-            <script src="../assets/js/html5shiv.min.js"></script>
-            <script src="../assets/js/respond.min.js"></script>
-        <![endif]-->
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
 
 <!-- Menubar -->
 
-<nav class="navbar  header-panel shadow-z-3" role="navigation"><div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3">
-            <h1 class="title-blog">
+<div class="blog-masthead">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <nav class="blog-nav" role="navigation"><a href="../blog" class="blog-nav-item">Blog</a>
+            <a href="../old" class="blog-nav-item">Old Blog</a>
+            <a href="../rss.xml" class="blog-nav-item">RSS</a>
+
+            
+
+                
+                
+                
+            
+        </nav>
+</div>
+<!-- /.container -->
+</div>
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <div class="blog-header">
+            <h1 class="blog-title">
                 <a href="http://tomasdelvechio.github.io/">
-                        <span id="blog-title">Tomás Delvechio</span>
-                    </a>
+
+                    <span id="blog-title">Tomás Delvechio</span>
+                </a>
             </h1>
-          </div>
-          <div class="col-xs-9">
-            <a id="hamburger" class="btn btn-raised" href="javascript:void(0);" onclick="menuToggle();">☰</a>
-          </div>
+            <p class="lead blog-description">Sitio Academico de Tomas Delvechio</p>
+            
         </div>
-      </div>
-<!-- /.container-fluid -->
-</nav><div class="container-fluid main" id="content" role="main">
+        <!--Body content-->
         <div class="row">
-            <nav class="col-xs-12 col-sm-3 menu"><ul>
-<li class="withripple"><a href="../blog">Blog</a></li>
-                <li class="withripple"><a href="../old">Old Blog</a></li>
-                <li class="withripple"><a href="../rss.xml">RSS</a></li>
+            <div class="col-sm-8 blog-main">
+                
 
-                    
-                </ul>
-<ul></ul></nav><div class="posts-material col-xs-12 col-sm-9">
-                <div class="col-xs-12 col-md-11 content-material">
+<div class="postindex">
+    <article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="borrando-cosas-inutiles-de-ubuntu-version-2020/" class="u-url">Borrando Cosas Inutiles de Ubuntu (Versión 2020)</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="borrando-cosas-inutiles-de-ubuntu-version-2020/" rel="bookmark"><time class="published dt-published" datetime="2020-07-03T18:45:32-03:00" title="2020-07-03 18:45">2020-07-03 18:45</time></a></p>
+                <p class="commentline">
+        
+    <a href="borrando-cosas-inutiles-de-ubuntu-version-2020/#disqus_thread" data-disqus-identifier="cache/posts/borrando-cosas-inutiles-de-ubuntu-version-2020.html">Comentarios</a>
 
-    <div class="postindex well post-material ">
-    
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="borrando-cosas-inutiles-de-ubuntu-version-2020/" class="u-url">Borrando Cosas Inutiles de Ubuntu (Versión 2020)</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="borrando-cosas-inutiles-de-ubuntu-version-2020/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2020-07-03T18:45:32-03:00" title="2020-07-03 18:45">2020-07-03 18:45</time></a></span>
-                    <span class="commentline">            <a href="borrando-cosas-inutiles-de-ubuntu-version-2020/#disqus_thread" data-disqus-identifier="cache/posts/borrando-cosas-inutiles-de-ubuntu-version-2020.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <h3>Introducción</h3>
 <p>Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.</p>
 <pre class="code literal-block"><span></span><code>$ df -h 
@@ -231,21 +235,20 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 <p>Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.</p>
 </div>
-        </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="volumenes-de-docker-y-discos-usb-externos/" class="u-url">Volumenes de Docker y Discos USB Externos</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="volumenes-de-docker-y-discos-usb-externos/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2020-06-22T21:30:25-03:00" title="2020-06-22 21:30">2020-06-22 21:30</time></a></span>
-                    <span class="commentline">            <a href="volumenes-de-docker-y-discos-usb-externos/#disqus_thread" data-disqus-identifier="cache/posts/volumenes-de-docker-y-discos-usb-externos.html">Comentarios</a>
+    </div>
+    </article><article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="volumenes-de-docker-y-discos-usb-externos/" class="u-url">Volumenes de Docker y Discos USB Externos</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="volumenes-de-docker-y-discos-usb-externos/" rel="bookmark"><time class="published dt-published" datetime="2020-06-22T21:30:25-03:00" title="2020-06-22 21:30">2020-06-22 21:30</time></a></p>
+                <p class="commentline">
+        
+    <a href="volumenes-de-docker-y-discos-usb-externos/#disqus_thread" data-disqus-identifier="cache/posts/volumenes-de-docker-y-discos-usb-externos.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <p>Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.</p>
 <h3>El Problema</h3>
 <p>Como tengo todo mi contenido multimedia en un disco USB externo, aproveche y le vincule los volumenes al contenedor directamente a los paths del disco.</p>
@@ -323,21 +326,20 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 <p>Probé reiniciar y todo funciono perfecto.</p>
 </div>
-        </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="introduccion-a-spark/" class="u-url">Introducción a Spark</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="introduccion-a-spark/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2018-09-08T15:15:18-03:00" title="2018-09-08 15:15">2018-09-08 15:15</time></a></span>
-                    <span class="commentline">            <a href="introduccion-a-spark/#disqus_thread" data-disqus-identifier="cache/posts/introduccion-a-spark.html">Comentarios</a>
+    </div>
+    </article><article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="introduccion-a-spark/" class="u-url">Introducción a Spark</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="introduccion-a-spark/" rel="bookmark"><time class="published dt-published" datetime="2018-09-08T15:15:18-03:00" title="2018-09-08 15:15">2018-09-08 15:15</time></a></p>
+                <p class="commentline">
+        
+    <a href="introduccion-a-spark/#disqus_thread" data-disqus-identifier="cache/posts/introduccion-a-spark.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <p>Apache Spark es un framework de procesamiento muy de moda en entornos de procesamiento para Big Data, IoT y Machine Learning.</p>
 <h3>Pipeline</h3>
 <p>El pipeline de trabajo en spark es conocido como <strong>DAG</strong> (Directed Acyclic Graph) y se basa en armar un grafo de trabajo donde las tareas se sucedan unas a otras segun se establezca.</p>
@@ -351,21 +353,20 @@ Filesystem      Size  Used Avail Use% Mounted on
 <h3>Arquitectura</h3>
 <p>Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser <em>Spark Master</em> (standalone) <em>Mesos Master</em> (Apache Mesos) o <em>ResourceManager</em> (Apache Hadoop - YARN). Luego un proceso driver que se conoce como SparkContext y por ultimo de los workers.</p>
 </div>
-        </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="automatizando-deploy-con-helm/" class="u-url">Automatizando deploy con Helm</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="automatizando-deploy-con-helm/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2018-04-28T16:22:28-03:00" title="2018-04-28 16:22">2018-04-28 16:22</time></a></span>
-                    <span class="commentline">            <a href="automatizando-deploy-con-helm/#disqus_thread" data-disqus-identifier="cache/posts/automatizando-deploy-con-helm.html">Comentarios</a>
+    </div>
+    </article><article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="automatizando-deploy-con-helm/" class="u-url">Automatizando deploy con Helm</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="automatizando-deploy-con-helm/" rel="bookmark"><time class="published dt-published" datetime="2018-04-28T16:22:28-03:00" title="2018-04-28 16:22">2018-04-28 16:22</time></a></p>
+                <p class="commentline">
+        
+    <a href="automatizando-deploy-con-helm/#disqus_thread" data-disqus-identifier="cache/posts/automatizando-deploy-con-helm.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <h2>Automatizando Deploy con Helm</h2>
 <ol>
 <li>Tener un cluster kubernetes andando y corriendo (por ejemplo minikube)</li>
@@ -410,41 +411,39 @@ Hang tight <span class="k">while</span> we grab the latest from your chart repos
 Update Complete. ⎈ Happy Helming!⎈
 </code></pre>
 </div>
-        </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="curso-de-git/" class="u-url">Curso de Git</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="curso-de-git/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2018-04-14T12:09:54-03:00" title="2018-04-14 12:09">2018-04-14 12:09</time></a></span>
-                    <span class="commentline">            <a href="curso-de-git/#disqus_thread" data-disqus-identifier="cache/posts/curso-de-git.html">Comentarios</a>
+    </div>
+    </article><article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="curso-de-git/" class="u-url">Curso de Git</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="curso-de-git/" rel="bookmark"><time class="published dt-published" datetime="2018-04-14T12:09:54-03:00" title="2018-04-14 12:09">2018-04-14 12:09</time></a></p>
+                <p class="commentline">
+        
+    <a href="curso-de-git/#disqus_thread" data-disqus-identifier="cache/posts/curso-de-git.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <p>El sabado 07 de Abril de 2018 estuvimos haciendo un taller de GIT en la UNLu. </p>
 <p>Fue una experiencia muy interesante. Esperabamos muy poca gente y sin embargo el aula se lleno durante las 3 horas y media que duró el taller. Para algunos usar Git es algo tan omnipresente, que a veces cometemos el error de creer que <em>es facil</em> o que <em>todos lo usan</em>.</p>
 <p>Durante mas de 3 horas, 38 personas con conocimientos muy diverso respecto a computación estuvieron aprendiendo como usar Git, surgieron dudas muy interesantes y creo que todos nos llevamos algo nuevo.</p>
 <p>El material que se utilizó esta <a href="https://docs.google.com/presentation/d/1LAns3-PGIOVf2KiMyw1sS4Uy7LaGV-bUPlJDQ22gDrc/edit?usp=sharing">disponible aca</a>.</p>
 </div>
-        </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" class="u-url">Kompose: Migrar tus archivos Docker Compose a Kubernetes</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2018-02-04T16:28:51-03:00" title="2018-02-04 16:28">2018-02-04 16:28</time></a></span>
-                    <span class="commentline">            <a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/kompose-migrar-tus-archivos-docker-compose-a-kubernetes.html">Comentarios</a>
+    </div>
+    </article><article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" class="u-url">Kompose: Migrar tus archivos Docker Compose a Kubernetes</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/" rel="bookmark"><time class="published dt-published" datetime="2018-02-04T16:28:51-03:00" title="2018-02-04 16:28">2018-02-04 16:28</time></a></p>
+                <p class="commentline">
+        
+    <a href="kompose-migrar-tus-archivos-docker-compose-a-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/kompose-migrar-tus-archivos-docker-compose-a-kubernetes.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <p>En un <a href="algunas-notas-sobre-kubernetes">post anterior</a> desplegamos un
 cluster de pruebas con contenedores usando <a href="https://kubernetes.io">Kubernetes</a> y
 <a href="https://github.com/kubernetes/minikube">Minikube</a>. Este esquema resulta util
@@ -486,21 +485,20 @@ bastante. Entonces se ejecuta</p>
 <span class="n">WARN</span> <span class="n">Volume</span> <span class="n">mount</span> <span class="k">on</span> <span class="n">the</span> <span class="k">host</span> <span class="ss">"."</span> <span class="n">isn</span><span class="err">'</span><span class="n">t</span> <span class="n">supported</span> <span class="o">-</span> <span class="n">ignoring</span> <span class="n">path</span> <span class="k">on</span> <span class="n">the</span> <span class="k">host</span>
 </code></pre>
 </div>
-        </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="configuracion-para-sublime-text-3/" class="u-url">Configuración para Sublime Text 3</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="configuracion-para-sublime-text-3/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2018-02-03T12:15:40-03:00" title="2018-02-03 12:15">2018-02-03 12:15</time></a></span>
-                    <span class="commentline">            <a href="configuracion-para-sublime-text-3/#disqus_thread" data-disqus-identifier="cache/posts/configuracion-para-sublime-text-3.html">Comentarios</a>
+    </div>
+    </article><article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="configuracion-para-sublime-text-3/" class="u-url">Configuración para Sublime Text 3</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="configuracion-para-sublime-text-3/" rel="bookmark"><time class="published dt-published" datetime="2018-02-03T12:15:40-03:00" title="2018-02-03 12:15">2018-02-03 12:15</time></a></p>
+                <p class="commentline">
+        
+    <a href="configuracion-para-sublime-text-3/#disqus_thread" data-disqus-identifier="cache/posts/configuracion-para-sublime-text-3.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <p><img alt="Logo Sublime Text 3" src="../img/blog/2018/logo-sublime-text-3.png" title="Logo de Sublime Text 3"></p>
 <p>Soy usuario activo de Sublime Text 3. Para proyectos pequeños o creacion de
 scripts, es el editor con el que me siento mas comodo trabajando.</p>
@@ -557,21 +555,20 @@ fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:<
 <p>Existen muchisimos temas para Sublime. Puntualmente estoy en estos momentos
 utilizando <a href="https://github.com/kenwheeler/brogrammer-theme">Brogrammer</a>.</p>
 </div>
-        </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="algunas-notas-sobre-kubernetes/" class="u-url">Algunas notas sobre Kubernetes</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Tomás Delvechio
-                </span>
-                <span class="dateline"><a href="algunas-notas-sobre-kubernetes/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2018-01-26T00:18:56-03:00" title="2018-01-26 00:18">2018-01-26 00:18</time></a></span>
-                    <span class="commentline">            <a href="algunas-notas-sobre-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/algunas-notas-sobre-kubernetes.html">Comentarios</a>
+    </div>
+    </article><article class="blog-post h-entry post-text"><header><h2 class="p-name entry-title blog-post-title"><a href="algunas-notas-sobre-kubernetes/" class="u-url">Algunas notas sobre Kubernetes</a></h2>
+        <div class="metadata blog-post-meta">
+            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
+            <p class="dateline"><a href="algunas-notas-sobre-kubernetes/" rel="bookmark"><time class="published dt-published" datetime="2018-01-26T00:18:56-03:00" title="2018-01-26 00:18">2018-01-26 00:18</time></a></p>
+                <p class="commentline">
+        
+    <a href="algunas-notas-sobre-kubernetes/#disqus_thread" data-disqus-identifier="cache/posts/algunas-notas-sobre-kubernetes.html">Comentarios</a>
 
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
 <p><img alt="Logo Kubernetes" src="../img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"></p>
 <p>Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
 (personales) tomadas del <a href="https://kubernetes.io">tutorial oficial</a>.</p>
@@ -910,64 +907,45 @@ Please enter your response <span class="o">[</span>Y/n<span class="o">]</span>: 
 $ minikube start
 </code></pre>
 </div>
-        </div>
-        </article>
+    </div>
+    </article>
 </div>
 
-               <script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+        
+       <script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                <div class="sidebar-module sidebar-module-inset">
+  <h4>Sobre Mí</h4>
+  <p>
+    Soy Tomas Delvechio y aca es donde me gusta escribir sobre
+    las herramientas que uso o lo que me interesa (mayormente de informatica,
+    pero espero ir variando el contenido).
+  </p>
+</div>
+<div class="sidebar-module">
+  <h4>Enlaces</h4>
+  <ol class="list-unstyled">
+<li><a href="https://twitter.com/tdelvechio">@tomasdelvechio</a></li>
+    <li><a href="http://tomasdelvechio.github.io/">Sitio Principal</a></li>
+    <li><a href="https://www.goodreads.com/user/show/28103289-tomas">Libros</a></li>
+    <li><a href="https://www.pogdesign.co.uk/cat/profile/tomasdelvechio">Series</a></li>
+  </ol>
+</div>
+
             </div>
+        <!--End of body content-->
         </div>
-        <button class="btn btn-fab btn-raised btn-material-green btn-footer" data-toggle="modal" data-target="#footer-dialog">
-            <i class="mdi-communication-message"></i>
-        </button>
-        <div id="footer-dialog" class="modal fade" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Tomás Delvechio credits</h4>
-              </div>
-              <div class="modal-body">
-                    <a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+    </div>
+</div>
+
+<footer class="blog-footer" id="footer"><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.
-                    
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal">Ok</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="source-button">
-        </div>
-</div>
-
-
-            <script src="../assets/js/all-nocdn.js"></script><script>
-
-            $(document).ready(function() {
-                // This command is used to initialize some elements and make them work properly
-                $.material.init();
-            });
-
-            $(window).on("resize", function() {
-                if($(window).width() > 767) {
-                  $("html, body").height($(window).height());
-                  $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight() - 76 );
-                  $(".posts-material").height($(window).height());
-                } else {
-                  $("html, body").css('height', '');
-                  $(".main, .menu").css('height', '');
-                  $(".posts-material").css('height', '');
-                }
-            }).trigger("resize");
-
-            function menuToggle() {
-                $("nav.menu, ul").toggleClass('responsive', '');
-            }
-        </script><!-- fancy dates --><script>
+    
+</footer><script src="../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
     moment.locale("es");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><script>
