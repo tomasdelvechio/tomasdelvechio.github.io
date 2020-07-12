@@ -19,11 +19,11 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/archive.html</loc>
-  <lastmod>2020-07-07T13:48:00Z</lastmod>
+  <lastmod>2020-07-12T20:04:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/</loc>
-  <lastmod>2020-07-03T22:02:00Z</lastmod>
+  <lastmod>2020-07-12T20:04:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</loc>
@@ -52,6 +52,10 @@
  <url>
   <loc>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</loc>
   <lastmod>2018-02-04T19:44:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/blog/screencasts-en-gnome-3/</loc>
+  <lastmod>2020-07-12T20:04:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</loc>
