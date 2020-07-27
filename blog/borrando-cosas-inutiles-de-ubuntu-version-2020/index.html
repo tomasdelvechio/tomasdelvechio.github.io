@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html prefix="        og: http://ogp.me/ns# article: http://ogp.me/ns/article#     " vocab="http://ogp.me/ns" lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
 <title>Borrando Cosas Inutiles de Ubuntu (Versión 2020) | Tomás Delvechio</title>
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="es" href="../../rss.xml">
 <link rel="canonical" href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/">
-<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Tomás Delvechio">
+<!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><meta name="author" content="Tomás Delvechio">
 <link rel="prev" href="../volumenes-de-docker-y-discos-usb-externos/" title="Volumenes de Docker y Discos USB Externos" type="text/html">
 <link rel="next" href="../screencasts-en-gnome-3/" title="Screencasts en Gnome 3" type="text/html">
 <meta property="og:site_name" content="Tomás Delvechio">
@@ -21,63 +23,42 @@ Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas lib
 <meta property="article:tag" content="free space">
 </head>
 <body>
-<a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a>
-
-<!-- Menubar -->
-
-<div class="blog-masthead">
-    <div class="container">
-<!-- This keeps the margins nice -->
-        <nav class="blog-nav" role="navigation"><a href="../../blog" class="blog-nav-item">Blog</a>
-            <a href="../../old" class="blog-nav-item">Old Blog</a>
-            <a href="../../rss.xml" class="blog-nav-item">RSS</a>
-
+    <!-- FIXME: reenable <a href="#content" class="sr-only sr-only-focusable">Ir al contenido principal</a> -->
+    <section class="section"><div class="container">
             
-
-                
-                
-                
-            
-        </nav>
-</div>
-<!-- /.container -->
-</div>
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
-    <div class="body-content">
-        <div class="blog-header">
-            <h1 class="blog-title">
-                <a href="http://tomasdelvechio.github.io/">
-
-                    <span id="blog-title">Tomás Delvechio</span>
-                </a>
-            </h1>
-            <p class="lead blog-description">Sitio Academico de Tomas Delvechio</p>
-            
-        </div>
-        <!--Body content-->
-        <div class="row">
-            <div class="col-sm-8 blog-main">
-                
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title blog-post-title" itemprop="headline name"><a href="." class="u-url">Borrando Cosas Inutiles de Ubuntu (Versión 2020)</a></h2>
-
-        <div class="metadata blog-post-meta">
-            <p class="byline author vcard"><span class="byline-name fn">Tomás Delvechio</span></p>
-            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2020-07-03T18:45:32-03:00" itemprop="datePublished" title="2020-07-03 18:45">2020-07-03 18:45</time></a></p>
-                <p class="commentline">
+    <nav id="nav-main" class="nav"><div id="nav-name" class="nav-left">
         
-    <a href="#disqus_thread" data-disqus-identifier="cache/posts/borrando-cosas-inutiles-de-ubuntu-version-2020.html">Comentarios</a>
+<a id="nav-anchor" class="nav-item" href="../../" title="Tomás Delvechio" rel="home">
+    <h1 id="nav-heading" class="title is-4">
+        <span id="blog-title">Tomás Delvechio</span>
+    </h1>
+</a>
 
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" href="../../blog">Blog</a>
+            <a class="level-item" href="../../old">Old Blog</a>
+            <a class="level-item" href="../../rss.xml">RSS</a>
 
-            
+    
 
-        </p>
+    
+    
+    </nav>
 </div>
-        
-
-    </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
+    </nav>
+</div>
+    </section><section class="section"><div class="container">
+            
+    <div class="subtitle tags is-6 is-pulled-right">
+            <a class="subtitle is-6" href="../../categories/disk-usage/">#disk usage</a>
+            |
+            <a class="subtitle is-6" href="../../categories/free-space/">#free space</a>
+    </div>
+    <h2 class="subtitle is-6 date">2020-07-03 18:45</h2>
+    <h1 class="title"><a href=".">Borrando Cosas Inutiles de Ubuntu (Versión 2020)</a></h1>
+    <div class="content">
+        <div>
 <h3>Introducción</h3>
 <p>Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.</p>
 <pre class="code literal-block"><span></span><code>$ df -h 
@@ -249,74 +230,17 @@ Filesystem      Size  Used Avail Use% Mounted on
 <p>Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.</p>
 </div>
     </div>
-    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../../categories/disk-usage/" rel="tag">disk usage</a></li>
-            <li><a class="tag p-category" href="../../categories/free-space/" rel="tag">free space</a></li>
-        </ul>
-<ul class="pager hidden-print">
-<li class="previous">
-                <a href="../volumenes-de-docker-y-discos-usb-externos/" rel="prev" title="Volumenes de Docker y Discos USB Externos">Publicación anterior</a>
-            </li>
-            <li class="next">
-                <a href="../screencasts-en-gnome-3/" rel="next" title="Screencasts en Gnome 3">Siguiente publicación</a>
-            </li>
-        </ul></nav></aside><section class="comments hidden-print"><h2>Comentarios</h2>
-        
-        
-        <div id="disqus_thread"></div>
-        <script>
-        var disqus_shortname ="tomasdel",
-            disqus_url="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/",
-        disqus_title="Borrando Cosas Inutiles de Ubuntu (Versi\u00f3n 2020)",
-        disqus_identifier="cache/posts/borrando-cosas-inutiles-de-ubuntu-version-2020.html",
-        disqus_config = function () {
-            this.language = "es_ES";
-        };
-        (function() {
-            var dsq = document.createElement('script'); dsq.async = true;
-            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-</noscript>
-    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-        </section></article><script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-</div>
-            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-                <div class="sidebar-module sidebar-module-inset">
-  <h4>Sobre Mí</h4>
-  <p>
-    Soy Tomas Delvechio y aca es donde me gusta escribir sobre
-    las herramientas que uso o lo que me interesa (mayormente de informatica,
-    pero espero ir variando el contenido).
-  </p>
-</div>
-<div class="sidebar-module">
-  <h4>Enlaces</h4>
-  <ol class="list-unstyled">
-<li><a href="https://twitter.com/tdelvechio">@tomasdelvechio</a></li>
-    <li><a href="http://tomasdelvechio.github.io/">Sitio Principal</a></li>
-    <li><a href="https://www.goodreads.com/user/show/28103289-tomas">Libros</a></li>
-    <li><a href="https://www.pogdesign.co.uk/cat/profile/tomasdelvechio">Series</a></li>
-  </ol>
-</div>
-
-            </div>
-        <!--End of body content-->
-        </div>
-    </div>
-</div>
-
-<footer class="blog-footer" id="footer"><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
-<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-<img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.
     
-</footer><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
-    moment.locale("es");
-    fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates --><script>
+
+    
+        
+       <script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.</p>
+            
+        </footer>
+</div>
+    </section><script src="../../assets/js/all.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
         captions: function(element) {
