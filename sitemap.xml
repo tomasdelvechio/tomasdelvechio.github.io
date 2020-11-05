@@ -19,11 +19,11 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/archive.html</loc>
-  <lastmod>2020-07-27T02:08:00Z</lastmod>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/</loc>
-  <lastmod>2020-07-12T20:04:00Z</lastmod>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</loc>
@@ -54,6 +54,10 @@
   <lastmod>2018-02-04T19:44:00Z</lastmod>
  </url>
  <url>
+  <loc>http://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</loc>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://tomasdelvechio.github.io/blog/screencasts-en-gnome-3/</loc>
   <lastmod>2020-07-12T20:04:00Z</lastmod>
  </url>
@@ -63,7 +67,7 @@
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/</loc>
-  <lastmod>2020-07-03T23:36:00Z</lastmod>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/big-data/</loc>
@@ -140,6 +144,14 @@
  <url>
   <loc>http://tomasdelvechio.github.io/categories/orchestration/</loc>
   <lastmod>2018-01-26T03:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/php/</loc>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://tomasdelvechio.github.io/categories/php8/</loc>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/programming/</loc>

@@ -15,7 +15,7 @@
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_dev.xml</loc>
-  <lastmod>2020-02-23T21:33:00Z</lastmod>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/cat_devops.xml</loc>
@@ -82,6 +82,14 @@
   <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/php.xml</loc>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://tomasdelvechio.github.io/categories/php8.xml</loc>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://tomasdelvechio.github.io/categories/programming.xml</loc>
   <lastmod>2020-02-23T21:33:00Z</lastmod>
  </sitemap>
@@ -107,10 +115,10 @@
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/rss.xml</loc>
-  <lastmod>2020-07-12T20:08:00Z</lastmod>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://tomasdelvechio.github.io/sitemap.xml</loc>
-  <lastmod>2020-07-27T02:08:00Z</lastmod>
+  <lastmod>2020-11-05T01:53:00Z</lastmod>
  </sitemap>
 </sitemapindex>
