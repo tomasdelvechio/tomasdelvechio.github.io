@@ -23,3 +23,7 @@ Por eso vengo siguiendo varios posts que les comparto, para ponerse al día medi
 La idea era compartirles esta serie de links. 
 
 Hasta la próxima.
+
+**UPDATE**: Voy a ir agregando acá nuevos posts que vaya encontrando:
+
+* Algunas notas sobre [Weak Maps](https://platform.sh/blog/2020/php-80-feature-focus-weak-maps/)
