@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre kompose)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/kompose.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2020 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre kompose)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/kompose.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2023 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 23 Feb 2020 21:33:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 12 Jan 2023 12:08:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
 cluster de pruebas con contenedores usando &lt;a href="https://kubernetes.io"&gt;Kubernetes&lt;/a&gt; y
 &lt;a href="https://github.com/kubernetes/minikube"&gt;Minikube&lt;/a&gt;. Este esquema resulta util
 cuando lo que se quiere es desplegar y escalar un contenedor.&lt;/p&gt;
@@ -31,15 +31,14 @@ encuentra documentada en la &lt;a href="http://kompose.io/installation/"&gt;pagi
 &lt;p&gt;La forma mas sencilla de utilizar es la segunda, dado que contamos con un
 proyecto con un archivo docker-compose.yml o en general conocemos ese formato
 bastante. Entonces se ejecuta&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;kompose up&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;kompose up
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;y eso ya levanta con Kubernetes todos los contenedores indicados.&lt;/p&gt;
 &lt;h3&gt;Troubleshooting&lt;/h3&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;kompose&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;kompose up
 
-&lt;span class="n"&gt;WARN&lt;/span&gt; &lt;span class="n"&gt;Unsupported&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="k"&gt;level&lt;/span&gt; &lt;span class="n"&gt;volumes&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ignoring&lt;/span&gt; 
-&lt;span class="n"&gt;WARN&lt;/span&gt; &lt;span class="n"&gt;Unsupported&lt;/span&gt; &lt;span class="n"&gt;depends_on&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ignoring&lt;/span&gt;        
-&lt;span class="n"&gt;WARN&lt;/span&gt; &lt;span class="n"&gt;Volume&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;host&lt;/span&gt; &lt;span class="ss"&gt;"."&lt;/span&gt; &lt;span class="n"&gt;isn&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ignoring&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;host&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item></channel></rss>
+WARN Unsupported root level volumes key - ignoring 
+WARN Unsupported depends_on key - ignoring        
+WARN Volume mount on the host "." isn't supported - ignoring path on the host
+&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item></channel></rss>

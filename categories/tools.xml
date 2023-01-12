@@ -1,46 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre tools)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/tools.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2020 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre tools)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/tools.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2023 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Sun, 23 Feb 2020 21:33:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Configuración para Sublime Text 3</title><link>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="Logo Sublime Text 3" src="http://tomasdelvechio.github.io/img/blog/2018/logo-sublime-text-3.png" title="Logo de Sublime Text 3"&gt;&lt;/p&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 12 Jan 2023 12:08:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Configuración para Sublime Text 3</title><link>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;&lt;img alt="Logo Sublime Text 3" src="http://tomasdelvechio.github.io/img/blog/2018/logo-sublime-text-3.png" title="Logo de Sublime Text 3"&gt;&lt;/p&gt;
 &lt;p&gt;Soy usuario activo de Sublime Text 3. Para proyectos pequeños o creacion de
 scripts, es el editor con el que me siento mas comodo trabajando.&lt;/p&gt;
 &lt;p&gt;La configuración default que tiene visual tiene algunos problemas. Lo primero
 que hago al instalar Sublime es editar un par de estas configuraciones, y dejo
 aca el archivo de configuración tal como lo tengo actualmente&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="err"&gt;    "bold_folder_labels": true,&lt;/span&gt;
-&lt;span class="err"&gt;    "caret_style": "phase",&lt;/span&gt;
-&lt;span class="err"&gt;    "draw_white_space": "all",&lt;/span&gt;
-&lt;span class="err"&gt;    "fade_fold_buttons": false,&lt;/span&gt;
-&lt;span class="err"&gt;    "font_face": "Inconsolata",&lt;/span&gt;
-&lt;span class="err"&gt;    "font_size": 12,&lt;/span&gt;
-&lt;span class="err"&gt;    "highlight_line": true,&lt;/span&gt;
-&lt;span class="err"&gt;    "highlight_modified_tabs": true,&lt;/span&gt;
-&lt;span class="err"&gt;    "ignored_packages":&lt;/span&gt;
-&lt;span class="err"&gt;    [&lt;/span&gt;
-&lt;span class="err"&gt;        "Vintage"&lt;/span&gt;
-&lt;span class="err"&gt;    ],&lt;/span&gt;
-&lt;span class="err"&gt;    "line_padding_bottom": 5.5,&lt;/span&gt;
-&lt;span class="err"&gt;    "line_padding_top": 5.5,&lt;/span&gt;
-&lt;span class="err"&gt;    "rulers":&lt;/span&gt;
-&lt;span class="err"&gt;    [&lt;/span&gt;
-&lt;span class="err"&gt;        80,&lt;/span&gt;
-&lt;span class="err"&gt;        120&lt;/span&gt;
-&lt;span class="err"&gt;    ],&lt;/span&gt;
-&lt;span class="err"&gt;    "tab_size": 4,&lt;/span&gt;
-&lt;span class="err"&gt;    "trim_trailing_white_space_on_save": true&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;{
+    "bold_folder_labels": true,
+    "caret_style": "phase",
+    "draw_white_space": "all",
+    "fade_fold_buttons": false,
+    "font_face": "Inconsolata",
+    "font_size": 12,
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "line_padding_bottom": 5.5,
+    "line_padding_top": 5.5,
+    "rulers":
+    [
+        80,
+        120
+    ],
+    "tab_size": 4,
+    "trim_trailing_white_space_on_save": true
+}
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4&gt;Sobre las fuentes&lt;/h4&gt;
 &lt;p&gt;La configuración &lt;code&gt;font_face&lt;/code&gt; indica la fuente utilizada. Inconsolata no es una
 fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo apt install fonts-inconsolata&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;sudo apt install fonts-inconsolata
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;Plugines&lt;/h3&gt;
 &lt;p&gt;Ademas de la configuración visual, Sublime tiene una amplia cantidad de plugins.&lt;/p&gt;
@@ -57,4 +55,4 @@ fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:&
 &lt;/ul&gt;
 &lt;h3&gt;Temas&lt;/h3&gt;
 &lt;p&gt;Existen muchisimos temas para Sublime. Puntualmente estoy en estos momentos
-utilizando &lt;a href="https://github.com/kenwheeler/brogrammer-theme"&gt;Brogrammer&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</description><category>dev</category><category>programming</category><category>sublime</category><category>tools</category><guid>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</guid><pubDate>Sat, 03 Feb 2018 15:15:40 GMT</pubDate></item></channel></rss>
+utilizando &lt;a href="https://github.com/kenwheeler/brogrammer-theme"&gt;Brogrammer&lt;/a&gt;.&lt;/p&gt;</description><category>dev</category><category>programming</category><category>sublime</category><category>tools</category><guid>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</guid><pubDate>Sat, 03 Feb 2018 15:15:40 GMT</pubDate></item></channel></rss>

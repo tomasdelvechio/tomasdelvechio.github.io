@@ -61,16 +61,14 @@
     <h2 class="subtitle is-6 date">2020-06-22 21:30</h2>
     <h1 class="title"><a href=".">Volumenes de Docker y Discos USB Externos</a></h1>
     <div class="content">
-        <div>
-<p>Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.</p>
+        <p>Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.</p>
 <h3>El Problema</h3>
 <p>Como tengo todo mi contenido multimedia en un disco USB externo, aproveche y le vincule los volumenes al contenedor directamente a los paths del disco.</p>
 <p>Entonces, los volumenes quedaban mas o menos como sigue. Uso la notación que pone Ubuntu al montar los discos externos:</p>
-<pre class="code literal-block"><span></span><code>/media/tomas/Elements/series:/series
+<div class="code"><pre class="code literal-block">/media/tomas/Elements/series:/series
 /media/tomas/Elements/peliculas:/peliculas
 ....
-</code></pre>
-
+</pre></div>
 
 <p>De lado derecho es el path del directorio en el host. Del lado izquierdo es el directorio dentro del contenedor.</p>
 <p>Como esto se hace en un equipo particular, eventualmente se reinicia (o se apaga y prende). Esto me genero 1 gran problema.</p>
@@ -93,28 +91,24 @@
 <p>Aclaración del setup de mi equipo: Tengo una notebook corriendo Ubuntu 18.04, que ejecuta Systemd para gestionar el proceso de arranque del Sistema Operativo. Desconozco si en otras distros esto puede variar.</p>
 <h4>Nombre del servicio de mount en Systemd</h4>
 <p>Despues de buscar un rato, descubrí que el servicio que maneja el mount al inicio del sistema se llama <code>udisks2.service</code>. Una forma de ver los servicios en systemd es:</p>
-<pre class="code literal-block"><span></span><code>systemctl --type<span class="o">=</span>service
-</code></pre>
-
+<div class="code"><pre class="code literal-block">systemctl<span class="w"> </span>--type<span class="o">=</span>service
+</pre></div>
 
 <h4>Agregar dependencia de este servicio al inicio de Docker</h4>
 <p>En este paso, necesitamos que docker no arranque hasta que se termine el proceso <code>udisks2.service</code>.</p>
 <p>En mi caso, la configuración de Systemd de Docker esta en <code>/lib/systemd/system/docker.service</code> (que tiene ademas un link simbolico en <code>/etc/systemd/system/multi-user.target.wants/docker.service</code>).</p>
 <p>Alli dentro, busque la linea que contiene lo siguiente</p>
-<pre class="code literal-block"><span></span><code><span class="na">After</span><span class="o">=</span><span class="s">network-online.target firewalld.service containerd.service</span>
-</code></pre>
-
+<div class="code"><pre class="code literal-block"><span class="na">After</span><span class="o">=</span><span class="s">network-online.target firewalld.service containerd.service</span>
+</pre></div>
 
 <p>Y agregue al final de la misma (con separación de un espacio)</p>
-<pre class="code literal-block"><span></span><code><span class="na">After</span><span class="o">=</span><span class="s">network-online.target firewalld.service containerd.service udisks2.service</span>
-</code></pre>
-
+<div class="code"><pre class="code literal-block"><span class="na">After</span><span class="o">=</span><span class="s">network-online.target firewalld.service containerd.service udisks2.service</span>
+</pre></div>
 
 <p>Luego guarde y cerre el archivo.</p>
 <p>Para que systemd tome este cambio, tuve que ejecutar:</p>
-<pre class="code literal-block"><span></span><code>sudo systemctl daemon-reload
-</code></pre>
-
+<div class="code"><pre class="code literal-block">sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</pre></div>
 
 <h4>Montar el disco al inicio del sistema y no de la sesión</h4>
 <p>A continuación, tuve que configurar para que el disco se monte al inicio del sistema. Para ello, voy tomar el camino de hacerlo via interfaz gráfica y no por consola.</p>
@@ -131,19 +125,17 @@
 <p><img alt="Mount Options Window" src="../../img/blog/2020/Selection_026.png" title="Mount Options Window"></p>
 <h4>Cambiar los paths en los volumenes</h4>
 <p>Una vez terminado esto, pude cambiar los paths de los volumenes del lado del host, dejandolos como sigue:</p>
-<pre class="code literal-block"><span></span><code>/mnt/9A567...0FD/series:/series
+<div class="code"><pre class="code literal-block">/mnt/9A567...0FD/series:/series
 /mnt/9A567...0FD/peliculas:/peliculas
 ....
-</code></pre>
-
+</pre></div>
 
 <p>Probé reiniciar y todo funciono perfecto.</p>
-</div>
     </div>
     
 
     
-        
+    
        <script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.</p>

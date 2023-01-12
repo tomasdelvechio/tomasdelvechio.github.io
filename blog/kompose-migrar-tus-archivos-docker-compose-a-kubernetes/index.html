@@ -73,8 +73,7 @@
     <h2 class="subtitle is-6 date">2018-02-04 16:28</h2>
     <h1 class="title"><a href=".">Kompose: Migrar tus archivos Docker Compose a Kubernetes</a></h1>
     <div class="content">
-        <div>
-<p>En un <a href="../algunas-notas-sobre-kubernetes">post anterior</a> desplegamos un
+        <p>En un <a href="../algunas-notas-sobre-kubernetes">post anterior</a> desplegamos un
 cluster de pruebas con contenedores usando <a href="https://kubernetes.io">Kubernetes</a> y
 <a href="https://github.com/kubernetes/minikube">Minikube</a>. Este esquema resulta util
 cuando lo que se quiere es desplegar y escalar un contenedor.</p>
@@ -102,24 +101,22 @@ encuentra documentada en la <a href="http://kompose.io/installation/">pagina ofi
 <p>La forma mas sencilla de utilizar es la segunda, dado que contamos con un
 proyecto con un archivo docker-compose.yml o en general conocemos ese formato
 bastante. Entonces se ejecuta</p>
-<pre class="code literal-block"><span></span><code><span class="err">kompose up</span>
-</code></pre>
-
+<div class="code"><pre class="code literal-block">kompose up
+</pre></div>
 
 <p>y eso ya levanta con Kubernetes todos los contenedores indicados.</p>
 <h3>Troubleshooting</h3>
-<pre class="code literal-block"><span></span><code><span class="n">kompose</span> <span class="n">up</span>
+<div class="code"><pre class="code literal-block">kompose up
 
-<span class="n">WARN</span> <span class="n">Unsupported</span> <span class="n">root</span> <span class="k">level</span> <span class="n">volumes</span> <span class="k">key</span> <span class="o">-</span> <span class="n">ignoring</span> 
-<span class="n">WARN</span> <span class="n">Unsupported</span> <span class="n">depends_on</span> <span class="k">key</span> <span class="o">-</span> <span class="n">ignoring</span>        
-<span class="n">WARN</span> <span class="n">Volume</span> <span class="n">mount</span> <span class="k">on</span> <span class="n">the</span> <span class="k">host</span> <span class="ss">"."</span> <span class="n">isn</span><span class="err">'</span><span class="n">t</span> <span class="n">supported</span> <span class="o">-</span> <span class="n">ignoring</span> <span class="n">path</span> <span class="k">on</span> <span class="n">the</span> <span class="k">host</span>
-</code></pre>
-</div>
+WARN Unsupported root level volumes key - ignoring 
+WARN Unsupported depends_on key - ignoring        
+WARN Volume mount on the host "." isn't supported - ignoring path on the host
+</pre></div>
     </div>
     
 
     
-        
+    
        <script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.</p>

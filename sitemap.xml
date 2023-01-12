@@ -7,2438 +7,2438 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://tomasdelvechio.github.io/</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/2018/</loc>
-  <lastmod>2018-01-26T03:22:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/2020/</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/archive.html</loc>
-  <lastmod>2021-04-25T17:02:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/</loc>
-  <lastmod>2020-11-05T01:53:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes/</loc>
-  <lastmod>2018-01-26T03:22:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</loc>
-  <lastmod>2020-07-03T22:02:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</loc>
-  <lastmod>2018-02-03T15:27:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/curso-de-git/</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/introduccion-a-spark/</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</loc>
-  <lastmod>2018-02-04T19:44:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</loc>
-  <lastmod>2020-11-05T01:53:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/screencasts-en-gnome-3/</loc>
-  <lastmod>2020-07-12T20:04:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/</loc>
-  <lastmod>2020-11-05T01:53:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/big-data/</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_charlas/</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_dev/</loc>
-  <lastmod>2018-02-03T15:27:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_devops/</loc>
-  <lastmod>2018-01-26T03:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cat_distributed-systems/</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/charlas/</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/cluster/</loc>
-  <lastmod>2018-01-26T03:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/containers/</loc>
-  <lastmod>2018-01-26T03:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/deploy/</loc>
-  <lastmod>2018-01-26T03:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/dev/</loc>
-  <lastmod>2018-02-03T15:27:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/devops/</loc>
-  <lastmod>2018-01-26T03:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/disk-usage/</loc>
-  <lastmod>2020-07-03T23:36:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/distributed-systems/</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/docker/</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/free-space/</loc>
-  <lastmod>2020-07-03T23:36:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/git/</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/kompose/</loc>
-  <lastmod>2018-02-04T19:44:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/kubernetes/</loc>
-  <lastmod>2018-01-26T03:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/orchestration/</loc>
-  <lastmod>2018-01-26T03:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/php/</loc>
-  <lastmod>2020-11-05T01:53:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/php8/</loc>
-  <lastmod>2020-11-05T01:53:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/programming/</loc>
-  <lastmod>2018-02-03T15:27:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/spark/</loc>
-  <lastmod>2018-09-08T18:48:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/storage/</loc>
-  <lastmod>2020-06-23T00:37:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/sublime/</loc>
-  <lastmod>2018-02-03T15:27:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/tools/</loc>
-  <lastmod>2018-02-03T15:27:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/categories/vcs/</loc>
-  <lastmod>2018-04-14T16:58:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/100/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/100/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/101/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/101/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/102/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/102/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/103/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/103/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/104/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/104/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/105/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/105/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/106/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/106/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/107/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/107/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/108/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/108/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/109/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/109/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/110/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/110/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/111/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/111/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/112/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/112/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/113/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/113/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/114/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/114/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/115/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/115/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/117/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/117/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/118/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/118/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/121/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/121/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/123/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/123/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/124/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/124/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/125/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/125/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/127/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/127/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/128/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/128/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/129/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/129/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/130/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/130/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/131/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/131/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/132/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/132/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/134/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/134/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/137/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/137/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/138/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/138/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/139/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/139/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/140/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/140/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/141/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/141/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/143/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/143/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/145/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/145/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/146/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/146/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/21/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/21/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/228/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/228/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/233/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/233/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/237/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/237/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/244/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/244/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/249/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/249/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/255/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/255/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/260/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/260/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/27/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/27/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/273/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/273/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/279/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/279/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/282/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/282/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/286/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/286/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/293/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/293/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/297/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/297/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/302/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/302/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/305/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/305/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/31/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/31/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/317/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/317/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/322/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/322/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/326/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/326/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/332/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/332/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/338/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/338/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/351/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/351/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/356/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/356/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/361/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/361/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/379/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/379/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/385/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/385/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/390/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/390/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/40/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/40/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/41/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/41/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/411/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/411/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/416/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/416/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/42/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/42/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/422/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/422/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/43/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/43/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/44/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/44/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/440/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/440/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/45/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/45/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/46/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/46/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/47/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/47/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/48/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/48/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/49/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/49/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/50/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/50/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/51/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/51/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/52/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/52/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/53/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/53/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/54/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/54/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/55/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/55/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/57/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/57/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/58/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/58/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/59/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/59/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/6/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/6/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/60/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/60/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/61/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/61/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/62/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/62/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/63/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/63/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/64/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/64/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/65/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/65/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/66/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/66/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/67/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/67/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/68/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/68/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/69/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/69/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/70/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/70/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/71/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/71/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/72/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/72/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/73/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/73/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/74/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/74/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/75/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/75/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/76/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/76/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/77/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/77/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/78/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/78/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/79/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/79/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/80/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/80/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/81/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/81/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/82/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/82/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/83/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/83/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/84/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/84/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/85/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/85/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/86/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/86/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/87/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/87/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/88/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/88/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/89/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/89/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/9/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/9/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/90/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/90/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/92/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/92/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/93/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/93/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/94/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/94/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/95/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/95/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/97/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/97/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/98/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/98/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/academicos/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/academicos/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/academicos/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/academicos/page/3/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/agenda/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/agenda/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/apuntes/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/apuntes/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/blog/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/blog/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/cultura-libre/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/cultura-libre/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/freelance/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/freelance/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/herramientas/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/herramientas/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/herramientas/redes/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/herramientas/redes/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/materias/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/materias/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/meta/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/meta/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/minis/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/minis/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/minis/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/minis/page/3/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/opinion/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/opinion/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/programacion/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/programacion/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/rfr/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/rfr/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/sarcasmo/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/sarcasmo/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/sociales/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/sociales/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/page/3/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/page/4/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/page/5/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/page/6/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/page/7/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/soluciones/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/software-libre/soluciones/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/tecnologia/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/tecnologia/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/tecnologia/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/tutoriales/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/tutoriales/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/tutoriales/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/uncategorized/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/uncategorized/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/web/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/category/web/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/comments/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/07/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/07/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/08/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/09/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/09/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/10/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/11/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2009/12/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2010/01/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2010/01/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2010/02/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2010/03/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2010/04/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2010/05/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2010/09/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2011/03/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2011/04/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2011/05/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2011/10/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2012/06/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2014/05/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2014/06/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2014/07/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2014/08/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2014/10/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2014/11/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2014/12/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2015/01/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2015/04/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2015/05/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/date/2015/09/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/10/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/11/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/12/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/13/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/3/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/4/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/5/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/6/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/7/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/8/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/page/9/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/android/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/android/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/aplicaciones/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/aplicaciones/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/apt-get/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/apt-get/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/apt/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/apt/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/aptitude/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/aptitude/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/audio/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/audio/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/bash/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/bash/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/bgp/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/bgp/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/big-data/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/big-data/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/blog-2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/blog-2/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/buscadores/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/buscadores/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/charlas/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/charlas/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/chrome/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/chrome/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/chromecast/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/chromecast/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/codigo/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/codigo/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/comandos/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/comandos/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/commit/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/commit/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/compilacion/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/compilacion/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/corrector-ortografico/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/corrector-ortografico/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/deploy/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/deploy/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/desarrollo/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/desarrollo/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/diff/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/diff/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/dns/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/dns/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/dominios/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/dominios/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/dpkg/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/dpkg/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/extensiones/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/extensiones/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/firefox/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/firefox/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/flashplayer/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/flashplayer/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/git/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/git/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/github/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/github/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/gmail/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/gmail/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/gnome-3/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/gnome-3/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/gnome/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/gnome/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/godaddy/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/godaddy/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/google/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/google/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/grub/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/grub/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/hadoop-2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/hadoop-2/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/hadoop/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/hadoop/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/hangouts/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/hangouts/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/herramientas-2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/herramientas-2/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/imagen-de-cd/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/imagen-de-cd/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/inbox/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/inbox/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/instalacion/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/instalacion/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ipv4/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ipv4/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ipython-notebook/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ipython-notebook/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/iso/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/iso/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/java/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/java/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/linux/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/linux/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/lujan/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/lujan/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/mapreduce/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/mapreduce/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/maquinas-virtuales/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/maquinas-virtuales/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/markdown/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/markdown/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/materias/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/materias/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/matplotlib/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/matplotlib/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/md/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/md/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/menu/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/menu/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/nautilus/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/nautilus/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/navegadores/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/navegadores/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/netbeans/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/netbeans/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/netflix/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/netflix/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/nic-ar/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/nic-ar/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/noticias/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/noticias/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/nrg/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/nrg/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/online-editor/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/online-editor/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/opinion-2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/opinion-2/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/parches/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/parches/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/patch/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/patch/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ping/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ping/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pos-instalacion/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pos-instalacion/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/programacion-2/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/programacion-2/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/programas/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/programas/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/proxy/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/proxy/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pyar/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pyar/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pyday/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pyday/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pylab/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/pylab/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/python/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/python/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/redes/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/redes/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/retardo/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/retardo/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/rtt/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/rtt/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/seo/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/seo/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/slides/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/slides/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/software/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/software/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/spritz/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/spritz/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/streaming/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/streaming/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/sublime-text-3/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/sublime-text-3/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/sublime-text/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/sublime-text/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/timeit/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/timeit/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ubuntu-14-04/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ubuntu-14-04/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ubuntu/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/ubuntu/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/unlux/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/unlux/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/url/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/url/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/vagrant/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/vagrant/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/versiones/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/versiones/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/virtualbox/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/virtualbox/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/web/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/tag/web/feed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/wp-json/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/old/wp-json/oembed/1.0/embed/</loc>
-  <lastmod>2018-02-12T00:25:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/</loc>
-  <lastmod>2018-10-02T19:45:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/carrusel/</loc>
-  <lastmod>2018-01-24T19:46:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/carrusel/carrusel.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/subjects/paw-ejemplos/toggle-passwd-input/</loc>
-  <lastmod>2018-01-24T19:46:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2014/</loc>
-  <lastmod>2018-01-24T19:46:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2014/plugin/markdown/example.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2014/plugin/notes-server/notes.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2014/plugin/notes/notes.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2017/</loc>
-  <lastmod>2018-01-24T19:46:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2017/plugin/markdown/example.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2017/plugin/notes-server/notes.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/jcu-2017/plugin/notes/notes.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/tesis-2015/</loc>
-  <lastmod>2018-01-24T19:46:00Z</lastmod>
+  <lastmod>2023-01-12T12:08:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/tesis-2015/plugin/markdown/example.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/tesis-2015/plugin/notes-server/notes.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://tomasdelvechio.github.io/talks/tesis-2015/plugin/notes/notes.html</loc>
-  <lastmod>2018-01-24T19:41:00Z</lastmod>
+  <lastmod>2023-01-12T11:43:00Z</lastmod>
  </url>
 </urlset>
