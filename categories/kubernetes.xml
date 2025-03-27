@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre kubernetes)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/kubernetes.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2023 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre kubernetes)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/kubernetes.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2025 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 12 Jan 2023 12:08:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 27 Mar 2025 00:10:45 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
 cluster de pruebas con contenedores usando &lt;a href="https://kubernetes.io"&gt;Kubernetes&lt;/a&gt; y
 &lt;a href="https://github.com/kubernetes/minikube"&gt;Minikube&lt;/a&gt;. Este esquema resulta util
 cuando lo que se quiere es desplegar y escalar un contenedor.&lt;/p&gt;
@@ -142,11 +142,11 @@ Kubernetes le asigno al mismo. Un comando para hacer esto es:&lt;/p&gt;
 
 &lt;p&gt;Todo lo que los proceso envien a stdout es expuesto como logs del pod.&lt;/p&gt;
 &lt;p&gt;Ejecutar comandos en un pod:&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span class="nv"&gt;kubectl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;exec&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;$&lt;span class="nv"&gt;POD_NAME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;env&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;kubectl exec $POD_NAME env
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Abrir una consola en un POD:&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span class="nv"&gt;kubectl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;exec&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;ti&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;$&lt;span class="nv"&gt;POD_NAME&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;bash&lt;/span&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;kubectl exec -ti $POD_NAME bash
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;4. Usar un servicio para exponer la App&lt;/h3&gt;
@@ -163,7 +163,7 @@ objetivos (taggear versiones, separar versiones para test, debug y produccion).&
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Exponer un servicio:&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span class="nx"&gt;kubectl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;expose&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;deployment&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;kubernetes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;bootcamp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"NodePort"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nx"&gt;port&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8080&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ver detalles de servicios:&lt;/p&gt;

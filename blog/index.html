@@ -501,29 +501,29 @@ scripts, es el editor con el que me siento mas comodo trabajando.</p>
 <p>La configuración default que tiene visual tiene algunos problemas. Lo primero
 que hago al instalar Sublime es editar un par de estas configuraciones, y dejo
 aca el archivo de configuración tal como lo tengo actualmente</p>
-<div class="code"><pre class="code literal-block">{
-    "bold_folder_labels": true,
-    "caret_style": "phase",
-    "draw_white_space": "all",
-    "fade_fold_buttons": false,
-    "font_face": "Inconsolata",
-    "font_size": 12,
-    "highlight_line": true,
-    "highlight_modified_tabs": true,
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "line_padding_bottom": 5.5,
-    "line_padding_top": 5.5,
-    "rulers":
-    [
-        80,
-        120
-    ],
-    "tab_size": 4,
-    "trim_trailing_white_space_on_save": true
-}
+<div class="code"><pre class="code literal-block"><span class="p">{</span>
+<span class="w">    </span><span class="s">"bold_folder_labels"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"caret_style"</span><span class="p">:</span><span class="w"> </span><span class="s">"phase"</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"draw_white_space"</span><span class="p">:</span><span class="w"> </span><span class="s">"all"</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"fade_fold_buttons"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"font_face"</span><span class="p">:</span><span class="w"> </span><span class="s">"Inconsolata"</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"font_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"highlight_line"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"highlight_modified_tabs"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"ignored_packages"</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="s">"Vintage"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s">"line_padding_bottom"</span><span class="p">:</span><span class="w"> </span><span class="m m-Double">5.5</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"line_padding_top"</span><span class="p">:</span><span class="w"> </span><span class="m m-Double">5.5</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"rulers"</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="mi">80</span><span class="p">,</span>
+<span class="w">        </span><span class="mi">120</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s">"tab_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">    </span><span class="s">"trim_trailing_white_space_on_save"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
 </pre></div>
 
 <h4>Sobre las fuentes</h4>
@@ -666,11 +666,11 @@ Kubernetes le asigno al mismo. Un comando para hacer esto es:</p>
 
 <p>Todo lo que los proceso envien a stdout es expuesto como logs del pod.</p>
 <p>Ejecutar comandos en un pod:</p>
-<div class="code"><pre class="code literal-block"><span class="nv">kubectl</span><span class="w"> </span><span class="k">exec</span><span class="w"> </span>$<span class="nv">POD_NAME</span><span class="w"> </span><span class="nv">env</span>
+<div class="code"><pre class="code literal-block">kubectl exec $POD_NAME env
 </pre></div>
 
 <p>Abrir una consola en un POD:</p>
-<div class="code"><pre class="code literal-block"><span class="nv">kubectl</span><span class="w"> </span><span class="k">exec</span><span class="w"> </span><span class="o">-</span><span class="nv">ti</span><span class="w"> </span>$<span class="nv">POD_NAME</span><span class="w"> </span><span class="nv">bash</span>
+<div class="code"><pre class="code literal-block">kubectl exec -ti $POD_NAME bash
 </pre></div>
 
 <h3>4. Usar un servicio para exponer la App</h3>
@@ -687,7 +687,7 @@ objetivos (taggear versiones, separar versiones para test, debug y produccion).<
 </pre></div>
 
 <p>Exponer un servicio:</p>
-<div class="code"><pre class="code literal-block">kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+<div class="code"><pre class="code literal-block"><span class="nx">kubectl</span><span class="w"> </span><span class="nx">expose</span><span class="w"> </span><span class="nx">deployment</span><span class="o">/</span><span class="nx">kubernetes</span><span class="o">-</span><span class="nx">bootcamp</span><span class="w"> </span><span class="o">--</span><span class="k">type</span><span class="p">=</span><span class="s">"NodePort"</span><span class="w"> </span><span class="o">--</span><span class="nx">port</span><span class="w"> </span><span class="mi">8080</span>
 </pre></div>
 
 <p>Ver detalles de servicios:</p>

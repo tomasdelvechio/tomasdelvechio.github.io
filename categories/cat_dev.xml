@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre dev)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/cat_dev.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2023 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre dev)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/cat_dev.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2025 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 12 Jan 2023 12:08:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Poniendose al Dia con PHP 8</title><link>http://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Soy programador de PHP desde los infames tiempos (?) de PHP 5. Mucha agua corrió bajo el punte y así como PHP 7 supuso un gran avance en varios aspectos, estamos en la previa del lanzamiento de la nueva gran versión, que será PHP 8. Cuando escribo esto (noviembre de 2020), &lt;a href="https://www.php.net/archive/2020.php#2020-10-29-2"&gt;tenemos la RC3 salida hace un par de días&lt;/a&gt;.&lt;/p&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 27 Mar 2025 00:42:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Poniendose al Dia con PHP 8</title><link>http://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Soy programador de PHP desde los infames tiempos (?) de PHP 5. Mucha agua corrió bajo el punte y así como PHP 7 supuso un gran avance en varios aspectos, estamos en la previa del lanzamiento de la nueva gran versión, que será PHP 8. Cuando escribo esto (noviembre de 2020), &lt;a href="https://www.php.net/archive/2020.php#2020-10-29-2"&gt;tenemos la RC3 salida hace un par de días&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Vengo siguiendo la evolución de esta versión de forma superficial pero continuada. Si bien la discusión detallada se puede seguir &lt;a href="https://wiki.php.net/rfc"&gt;en el propio sitio a través de sus RFC&lt;/a&gt;, es cierto que eso a veces puede ser medio pesado por el nivel de detalles.&lt;/p&gt;
 &lt;p&gt;Por eso vengo siguiendo varios posts que les comparto, para ponerse al día medio rápido en lo que nos ofrece esta nueva versión.&lt;/p&gt;
 &lt;ul&gt;
@@ -23,29 +23,29 @@ scripts, es el editor con el que me siento mas comodo trabajando.&lt;/p&gt;
 &lt;p&gt;La configuración default que tiene visual tiene algunos problemas. Lo primero
 que hago al instalar Sublime es editar un par de estas configuraciones, y dejo
 aca el archivo de configuración tal como lo tengo actualmente&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;{
-    "bold_folder_labels": true,
-    "caret_style": "phase",
-    "draw_white_space": "all",
-    "fade_fold_buttons": false,
-    "font_face": "Inconsolata",
-    "font_size": 12,
-    "highlight_line": true,
-    "highlight_modified_tabs": true,
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "line_padding_bottom": 5.5,
-    "line_padding_top": 5.5,
-    "rulers":
-    [
-        80,
-        120
-    ],
-    "tab_size": 4,
-    "trim_trailing_white_space_on_save": true
-}
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"bold_folder_labels"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"caret_style"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"phase"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"draw_white_space"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"all"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"fade_fold_buttons"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"font_face"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"Inconsolata"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"font_size"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"highlight_line"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"highlight_modified_tabs"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"ignored_packages"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s"&gt;"Vintage"&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"line_padding_bottom"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m m-Double"&gt;5.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"line_padding_top"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m m-Double"&gt;5.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"rulers"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="mi"&gt;120&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"tab_size"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;"trim_trailing_white_space_on_save"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4&gt;Sobre las fuentes&lt;/h4&gt;
