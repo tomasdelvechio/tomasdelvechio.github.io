@@ -10,6 +10,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="es" href="../rss.xml">
 <link rel="canonical" href="http://tomasdelvechio.github.io/blog/">
+<link rel="next" href="index-1.html" type="text/html">
 <!--[if lt IE 9]><script src="../assets/js/html5shiv-printshiv.min.js"></script><![endif]-->
 </head>
 <body>
@@ -47,6 +48,151 @@
     
 
     <article><div class="subtitle tags is-6 is-pulled-right">
+                <a class="subtitle is-6" href="../categories/disk-usage/">#disk usage</a>
+                |
+                <a class="subtitle is-6" href="../categories/free-space/">#free space</a>
+        </div>
+        <h2 class="subtitle is-6 date">2025-03-26 21:52</h2>
+        <h1 class="title"><a href="borrando-cosas-inutiles-de-ubuntu-version-2024/">Borrando Cosas Inutiles de Ubuntu (Versión 2024)</a></h1>
+        <div class="content">
+                <h2>Indice de la serie</h2>
+<ol>
+<li><a href="borrando-cosas-inutiles-de-ubuntu-version-2020">Primera parte</a></li>
+<li><a href="borrando-cosas-inutiles-de-ubuntu-version-2024">Segunda parte</a></li>
+</ol>
+<h2>Introducción</h2>
+<p>En está segunda parte de lo que ya se está convirtiendo en una seríe de posts,
+se discutirán algunas estrategias avanzadas para recuperar espacio en disco.</p>
+<p>Mi profesión es de programación, asi que muchas de las estrategias borran o
+reducen el uso de herramientas especificas. Para ver algunas cosas mas utiles
+tal vez te venga mejor mirar antes el <a href="borrando-cosas-inutiles-de-ubuntu-version-2020">post anterior</a>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Los comandos utilizados en este post <strong>son destructivos</strong> y en muchos casos <strong>no se
+pueden deshacer</strong>. Se aconseja leer con cuidado, no copiar y pegar, y aprender sobre
+cada comando comentado antes de ejecutarlo.</p>
+</div>
+<h2>Controlar el espacio en disco disponible</h2>
+<p>Siempre es bueno arrancar sabiendo cuanto espacio en disco tenemos para saber cuanto 
+liberamos con los diferentes comandos:</p>
+<div class="code"><pre class="code literal-block">df<span class="w"> </span>-h
+</pre></div>
+
+<p>Darle bola principalmente a la partición <code>/</code> y en caso de aparecer, a <code>/var</code> y <code>/usr</code>.</p>
+<h2>Paquetes o programas de gran tamaño en APT</h2>
+<p>A veces perdemos la referencia de programas instalados pero que no estamos usando.</p>
+<p>Con el gestor de paquetes APT manejando dependecias, podemos tener mucho software que
+no recordamos instalar o directamente nunca instalamos explicitamente. Si queremos
+hacer un listado de los paquetes por tamaño que ocupan, podemos ejecutar:</p>
+<div class="code"><pre class="code literal-block">dpkg-query<span class="w"> </span>--show<span class="w"> </span>--showformat<span class="o">=</span><span class="s1">'${Package;-50}\t${Installed-Size}\n'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-k<span class="w"> </span><span class="m">2</span><span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>deinstall<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{printf "%.3f MB \t %s\n", $2/(1024), $1}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</pre></div>
+
+<p>Obtendremos una salida como la siguiente</p>
+<div class="code"><pre class="code literal-block">286,543 MB       libcusparse-dev-12-3
+329,808 MB       typora
+336,514 MB       linux-modules-extra-5.15.0-116-generic
+336,517 MB       linux-modules-extra-5.15.0-117-generic
+336,524 MB       linux-modules-extra-5.15.0-118-generic
+336,524 MB       linux-modules-extra-5.15.0-119-generic
+336,592 MB       linux-modules-extra-5.15.0-121-generic
+336,593 MB       linux-modules-extra-5.15.0-122-generic
+336,594 MB       linux-modules-extra-5.15.0-124-generic
+336,652 MB       linux-modules-extra-5.15.0-125-generic
+354,313 MB       google-chrome-stable
+380,522 MB       libcufft-dev-12-3
+429,920 MB       linux-modules-extra-6.5.0-44-generic
+433,652 MB       linux-modules-extra-6.5.0-41-generic
+449,160 MB       linux-modules-extra-6.8.0-40-generic
+449,413 MB       linux-modules-extra-6.8.0-47-generic
+449,449 MB       linux-modules-extra-6.8.0-45-generic
+485,409 MB       linux-firmware
+584,258 MB       rstudio
+596,854 MB       libcublas-12-3
+705,180 MB       zoom
+907,500 MB       libcublas-dev-12-3
+1497,791 MB      nsight-compute-2023.3.1
+</pre></div>
+
+<p>Aquí solo resta decidir que paquetes no deseo tener y quiero desinstalar.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Nunca elimines un paquete que comience con <code>linux-</code> sin saber lo que estas haciendo.
+Se recomienda hacer el siguiente paso con aplicativos de uso comun o hayas instalado
+vos mismo.</p>
+</div>
+<p>Un ejemplo basado en la linea de arriba puede ser el siguiente</p>
+<div class="code"><pre class="code literal-block">sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w"> </span>typora<span class="w"> </span>zoom<span class="w"> </span>rstudio
+</pre></div>
+
+<p>Luego de cada borrado, puede ser util ejecutar</p>
+<div class="code"><pre class="code literal-block">sudo<span class="w"> </span>apt<span class="w"> </span>autoremove
+</pre></div>
+
+<p>Este último comando libera dependencias huerfanas del paso anterior.</p>
+<h2>Docker</h2>
+<p>Docker es una gran herramienta, tanto para deploy profesional como para tener software
+corriendo en nuestro equipo con poca configuración. Sin embargo, el costo de ejecutarlo
+sigue siendo alto. </p>
+<p>Existen 4 elementos de Docker con los que podemos toparnos que consumen mucho espacio
+en disco:</p>
+<ul>
+<li>Contenedores</li>
+<li>Imagenes</li>
+<li>Volumenes locales</li>
+<li>Cache de construcción</li>
+</ul>
+<p>Por suerte tenemos un comando que nos deja ver como estamos en este asunto</p>
+<div class="code"><pre class="code literal-block">docker<span class="w"> </span>system<span class="w"> </span>df
+</pre></div>
+
+<p>La salida del comando en cuestión es similar a la siguiente</p>
+<div class="code"><pre class="code literal-block">TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          0         0         0B        0B
+Containers      0         0         0B        0B
+Local Volumes   0         0         0B        0B
+Build Cache     91        0         2.361GB   2.361GB
+</pre></div>
+
+<p>Obviamente las columnas <code>SIZE</code> y <code>RECLAIMABLE</code> son las relevantes. La última es
+el espacio en disco que es posible conseguir sin destruir nada que estemos utilizando.
+En el caso de la columna <code>SIZE</code> hay que tener mas cuidado, ya que puede haber cosas
+en uso cuyo espacio ocupado sean necesarias para que funcione.</p>
+<p>El comando que hace la magia es <code>system prune</code></p>
+<div class="code"><pre class="code literal-block">docker<span class="w"> </span>system<span class="w"> </span>prune
+</pre></div>
+
+<p>Dicho comando solo eliminará componentes que de algúna forma segura se determinen
+que ya no se utilizan. Como siempre, cuidado de no eliminar nada importante.</p>
+<p>Es importante notar que prune es una acción en muchos de los subcomandos de docker,
+ademas de contar con <code>rm</code>. En dichos casos, siempre es aconsejable primero estudiar
+que tenemos disponible:</p>
+<div class="code"><pre class="code literal-block">docker<span class="w"> </span>container<span class="w"> </span>ls<span class="w"> </span>-a
+docker<span class="w"> </span>volume<span class="w"> </span>ls
+</pre></div>
+
+<p>En todo caso borrar individualmente cosas que sepamos que no se están utilizando
+via <code>docker &lt;subcomadno&gt; rm &lt;HASH_DEL_COMPONENTE&gt;</code>.</p>
+<h2>Caché de Snap</h2>
+<p>Snap nunca nos dejará en paz. Si <a href="borrando-cosas-inutiles-de-ubuntu-version-2020/">en el primer post</a>
+habiamos visto que los instaladores iban dejando replicas viejas instaladas y
+desactivadas, vaya a saber uno para que, investigando un poco mas podemos encontrar
+que cada app tiene su caché, que muy lindo y util, pero si estamos desesperados
+por espacio, puede venir bien reclamarlo y que las apps lo vayan consumiendo
+lentamente.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Como ya se dijo, cuidado. En este caso, borrar el contenido de este directorio
+no puede ocasionar ningun daño, pero si se copia mal la ruta, el principio del
+comando es <code>rm -rf</code> que puede ser muy destructivo. <strong>No copiar y pegar, POR FAVOR</strong>.</p>
+</div>
+<div class="code"><pre class="code literal-block">sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">'rm -rf /var/lib/snapd/cache/*'</span>
+</pre></div>
+
+<p>En un sistema instalado nuevo no tiene demasiado sentido, pero si la instalación
+tiene varios años, capaz les sirve.</p>
+<p>Como la vez anterior, espero que algo de esto les sirva.</p>
+        </div>
+    </article><article><div class="subtitle tags is-6 is-pulled-right">
                 <a class="subtitle is-6" href="../categories/php/">#php</a>
                 |
                 <a class="subtitle is-6" href="../categories/php8/">#php8</a>
@@ -103,7 +249,12 @@
         <h2 class="subtitle is-6 date">2020-07-03 18:45</h2>
         <h1 class="title"><a href="borrando-cosas-inutiles-de-ubuntu-version-2020/">Borrando Cosas Inutiles de Ubuntu (Versión 2020)</a></h1>
         <div class="content">
-                <h3>Introducción</h3>
+                <h2>Indice de la serie</h2>
+<ol>
+<li><a href="borrando-cosas-inutiles-de-ubuntu-version-2020">Primera parte</a></li>
+<li><a href="borrando-cosas-inutiles-de-ubuntu-version-2024">Segunda parte</a></li>
+</ol>
+<h3>Introducción</h3>
 <p>Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.</p>
 <div class="code"><pre class="code literal-block">$<span class="w"> </span>df<span class="w"> </span>-h<span class="w"> </span>
 Filesystem<span class="w">      </span>Size<span class="w">  </span>Used<span class="w"> </span>Avail<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
@@ -549,318 +700,21 @@ fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:<
 <p>Existen muchisimos temas para Sublime. Puntualmente estoy en estos momentos
 utilizando <a href="https://github.com/kenwheeler/brogrammer-theme">Brogrammer</a>.</p>
         </div>
-    </article><article><div class="subtitle tags is-6 is-pulled-right">
-                <a class="subtitle is-6" href="../categories/cluster/">#cluster</a>
-                |
-                <a class="subtitle is-6" href="../categories/containers/">#containers</a>
-                |
-                <a class="subtitle is-6" href="../categories/deploy/">#deploy</a>
-                |
-                <a class="subtitle is-6" href="../categories/devops/">#devops</a>
-                |
-                <a class="subtitle is-6" href="../categories/kubernetes/">#kubernetes</a>
-                |
-                <a class="subtitle is-6" href="../categories/orchestration/">#orchestration</a>
-        </div>
-        <h2 class="subtitle is-6 date">2018-01-26 00:18</h2>
-        <h1 class="title"><a href="algunas-notas-sobre-kubernetes/">Algunas notas sobre Kubernetes</a></h1>
-        <div class="content">
-                <p><img alt="Logo Kubernetes" src="../img/blog/2018/logo-kubernetes.png" title="Logo de Kubernetes"></p>
-<p>Sistema para orquestación de cluster. Esto no es un tutorial, son notas sueltas
-(personales) tomadas del <a href="https://kubernetes.io">tutorial oficial</a>.</p>
-<h3>1. Crear un cluster</h3>
-<p>Kubernetes coordina un cluster para trabajar como una unica unidad. Para ello,
-las apps necesitan ser empaquetadas en forma de containers.</p>
-<p>2 Recursos:</p>
-<ul>
-<li>Master: Coordinación y gestión el cluster</li>
-<li>Nodes: Son los workers del cluster (puede ser vm o nodo físico)</li>
-</ul>
-<p>Cada nodo tiene un Kubelet, un agente que coordina el nodo y maneja la
-comunicación con el Master.</p>
-<p>Cada nodo debe poder realizar operaciones de containers, usando Docker o rkt
-(Debe tenerlo instalado).</p>
-<p>Para debug se recomienda utilizar <a href="https://github.com/kubernetes/minikube">Minikube</a>.
-Instala un cluster y facilita la configuracion de kubernetes (Instalarlo a mano
-era complejo).</p>
-<h4>Tutorial interactivo</h4>
-<p>Testear la version de minikube</p>
-<div class="code"><pre class="code literal-block">minikube version
-</pre></div>
-
-<p>Iniciar un cluster usando minikube</p>
-<div class="code"><pre class="code literal-block">minikube start
-</pre></div>
-
-<p>Linea de comandos de Kubernetes: <code>kubectl</code>.</p>
-<p>Version de kubectl (Para verificar que esta instalado):</p>
-<div class="code"><pre class="code literal-block">kubectl version
-</pre></div>
-
-<p>Ver información de cluster</p>
-<div class="code"><pre class="code literal-block">kubectl cluster-info
-</pre></div>
-
-<p>Ver nodos del cluster</p>
-<div class="code"><pre class="code literal-block">kubectl get nodes
-</pre></div>
-
-<h3>2. Crear deploys con kubectl</h3>
-<p>Una vez instalado Kubernetes, se deben crear aplicaciones en containers para ser
-ejecutadas sobre el cluster. Para esto se definen instruccion que el master
-ejecuta sobre los nodos.</p>
-<p>Kubernetes Deployment Controller monitoriza las instancias y si se caen, las
-regenera nuevamente.</p>
-<h4>Tutorial interactivo</h4>
-<p>Correr un ejemplo</p>
-<div class="code"><pre class="code literal-block">kubectl run kubernetes-bootcamp \
-    --image=docker.io/jocatalin/kubernetes-bootcamp:v1 \
-    --port=8080
-</pre></div>
-
-<p>Ver la app en ejecucion</p>
-<div class="code"><pre class="code literal-block">kubectl get deployments
-</pre></div>
-
-<p>Generar un entrypoint al cluster (temporal para pruebas)</p>
-<div class="code"><pre class="code literal-block">kubectl proxy
-</pre></div>
-
-<h3>3. Explorar la App</h3>
-<p>Un Pod es un conjunto de containers que ejecutan aplicaciones y sus recursos
-asociados.</p>
-<p>Los Pods son creados por Kubernetes al realizar el deploy de la app. Se crean
-siempre en un nodo.</p>
-<p>Operaciones mas usadas de <code>kubectl</code>:</p>
-<div class="code"><pre class="code literal-block"><span class="nv">kubectl</span><span class="w"> </span><span class="nv">get</span>
-<span class="nv">kubectl</span><span class="w"> </span><span class="nv">describe</span>
-<span class="nv">kubectl</span><span class="w"> </span><span class="nv">logs</span>
-<span class="nv">kubectl</span><span class="w"> </span><span class="k">exec</span>
-</pre></div>
-
-<h4>Tutorial interactivo</h4>
-<p>Listar pods</p>
-<div class="code"><pre class="code literal-block">kubectl get pods
-</pre></div>
-
-<p>Para obtener información detallada de los Pods</p>
-<div class="code"><pre class="code literal-block">kubectl describe pods
-</pre></div>
-
-<p>Para acceder a los Pods, que funcionan en una red aislada y privada, se utiliza
-el <code>proxy</code>:</p>
-<div class="code"><pre class="code literal-block">kubectl proxy
-</pre></div>
-
-<p>Dicho proxy expone temporalmente la red y permite la comunicación con el host.
-Esto se utiliza para acceder a la API de los Pods y realizar consultas de forma
-directa (Por ejemplo, usando el comando <code>curl</code>).</p>
-<p>Para diversas operaciones con los pods, es necesario obtener el nombre que
-Kubernetes le asigno al mismo. Un comando para hacer esto es:</p>
-<div class="code"><pre class="code literal-block"><span class="k">export</span><span class="w"> </span><span class="n">POD_NAME</span><span class="o">=$</span><span class="p">(</span><span class="n">kubectl</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">pods</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">go</span><span class="o">-</span><span class="n">template</span><span class="w"> </span><span class="o">--</span><span class="n">template</span><span class="w"> </span><span class="s1">'{{range .items}}{{.metadata.name}}{{"</span><span class="se">\n</span><span class="s1">"}}{{end}}'</span><span class="p">)</span>
-</pre></div>
-
-<p>Para ver los logs:</p>
-<div class="code"><pre class="code literal-block">kubectl logs $POD_NAME
-</pre></div>
-
-<p>Todo lo que los proceso envien a stdout es expuesto como logs del pod.</p>
-<p>Ejecutar comandos en un pod:</p>
-<div class="code"><pre class="code literal-block">kubectl exec $POD_NAME env
-</pre></div>
-
-<p>Abrir una consola en un POD:</p>
-<div class="code"><pre class="code literal-block">kubectl exec -ti $POD_NAME bash
-</pre></div>
-
-<h3>4. Usar un servicio para exponer la App</h3>
-<p>Los Pods pueden ser reemplazados si es necesario. Desde que cada Pod tiene una
-IP unica, las aplicaciones no deberian conocer dichas IPs para poder conectarse
-a los Pods, porque estos puede "morir".</p>
-<p>Los servicios en kubernetes proveen una abstraccion que permite establecer
-politicas de acceso sobre un conjunto lógico de Pods.</p>
-<p>Los servicios permiten que a los pods se les adjunten labels, con diferentes
-objetivos (taggear versiones, separar versiones para test, debug y produccion).</p>
-<h4>Tutorial interactivo</h4>
-<p>Listar servicios expuestos:</p>
-<div class="code"><pre class="code literal-block">kubectl get services
-</pre></div>
-
-<p>Exponer un servicio:</p>
-<div class="code"><pre class="code literal-block"><span class="nx">kubectl</span><span class="w"> </span><span class="nx">expose</span><span class="w"> </span><span class="nx">deployment</span><span class="o">/</span><span class="nx">kubernetes</span><span class="o">-</span><span class="nx">bootcamp</span><span class="w"> </span><span class="o">--</span><span class="k">type</span><span class="p">=</span><span class="s">"NodePort"</span><span class="w"> </span><span class="o">--</span><span class="nx">port</span><span class="w"> </span><span class="mi">8080</span>
-</pre></div>
-
-<p>Ver detalles de servicios:</p>
-<div class="code"><pre class="code literal-block">kubectl describe services/kubernetes-bootcamp
-</pre></div>
-
-<p>Ver que puerto fue abierto externamente:</p>
-<div class="code"><pre class="code literal-block"><span class="k">export</span><span class="w"> </span><span class="n">NODE_PORT</span><span class="o">=$</span><span class="p">(</span><span class="n">kubectl</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">services</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">bootcamp</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">go</span><span class="o">-</span><span class="n">template</span><span class="o">=</span><span class="s1">'{{(index .spec.ports 0).nodePort}}'</span><span class="p">)</span>
-<span class="n">echo</span><span class="w"> </span><span class="n">NODE_PORT</span><span class="o">=$</span><span class="n">NODE_PORT</span>
-</pre></div>
-
-<p>Una vez expuesto, se puede consultar el servicio directamente con:</p>
-<div class="code"><pre class="code literal-block">curl host01:$NODE_PORT
-</pre></div>
-
-<p>Consultar los pods que estan etiquetados con un label particular:</p>
-<div class="code"><pre class="code literal-block">kubectl get pods -l run=kubernetes-bootcamp
-</pre></div>
-
-<p>El label en el caso anterior es <code>run=kubernetes-bootcamp</code>. Funciona
-identicamente para consultar servicios:</p>
-<div class="code"><pre class="code literal-block">kubectl get services -l run=kubernetes-bootcamp
-</pre></div>
-
-<p>Obtener el nombre del POD</p>
-<div class="code"><pre class="code literal-block"><span class="k">export</span><span class="w"> </span><span class="n">POD_NAME</span><span class="o">=$</span><span class="p">(</span><span class="n">kubectl</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">pods</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">go</span><span class="o">-</span><span class="n">template</span><span class="w"> </span><span class="o">--</span><span class="n">template</span><span class="w"> </span><span class="s1">'{{range .items}}{{.metadata.name}}{{"</span><span class="se">\n</span><span class="s1">"}}{{end}}'</span><span class="p">)</span>
-<span class="n">echo</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Pod</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="n">POD_NAME</span>
-</pre></div>
-
-<p>Aplicar un nuevo label a un Pod:</p>
-<div class="code"><pre class="code literal-block">kubectl label pod $POD_NAME app=v1
-</pre></div>
-
-<p>Consultar el label recien aplicado:</p>
-<div class="code"><pre class="code literal-block">kubectl describe pods $POD_NAME
-kubectl get pods -l app=v1
-</pre></div>
-
-<p>Borrar un servicio:</p>
-<div class="code"><pre class="code literal-block">kubectl delete service -l run=kubernetes-bootcamp
-</pre></div>
-
-<h3>5. Multiples instancias de una App</h3>
-<p>Escalar es incrementar el numero de instancias o pods para poder manejar
-incrementos de trafico en la aplicación. Los services manejan el trafico hacia
-los pods mendiante un load-balancer.</p>
-<h4>Tutorial interactivo</h4>
-<p>Escalar (scale up) un deployment llamado kubernetes-bootcamp a 4 replicas:</p>
-<div class="code"><pre class="code literal-block">kubectl scale deployments/kubernetes-bootcamp --replicas=4
-</pre></div>
-
-<p>Ver los deployments:</p>
-<div class="code"><pre class="code literal-block">kubectl get deployments
-</pre></div>
-
-<p>Controlar los pods (Tiene que haber 4):</p>
-<div class="code"><pre class="code literal-block">kubectl get pods -o wide
-</pre></div>
-
-<p>Ver el deployment de forma mas detallada:</p>
-<div class="code"><pre class="code literal-block">kubectl describe deployments/kubernetes-bootcamp
-</pre></div>
-
-<p>Ver el servicio:</p>
-<div class="code"><pre class="code literal-block">kubectl describe services/kubernetes-bootcamp
-</pre></div>
-
-<p>Recuperar el nodo:</p>
-<div class="code"><pre class="code literal-block"><span class="k">export</span><span class="w"> </span><span class="n">NODE_PORT</span><span class="o">=$</span><span class="p">(</span><span class="n">kubectl</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">services</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">bootcamp</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">go</span><span class="o">-</span><span class="n">template</span><span class="o">=</span><span class="s1">'{{(index .spec.ports 0).nodePort}}'</span><span class="p">)</span>
-<span class="n">echo</span><span class="w"> </span><span class="n">NODE_PORT</span><span class="o">=$</span><span class="n">NODE_PORT</span>
-</pre></div>
-
-<p>Ejecutar varias veces:</p>
-<div class="code"><pre class="code literal-block">curl host01:$NODE_PORT
-</pre></div>
-
-<p>Deberian responder diferentes pods de la misma app.</p>
-<p>Ejecutar ahora solo 2 replicas (Scale down):</p>
-<div class="code"><pre class="code literal-block">kubectl scale deployments/kubernetes-bootcamp --replicas=2
-</pre></div>
-
-<p>Confirmar el cambio:</p>
-<div class="code"><pre class="code literal-block">kubectl get deployments
-</pre></div>
-
-<h3>6. Realizando actualizaciones progresivas</h3>
-<p>La idea es lograr actualizaciones sin que se experimente una caida del servicio,
-esto permite poder actualizar las aplicaciones de forma mas seguida.</p>
-<p>Kubernetes permite esto mediante las Rolling Updates. Esto permite actualizar
-sin tener downtimes y ademas puede ser revertido en caso de problemas
-(rollbacks).</p>
-<h4>Tutorial interactivo</h4>
-<p>Ver imagen actual de los pods (Campo image):</p>
-<div class="code"><pre class="code literal-block">kubectl describe pods
-</pre></div>
-
-<p>Actualizar la image:</p>
-<div class="code"><pre class="code literal-block">kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
-</pre></div>
-
-<p>Ver información de los Pods:</p>
-<div class="code"><pre class="code literal-block">kubectl get pods
-</pre></div>
-
-<p>No actualiza los viejos pods, sino que termina los anteirores y crea pods
-nuevos.</p>
-<p>Verificar que la app actualizo:</p>
-<div class="code"><pre class="code literal-block"><span class="n">kubectl</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="n">services</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">bootcamp</span>
-<span class="k">export</span><span class="w"> </span><span class="n">NODE_PORT</span><span class="o">=$</span><span class="p">(</span><span class="n">kubectl</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">services</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">bootcamp</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">go</span><span class="o">-</span><span class="n">template</span><span class="o">=</span><span class="s1">'{{(index .spec.ports 0).nodePort}}'</span><span class="p">)</span>
-<span class="n">echo</span><span class="w"> </span><span class="n">NODE_PORT</span><span class="o">=$</span><span class="n">NODE_PORT</span>
-<span class="n">curl</span><span class="w"> </span><span class="n">host01</span><span class="p">:</span><span class="o">$</span><span class="n">NODE_PORT</span>
-</pre></div>
-
-<p>Tambien puede verificarse el exito mediante:</p>
-<div class="code"><pre class="code literal-block">kubectl rollout status deployments/kubernetes-bootcamp
-</pre></div>
-
-<p>Deployar una version "con errores":</p>
-<div class="code"><pre class="code literal-block">kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v10
-</pre></div>
-
-<p>Ver problemas:</p>
-<div class="code"><pre class="code literal-block">kubectl get deployments
-kubectl get pods
-kubectl describe pods
-</pre></div>
-
-<p>Rollback:</p>
-<div class="code"><pre class="code literal-block">kubectl rollout undo deployments/kubernetes-bootcamp
-kubectl get pods
-kubectl describe pods
-</pre></div>
-
-<h2>Dudas</h2>
-<ul>
-<li>¿Un cluster kubernetes sirve para deploy de una app unica o muchas apps
- pueden convivir en el?</li>
-</ul>
-<p>Se pueden hacer deploys de varias apps y se iran acomodando en los recursos que
-el cluster tenga disponibles.</p>
-<ul>
-<li>¿Un Pod es equivalente a un container?</li>
-</ul>
-<p>Un pod es un container de una aplicación en particular gestionado por kubernetes</p>
-<h2>Troubleshooting</h2>
-<ul>
-<li>Al querer ejecutar <code>minikube start</code> se obtiene el error "Error starting host: Error getting state for host: machine does not exist".</li>
-</ul>
-<p>El error completo es:</p>
-<div class="code"><pre class="code literal-block">$<span class="w"> </span>minikube<span class="w"> </span>start
-Starting<span class="w"> </span><span class="nb">local</span><span class="w"> </span>Kubernetes<span class="w"> </span>v1.9.0<span class="w"> </span>cluster...
-Starting<span class="w"> </span>VM...
-E0428<span class="w"> </span><span class="m">17</span>:06:43.557255<span class="w">   </span><span class="m">18070</span><span class="w"> </span>start.go:159<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span>starting<span class="w"> </span>host:<span class="w"> </span>Error<span class="w"> </span>getting<span class="w"> </span>state<span class="w"> </span><span class="k">for</span><span class="w"> </span>host:<span class="w"> </span>machine<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist.
-
-<span class="w"> </span>Retrying.
-E0428<span class="w"> </span><span class="m">17</span>:06:43.557517<span class="w">   </span><span class="m">18070</span><span class="w"> </span>start.go:165<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span>starting<span class="w"> </span>host:<span class="w">  </span>Error<span class="w"> </span>getting<span class="w"> </span>state<span class="w"> </span><span class="k">for</span><span class="w"> </span>host:<span class="w"> </span>machine<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span><span class="nv">exist</span>
-<span class="o">================================================================================</span>
-An<span class="w"> </span>error<span class="w"> </span>has<span class="w"> </span>occurred.<span class="w"> </span>Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>opt<span class="w"> </span><span class="k">in</span><span class="w"> </span>to<span class="w"> </span>sending<span class="w"> </span>anonymized<span class="w"> </span>crash
-information<span class="w"> </span>to<span class="w"> </span>minikube<span class="w"> </span>to<span class="w"> </span><span class="nb">help</span><span class="w"> </span>prevent<span class="w"> </span>future<span class="w"> </span>errors?
-To<span class="w"> </span>opt<span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>messages,<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>command:
-<span class="w">        </span>minikube<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>WantReportErrorPrompt<span class="w"> </span><span class="nb">false</span>
-<span class="o">================================================================================</span>
-Please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>response<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span>:<span class="w"> </span>n
-</pre></div>
-
-<p>Esto me pasó a mi por borrar en algun momento la vm de Virtualbox que crea minikube. La forma mas facil de recuperarse de este error es:</p>
-<div class="code"><pre class="code literal-block">$<span class="w"> </span>minikube<span class="w"> </span>delete
-$<span class="w"> </span>minikube<span class="w"> </span>start
-</pre></div>
-        </div>
-    </article><script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+    </article><section class="section"><div class="container">
+            <nav class="level is-mobile"><div class="level-left">
+                <div class="level-item">
+                </div>
+            </div>
+            <div class="level-right is-marginless">
+                <div class="level-item">
+                        <a class="button" href="index-1.html" rel="next">Publicaciones anteriores</a>
+                </div>
+            </div>
+            </nav>
+</div>
+        </section><script>var disqus_shortname="tomasdel";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p><a href="mailto:tdelvechio@unlu.edu.ar">Tomás Delvechio</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-<img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Enero 2018.</p>
+<img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>. Ultima actualización: Marzo de 2025.</p>
             
         </footer>
 </div>

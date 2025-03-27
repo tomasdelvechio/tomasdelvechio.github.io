@@ -3,7 +3,147 @@
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 27 Mar 2025 00:10:45 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2020)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h3&gt;Introducción&lt;/h3&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 27 Mar 2025 03:23:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2024)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;En está segunda parte de lo que ya se está convirtiendo en una seríe de posts,
+se discutirán algunas estrategias avanzadas para recuperar espacio en disco.&lt;/p&gt;
+&lt;p&gt;Mi profesión es de programación, asi que muchas de las estrategias borran o
+reducen el uso de herramientas especificas. Para ver algunas cosas mas utiles
+tal vez te venga mejor mirar antes el &lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="admonition danger"&gt;
+&lt;p class="admonition-title"&gt;Danger&lt;/p&gt;
+&lt;p&gt;Los comandos utilizados en este post &lt;strong&gt;son destructivos&lt;/strong&gt; y en muchos casos &lt;strong&gt;no se
+pueden deshacer&lt;/strong&gt;. Se aconseja leer con cuidado, no copiar y pegar, y aprender sobre
+cada comando comentado antes de ejecutarlo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Controlar el espacio en disco disponible&lt;/h2&gt;
+&lt;p&gt;Siempre es bueno arrancar sabiendo cuanto espacio en disco tenemos para saber cuanto 
+liberamos con los diferentes comandos:&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;df&lt;span class="w"&gt; &lt;/span&gt;-h
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Darle bola principalmente a la partición &lt;code&gt;/&lt;/code&gt; y en caso de aparecer, a &lt;code&gt;/var&lt;/code&gt; y &lt;code&gt;/usr&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Paquetes o programas de gran tamaño en APT&lt;/h2&gt;
+&lt;p&gt;A veces perdemos la referencia de programas instalados pero que no estamos usando.&lt;/p&gt;
+&lt;p&gt;Con el gestor de paquetes APT manejando dependecias, podemos tener mucho software que
+no recordamos instalar o directamente nunca instalamos explicitamente. Si queremos
+hacer un listado de los paquetes por tamaño que ocupan, podemos ejecutar:&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;dpkg-query&lt;span class="w"&gt; &lt;/span&gt;--show&lt;span class="w"&gt; &lt;/span&gt;--showformat&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'${Package;-50}\t${Installed-Size}\n'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sort&lt;span class="w"&gt; &lt;/span&gt;-k&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-n&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;deinstall&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;awk&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'{printf "%.3f MB \t %s\n", $2/(1024), $1}'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;less
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Obtendremos una salida como la siguiente&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;286,543 MB       libcusparse-dev-12-3
+329,808 MB       typora
+336,514 MB       linux-modules-extra-5.15.0-116-generic
+336,517 MB       linux-modules-extra-5.15.0-117-generic
+336,524 MB       linux-modules-extra-5.15.0-118-generic
+336,524 MB       linux-modules-extra-5.15.0-119-generic
+336,592 MB       linux-modules-extra-5.15.0-121-generic
+336,593 MB       linux-modules-extra-5.15.0-122-generic
+336,594 MB       linux-modules-extra-5.15.0-124-generic
+336,652 MB       linux-modules-extra-5.15.0-125-generic
+354,313 MB       google-chrome-stable
+380,522 MB       libcufft-dev-12-3
+429,920 MB       linux-modules-extra-6.5.0-44-generic
+433,652 MB       linux-modules-extra-6.5.0-41-generic
+449,160 MB       linux-modules-extra-6.8.0-40-generic
+449,413 MB       linux-modules-extra-6.8.0-47-generic
+449,449 MB       linux-modules-extra-6.8.0-45-generic
+485,409 MB       linux-firmware
+584,258 MB       rstudio
+596,854 MB       libcublas-12-3
+705,180 MB       zoom
+907,500 MB       libcublas-dev-12-3
+1497,791 MB      nsight-compute-2023.3.1
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Aquí solo resta decidir que paquetes no deseo tener y quiero desinstalar.&lt;/p&gt;
+&lt;div class="admonition danger"&gt;
+&lt;p class="admonition-title"&gt;Danger&lt;/p&gt;
+&lt;p&gt;Nunca elimines un paquete que comience con &lt;code&gt;linux-&lt;/code&gt; sin saber lo que estas haciendo.
+Se recomienda hacer el siguiente paso con aplicativos de uso comun o hayas instalado
+vos mismo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Un ejemplo basado en la linea de arriba puede ser el siguiente&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt&lt;span class="w"&gt; &lt;/span&gt;purge&lt;span class="w"&gt; &lt;/span&gt;typora&lt;span class="w"&gt; &lt;/span&gt;zoom&lt;span class="w"&gt; &lt;/span&gt;rstudio
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Luego de cada borrado, puede ser util ejecutar&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt&lt;span class="w"&gt; &lt;/span&gt;autoremove
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Este último comando libera dependencias huerfanas del paso anterior.&lt;/p&gt;
+&lt;h2&gt;Docker&lt;/h2&gt;
+&lt;p&gt;Docker es una gran herramienta, tanto para deploy profesional como para tener software
+corriendo en nuestro equipo con poca configuración. Sin embargo, el costo de ejecutarlo
+sigue siendo alto. &lt;/p&gt;
+&lt;p&gt;Existen 4 elementos de Docker con los que podemos toparnos que consumen mucho espacio
+en disco:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Contenedores&lt;/li&gt;
+&lt;li&gt;Imagenes&lt;/li&gt;
+&lt;li&gt;Volumenes locales&lt;/li&gt;
+&lt;li&gt;Cache de construcción&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Por suerte tenemos un comando que nos deja ver como estamos en este asunto&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;docker&lt;span class="w"&gt; &lt;/span&gt;system&lt;span class="w"&gt; &lt;/span&gt;df
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;La salida del comando en cuestión es similar a la siguiente&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          0         0         0B        0B
+Containers      0         0         0B        0B
+Local Volumes   0         0         0B        0B
+Build Cache     91        0         2.361GB   2.361GB
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Obviamente las columnas &lt;code&gt;SIZE&lt;/code&gt; y &lt;code&gt;RECLAIMABLE&lt;/code&gt; son las relevantes. La última es
+el espacio en disco que es posible conseguir sin destruir nada que estemos utilizando.
+En el caso de la columna &lt;code&gt;SIZE&lt;/code&gt; hay que tener mas cuidado, ya que puede haber cosas
+en uso cuyo espacio ocupado sean necesarias para que funcione.&lt;/p&gt;
+&lt;p&gt;El comando que hace la magia es &lt;code&gt;system prune&lt;/code&gt;&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;docker&lt;span class="w"&gt; &lt;/span&gt;system&lt;span class="w"&gt; &lt;/span&gt;prune
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dicho comando solo eliminará componentes que de algúna forma segura se determinen
+que ya no se utilizan. Como siempre, cuidado de no eliminar nada importante.&lt;/p&gt;
+&lt;p&gt;Es importante notar que prune es una acción en muchos de los subcomandos de docker,
+ademas de contar con &lt;code&gt;rm&lt;/code&gt;. En dichos casos, siempre es aconsejable primero estudiar
+que tenemos disponible:&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;docker&lt;span class="w"&gt; &lt;/span&gt;container&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-a
+docker&lt;span class="w"&gt; &lt;/span&gt;volume&lt;span class="w"&gt; &lt;/span&gt;ls
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;En todo caso borrar individualmente cosas que sepamos que no se están utilizando
+via &lt;code&gt;docker &amp;lt;subcomadno&amp;gt; rm &amp;lt;HASH_DEL_COMPONENTE&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Caché de Snap&lt;/h2&gt;
+&lt;p&gt;Snap nunca nos dejará en paz. Si &lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/"&gt;en el primer post&lt;/a&gt;
+habiamos visto que los instaladores iban dejando replicas viejas instaladas y
+desactivadas, vaya a saber uno para que, investigando un poco mas podemos encontrar
+que cada app tiene su caché, que muy lindo y util, pero si estamos desesperados
+por espacio, puede venir bien reclamarlo y que las apps lo vayan consumiendo
+lentamente.&lt;/p&gt;
+&lt;div class="admonition danger"&gt;
+&lt;p class="admonition-title"&gt;Danger&lt;/p&gt;
+&lt;p&gt;Como ya se dijo, cuidado. En este caso, borrar el contenido de este directorio
+no puede ocasionar ningun daño, pero si se copia mal la ruta, el principio del
+comando es &lt;code&gt;rm -rf&lt;/code&gt; que puede ser muy destructivo. &lt;strong&gt;No copiar y pegar, POR FAVOR&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;sh&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'rm -rf /var/lib/snapd/cache/*'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;En un sistema instalado nuevo no tiene demasiado sentido, pero si la instalación
+tiene varios años, capaz les sirve.&lt;/p&gt;
+&lt;p&gt;Como la vez anterior, espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</guid><pubDate>Thu, 27 Mar 2025 00:52:24 GMT</pubDate></item><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2020)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Introducción&lt;/h3&gt;
 &lt;p&gt;Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.&lt;/p&gt;
 &lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;$&lt;span class="w"&gt; &lt;/span&gt;df&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt; &lt;/span&gt;
 Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &lt;/span&gt;Used&lt;span class="w"&gt; &lt;/span&gt;Avail&lt;span class="w"&gt; &lt;/span&gt;Use%&lt;span class="w"&gt; &lt;/span&gt;Mounted&lt;span class="w"&gt; &lt;/span&gt;on
