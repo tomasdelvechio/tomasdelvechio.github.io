@@ -9,6 +9,11 @@
 .. type: text
 -->
 
+# Indice de la serie
+
+1. [Primera parte](/blog/borrando-cosas-inutiles-de-ubuntu-version-2020)
+1. [Segunda parte](/blog/borrando-cosas-inutiles-de-ubuntu-version-2024)
+
 ## Introducción
 
 Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.
