@@ -1,0 +1,114 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,sans-serif);color:var(--color-text-primary)}
+.sr-only{position:absolute;left:-9999px}
+.outer{padding:1rem 1rem 1.5rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:1.5rem}
+.card{background:var(--color-background-secondary);border-radius:8px;padding:12px 14px}
+.card .label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px}
+.card .val{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.card .sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.chart-wrap{position:relative;width:100%;height:320px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+.leg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--color-text-secondary)}
+.leg-sq{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.note{font-size:11px;color:var(--color-text-secondary);margin-top:14px;line-height:1.6;border-top:0.5px solid var(--color-border-tertiary);padding-top:10px}
+</style>
+<div class="outer">
+<h2 class="sr-only">Merkle tree depth comparison across Bitcoin, Ethereum, Solana, and BSC blockchains</h2>
+<div class="cards">
+  <div class="card"><div class="label">Bitcoin — typical</div><div class="val">12</div><div class="sub">~3,500 tx/block · 10 min</div></div>
+  <div class="card"><div class="label">Bitcoin — peak</div><div class="val">13</div><div class="sub">~4,700 tx/block · 10 min</div></div>
+  <div class="card"><div class="label">Ethereum</div><div class="val">8</div><div class="sub">~150–300 tx/block · 12 s</div></div>
+  <div class="card"><div class="label">BSC</div><div class="val">10</div><div class="sub">~500–700 tx/block · 3 s</div></div>
+  <div class="card"><div class="label">Solana</div><div class="val">10–11</div><div class="sub">~500–2,000 tx/block · 0.4 s</div></div>
+</div>
+<div class="chart-wrap">
+  <canvas id="chart" role="img" aria-label="Bar chart comparing Merkle tree depth (levels) across Bitcoin typical, Bitcoin peak, Ethereum, BSC, and Solana blockchains. Bitcoin peak is deepest at 13, Ethereum shallowest at 8.">Merkle tree depth: Bitcoin typical 12, Bitcoin peak 13, Ethereum 8, BSC 10, Solana 10-11 levels.</canvas>
+</div>
+<div class="legend">
+  <span class="leg"><span class="leg-sq" style="background:#378ADD"></span>Bitcoin</span>
+  <span class="leg"><span class="leg-sq" style="background:#7F77DD"></span>Ethereum</span>
+  <span class="leg"><span class="leg-sq" style="background:#1D9E75"></span>BSC</span>
+  <span class="leg"><span class="leg-sq" style="background:#D85A30"></span>Solana</span>
+</div>
+<div class="note">
+  Depth = ⌈log₂(transactions per block)⌉. A proof path carries exactly <em>depth</em> sibling hashes — so Bitcoin SPV proofs are ~12 hashes, while Ethereum proofs are only ~8. Ethereum uses a Merkle Patricia Trie (not a plain binary tree) for its world state, making depth harder to compare directly — the figure above refers to its transaction Merkle root only. Solana does not use a Merkle tree for intra-block transaction ordering the same way; it uses a different commitment scheme, so the figure shown is an approximation for the transaction hash tree.
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels = ['Bitcoin\n(typical)', 'Bitcoin\n(peak 2023)', 'Ethereum', 'BSC', 'Solana'];
+const txCounts = [3500, 4700, 220, 600, 1200];
+const depths = txCounts.map(n => Math.ceil(Math.log2(n)));
+const proofSizes = depths.slice();
+
+const colors = ['#378ADD','#185FA5','#7F77DD','#1D9E75','#D85A30'];
+const patterns = [null, 'hatched', null, null, null];
+
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+const labelColor = isDark ? '#9c9a92' : '#73726c';
+
+new Chart(document.getElementById('chart'), {
+  type: 'bar',
+  data: {
+    labels: ['Bitcoin (typical)', 'Bitcoin (peak)', 'Ethereum', 'BSC', 'Solana'],
+    datasets: [
+      {
+        label: 'Tree depth (levels)',
+        data: depths,
+        backgroundColor: colors,
+        borderWidth: 0,
+        borderRadius: 5,
+        barPercentage: 0.55,
+      },
+      {
+        label: 'Proof path (hashes)',
+        data: proofSizes,
+        backgroundColor: 'transparent',
+        borderColor: colors,
+        borderWidth: 1.5,
+        borderRadius: 5,
+        barPercentage: 0.55,
+        type: 'bar',
+        hidden: true,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          afterBody: (items) => {
+            const i = items[0].dataIndex;
+            return [`Tx/block: ~${txCounts[i].toLocaleString()}`, `Proof path: ${depths[i]} hashes`];
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: { color: labelColor, font: { size: 12 } }
+      },
+      y: {
+        min: 0,
+        max: 16,
+        grid: { color: gridColor },
+        ticks: {
+          color: labelColor,
+          font: { size: 12 },
+          stepSize: 2,
+          callback: v => v === 0 ? '' : v + ' lvl'
+        },
+        title: { display: true, text: 'depth (levels = proof hashes)', color: labelColor, font: { size: 11 } }
+      }
+    }
+  }
+});
+</script>
