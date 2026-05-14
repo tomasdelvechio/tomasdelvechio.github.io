@@ -1,0 +1,341 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{font-family:var(--font-sans,sans-serif);padding:1.25rem 1rem 2rem}
+h2.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1.25rem}
+.card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem;background:var(--color-background-primary)}
+.card-title{font-size:13px;font-weight:500;margin-bottom:4px}
+.card-sub{font-size:11px;color:var(--color-text-secondary);margin-bottom:12px}
+.badge{display:inline-block;font-size:10px;font-weight:500;padding:2px 8px;border-radius:4px;margin-bottom:10px}
+.badge-orange{background:#FAEEDA;color:#633806}
+.badge-teal{background:#E1F5EE;color:#085041}
+svg.flow{width:100%;overflow:visible}
+.actor rect,.actor circle{transition:filter .3s}
+.actor.lit rect,.actor.lit circle{filter:drop-shadow(0 0 4px currentColor)}
+.arrow-line{stroke-dasharray:6 4;stroke-dashoffset:100;transition:stroke-dashoffset 1.2s linear,opacity .3s}
+.arrow-line.flowing{stroke-dashoffset:0}
+.arrow-line.dim{opacity:.15}
+.status-box{min-height:56px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);padding:8px 10px;margin-top:10px;font-size:12px;color:var(--color-text-secondary);background:var(--color-background-secondary)}
+.status-box .who{font-size:11px;font-weight:500;margin-bottom:3px}
+.status-box .msg{line-height:1.5}
+.status-box.ok .who{color:#0F6E56}
+.status-box.warn .who{color:#854F0B}
+.status-box.info .who{color:#185FA5}
+.ctrl{display:flex;align-items:center;gap:10px;margin-top:12px}
+.btn{padding:6px 14px;font-size:12px;font-weight:500;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;color:var(--color-text-primary);transition:background .15s}
+.btn:hover{background:var(--color-background-secondary)}
+.btn:active{transform:scale(.98)}
+.btn-reset{color:var(--color-text-secondary);font-size:11px;border:none;background:none;cursor:pointer;padding:0}
+.btn-reset:hover{color:var(--color-text-primary)}
+.step-indicator{font-size:11px;color:var(--color-text-secondary)}
+.tension-bar{margin-top:1rem;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);padding:.75rem 1rem;background:var(--color-background-secondary)}
+.tension-title{font-size:12px;font-weight:500;margin-bottom:8px;color:var(--color-text-secondary)}
+.tension-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.tension-label{font-size:11px;color:var(--color-text-secondary);width:130px;flex-shrink:0}
+.tension-track{flex:1;height:6px;border-radius:3px;background:var(--color-border-tertiary);position:relative;overflow:visible}
+.tension-fill{height:100%;border-radius:3px;transition:width .6s ease}
+.tension-fill.left{background:#185FA5;float:left}
+.tension-fill.right{background:#0F6E56;float:right}
+.tension-ends{display:flex;justify-content:space-between;font-size:10px;color:var(--color-text-secondary);margin-top:2px}
+</style>
+
+<div class="wrap">
+<h2 class="sr-only">Simulación: validación centralizada vs verificación autónoma de títulos universitarios</h2>
+
+<div class="cols">
+  <!-- CENTRALIZADO -->
+  <div class="card" id="card-c">
+    <div class="badge badge-orange">Modelo actual</div>
+    <div class="card-title">Registro centralizado</div>
+    <div class="card-sub">La confianza depende de la institución emisora</div>
+
+    <svg class="flow" viewBox="0 0 260 200" role="img">
+      <title>Flujo de validación centralizada</title>
+      <defs>
+        <marker id="ac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Graduado -->
+      <g class="actor" id="c-grad">
+        <circle cx="36" cy="100" r="22" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+        <text x="36" y="96" text-anchor="middle" font-size="16">🎓</text>
+        <text x="36" y="132" text-anchor="middle" font-size="10" fill="#185FA5" font-weight="500">Graduado</text>
+      </g>
+
+      <!-- Institución central -->
+      <g class="actor" id="c-inst">
+        <rect x="85" y="58" width="90" height="84" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+        <text x="130" y="78" text-anchor="middle" font-size="10" fill="#412402" font-weight="500">Sistema</text>
+        <text x="130" y="91" text-anchor="middle" font-size="10" fill="#412402" font-weight="500">institucional</text>
+        <rect x="95" y="100" width="70" height="30" rx="4" fill="#FAC775" stroke="#BA7517" stroke-width="0.5"/>
+        <text x="130" y="113" text-anchor="middle" font-size="9" fill="#412402">Base de datos</text>
+        <text x="130" y="124" text-anchor="middle" font-size="9" fill="#854F0B">centralizada</text>
+      </g>
+
+      <!-- Empleador -->
+      <g class="actor" id="c-emp">
+        <rect x="190" y="80" width="60" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+        <text x="220" y="96" text-anchor="middle" font-size="10" fill="#085041" font-weight="500">Verificador</text>
+        <text x="220" y="108" text-anchor="middle" font-size="9" fill="#085041">(empleador)</text>
+      </g>
+
+      <!-- Flecha grad → inst -->
+      <line id="c-arr1" class="arrow-line" x1="59" y1="100" x2="83" y2="100" stroke="#378ADD" stroke-width="1.5" marker-end="url(#ac)"/>
+      <!-- Flecha emp → inst (consulta) -->
+      <line id="c-arr2" class="arrow-line" x1="189" y1="95" x2="177" y2="95" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#ac)"/>
+      <!-- Flecha inst → emp (respuesta) -->
+      <line id="c-arr3" class="arrow-line" x1="177" y1="107" x2="189" y2="107" stroke="#BA7517" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ac)" opacity="0"/>
+
+      <!-- Lock (control) -->
+      <g id="c-lock" opacity="0">
+        <circle cx="130" cy="170" r="12" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+        <text x="130" y="174" text-anchor="middle" font-size="13">🔒</text>
+        <text x="130" y="190" text-anchor="middle" font-size="9" fill="#854F0B">control: institución</text>
+      </g>
+
+      <!-- Etiqueta flujo -->
+      <text id="c-flabel" x="130" y="28" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" opacity="0">consulta → respuesta</text>
+    </svg>
+
+    <div class="status-box warn" id="c-status">
+      <div class="who">En espera</div>
+      <div class="msg">Presioná "Verificar" para simular el flujo.</div>
+    </div>
+    <div class="ctrl">
+      <button class="btn" onclick="runCentral()">Verificar título ↗</button>
+      <button class="btn-reset" onclick="resetCentral()">Reiniciar</button>
+      <span class="step-indicator" id="c-step"></span>
+    </div>
+  </div>
+
+  <!-- DESCENTRALIZADO -->
+  <div class="card" id="card-d">
+    <div class="badge badge-teal">Modelo alternativo</div>
+    <div class="card-title">Verificación autónoma</div>
+    <div class="card-sub">La confianza la otorga el protocolo, no la institución</div>
+
+    <svg class="flow" viewBox="0 0 260 200" role="img">
+      <title>Flujo de verificación autónoma descentralizada</title>
+      <defs>
+        <marker id="ad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Graduado con credencial -->
+      <g class="actor" id="d-grad">
+        <circle cx="36" cy="100" r="22" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+        <text x="36" y="96" text-anchor="middle" font-size="16">🎓</text>
+        <text x="36" y="132" text-anchor="middle" font-size="10" fill="#185FA5" font-weight="500">Graduado</text>
+        <text x="36" y="143" text-anchor="middle" font-size="9" fill="#185FA5">+ credencial</text>
+      </g>
+
+      <!-- Red blockchain (nodos) -->
+      <g id="d-chain" opacity="1">
+        <circle cx="130" cy="78" r="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+        <text x="130" y="82" text-anchor="middle" font-size="8" fill="#3C3489">nodo</text>
+        <circle cx="110" cy="112" r="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+        <text x="110" y="116" text-anchor="middle" font-size="8" fill="#3C3489">nodo</text>
+        <circle cx="150" cy="112" r="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+        <text x="150" y="116" text-anchor="middle" font-size="8" fill="#3C3489">nodo</text>
+        <!-- Links entre nodos -->
+        <line x1="120" y1="86" x2="116" y2="99" stroke="#534AB7" stroke-width="0.5" opacity="0.5"/>
+        <line x1="140" y1="86" x2="144" y2="99" stroke="#534AB7" stroke-width="0.5" opacity="0.5"/>
+        <line x1="124" y1="112" x2="136" y2="112" stroke="#534AB7" stroke-width="0.5" opacity="0.5"/>
+        <text x="130" y="140" text-anchor="middle" font-size="9" fill="#534AB7" font-weight="500">Red pública</text>
+        <text x="130" y="151" text-anchor="middle" font-size="9" fill="#3C3489">sin intermediario</text>
+      </g>
+
+      <!-- Verificador -->
+      <g class="actor" id="d-emp">
+        <rect x="196" y="80" width="58" height="40" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+        <text x="225" y="96" text-anchor="middle" font-size="10" fill="#085041" font-weight="500">Verificador</text>
+        <text x="225" y="108" text-anchor="middle" font-size="9" fill="#085041">(empleador)</text>
+      </g>
+
+      <!-- Flecha grad → red -->
+      <line id="d-arr1" class="arrow-line" x1="59" y1="95" x2="94" y2="85" stroke="#378ADD" stroke-width="1.5" marker-end="url(#ad)"/>
+      <!-- Flecha emp → red -->
+      <line id="d-arr2" class="arrow-line" x1="195" y1="95" x2="166" y2="95" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#ad)"/>
+      <!-- Flecha red → emp (prueba criptográfica) -->
+      <line id="d-arr3" class="arrow-line" x1="166" y1="107" x2="195" y2="107" stroke="#534AB7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ad)" opacity="0"/>
+
+      <!-- Check autónomo -->
+      <g id="d-check" opacity="0">
+        <circle cx="225" cy="50" r="12" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+        <text x="225" y="54" text-anchor="middle" font-size="13">✓</text>
+        <text x="225" y="170" text-anchor="middle" font-size="9" fill="#0F6E56">sin consultar institución</text>
+      </g>
+
+      <text id="d-flabel" x="130" y="28" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" opacity="0">prueba criptográfica</text>
+    </svg>
+
+    <div class="status-box info" id="d-status">
+      <div class="who">En espera</div>
+      <div class="msg">Presioná "Verificar" para simular el flujo.</div>
+    </div>
+    <div class="ctrl">
+      <button class="btn" onclick="runDecent()">Verificar título ↗</button>
+      <button class="btn-reset" onclick="resetDecent()">Reiniciar</button>
+      <span class="step-indicator" id="d-step"></span>
+    </div>
+  </div>
+</div>
+
+<!-- BARRA DE TENSIONES -->
+<div class="tension-bar">
+  <div class="tension-title">Tensiones clave entre modelos</div>
+
+  <div class="tension-row">
+    <div class="tension-label">Control del dato</div>
+    <div style="flex:1">
+      <div class="tension-track">
+        <div style="display:flex;height:6px;border-radius:3px;overflow:hidden">
+          <div class="tension-fill left" style="width:80%"></div>
+          <div class="tension-fill right" style="width:20%"></div>
+        </div>
+      </div>
+      <div class="tension-ends"><span style="color:#185FA5">Institución</span><span style="color:#0F6E56">Usuario</span></div>
+    </div>
+  </div>
+
+  <div class="tension-row">
+    <div class="tension-label">Interoperabilidad</div>
+    <div style="flex:1">
+      <div class="tension-track">
+        <div style="display:flex;height:6px;border-radius:3px;overflow:hidden">
+          <div class="tension-fill left" style="width:30%"></div>
+          <div class="tension-fill right" style="width:70%"></div>
+        </div>
+      </div>
+      <div class="tension-ends"><span style="color:#185FA5">Dependencia de plataforma</span><span style="color:#0F6E56">Protocolo abierto</span></div>
+    </div>
+  </div>
+
+  <div class="tension-row" style="margin-bottom:0">
+    <div class="tension-label">Validación oficial</div>
+    <div style="flex:1">
+      <div class="tension-track">
+        <div style="display:flex;height:6px;border-radius:3px;overflow:hidden">
+          <div class="tension-fill left" style="width:90%"></div>
+          <div class="tension-fill right" style="width:10%"></div>
+        </div>
+      </div>
+      <div class="tension-ends"><span style="color:#185FA5">Registro institucional</span><span style="color:#0F6E56">Soberanía del dato</span></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+// --- CENTRAL ---
+let cStep = 0;
+const cSteps = [
+  {
+    who: "Paso 1 — Graduado entrega título",
+    msg: "El graduado presenta el documento. El verificador no puede validarlo por sí solo.",
+    arr1op: 1, arr2op: 0, arr3op: 0, lockop: 0, flabel: 0
+  },
+  {
+    who: "Paso 2 — Verificador consulta al sistema",
+    msg: "El empleador debe consultar al sistema institucional. Sin acceso a ese sistema, no puede verificar nada.",
+    arr1op: 0.2, arr2op: 1, arr3op: 0, lockop: 0, flabel: 1
+  },
+  {
+    who: "Paso 3 — Sistema responde",
+    msg: "La institución responde si el título es válido. La confianza depende de que el sistema esté disponible y sea confiable.",
+    arr1op: 0.2, arr2op: 0.4, arr3op: 1, lockop: 1, flabel: 1,
+    statusClass: "warn",
+    statusWho: "Resultado: válido — pero...",
+    statusMsg: "⚠ La confianza está anclada al sistema institucional. Si el sistema cambia, migra o desaparece, el título deja de ser verificable de forma autónoma."
+  }
+];
+
+function runCentral() {
+  if (cStep >= cSteps.length) return;
+  const s = cSteps[cStep];
+  document.getElementById('c-arr1').style.opacity = s.arr1op;
+  document.getElementById('c-arr2').style.opacity = s.arr2op;
+  document.getElementById('c-arr3').style.opacity = s.arr3op;
+  document.getElementById('c-lock').style.opacity = s.lockop;
+  document.getElementById('c-flabel').style.opacity = s.flabel;
+  const sb = document.getElementById('c-status');
+  sb.querySelector('.who').textContent = s.who;
+  sb.querySelector('.msg').textContent = s.statusMsg || s.msg;
+  if (s.statusClass) { sb.className = 'status-box ' + s.statusClass; sb.querySelector('.who').textContent = s.statusWho; }
+  document.getElementById('c-step').textContent = (cStep+1) + ' / ' + cSteps.length;
+  cStep++;
+}
+
+function resetCentral() {
+  cStep = 0;
+  ['c-arr1','c-arr2','c-arr3'].forEach(id => document.getElementById(id).style.opacity = 0);
+  document.getElementById('c-arr1').style.opacity = 0.15;
+  document.getElementById('c-lock').style.opacity = 0;
+  document.getElementById('c-flabel').style.opacity = 0;
+  const sb = document.getElementById('c-status');
+  sb.className = 'status-box warn';
+  sb.querySelector('.who').textContent = 'En espera';
+  sb.querySelector('.msg').textContent = 'Presioná "Verificar" para simular el flujo.';
+  document.getElementById('c-step').textContent = '';
+}
+
+// --- DECENT ---
+let dStep = 0;
+const dSteps = [
+  {
+    who: "Paso 1 — Graduado presenta credencial",
+    msg: "El graduado tiene una credencial verificable (VC) firmada criptográficamente. La porta él mismo.",
+    arr1op: 1, arr2op: 0, arr3op: 0, checkop: 0, flabel: 0
+  },
+  {
+    who: "Paso 2 — Verificador consulta la red",
+    msg: "El empleador consulta directamente la red pública. No necesita pedir permiso a ninguna institución.",
+    arr1op: 0.2, arr2op: 1, arr3op: 0, checkop: 0, flabel: 1
+  },
+  {
+    who: "Paso 3 — Red devuelve prueba criptográfica",
+    msg: "La red confirma la firma sin intermediarios. La institución no necesita estar disponible.",
+    arr1op: 0.2, arr2op: 0.4, arr3op: 1, checkop: 1, flabel: 1,
+    statusClass: "ok",
+    statusWho: "Resultado: válido — y autónomo",
+    statusMsg: "✓ La verificación no depende de que la institución exista o colabore. El control del dato está en el graduado. Tensión: ¿la validación oficial reconoce este modelo?"
+  }
+];
+
+function runDecent() {
+  if (dStep >= dSteps.length) return;
+  const s = dSteps[dStep];
+  document.getElementById('d-arr1').style.opacity = s.arr1op;
+  document.getElementById('d-arr2').style.opacity = s.arr2op;
+  document.getElementById('d-arr3').style.opacity = s.arr3op;
+  document.getElementById('d-check').style.opacity = s.checkop;
+  document.getElementById('d-flabel').style.opacity = s.flabel;
+  const sb = document.getElementById('d-status');
+  sb.querySelector('.who').textContent = s.who;
+  sb.querySelector('.msg').textContent = s.statusMsg || s.msg;
+  if (s.statusClass) { sb.className = 'status-box ' + s.statusClass; sb.querySelector('.who').textContent = s.statusWho; }
+  document.getElementById('d-step').textContent = (dStep+1) + ' / ' + dSteps.length;
+  dStep++;
+}
+
+function resetDecent() {
+  dStep = 0;
+  ['d-arr1','d-arr2','d-arr3'].forEach(id => document.getElementById(id).style.opacity = 0);
+  document.getElementById('d-arr1').style.opacity = 0.15;
+  document.getElementById('d-check').style.opacity = 0;
+  document.getElementById('d-flabel').style.opacity = 0;
+  const sb = document.getElementById('d-status');
+  sb.className = 'status-box info';
+  sb.querySelector('.who').textContent = 'En espera';
+  sb.querySelector('.msg').textContent = 'Presioná "Verificar" para simular el flujo.';
+  document.getElementById('d-step').textContent = '';
+}
+
+// Init: flechas casi invisibles al arrancar
+resetCentral(); resetDecent();
+</script>

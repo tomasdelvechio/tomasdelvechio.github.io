@@ -1,0 +1,303 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--c-leaf-f:#E1F5EE;--c-leaf-s:#0F6E56;--c-mid-f:#E6F1FB;--c-mid-s:#185FA5;--c-root-f:#FAECE7;--c-root-s:#993C1D;--c-proof-f:#FAEEDA;--c-proof-s:#BA7517;--c-target-f:#5DCAA5;--c-target-s:#085041;--c-border:var(--color-border-tertiary,#e0e0e0);--c-text:var(--color-text-primary,#111);--c-muted:var(--color-text-secondary,#666);--c-bg:var(--color-background-primary,#fff);--c-bg2:var(--color-background-secondary,#f6f6f4)}
+.wrap{padding:1rem 1rem 2rem}
+.sr-only{position:absolute;left:-9999px}
+h2.section{font-size:15px;font-weight:500;color:var(--c-text);margin:1.1rem 0 .55rem}
+.tx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:10px}
+.tx-card{background:var(--c-bg);border:0.5px solid var(--c-border);border-radius:12px;padding:11px 13px;position:relative;transition:border-color .2s,box-shadow .3s,opacity .4s;cursor:pointer}
+.tx-card.selected{border-color:#085041;border-width:1.5px}
+.tx-card.new-flash{animation:flashIn .6s ease-out}
+@keyframes flashIn{0%{opacity:0;transform:scale(.97)}60%{opacity:1;transform:scale(1.01)}100%{transform:scale(1)}}
+.tx-card label{font-size:12px;color:var(--c-muted);width:52px;flex-shrink:0}
+.tx-card .row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.tx-card input,.tx-card select{flex:1;font-size:12px;border:0.5px solid var(--c-border);border-radius:6px;padding:4px 7px;background:var(--c-bg);color:var(--c-text);outline:none}
+.tx-card input:focus,.tx-card select:focus{border-color:var(--color-border-primary,#aaa)}
+.tx-hash-line{font-size:10px;color:var(--c-muted);font-family:var(--font-mono,monospace);margin-top:5px;word-break:break-all}
+.btn-rm{position:absolute;top:7px;right:7px;background:none;border:0.5px solid var(--c-border);border-radius:6px;cursor:pointer;color:var(--c-muted);font-size:12px;padding:1px 6px;line-height:1.5}
+.btn-rm:hover{color:var(--c-text)}
+.btns{display:flex;gap:8px;margin:.8rem 0;flex-wrap:wrap;align-items:center}
+button.pri{background:none;border:0.5px solid var(--color-border-secondary,#bbb);border-radius:8px;padding:6px 15px;font-size:13px;cursor:pointer;color:var(--c-text);transition:background .15s}
+button.pri:hover{background:var(--c-bg2)}
+button.pri.accent{border-color:#1D9E75;color:#085041;font-weight:500}
+button.pri.accent:hover{background:#E1F5EE}
+button.pri.accent:active{transform:scale(.97)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--c-muted)}
+.leg-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+#tree-wrap{overflow-x:auto}
+.proof-panel{background:var(--c-bg2);border:0.5px solid var(--c-border);border-radius:10px;padding:11px 14px;margin-top:12px;font-size:12px;color:var(--c-muted);line-height:1.8}
+.proof-step{display:flex;align-items:flex-start;gap:8px;margin:4px 0;font-family:var(--font-mono,monospace);font-size:11px;line-height:1.6}
+.proof-step .badge{font-family:var(--font-sans,sans-serif);background:#FAEEDA;color:#854F0B;border-radius:4px;padding:1px 6px;font-size:10px;flex-shrink:0;margin-top:1px}
+.proof-step .badge.target{background:#E1F5EE;color:#085041}
+.proof-step .badge.root{background:#FAECE7;color:#71201F}
+.tip{position:fixed;background:var(--c-bg);border:0.5px solid var(--c-border);border-radius:8px;padding:8px 12px;font-size:11px;font-family:var(--font-mono,monospace);color:var(--c-text);max-width:310px;word-break:break-all;pointer-events:none;display:none;z-index:999;line-height:1.6}
+</style>
+<div class="wrap">
+<h2 class="sr-only">Merkle Tree Simulator with Proof Path</h2>
+<h2 class="section">Transactions <span style="font-size:12px;font-weight:400;color:var(--c-muted)">— click a card to highlight its proof path</span></h2>
+<div class="tx-grid" id="tx-grid"></div>
+<div class="btns">
+  <button class="pri" onclick="addTx()"><i class="ti ti-plus" aria-hidden="true"></i> Add transaction</button>
+  <button class="pri accent" onclick="addTwoPair()" title="Add 2 random transactions and rebuild the tree instantly">
+    <i class="ti ti-stack-2" aria-hidden="true"></i> Add 2 &amp; rebuild
+  </button>
+  <button class="pri" onclick="buildAndDraw()"><i class="ti ti-subtask" aria-hidden="true"></i> Rebuild tree ↗</button>
+</div>
+<h2 class="section">Merkle tree</h2>
+<div class="legend">
+  <span class="leg"><span class="leg-dot" style="background:#5DCAA5;border:1px solid #085041"></span>Selected TX</span>
+  <span class="leg"><span class="leg-dot" style="background:#FAEEDA;border:1px solid #BA7517"></span>Proof sibling</span>
+  <span class="leg"><span class="leg-dot" style="background:#E1F5EE;border:1px solid #0F6E56"></span>Leaf</span>
+  <span class="leg"><span class="leg-dot" style="background:#E6F1FB;border:1px solid #185FA5"></span>Internal node</span>
+  <span class="leg"><span class="leg-dot" style="background:#FAECE7;border:1px solid #993C1D"></span>Merkle root</span>
+</div>
+<div id="tree-wrap"><svg id="tree-svg" width="100%" style="display:block"></svg></div>
+<div class="proof-panel" id="proof-panel">Select a transaction above or click a leaf node in the tree to see its proof path.</div>
+<div class="tip" id="tip"></div>
+</div>
+<script>
+const COINS=['BTC','ETH','USDT','BNB','SOL'];
+const NAMES=['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy','Karl','Laura'];
+let txs=[], selectedIdx=null, treeData=null;
+
+function uid(){return Math.random().toString(36).slice(2,10)}
+
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function txHash(t){
+  return sha256(JSON.stringify({from:t.from,to:t.to,amount:t.amount,coin:t.coin,date:t.date,fee:t.fee,nonce:t.nonce}));
+}
+
+function randAddr(name){return name.slice(0,3).toUpperCase()+'x…'+Math.random().toString(36).slice(2,6).toUpperCase();}
+function randTx(){
+  const n1=NAMES[Math.floor(Math.random()*NAMES.length)];
+  let n2=NAMES[Math.floor(Math.random()*NAMES.length)];
+  while(n2===n1)n2=NAMES[Math.floor(Math.random()*NAMES.length)];
+  return {id:uid(),from:randAddr(n1),to:randAddr(n2),amount:(Math.random()*9.99+0.01).toFixed(4),coin:COINS[Math.floor(Math.random()*COINS.length)],date:new Date(Date.now()-Math.random()*86400000*30).toISOString().slice(0,10),fee:(Math.random()*0.001).toFixed(6),nonce:Math.floor(Math.random()*1e6)};
+}
+
+function syncTx(id,field,val){
+  const t=txs.find(x=>x.id===id);
+  if(t){t[field]=val;txHash(t).then(h=>{t._hash=h;const el=document.getElementById('h-'+id);if(el)el.textContent='hash: '+h;});}
+}
+
+function addTx(preset){
+  const t=preset||randTx();
+  txs.push(t);
+  renderCards();
+}
+
+async function addTwoPair(){
+  const t1=randTx(), t2=randTx();
+  txs.push(t1,t2);
+  renderCards();
+  // flash the two new cards after render
+  setTimeout(()=>{
+    const cards=document.querySelectorAll('.tx-card');
+    const last=cards.length-1, prev=cards.length-2;
+    if(cards[prev])cards[prev].classList.add('new-flash');
+    if(cards[last])cards[last].classList.add('new-flash');
+  },30);
+  await buildAndDraw();
+}
+
+function removeTx(id){
+  txs=txs.filter(x=>x.id!==id);
+  if(selectedIdx!==null&&selectedIdx>=txs.length)selectedIdx=null;
+  renderCards();
+}
+
+function selectTx(i){
+  selectedIdx=(selectedIdx===i)?null:i;
+  renderCards();
+  if(treeData)redrawTree();
+  if(treeData&&selectedIdx!==null)renderProofPanel(selectedIdx);
+  else document.getElementById('proof-panel').innerHTML='Select a transaction above or click a leaf node in the tree to see its proof path.';
+}
+
+function renderCards(){
+  const g=document.getElementById('tx-grid');g.innerHTML='';
+  txs.forEach((t,i)=>{
+    const d=document.createElement('div');
+    d.className='tx-card'+(selectedIdx===i?' selected':'');
+    d.onclick=(e)=>{if(!e.target.closest('.btn-rm'))selectTx(i);};
+    d.innerHTML=`<button class="btn-rm" onclick="removeTx('${t.id}')" aria-label="Remove TX ${i+1}"><i class="ti ti-x" aria-hidden="true"></i></button>
+<div style="font-size:11px;font-weight:500;color:var(--c-muted);margin-bottom:7px">TX ${i+1}${selectedIdx===i?' <span style="color:#085041">▶ selected</span>':''}</div>
+<div class="row"><label>From</label><input value="${t.from}" oninput="syncTx('${t.id}','from',this.value)"></div>
+<div class="row"><label>To</label><input value="${t.to}" oninput="syncTx('${t.id}','to',this.value)"></div>
+<div class="row"><label>Amount</label><input type="number" step="0.0001" value="${t.amount}" oninput="syncTx('${t.id}','amount',this.value)">
+<select onchange="syncTx('${t.id}','coin',this.value)" style="width:65px;flex:none">${COINS.map(c=>`<option${c===t.coin?' selected':''}>${c}</option>`).join('')}</select></div>
+<div class="row"><label>Date</label><input type="date" value="${t.date}" oninput="syncTx('${t.id}','date',this.value)"></div>
+<div class="row"><label>Fee</label><input type="number" step="0.000001" value="${t.fee}" oninput="syncTx('${t.id}','fee',this.value)"></div>
+<div class="row"><label>Nonce</label><input type="number" value="${t.nonce}" oninput="syncTx('${t.id}','nonce',this.value)"></div>
+<div class="tx-hash-line" id="h-${t.id}">hash: computing…</div>`;
+    g.appendChild(d);
+    txHash(t).then(h=>{t._hash=h;const el=document.getElementById('h-'+t.id);if(el)el.textContent='hash: '+h;});
+  });
+}
+
+async function buildTree(hashes){
+  const levels=[];
+  let cur=hashes.map(h=>({hash:h}));
+  levels.unshift(cur);
+  while(cur.length>1){
+    const next=[];
+    for(let i=0;i<cur.length;i+=2){
+      const l=cur[i],r=cur[i+1]||cur[i];
+      const h=await sha256(l.hash+r.hash);
+      next.push({hash:h,leftIdx:i,rightIdx:Math.min(i+1,cur.length-1)});
+    }
+    cur=next;levels.unshift(cur);
+  }
+  return levels;
+}
+
+function getProofPath(levels,leafIdx){
+  const path=[];let idx=leafIdx;
+  for(let li=levels.length-1;li>0;li--){
+    const level=levels[li];
+    const sibIdx=(idx%2===0)?idx+1:idx-1;
+    const actualSib=Math.min(sibIdx,level.length-1);
+    path.push({hash:level[actualSib].hash,side:idx%2===0?'right':'left',levelIdx:li,nodeIdx:actualSib,isDup:actualSib===idx});
+    idx=Math.floor(idx/2);
+  }
+  return path;
+}
+
+function getProofNodeSet(levels,leafIdx){
+  const proofPath=getProofPath(levels,leafIdx);
+  const proofSet=new Set(),verifySet=new Set();
+  proofPath.forEach(p=>proofSet.add(p.levelIdx+'-'+p.nodeIdx));
+  let idx=leafIdx;const leafLi=levels.length-1;
+  verifySet.add(leafLi+'-'+idx);
+  for(let li=leafLi;li>0;li--){idx=Math.floor(idx/2);verifySet.add((li-1)+'-'+idx);}
+  return{proofSet,verifySet};
+}
+
+async function buildAndDraw(){
+  if(txs.length<2){alert('Add at least 2 transactions.');return;}
+  const hashes=await Promise.all(txs.map(t=>txHash(t)));
+  hashes.forEach((h,i)=>{txs[i]._hash=h;const el=document.getElementById('h-'+txs[i].id);if(el)el.textContent='hash: '+h;});
+  treeData=await buildTree(hashes);
+  redrawTree();
+  if(selectedIdx!==null)renderProofPanel(selectedIdx);
+}
+
+function redrawTree(){
+  const svg=document.getElementById('tree-svg');svg.innerHTML='';
+  const levels=treeData;
+  const W=680,NW=100,NH=40,HGAP=12,VGAP=52,PAD=20;
+  const totalL=levels.length;
+  let proofSet=new Set(),verifySet=new Set();
+  if(selectedIdx!==null){const r=getProofNodeSet(levels,selectedIdx);proofSet=r.proofSet;verifySet=r.verifySet;}
+
+  function nx(li,ni){const n=levels[li].length;const tot=n*NW+(n-1)*HGAP;return(W-tot)/2+ni*(NW+HGAP);}
+  function ny(li){return PAD+li*(NH+VGAP);}
+  const H=PAD*2+totalL*(NH+VGAP)-VGAP+16;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('height',H);
+
+  // edges
+  levels.forEach((row,li)=>{
+    if(li===totalL-1)return;
+    row.forEach((node,ni)=>{
+      const childLi=li+1,childCount=levels[childLi].length;
+      const c1=ni*2,c2=Math.min(ni*2+1,childCount-1);
+      const onVerify=verifySet.has(li+'-'+ni);
+      [c1,c2].filter((v,idx,a)=>a.indexOf(v)===idx).forEach(ci=>{
+        const bothOn=onVerify&&verifySet.has(childLi+'-'+ci);
+        const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+        line.setAttribute('x1',nx(li,ni)+NW/2);line.setAttribute('y1',ny(li)+NH);
+        line.setAttribute('x2',nx(childLi,ci)+NW/2);line.setAttribute('y2',ny(childLi));
+        line.setAttribute('stroke',bothOn?'#1D9E75':'#d0d0d0');
+        line.setAttribute('stroke-width',bothOn?'1.5':'0.5');
+        if(!bothOn&&selectedIdx!==null)line.setAttribute('opacity','0.3');
+        svg.appendChild(line);
+      });
+    });
+  });
+
+  const tip=document.getElementById('tip');
+
+  // nodes
+  levels.forEach((row,li)=>{
+    const isRoot=li===0,isLeaf=li===totalL-1;
+    row.forEach((node,ni)=>{
+      const key=li+'-'+ni;
+      const isTarget=isLeaf&&selectedIdx!==null&&ni===selectedIdx;
+      const isProof=proofSet.has(key);
+      const isVerify=verifySet.has(key)&&!isTarget;
+      const dimmed=selectedIdx!==null&&!isTarget&&!isProof&&!isVerify;
+
+      let fill,stroke,textColor;
+      if(isTarget){fill='#5DCAA5';stroke='#085041';textColor='#085041';}
+      else if(isProof){fill='#FAEEDA';stroke='#BA7517';textColor='#854F0B';}
+      else if(isRoot){fill='#FAECE7';stroke='#993C1D';textColor='#993C1D';}
+      else if(isLeaf){fill='#E1F5EE';stroke='#0F6E56';textColor='#0F6E56';}
+      else{fill='#E6F1FB';stroke='#185FA5';textColor='#185FA5';}
+
+      const x=nx(li,ni),y=ny(li);
+      const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+      if(dimmed)g.setAttribute('opacity','0.22');
+
+      const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+      rect.setAttribute('x',x);rect.setAttribute('y',y);rect.setAttribute('width',NW);rect.setAttribute('height',NH);
+      rect.setAttribute('rx','7');rect.setAttribute('fill',fill);rect.setAttribute('stroke',stroke);
+      rect.setAttribute('stroke-width',isTarget||isProof?'1.5':'0.5');
+      g.appendChild(rect);
+
+      const label=isLeaf?'TX '+(ni+1):(isRoot?'Root':'Node '+li+'-'+(ni+1));
+      const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t1.setAttribute('x',x+NW/2);t1.setAttribute('y',y+13);
+      t1.setAttribute('text-anchor','middle');t1.setAttribute('dominant-baseline','central');
+      t1.setAttribute('font-size','10');t1.setAttribute('font-weight','500');
+      t1.setAttribute('fill',textColor);t1.textContent=label;g.appendChild(t1);
+
+      if(isProof){const b=document.createElementNS('http://www.w3.org/2000/svg','text');b.setAttribute('x',x+NW/2);b.setAttribute('y',y+NH-6);b.setAttribute('text-anchor','middle');b.setAttribute('dominant-baseline','central');b.setAttribute('font-size','8');b.setAttribute('fill','#BA7517');b.textContent='⬡ proof sibling';g.appendChild(b);}
+      if(isVerify&&!isTarget&&!isRoot){const b=document.createElementNS('http://www.w3.org/2000/svg','text');b.setAttribute('x',x+NW/2);b.setAttribute('y',y+NH-6);b.setAttribute('text-anchor','middle');b.setAttribute('dominant-baseline','central');b.setAttribute('font-size','8');b.setAttribute('fill','#185FA5');b.textContent='↑ computed';g.appendChild(b);}
+
+      const short=node.hash.slice(0,7)+'…'+node.hash.slice(-4);
+      const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t2.setAttribute('x',x+NW/2);t2.setAttribute('y',y+(isProof||isVerify?23:NH/2+5));
+      t2.setAttribute('text-anchor','middle');t2.setAttribute('dominant-baseline','central');
+      t2.setAttribute('font-size','8.5');t2.setAttribute('fill',textColor);
+      t2.setAttribute('font-family','monospace');t2.setAttribute('opacity','0.85');
+      t2.textContent=short;g.appendChild(t2);
+
+      if(isLeaf){g.style.cursor='pointer';g.addEventListener('click',()=>selectTx(ni));}
+
+      g.addEventListener('mousemove',e=>{
+        let info=`<strong>${label}</strong><br>${node.hash}`;
+        if(isLeaf&&txs[ni]){const t=txs[ni];info+=`<br><br>From: ${t.from}<br>To: ${t.to}<br>${t.amount} ${t.coin} · ${t.date}<br>Fee: ${t.fee} · Nonce: ${t.nonce}`;}
+        if(isProof)info+='<br><br><em>Proof sibling — provided to verifier</em>';
+        if(isVerify&&!isRoot)info+='<br><br><em>Recomputed during verification</em>';
+        tip.innerHTML=info;tip.style.display='block';
+        tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY+14)+'px';
+      });
+      g.addEventListener('mouseleave',()=>tip.style.display='none');
+      svg.appendChild(g);
+    });
+  });
+}
+
+function renderProofPanel(leafIdx){
+  const levels=treeData,proofPath=getProofPath(levels,leafIdx);
+  const tx=txs[leafIdx],root=levels[0][0].hash;
+  let html=`<strong>Proof path for TX ${leafIdx+1}</strong> &nbsp;·&nbsp; <span style="font-size:11px">Verifying without knowing other transactions' data</span><br><br>`;
+  html+=`<div class="proof-step"><span class="badge target">START</span><span><strong>TX ${leafIdx+1} hash</strong> (computed from transaction data)<br>${tx._hash||'—'}</span></div>`;
+  proofPath.forEach((p,i)=>{html+=`<div class="proof-step"><span class="badge">SIBLING ${i+1}</span><span>Concatenate with ${p.side==='right'?'→ right':'← left'} sibling${p.isDup?' (duplicated — odd count)':''}<br>${p.hash}</span></div>`;});
+  html+=`<div class="proof-step"><span class="badge root">ROOT</span><span>Recomputed Merkle root — compare with block header<br>${root}</span></div>`;
+  html+=`<br><span style="font-size:11px">This proof requires <strong>${proofPath.length} sibling hash${proofPath.length!==1?'es':''}</strong> to verify TX ${leafIdx+1} out of ${txs.length} transactions.</span>`;
+  document.getElementById('proof-panel').innerHTML=html;
+}
+
+// Seed
+[['ALIx…DEAD','BOBx…CAFE'],['CANx…FADE','DAVx…BABE'],['EVEx…A1B2','FRAx…C3D4'],['GRCx…E5F6','HEIx…0987']].forEach(([from,to],i)=>{
+  addTx({id:uid(),from,to,amount:(0.5+i*0.25).toFixed(4),coin:COINS[i%COINS.length],date:'2025-05-0'+(i+1),fee:(0.00012+i*0.00003).toFixed(6),nonce:1000+i*7});
+});
+buildAndDraw();
+</script>
