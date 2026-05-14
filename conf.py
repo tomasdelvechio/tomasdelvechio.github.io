@@ -1348,7 +1348,7 @@ BODY_END = """
 
 # List of regular expressions, links matching them will always be considered
 # valid by "nikola check -l"
-# LINK_CHECK_WHITELIST = []
+LINK_CHECK_WHITELIST = [r'^/old/.*', r'^old/.*']
 
 # If set to True, enable optional hyphenation in your posts (requires pyphen)
 # Enabling hyphenation has been shown to break math support in some cases,
