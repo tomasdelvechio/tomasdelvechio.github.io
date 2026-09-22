@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre disk usage)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/disk-usage.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2025 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre disk usage)</title><link>https://tomasdelvechio.github.io/</link><description></description><atom:link href="https://tomasdelvechio.github.io/categories/disk-usage.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2026 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 27 Mar 2025 03:23:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2024)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 22 Sep 2026 23:14:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2024)</title><link>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;Introducción&lt;/h2&gt;
 &lt;p&gt;En está segunda parte de lo que ya se está convirtiendo en una seríe de posts,
 se discutirán algunas estrategias avanzadas para recuperar espacio en disco.&lt;/p&gt;
 &lt;p&gt;Mi profesión es de programación, asi que muchas de las estrategias borran o
 reducen el uso de herramientas especificas. Para ver algunas cosas mas utiles
-tal vez te venga mejor mirar antes el &lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
+tal vez te venga mejor mirar antes el &lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="admonition danger"&gt;
 &lt;p class="admonition-title"&gt;Danger&lt;/p&gt;
 &lt;p&gt;Los comandos utilizados en este post &lt;strong&gt;son destructivos&lt;/strong&gt; y en muchos casos &lt;strong&gt;no se
@@ -121,7 +121,7 @@ docker&lt;span class="w"&gt; &lt;/span&gt;volume&lt;span class="w"&gt; &lt;/span
 &lt;p&gt;En todo caso borrar individualmente cosas que sepamos que no se están utilizando
 via &lt;code&gt;docker &amp;lt;subcomadno&amp;gt; rm &amp;lt;HASH_DEL_COMPONENTE&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Caché de Snap&lt;/h2&gt;
-&lt;p&gt;Snap nunca nos dejará en paz. Si &lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/"&gt;en el primer post&lt;/a&gt;
+&lt;p&gt;Snap nunca nos dejará en paz. Si &lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/"&gt;en el primer post&lt;/a&gt;
 habiamos visto que los instaladores iban dejando replicas viejas instaladas y
 desactivadas, vaya a saber uno para que, investigando un poco mas podemos encontrar
 que cada app tiene su caché, que muy lindo y util, pero si estamos desesperados
@@ -138,10 +138,10 @@ comando es &lt;code&gt;rm -rf&lt;/code&gt; que puede ser muy destructivo. &lt;st
 
 &lt;p&gt;En un sistema instalado nuevo no tiene demasiado sentido, pero si la instalación
 tiene varios años, capaz les sirve.&lt;/p&gt;
-&lt;p&gt;Como la vez anterior, espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</guid><pubDate>Thu, 27 Mar 2025 00:52:24 GMT</pubDate></item><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2020)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
+&lt;p&gt;Como la vez anterior, espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</guid><pubDate>Thu, 27 Mar 2025 00:52:24 GMT</pubDate></item><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2020)</title><link>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Introducción&lt;/h3&gt;
 &lt;p&gt;Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.&lt;/p&gt;
@@ -155,7 +155,7 @@ Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &
 &lt;h3&gt;Herramienta de diagnostico&lt;/h3&gt;
 &lt;p&gt;Ok, que hacer? En primer lugar, un diagnostico. La primer mano nos la puede dar la aplicación &lt;code&gt;baobab&lt;/code&gt;, que si mal no recuerdo siempre esta instalada (si tenes el escritorio por defecto de Ubuntu).&lt;/p&gt;
 &lt;p&gt;Se busca desde el launcher con ese nombre o "Analizador de Uso de Disco". Muestra las diferentes particiones y gráficos de forma cómoda directorios y sub-directorios:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Baobab Screenshoot" src="http://tomasdelvechio.github.io/img/blog/2020/baobab-screenshot.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Baobab Screenshoot" src="https://tomasdelvechio.github.io/img/blog/2020/baobab-screenshot.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Replicas de paquetes de Snap&lt;/h3&gt;
 &lt;p&gt;Ya usando &lt;code&gt;baobab&lt;/code&gt; investigo y encuentro que uno de los directorios que mas archivo tiene es &lt;code&gt;/var/lib/snapd/snaps&lt;/code&gt;. Ahi me encuentro con lo siguiente:&lt;/p&gt;
 &lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;$&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-la&lt;span class="w"&gt; &lt;/span&gt;/var/lib/snapd/snaps
@@ -297,4 +297,4 @@ Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &
 ...
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</guid><pubDate>Fri, 03 Jul 2020 21:45:32 GMT</pubDate></item></channel></rss>
+&lt;p&gt;Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</guid><pubDate>Fri, 03 Jul 2020 21:45:32 GMT</pubDate></item></channel></rss>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre storage)</title><link>http://tomasdelvechio.github.io/</link><description></description><atom:link href="http://tomasdelvechio.github.io/categories/storage.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2025 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio (Publicaciones sobre storage)</title><link>https://tomasdelvechio.github.io/</link><description></description><atom:link href="https://tomasdelvechio.github.io/categories/storage.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2026 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 27 Mar 2025 01:20:42 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Volumenes de Docker y Discos USB Externos</title><link>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.&lt;/p&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 22 Sep 2026 23:14:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Volumenes de Docker y Discos USB Externos</title><link>https://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.&lt;/p&gt;
 &lt;h3&gt;El Problema&lt;/h3&gt;
 &lt;p&gt;Como tengo todo mi contenido multimedia en un disco USB externo, aproveche y le vincule los volumenes al contenedor directamente a los paths del disco.&lt;/p&gt;
 &lt;p&gt;Entonces, los volumenes quedaban mas o menos como sigue. Uso la notación que pone Ubuntu al montar los discos externos:&lt;/p&gt;
@@ -55,16 +55,16 @@ src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copy
 &lt;h4&gt;Montar el disco al inicio del sistema y no de la sesión&lt;/h4&gt;
 &lt;p&gt;A continuación, tuve que configurar para que el disco se monte al inicio del sistema. Para ello, voy tomar el camino de hacerlo via interfaz gráfica y no por consola.&lt;/p&gt;
 &lt;p&gt;Para ello, usé una app que se busca en Gnome como &lt;code&gt;Disks&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Disks Gnome App" src="http://tomasdelvechio.github.io/img/blog/2020/figure1.png" title="Disks Gnome App"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Disks Gnome App" src="https://tomasdelvechio.github.io/img/blog/2020/figure1.png" title="Disks Gnome App"&gt;&lt;/p&gt;
 &lt;p&gt;Una vez allí, elegimos el disco en cuestion y entramos a sus "opciones de montaje":&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Select Disk Mount Options" src="http://tomasdelvechio.github.io/img/blog/2020/Selection_024.png" title="Select Disk Mount Options"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Select Disk Mount Options" src="https://tomasdelvechio.github.io/img/blog/2020/Selection_024.png" title="Select Disk Mount Options"&gt;&lt;/p&gt;
 &lt;p&gt;En esta nueva pantalla, se indicaron las siguientes cosas:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Que no se use las configuraciones por defecto para la sesión&lt;/li&gt;
 &lt;li&gt;Que se monte al arranque del sistema&lt;/li&gt;
 &lt;li&gt;Que se identifique con el UUID (Esta ultima es optativa, pero era la que me pareció que dejaba el nombre mas apropiado al directorio donde se iba a montar)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img alt="Mount Options Window" src="http://tomasdelvechio.github.io/img/blog/2020/Selection_026.png" title="Mount Options Window"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Mount Options Window" src="https://tomasdelvechio.github.io/img/blog/2020/Selection_026.png" title="Mount Options Window"&gt;&lt;/p&gt;
 &lt;h4&gt;Cambiar los paths en los volumenes&lt;/h4&gt;
 &lt;p&gt;Una vez terminado esto, pude cambiar los paths de los volumenes del lado del host, dejandolos como sigue:&lt;/p&gt;
 &lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;/mnt/9A567...0FD/series:/series
@@ -72,4 +72,4 @@ src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copy
 ....
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Probé reiniciar y todo funciono perfecto.&lt;/p&gt;</description><category>deploy</category><category>docker</category><category>storage</category><guid>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</guid><pubDate>Tue, 23 Jun 2020 00:30:25 GMT</pubDate></item></channel></rss>
+&lt;p&gt;Probé reiniciar y todo funciono perfecto.&lt;/p&gt;</description><category>deploy</category><category>docker</category><category>storage</category><guid>https://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</guid><pubDate>Tue, 23 Jun 2020 00:30:25 GMT</pubDate></item></channel></rss>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio</title><link>http://tomasdelvechio.github.io/</link><description>Sitio Academico de Tomas Delvechio</description><atom:link href="http://tomasdelvechio.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2025 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomás Delvechio</title><link>https://tomasdelvechio.github.io/</link><description>Sitio Academico de Tomas Delvechio</description><atom:link href="https://tomasdelvechio.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>es</language><copyright>Contents © 2026 &lt;a href="mailto:tdelvechio@unlu.edu.ar"&gt;Tomás Delvechio&lt;/a&gt; 
 &lt;a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License BY-NC-SA"
 style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Thu, 27 Mar 2025 03:23:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2024)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
+src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"&gt;&lt;/a&gt;</copyright><lastBuildDate>Tue, 22 Sep 2026 23:14:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2024)</title><link>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;Introducción&lt;/h2&gt;
 &lt;p&gt;En está segunda parte de lo que ya se está convirtiendo en una seríe de posts,
 se discutirán algunas estrategias avanzadas para recuperar espacio en disco.&lt;/p&gt;
 &lt;p&gt;Mi profesión es de programación, asi que muchas de las estrategias borran o
 reducen el uso de herramientas especificas. Para ver algunas cosas mas utiles
-tal vez te venga mejor mirar antes el &lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
+tal vez te venga mejor mirar antes el &lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="admonition danger"&gt;
 &lt;p class="admonition-title"&gt;Danger&lt;/p&gt;
 &lt;p&gt;Los comandos utilizados en este post &lt;strong&gt;son destructivos&lt;/strong&gt; y en muchos casos &lt;strong&gt;no se
@@ -121,7 +121,7 @@ docker&lt;span class="w"&gt; &lt;/span&gt;volume&lt;span class="w"&gt; &lt;/span
 &lt;p&gt;En todo caso borrar individualmente cosas que sepamos que no se están utilizando
 via &lt;code&gt;docker &amp;lt;subcomadno&amp;gt; rm &amp;lt;HASH_DEL_COMPONENTE&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Caché de Snap&lt;/h2&gt;
-&lt;p&gt;Snap nunca nos dejará en paz. Si &lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/"&gt;en el primer post&lt;/a&gt;
+&lt;p&gt;Snap nunca nos dejará en paz. Si &lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/"&gt;en el primer post&lt;/a&gt;
 habiamos visto que los instaladores iban dejando replicas viejas instaladas y
 desactivadas, vaya a saber uno para que, investigando un poco mas podemos encontrar
 que cada app tiene su caché, que muy lindo y util, pero si estamos desesperados
@@ -138,7 +138,7 @@ comando es &lt;code&gt;rm -rf&lt;/code&gt; que puede ser muy destructivo. &lt;st
 
 &lt;p&gt;En un sistema instalado nuevo no tiene demasiado sentido, pero si la instalación
 tiene varios años, capaz les sirve.&lt;/p&gt;
-&lt;p&gt;Como la vez anterior, espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</guid><pubDate>Thu, 27 Mar 2025 00:52:24 GMT</pubDate></item><item><title>Poniendose al Dia con PHP 8</title><link>http://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Soy programador de PHP desde los infames tiempos (?) de PHP 5. Mucha agua corrió bajo el punte y así como PHP 7 supuso un gran avance en varios aspectos, estamos en la previa del lanzamiento de la nueva gran versión, que será PHP 8. Cuando escribo esto (noviembre de 2020), &lt;a href="https://www.php.net/archive/2020.php#2020-10-29-2"&gt;tenemos la RC3 salida hace un par de días&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Como la vez anterior, espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024/</guid><pubDate>Thu, 27 Mar 2025 00:52:24 GMT</pubDate></item><item><title>Poniendose al Dia con PHP 8</title><link>https://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Soy programador de PHP desde los infames tiempos (?) de PHP 5. Mucha agua corrió bajo el punte y así como PHP 7 supuso un gran avance en varios aspectos, estamos en la previa del lanzamiento de la nueva gran versión, que será PHP 8. Cuando escribo esto (noviembre de 2020), &lt;a href="https://www.php.net/archive/2020.php#2020-10-29-2"&gt;tenemos la RC3 salida hace un par de días&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Vengo siguiendo la evolución de esta versión de forma superficial pero continuada. Si bien la discusión detallada se puede seguir &lt;a href="https://wiki.php.net/rfc"&gt;en el propio sitio a través de sus RFC&lt;/a&gt;, es cierto que eso a veces puede ser medio pesado por el nivel de detalles.&lt;/p&gt;
 &lt;p&gt;Por eso vengo siguiendo varios posts que les comparto, para ponerse al día medio rápido en lo que nos ofrece esta nueva versión.&lt;/p&gt;
 &lt;ul&gt;
@@ -152,7 +152,7 @@ tiene varios años, capaz les sirve.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Voy a ir agregando acá nuevos posts que vaya encontrando:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Algunas notas sobre &lt;a href="https://platform.sh/blog/2020/php-80-feature-focus-weak-maps/"&gt;Weak Maps&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><category>php</category><category>php8</category><guid>http://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</guid><pubDate>Thu, 05 Nov 2020 01:43:04 GMT</pubDate></item><item><title>Screencasts en Gnome 3</title><link>http://tomasdelvechio.github.io/blog/screencasts-en-gnome-3/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Estoy preparando una charla que voy a dar en un par de semanas. Como material de la misma voy a integrar algunos videos de ejemplos, para no tener que ejecutarlos en vivo (porque a veces pueden fallar, roba tiempo de la charla, que la idea es que sea fluida, etc...)&lt;/p&gt;
+&lt;/ul&gt;</description><category>php</category><category>php8</category><guid>https://tomasdelvechio.github.io/blog/poniendose-al-dia-con-php-8/</guid><pubDate>Thu, 05 Nov 2020 01:43:04 GMT</pubDate></item><item><title>Screencasts en Gnome 3</title><link>https://tomasdelvechio.github.io/blog/screencasts-en-gnome-3/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Estoy preparando una charla que voy a dar en un par de semanas. Como material de la misma voy a integrar algunos videos de ejemplos, para no tener que ejecutarlos en vivo (porque a veces pueden fallar, roba tiempo de la charla, que la idea es que sea fluida, etc...)&lt;/p&gt;
 &lt;p&gt;Cuestión que, al no estar subido a la moda de ser Youtuber ni Streamer ni similar, no manejo el set de software estándar (Si, ya se, OBS + algún que otro editor onda Kdenlive). Esta bueno eso, pero a veces puede sonar a demasiado.&lt;/p&gt;
 &lt;p&gt;Soy usuario de Ubuntu + Gnome 3 desde hace años, y en algún momento me había cruzado con un atajo de teclado para activar una grabación del escritorio. Lo olvidé, pero en Reddit &lt;a href="https://www.reddit.com/r/gnome/comments/hpxzfg/til_you_can_use_shiftctrlaltr_to_record_a_video/"&gt;hoy me volvi a cruzar con eso&lt;/a&gt;, y recordé lo simple que era para evitar OBS (que de nuevo, esta muy bien, pero puede ser demasiado).&lt;/p&gt;
 &lt;p&gt;Lo estuve probando, y si bien no se si es lo que voy a usar definitivo, si esta bueno tener "a mano", saber que existe y como usarlo.&lt;/p&gt;
@@ -169,10 +169,10 @@ tiene varios años, capaz les sirve.&lt;/p&gt;
 &lt;p&gt;En fin, cuestión que alguien si le hizo caso al comentario y por eso existe la extensión &lt;a href="https://extensions.gnome.org/extension/690/easyscreencast/"&gt;EasyScreenCast&lt;/a&gt;. La use un rato, anda joya, y tiene muchas opciones para configurar.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://extensions.gnome.org/extension-data/screenshots/screenshot_690_GFOsR6g.png"&gt;&lt;/p&gt;
 &lt;p&gt;En particular tuve unos problemas a la hora de grabar algo que no sea todo el escritorio (tengo dos monitores entonces es incomodo para usarlo). Pero rompía el escritorio (era necesario reiniciarlo) así que por el momento, no se si es lo que voy a usar. Capaz me pongo a hacer debug, pero por ahora es algo que tira para atrás el uso. Mi hipótesis es que al tener un Ubuntu viejo (18.04) la versión de Gnome con el plugin no están congeniando del todo bien.&lt;/p&gt;
-&lt;p&gt;En caso de encontrarle la vuelta, actualizo el post.&lt;/p&gt;</description><guid>http://tomasdelvechio.github.io/blog/screencasts-en-gnome-3/</guid><pubDate>Sun, 12 Jul 2020 19:59:48 GMT</pubDate></item><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2020)</title><link>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
+&lt;p&gt;En caso de encontrarle la vuelta, actualizo el post.&lt;/p&gt;</description><guid>https://tomasdelvechio.github.io/blog/screencasts-en-gnome-3/</guid><pubDate>Sun, 12 Jul 2020 19:59:48 GMT</pubDate></item><item><title>Borrando Cosas Inutiles de Ubuntu (Versión 2020)</title><link>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Indice de la serie&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020"&gt;Primera parte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2024"&gt;Segunda parte&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Introducción&lt;/h3&gt;
 &lt;p&gt;Nunca esta demás saber que cosas borrar para mantener el disco raíz lo mas libre posible. Hoy me encontré con el Disco raíz con un 86% de ocupación y me dispuse a buscar cosas para borrar.&lt;/p&gt;
@@ -186,7 +186,7 @@ Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &
 &lt;h3&gt;Herramienta de diagnostico&lt;/h3&gt;
 &lt;p&gt;Ok, que hacer? En primer lugar, un diagnostico. La primer mano nos la puede dar la aplicación &lt;code&gt;baobab&lt;/code&gt;, que si mal no recuerdo siempre esta instalada (si tenes el escritorio por defecto de Ubuntu).&lt;/p&gt;
 &lt;p&gt;Se busca desde el launcher con ese nombre o "Analizador de Uso de Disco". Muestra las diferentes particiones y gráficos de forma cómoda directorios y sub-directorios:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Baobab Screenshoot" src="http://tomasdelvechio.github.io/img/blog/2020/baobab-screenshot.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Baobab Screenshoot" src="https://tomasdelvechio.github.io/img/blog/2020/baobab-screenshot.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Replicas de paquetes de Snap&lt;/h3&gt;
 &lt;p&gt;Ya usando &lt;code&gt;baobab&lt;/code&gt; investigo y encuentro que uno de los directorios que mas archivo tiene es &lt;code&gt;/var/lib/snapd/snaps&lt;/code&gt;. Ahi me encuentro con lo siguiente:&lt;/p&gt;
 &lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;$&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-la&lt;span class="w"&gt; &lt;/span&gt;/var/lib/snapd/snaps
@@ -328,7 +328,7 @@ Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &
 ...
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>http://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</guid><pubDate>Fri, 03 Jul 2020 21:45:32 GMT</pubDate></item><item><title>Volumenes de Docker y Discos USB Externos</title><link>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.&lt;/p&gt;
+&lt;p&gt;Para mi suficiente, y no me llevo mucho tiempo. Espero que algo de esto les sirva.&lt;/p&gt;</description><category>disk usage</category><category>free space</category><guid>https://tomasdelvechio.github.io/blog/borrando-cosas-inutiles-de-ubuntu-version-2020/</guid><pubDate>Fri, 03 Jul 2020 21:45:32 GMT</pubDate></item><item><title>Volumenes de Docker y Discos USB Externos</title><link>https://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Estoy levantando un media server en mi maquina, y aprovecho que hay mucho despliegue usando contenedores Docker.&lt;/p&gt;
 &lt;h3&gt;El Problema&lt;/h3&gt;
 &lt;p&gt;Como tengo todo mi contenido multimedia en un disco USB externo, aproveche y le vincule los volumenes al contenedor directamente a los paths del disco.&lt;/p&gt;
 &lt;p&gt;Entonces, los volumenes quedaban mas o menos como sigue. Uso la notación que pone Ubuntu al montar los discos externos:&lt;/p&gt;
@@ -380,16 +380,16 @@ Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &
 &lt;h4&gt;Montar el disco al inicio del sistema y no de la sesión&lt;/h4&gt;
 &lt;p&gt;A continuación, tuve que configurar para que el disco se monte al inicio del sistema. Para ello, voy tomar el camino de hacerlo via interfaz gráfica y no por consola.&lt;/p&gt;
 &lt;p&gt;Para ello, usé una app que se busca en Gnome como &lt;code&gt;Disks&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Disks Gnome App" src="http://tomasdelvechio.github.io/img/blog/2020/figure1.png" title="Disks Gnome App"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Disks Gnome App" src="https://tomasdelvechio.github.io/img/blog/2020/figure1.png" title="Disks Gnome App"&gt;&lt;/p&gt;
 &lt;p&gt;Una vez allí, elegimos el disco en cuestion y entramos a sus "opciones de montaje":&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Select Disk Mount Options" src="http://tomasdelvechio.github.io/img/blog/2020/Selection_024.png" title="Select Disk Mount Options"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Select Disk Mount Options" src="https://tomasdelvechio.github.io/img/blog/2020/Selection_024.png" title="Select Disk Mount Options"&gt;&lt;/p&gt;
 &lt;p&gt;En esta nueva pantalla, se indicaron las siguientes cosas:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Que no se use las configuraciones por defecto para la sesión&lt;/li&gt;
 &lt;li&gt;Que se monte al arranque del sistema&lt;/li&gt;
 &lt;li&gt;Que se identifique con el UUID (Esta ultima es optativa, pero era la que me pareció que dejaba el nombre mas apropiado al directorio donde se iba a montar)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img alt="Mount Options Window" src="http://tomasdelvechio.github.io/img/blog/2020/Selection_026.png" title="Mount Options Window"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Mount Options Window" src="https://tomasdelvechio.github.io/img/blog/2020/Selection_026.png" title="Mount Options Window"&gt;&lt;/p&gt;
 &lt;h4&gt;Cambiar los paths en los volumenes&lt;/h4&gt;
 &lt;p&gt;Una vez terminado esto, pude cambiar los paths de los volumenes del lado del host, dejandolos como sigue:&lt;/p&gt;
 &lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;/mnt/9A567...0FD/series:/series
@@ -397,7 +397,7 @@ Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &
 ....
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Probé reiniciar y todo funciono perfecto.&lt;/p&gt;</description><category>deploy</category><category>docker</category><category>storage</category><guid>http://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</guid><pubDate>Tue, 23 Jun 2020 00:30:25 GMT</pubDate></item><item><title>Introducción a Spark</title><link>http://tomasdelvechio.github.io/blog/introduccion-a-spark/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Apache Spark es un framework de procesamiento muy de moda en entornos de procesamiento para Big Data, IoT y Machine Learning.&lt;/p&gt;
+&lt;p&gt;Probé reiniciar y todo funciono perfecto.&lt;/p&gt;</description><category>deploy</category><category>docker</category><category>storage</category><guid>https://tomasdelvechio.github.io/blog/volumenes-de-docker-y-discos-usb-externos/</guid><pubDate>Tue, 23 Jun 2020 00:30:25 GMT</pubDate></item><item><title>Introducción a Spark</title><link>https://tomasdelvechio.github.io/blog/introduccion-a-spark/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;Apache Spark es un framework de procesamiento muy de moda en entornos de procesamiento para Big Data, IoT y Machine Learning.&lt;/p&gt;
 &lt;h3&gt;Pipeline&lt;/h3&gt;
 &lt;p&gt;El pipeline de trabajo en spark es conocido como &lt;strong&gt;DAG&lt;/strong&gt; (Directed Acyclic Graph) y se basa en armar un grafo de trabajo donde las tareas se sucedan unas a otras segun se establezca.&lt;/p&gt;
 &lt;p&gt;Ademas, propone que muchas operaciones que en MapReduce involucran operaciones de entrada salida a disco, se hagan en memoria principal, lo que genera un rendimiento mayor comparado con su predecesor.&lt;/p&gt;
@@ -408,7 +408,7 @@ Filesystem&lt;span class="w"&gt;      &lt;/span&gt;Size&lt;span class="w"&gt;  &
 &lt;p&gt;Ademas del core, Spark ofrece algunas librerias para tareas comunes en el ambito de big data: &lt;em&gt;SparkSQL&lt;/em&gt;, &lt;em&gt;Spark Streaming&lt;/em&gt;, &lt;em&gt;Spark MLlib&lt;/em&gt; y &lt;em&gt;Spark GraphX&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Es posible vincular Spark a una Notebook de Jupyter y trabajar desde la interfaz de esta herramienta para hacer pruebas. (TODO: Agregar link a la notebook).&lt;/p&gt;
 &lt;h3&gt;Arquitectura&lt;/h3&gt;
-&lt;p&gt;Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser &lt;em&gt;Spark Master&lt;/em&gt; (standalone) &lt;em&gt;Mesos Master&lt;/em&gt; (Apache Mesos) o &lt;em&gt;ResourceManager&lt;/em&gt; (Apache Hadoop - YARN). Luego un proceso driver que se conoce como SparkContext y por ultimo de los workers.&lt;/p&gt;</description><category>big data</category><category>distributed systems</category><category>programming</category><category>spark</category><guid>http://tomasdelvechio.github.io/blog/introduccion-a-spark/</guid><pubDate>Sat, 08 Sep 2018 18:15:18 GMT</pubDate></item><item><title>Automatizando deploy con Helm</title><link>http://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Automatizando Deploy con Helm&lt;/h2&gt;
+&lt;p&gt;Una aplicación Spark consta de un master, que dependiendo de la plataforma puede ser &lt;em&gt;Spark Master&lt;/em&gt; (standalone) &lt;em&gt;Mesos Master&lt;/em&gt; (Apache Mesos) o &lt;em&gt;ResourceManager&lt;/em&gt; (Apache Hadoop - YARN). Luego un proceso driver que se conoce como SparkContext y por ultimo de los workers.&lt;/p&gt;</description><category>big data</category><category>distributed systems</category><category>programming</category><category>spark</category><guid>https://tomasdelvechio.github.io/blog/introduccion-a-spark/</guid><pubDate>Sat, 08 Sep 2018 18:15:18 GMT</pubDate></item><item><title>Automatizando deploy con Helm</title><link>https://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;h2&gt;Automatizando Deploy con Helm&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Tener un cluster kubernetes andando y corriendo (por ejemplo minikube)&lt;/li&gt;
 &lt;/ol&gt;
@@ -448,10 +448,10 @@ Hang&lt;span class="w"&gt; &lt;/span&gt;tight&lt;span class="w"&gt; &lt;/span&gt
 ...Skip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;chart&lt;span class="w"&gt; &lt;/span&gt;repository
 ...Successfully&lt;span class="w"&gt; &lt;/span&gt;got&lt;span class="w"&gt; &lt;/span&gt;an&lt;span class="w"&gt; &lt;/span&gt;update&lt;span class="w"&gt; &lt;/span&gt;from&lt;span class="w"&gt; &lt;/span&gt;the&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"stable"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;chart&lt;span class="w"&gt; &lt;/span&gt;repository
 Update&lt;span class="w"&gt; &lt;/span&gt;Complete.&lt;span class="w"&gt; &lt;/span&gt;⎈&lt;span class="w"&gt; &lt;/span&gt;Happy&lt;span class="w"&gt; &lt;/span&gt;Helming!⎈
-&lt;/pre&gt;&lt;/div&gt;</description><guid>http://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</guid><pubDate>Sat, 28 Apr 2018 19:22:28 GMT</pubDate></item><item><title>Curso de Git</title><link>http://tomasdelvechio.github.io/blog/curso-de-git/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;El sabado 07 de Abril de 2018 estuvimos haciendo un taller de GIT en la UNLu. &lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><guid>https://tomasdelvechio.github.io/blog/automatizando-deploy-con-helm/</guid><pubDate>Sat, 28 Apr 2018 19:22:28 GMT</pubDate></item><item><title>Curso de Git</title><link>https://tomasdelvechio.github.io/blog/curso-de-git/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;El sabado 07 de Abril de 2018 estuvimos haciendo un taller de GIT en la UNLu. &lt;/p&gt;
 &lt;p&gt;Fue una experiencia muy interesante. Esperabamos muy poca gente y sin embargo el aula se lleno durante las 3 horas y media que duró el taller. Para algunos usar Git es algo tan omnipresente, que a veces cometemos el error de creer que &lt;em&gt;es facil&lt;/em&gt; o que &lt;em&gt;todos lo usan&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Durante mas de 3 horas, 38 personas con conocimientos muy diverso respecto a computación estuvieron aprendiendo como usar Git, surgieron dudas muy interesantes y creo que todos nos llevamos algo nuevo.&lt;/p&gt;
-&lt;p&gt;El material que se utilizó esta &lt;a href="https://docs.google.com/presentation/d/1LAns3-PGIOVf2KiMyw1sS4Uy7LaGV-bUPlJDQ22gDrc/edit?usp=sharing"&gt;disponible aca&lt;/a&gt;.&lt;/p&gt;</description><category>charlas</category><category>git</category><category>vcs</category><guid>http://tomasdelvechio.github.io/blog/curso-de-git/</guid><pubDate>Sat, 14 Apr 2018 15:09:54 GMT</pubDate></item><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;En un &lt;a href="http://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
+&lt;p&gt;El material que se utilizó esta &lt;a href="https://docs.google.com/presentation/d/1LAns3-PGIOVf2KiMyw1sS4Uy7LaGV-bUPlJDQ22gDrc/edit?usp=sharing"&gt;disponible aca&lt;/a&gt;.&lt;/p&gt;</description><category>charlas</category><category>git</category><category>vcs</category><guid>https://tomasdelvechio.github.io/blog/curso-de-git/</guid><pubDate>Sat, 14 Apr 2018 15:09:54 GMT</pubDate></item><item><title>Kompose: Migrar tus archivos Docker Compose a Kubernetes</title><link>https://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;En un &lt;a href="https://tomasdelvechio.github.io/blog/algunas-notas-sobre-kubernetes"&gt;post anterior&lt;/a&gt; desplegamos un
 cluster de pruebas con contenedores usando &lt;a href="https://kubernetes.io"&gt;Kubernetes&lt;/a&gt; y
 &lt;a href="https://github.com/kubernetes/minikube"&gt;Minikube&lt;/a&gt;. Este esquema resulta util
 cuando lo que se quiere es desplegar y escalar un contenedor.&lt;/p&gt;
@@ -489,7 +489,7 @@ bastante. Entonces se ejecuta&lt;/p&gt;
 WARN Unsupported root level volumes key - ignoring 
 WARN Unsupported depends_on key - ignoring        
 WARN Volume mount on the host "." isn't supported - ignoring path on the host
-&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>http://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item><item><title>Configuración para Sublime Text 3</title><link>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;&lt;img alt="Logo Sublime Text 3" src="http://tomasdelvechio.github.io/img/blog/2018/logo-sublime-text-3.png" title="Logo de Sublime Text 3"&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>cluster</category><category>containers</category><category>deploy</category><category>devops</category><category>kompose</category><category>kubernetes</category><category>orchestration</category><guid>https://tomasdelvechio.github.io/blog/kompose-migrar-tus-archivos-docker-compose-a-kubernetes/</guid><pubDate>Sun, 04 Feb 2018 19:28:51 GMT</pubDate></item><item><title>Configuración para Sublime Text 3</title><link>https://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</link><dc:creator>Tomás Delvechio</dc:creator><description>&lt;p&gt;&lt;img alt="Logo Sublime Text 3" src="https://tomasdelvechio.github.io/img/blog/2018/logo-sublime-text-3.png" title="Logo de Sublime Text 3"&gt;&lt;/p&gt;
 &lt;p&gt;Soy usuario activo de Sublime Text 3. Para proyectos pequeños o creacion de
 scripts, es el editor con el que me siento mas comodo trabajando.&lt;/p&gt;
 &lt;p&gt;La configuración default que tiene visual tiene algunos problemas. Lo primero
@@ -541,4 +541,4 @@ fuente que venga instalada por default. Para instalarla en Ubuntu, por ejemplo:&
 &lt;/ul&gt;
 &lt;h3&gt;Temas&lt;/h3&gt;
 &lt;p&gt;Existen muchisimos temas para Sublime. Puntualmente estoy en estos momentos
-utilizando &lt;a href="https://github.com/kenwheeler/brogrammer-theme"&gt;Brogrammer&lt;/a&gt;.&lt;/p&gt;</description><category>dev</category><category>programming</category><category>sublime</category><category>tools</category><guid>http://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</guid><pubDate>Sat, 03 Feb 2018 15:15:40 GMT</pubDate></item></channel></rss>
+utilizando &lt;a href="https://github.com/kenwheeler/brogrammer-theme"&gt;Brogrammer&lt;/a&gt;.&lt;/p&gt;</description><category>dev</category><category>programming</category><category>sublime</category><category>tools</category><guid>https://tomasdelvechio.github.io/blog/configuracion-para-sublime-text-3/</guid><pubDate>Sat, 03 Feb 2018 15:15:40 GMT</pubDate></item></channel></rss>
