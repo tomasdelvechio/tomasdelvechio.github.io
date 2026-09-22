@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import time
+import asyncio
+
+# Ensure an asyncio event loop exists in the main thread (fixes Python 3.14 compatibility with nikola auto)
+try:
+    asyncio.get_event_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
 
 # !! This is the configuration of Nikola. !! #
 # !!  You should edit it to your liking.  !! #
