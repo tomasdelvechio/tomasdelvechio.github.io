@@ -20,10 +20,13 @@ BLOG_AUTHOR = "Tomás Delvechio"  # (translatable)
 BLOG_TITLE = "Tomás Delvechio"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "http://tomasdelvechio.github.io/"
+SITE_URL = "https://tomasdelvechio.github.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-# BASE_URL = "http://tomasdelvechio.github.io/"
+# BASE_URL = "https://tomasdelvechio.github.io/"
+DOIT_CONFIG = {
+    'backend': 'sqlite3',
+}
 BLOG_EMAIL = "tdelvechio@unlu.edu.ar"
 BLOG_DESCRIPTION = "Sitio Academico de Tomas Delvechio"  # (translatable)
 
@@ -1400,7 +1403,7 @@ GLOBAL_CONTEXT = {
   <h4>Enlaces</h4>
   <ol class="list-unstyled">
     <li><a href="https://twitter.com/tdelvechio">@tomasdelvechio</a></li>
-    <li><a href="http://tomasdelvechio.github.io/">Sitio Principal</a></li>
+    <li><a href="https://tomasdelvechio.github.io/">Sitio Principal</a></li>
     <li><a href="https://www.goodreads.com/user/show/28103289-tomas">Libros</a></li>
     <li><a href="https://www.pogdesign.co.uk/cat/profile/tomasdelvechio">Series</a></li>
   </ol>
