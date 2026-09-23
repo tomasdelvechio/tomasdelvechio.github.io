@@ -3,6 +3,7 @@
 .. slug: resultado-encuesta-ai-2026
 .. date: 2026-09-22 20:00:00 UTC
 .. status: private
+.. has_math: true
 -->
 
 Este documento presenta una síntesis de los datos empíricos relevados en dos encuestas exploratorias administradas en septiembre de 2026: una a profesionales del desarrollo de software en la industria ($N=13$) y otra a estudiantes universitarios de carreras de computación ($N=31$). El propósito de este informe es ofrecer insumos concretos para el debate curricular y pedagógico entre docentes, investigadores y colegas del área de informática, evitando tanto el tecno-optimismo ingenuo como las posturas alarmistas.
