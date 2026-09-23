@@ -6,7 +6,7 @@
 .. has_math: true
 -->
 
-Este documento presenta una síntesis de los datos empíricos relevados en dos encuestas exploratorias administradas en septiembre de 2026: una a profesionales del desarrollo de software en la industria ($$N=13$$) y otra a estudiantes universitarios de carreras de computación ($$N=31$$). El propósito de este informe es ofrecer insumos concretos para el debate curricular y pedagógico entre docentes, investigadores y colegas del área de informática, evitando tanto el tecno-optimismo ingenuo como las posturas alarmistas.
+Este documento presenta una síntesis de los datos empíricos relevados en dos encuestas exploratorias administradas en septiembre de 2026: una a profesionales del desarrollo de software en la industria (\(N=13\)) y otra a estudiantes universitarios de carreras de computación (\(N=31\)). El propósito de este informe es ofrecer insumos concretos para el debate curricular y pedagógico entre docentes, investigadores y colegas del área de informática, evitando tanto el tecno-optimismo ingenuo como las posturas alarmistas.
 
 ---
 
@@ -26,25 +26,25 @@ Trasladado a la computación: si escribir código mecánico se vuelve opcional o
 
 Debido a la escala y la naturaleza no probabilística de las muestras, los datos deben interpretarse con cautela metodológica: constituyen **tendencias exploratorias e indicios cuali-cuantitativos**, no generalizaciones universales.
 
-### Encuesta a Profesionales ($$N=13$$)
+### Encuesta a Profesionales (\(N=13\))
 - **Años de experiencia:** Fuerte concentración en perfiles consolidados:
-    - Más de 5 años (*Senior / Lead / Arquitecto / Staff*): **76.9%** ($$n=10$$)
-    - Menos de 2 años (*Trainee / Junior*): **15.4%** ($$n=2$$)
-    - Entre 2 y 5 años (*Semi-Senior*): **7.7%** ($$n=1$$)
+    - Más de 5 años (*Senior / Lead / Arquitecto / Staff*): **76.9%** (\(n=10\))
+    - Menos de 2 años (*Trainee / Junior*): **15.4%** (\(n=2\))
+    - Entre 2 y 5 años (*Semi-Senior*): **7.7%** (\(n=1\))
 - **Ámbito de desempeño:**
-    - Empresa de producto propio (SaaS, fintech, startups): **53.8%** ($$n=7$$)
-    - Consultoría / Fábrica de software / Servicios: **30.8%** ($$n=4$$)
-    - I+D / Data Science / Ámbito científico-tecnológico: **7.7%** ($$n=1$$)
-    - Otro (Freelance / Sector público): **7.7%** ($$n=1$$)
+    - Empresa de producto propio (SaaS, fintech, startups): **53.8%** (\(n=7\))
+    - Consultoría / Fábrica de software / Servicios: **30.8%** (\(n=4\))
+    - I+D / Data Science / Ámbito científico-tecnológico: **7.7%** (\(n=1\))
+    - Otro (Freelance / Sector público): **7.7%** (\(n=1\))
 
-### Encuesta a Estudiantes ($$N=31$$)
+### Encuesta a Estudiantes (\(N=31\))
 
-La muestra estudiantil se consolidó en dos etapas (un primer corte inicial de $$N=20$$ al 16/09 y una ampliación con un curso de ciclo superior al 22/09 alcanzando $$N=31$$):
+La muestra estudiantil se consolidó en dos etapas (un primer corte inicial de \(N=20\) al 16/09 y una ampliación con un curso de ciclo superior al 22/09 alcanzando \(N=31\)):
 
-- Cursando 2° año sin empleo en software: **45.2%** ($$n=14$$)
-- Cursando 3er año en adelante: **32.3%** ($$n=10$$)
-- Cursando 2° año trabajando en el sector IT: **19.4%** ($$n=6$$)
-- Cursando 1er año: **3.2%** ($$n=1$$)
+- Cursando 2° año sin empleo en software: **45.2%** (\(n=14\))
+- Cursando 3er año en adelante: **32.3%** (\(n=10\))
+- Cursando 2° año trabajando en el sector IT: **19.4%** (\(n=6\))
+- Cursando 1er año: **3.2%** (\(n=1\))
 
 ---
 
@@ -61,11 +61,11 @@ Los resultados desmienten cualquier presunción de rechazo tecnológico en las e
 | Ocasional (ante bloqueos o exploración) | 1 | 7.7% |
 | **Total** | **13** | **100.0%** |
 
-El **92.3%** ($$n=12$$) de los profesionales encuestados utiliza asistentes de IA con regularidad en su jornada de trabajo. A nivel de políticas empresariales:
+El **92.3%** (\(n=12\)) de los profesionales encuestados utiliza asistentes de IA con regularidad en su jornada de trabajo. A nivel de políticas empresariales:
 
-- **46.2%** ($$n=6$$): Obligatorio o activamente promovido (la empresa provee licencias y espera su adopción).
-- **30.8%** ($$n=4$$): Permitido y fomentado (a discreción de cada desarrollador).
-- **23.1%** ($$n=3$$): No existe una política formal definida.
+- **46.2%** (\(n=6\)): Obligatorio o activamente promovido (la empresa provee licencias y espera su adopción).
+- **30.8%** (\(n=4\)): Permitido y fomentado (a discreción de cada desarrollador).
+- **23.1%** (\(n=3\)): No existe una política formal definida.
 - Ninguna empresa prohíbe su uso.
 
 ### 3.2. Riesgos percibidos
@@ -97,7 +97,7 @@ Al indagar sobre la habilidad técnica más determinante al evaluar a un postula
 | **Fluidez y velocidad resolutiva mediante prompting y herramientas de IA** | 1 | 7.7% |
 | **Total** | **13** | **100.0%** |
 
-En cuanto al impacto directo en la contratación de perfiles iniciales (Q7), el **53.8%** ($$n=7$$) señaló no tener visibilidad sobre las decisiones de RRHH. Sin embargo, entre quienes sí intervienen en procesos de selección ($$n=6$$):
+En cuanto al impacto directo en la contratación de perfiles iniciales (Q7), el **53.8%** (\(n=7\)) señaló no tener visibilidad sobre las decisiones de RRHH. Sin embargo, entre quienes sí intervienen en procesos de selección (\(n=6\)):
 
 - **4 casos (30.8% del total de la muestra)** reportaron que se redujo drásticamente la contratación de perfiles junior porque la IA absorbe tareas mecánicas iniciales.
 - **2 casos (15.4% del total de la muestra)** indicaron que se sigue contratando, pero con una vara de exigencia técnica y autonomía inicial significativamente más elevada.
@@ -112,12 +112,12 @@ Al contrastar las respuestas espejadas entre ambos grupos surgen tensiones de es
 
 ### 5.1. Habilidad decisiva para la inserción laboral
 
-| Habilidad técnica priorizada | Profesionales ($$N=13$$) | Estudiantes ($$N=31$$) |
+| Habilidad técnica priorizada | Profesionales (\(N=13\)) | Estudiantes (\(N=31\)) |
 | :--- | :---: | :---: |
-| **Arquitectura, modelado y especificación** | **61.5%** ($$n=8$$) | **29.0%** ($$n=9$$) |
-| **Fundamentos de algoritmos y complejidad** | **23.1%** ($$n=3$$) | **12.9%** ($$n=4$$) |
-| **Lectura, auditoría y depuración de código ajeno/IA** | **7.7%** ($$n=1$$) | **9.7%** ($$n=3$$) |
-| **Manejo fluido de herramientas modernas e IA** | **7.7%** ($$n=1$$) | 🔥 **48.4%** ($$n=15$$) |
+| **Arquitectura, modelado y especificación** | **61.5%** (\(n=8\)) | **29.0%** (\(n=9\)) |
+| **Fundamentos de algoritmos y complejidad** | **23.1%** (\(n=3\)) | **12.9%** (\(n=4\)) |
+| **Lectura, auditoría y depuración de código ajeno/IA** | **7.7%** (\(n=1\)) | **9.7%** (\(n=3\)) |
+| **Manejo fluido de herramientas modernas e IA** | **7.7%** (\(n=1\)) | 🔥 **48.4%** (\(n=15\)) |
 
 Casi la mitad de los estudiantes considera que la destreza herramental y la velocidad de iteración con IA constituyen la llave principal de acceso al mercado. En contraste, el **84.6%** de los profesionales prioriza arquitectura o fundamentos algorítmicos, relegando el manejo de herramientas al plano de una competencia secundaria que se adquiere sobre la marcha.
 
@@ -125,20 +125,20 @@ Casi la mitad de los estudiantes considera que la destreza herramental y la velo
 
 Se consultó sobre la orientación curricular deseable (en profesionales, orientada al perfil de egreso; en estudiantes, a su trayectoria formativa):
 
-| Enfoque Curricular Prioritario | Profesionales ($$N=13$$) | Estudiantes ($$N=31$$) |
+| Enfoque Curricular Prioritario | Profesionales (\(N=13\)) | Estudiantes (\(N=31\)) |
 | :--- | :---: | :---: |
-| **Enfoque A: Fundamentos conceptuales, lógica formal y teoría** *(las herramientas se aprenden por cuenta propia)* | **100.0%** ($$n=13$$) | **48.4%** ($$n=15$$) |
-| **Enfoque B: Tecnologías de mercado, frameworks e IA aplicada** *(aunque se reduzca carga teórica)* | **0.0%** ($$n=0$$) | **51.6%** ($$n=16$$) |
+| **Enfoque A: Fundamentos conceptuales, lógica formal y teoría** *(las herramientas se aprenden por cuenta propia)* | **100.0%** (\(n=13\)) | **48.4%** (\(n=15\)) |
+| **Enfoque B: Tecnologías de mercado, frameworks e IA aplicada** *(aunque se reduzca carga teórica)* | **0.0%** (\(n=0\)) | **51.6%** (\(n=16\)) |
 
 El consenso en los profesionales fue absoluto: la universidad debe enfocarse en los fundamentos de base duraderos. En el conjunto de estudiantes, en cambio, la preferencia se dividió casi en partes iguales.
 
 #### La maduración de la perspectiva según el avance en la carrera
-Al desagregar la muestra de estudiantes entre quienes cursan 2° año ($$n=20$$) y quienes transitan 3er año en adelante ($$n=10$$, excluyendo un caso de 1° año), se evidencia una notable convergencia hacia la postura de la industria:
+Al desagregar la muestra de estudiantes entre quienes cursan 2° año (\(n=20\)) y quienes transitan 3er año en adelante (\(n=10\), excluyendo un caso de 1° año), se evidencia una notable convergencia hacia la postura de la industria:
 
-| Enfoque curricular según ciclo estudiantil | 2° año ($$n=20$$) | 3er año en adelante ($$n=10$$) |
+| Enfoque curricular según ciclo estudiantil | 2° año (\(n=20\)) | 3er año en adelante (\(n=10\)) |
 | :--- | :---: | :---: |
-| **Enfoque A (Fundamentos conceptuales y teoría)** | 35.0% ($$n=7$$) | **70.0%** ($$n=7$$) |
-| **Enfoque B (Frameworks y tecnologías de mercado)** | **65.0%** ($$n=13$$) | 30.0% ($$n=3$$) |
+| **Enfoque A (Fundamentos conceptuales y teoría)** | 35.0% (\(n=7\)) | **70.0%** (\(n=7\)) |
+| **Enfoque B (Frameworks y tecnologías de mercado)** | **65.0%** (\(n=13\)) | 30.0% (\(n=3\)) |
 
 A medida que los estudiantes experimentan problemas de desarrollo más complejos en materias avanzadas, la demanda por "herramientas de moda" desciende a menos de la mitad y se revaloriza el marco conceptual.
 
@@ -169,18 +169,18 @@ El análisis cualitativo de las respuestas permite identificar tres arquetipos c
 
 En el alumnado en general, las posturas ante el aula muestran una distribución tripartita:
 
-- **38.7%** ($$n=12$$): Prohibición en evaluaciones.
-- **38.7%** ($$n=12$$): Integración curricular obligatoria.
-- **22.6%** ($$n=7$$): Libre criterio del estudiante.
+- **38.7%** (\(n=12\)): Prohibición en evaluaciones.
+- **38.7%** (\(n=12\)): Integración curricular obligatoria.
+- **22.6%** (\(n=7\)): Libre criterio del estudiante.
 
 Sin embargo, al desglosar por ciclo académico y observar la forma real en que utilizan la herramienta, afloran datos elocuentes:
 
-| Pregunta / Comportamiento | 2° año ($$n=20$$) | 3er año en adelante ($$n=10$$) |
+| Pregunta / Comportamiento | 2° año (\(n=20\)) | 3er año en adelante (\(n=10\)) |
 | :--- | :---: | :---: |
-| **Uso de IA como generador de código o solución integral** | 5.0% ($$n=1$$) | **60.0%** ($$n=6$$) |
-| **Uso de IA exclusivamente como tutor/explicador** | **95.0%** ($$n=19$$) | 40.0% ($$n=4$$) |
-| **Apoyo a la prohibición de IA en evaluaciones** | 30.0% ($$n=6$$) | **60.0%** ($$n=6$$) |
-| **Apoyo a la integración obligatoria** | **45.0%** ($$n=9$$) | 20.0% ($$n=2$$) |
+| **Uso de IA como generador de código o solución integral** | 5.0% (\(n=1\)) | **60.0%** (\(n=6\)) |
+| **Uso de IA exclusivamente como tutor/explicador** | **95.0%** (\(n=19\)) | 40.0% (\(n=4\)) |
+| **Apoyo a la prohibición de IA en evaluaciones** | 30.0% (\(n=6\)) | **60.0%** (\(n=6\)) |
+| **Apoyo a la integración obligatoria** | **45.0%** (\(n=9\)) | 20.0% (\(n=2\)) |
 
 En 2° año predomina la declaración del uso como tutor pedagógico (95%) y la solicitud de integración curricular. En 3er año en adelante, la mayoría reconoce utilizar la IA de forma directa para resolver o generar código (60%), pero simultáneamente **el 60% solicita prohibirla en las instancias de evaluación**. Al experimentar en primera persona la facilidad con que la IA resuelve ejercicios de programación, los propios estudiantes avanzados reclaman instancias evaluativas que acrediten conocimiento genuino sin asistencia externa.
 
